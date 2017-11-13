@@ -15,15 +15,6 @@ Client::Client(struct sockaddr_in *bindaddr, struct sockaddr_in *transferaddr) {
     Connect(servfd, *transferaddr);
 }
 
-bool Client::SendCmd(Cmd cmd) {
-    if(send(servfd, &cmd, sizeof(cmd), 0) == -1) {
-        perror("SendCmd Failed");
-        return false;
-    }
-
-    return true;
-}
-
 int Client::GetSocket() {
     return servfd;
 }

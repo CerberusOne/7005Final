@@ -22,11 +22,11 @@ const char *Server::GetTransferIP()
 {
     return transferIP;
 }
-
+/*
 const Cmd Server::WaitCommand() {
 	return RecvCmd(connectfd);
 }
-
+*/
 int Server::GetSocket() {
     return connectfd;
 }
