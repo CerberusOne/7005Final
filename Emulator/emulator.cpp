@@ -23,11 +23,13 @@ bool getConfig();
 string config[BUFLEN];
 
 int main (int argc, char *argv[]) {
+  if(getConfig){
 
+  }
 }
 bool getConfig(){
   ifstream file;
-  file.open("confisg");
+  file.open("config");
   //check if file exists
   if (!file){
     perror("Files does not exist");
@@ -37,5 +39,7 @@ bool getConfig(){
       getline(file, config[i]);
       cout << config[i];
     }
+    return true;
   }
+  return false;
 }
