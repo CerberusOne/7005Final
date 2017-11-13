@@ -1,6 +1,7 @@
-#include "../A1/client.h"
-#include "../A1/server.h"
-#include "../A1/socketwrappers.h"
+//#include "../A1/client.h"
+//#include "../A1/server.h"
+//#include "../A1/socketwrappers.h"
+#include "emulator.h"
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
