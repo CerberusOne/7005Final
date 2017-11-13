@@ -1,12 +1,7 @@
-//#include "../A1/client.h"
-//#include "../A1/server.h"
-//#include "../A1/socketwrappers.h"
+#include "../A1/client.h"
+#include "../A1/server.h"
+#include "../A1/socketwrappers.h"
 #include "emulator.h"
-#include <iostream>
-#include <fstream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 #define CLIENTIP 0
 #define CLIENTPORT 1
@@ -24,6 +19,10 @@ bool getConfig();
 string config[BUFLEN];
 
 int main (int argc, char *argv[]) {
+
+  Client *outTX = new Client(ParseString(config[SERVERIP]),config[SERVERPORT]);
+  Server *inTX = new Server(config[CLIENTPORT]);
+
   if(getConfig){
 
   }
