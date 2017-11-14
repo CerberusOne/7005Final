@@ -42,7 +42,7 @@ int main (int argc, char *argv[]) {
     for(i = 0; i<(sizeof(BER)/sizeof(int)); i++){
         BER[i] = rando();
         cout << BER[i] << endl;
-          if (same(BER[i],BER)){
+          if ((same(BER[i],BER)==TRUE)){
             do {
               BER[i] = rando();
             } while (!same(BER[i],BER));
