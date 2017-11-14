@@ -7,52 +7,87 @@
 #define CLIENTIP 0
 #define CLIENTPORT 1
 #define EMULATORIP 2
-#define EMULATORPORT 3
-#define SERVERIP 4
-#define SERVERPORT 5
+#define EMULATORPORT1 3
+#define EMULATORPORT2 4
+#define SERVERIP 5
+#define SERVERPORT 6
+#define NUM_THREADS 4
 
 #define PATH "./Client_files/"
 #define BUFLEN 1024
 
 using namespace std;
 
-bool getConfig();
+void getConfig();
+int rando();
+bool same(int i,int arr[]);
+char *ParseString(string str);
+bool discard(int arr[]);
+
 string config[BUFLEN];
 
 int main (int argc, char *argv[]) {
-    if(!getConfig()){
-      perror("Could not get configs");
+    pthread_t threads[NUM_THREADS];
+    int sc,cs,ss,cc;
+    int rate = atoi(argv[1]);
+    int BER[rate];
+    //check arguments
+    if (argc != 2){
+      perror("Error: ./file [BER]");
     }
+    //get ip and port from config file
+    getConfig();
+    //populate BER array
+    int i;
+    for(i = 0; i<(sizeof(BER)/sizeof(int)); i++){
+        BER[i] = rando();
+        cout << BER[i] << endl;
+          if (same(BER[i],BER)){
+            do {
+              BER[i] = rando();
+            } while (!same(BER[i],BER));
+          }
+      }
+      // test discard
+      /*size_t k;
+      for (k = 0; k<(sizeof(BER)/sizeof(int)); k++){
+        cout << discard(BER) << endl;
+      }*/
 
-    string ipp = config[EMULATORIP];
-    const char *ip = ipp.c_str();
-    string portt = config[EMULATORPORT];
-    int port = atoi(portt.c_str());
+    //for testing purposes
+    string ipemulator = config[SERVERIP];
+    const char *connectionIP = ipemulator.c_str();
 
-    Client *outTX = new Client(ip,port);
+    /*
+    string porte = config[EMULATORPORT];
+    int eport = atoi(porte.c_str());
+    Server *serverinclient = new Server(eport);
 
-    string svrport = config[SERVERPORT];
-    int srvport = atoi(svrport.c_str());
+    string ips = config[SERVERIP];
+    const char *sip = ips.c_str();
+    string Ports = config[SERVERPORT];
+    int sPort = atoi(ports.c_str());
+    Client *clientoutserver = new Client(ips,sPort);
 
-    Server *inTX = new Server(srvport);
+    string porte2 = config[EMULATORPORT2];
+    int ePort2 = atoi(porte2.c_str());
+    Server *serverinserver = new Server(ePort2);
 
-    Cmd cmd;
-    int command = 0;
-    string ss = config[CLIENTIP];
-    char *filename;
-    cout << "Enter command: " << endl;
-    cin >> filename;
-    cmd = CreateCmd(command, filename);
-    outTX->SendCmd(cmd);
-
-    Cmd ccmd;
-
-    ccmd = inTX->WaitCommand();
-
-
-
+    string ipC = config[CLIENTIP];
+    const char *cIp = ipemulator.c_str();
+    string portC = config[CLIENTPORT];
+    int cPort = atoi(portC.c_str());
+    Client *clientoutclient = new Client(ipC, cPort);*/
+    sc = pthread_create(&threads[0], NULL, scStart, NULL);
+    cs =
+    ss =
+    cc =
+    Server *serverinclient = new Server(7006);
+    Client *clientoutserver = new Client(connectionIP,7008);
+    Server *serverinserver = new Server(7007);
+    Client *clientoutclient = new Client(connectionIP, 7005);
 }
-bool getConfig(){
+void getConfig(){
      ifstream file;
      file.open("config");
      //check if file exists
@@ -62,9 +97,43 @@ bool getConfig(){
             int i;
                 for(i=0; i <SERVERPORT; i++){
                     getline(file, config[i]);
-                    cout << config[i];
+                    //cout << config[i] << endl;
                 }
-                return true;
         }
+}
+
+char *ParseString(string str){
+    char *cstr;
+
+    cstr = new char[str.length() + 1];
+    strcpy(cstr, str.c_str());
+
+    return cstr;
+}
+
+int rando(){
+  return rand() % 100 +1;
+}
+
+bool same(int val,int arr[]){
+  size_t i;
+  for(i = 0; i<(sizeof(arr)/sizeof(int)); i++){
+      if (arr[i] == val){
+        return true;
+      }
+  }
   return false;
 }
+
+bool discard(int arr[]){
+  size_t i;
+  int val = rando();
+  cout << "checking value with" << val << endl;
+  for(i = 0; i<(sizeof(arr)/sizeof(int)); i++){
+    if(same(val,arr)){
+      i = (sizeof(arr)/sizeof(int));
+      return true;
+    }
+  }
+}
+
