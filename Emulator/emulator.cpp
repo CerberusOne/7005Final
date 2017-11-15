@@ -141,6 +141,7 @@ int main (int argc, char *argv[]) {
 						}
 				}
 				//If descriptor is coming from client
+				//ADD ERROR HANDLING FOR RECEIVE AND SEND
 				if (i == INclient->GetSocket()){
 					//If BER == 1 discard packet
 					if (!Discard(BER,rate)){
