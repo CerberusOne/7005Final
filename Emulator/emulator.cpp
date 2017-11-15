@@ -134,7 +134,9 @@ int main (int argc, char *argv[]) {
 				bool timer = true;
 				// start timer
 				while(timer){
+					//(current time) - (start of timer) / CLOCKS_PER_SEC (The Clock() returned unit)
 					passed = (clock() - start) / CLOCKS_PER_SEC;
+						//If timer is not over
 						if (passed >= delay){
 							cout << "Seconds have passed: " << passed << endl;
 							timer = false;
