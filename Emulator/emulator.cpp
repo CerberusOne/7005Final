@@ -1,4 +1,4 @@
-#include ":w../Library/client.h"
+#include "../Library/client.h"
 #include "../Library/server.h"
 #include "../Library/socketwrappers.h"
 #include "../Library/library.h"
@@ -12,23 +12,24 @@
 #define SERVERIP 5
 #define SERVERPORT 6
 
-#define PATH "./Client_files/"
 #define BUFLEN 1024
 
 using namespace std;
 
 void GetConfig();
 int Rando();
-bool Same(int i,int arr[],int size);
-char *ParseString(string str);
-bool Discard(int arr[],int size);
+//bool Same(int i,int *arr,int size);
+//char *ParseString(string str);
+//bool Discard(int *arr,int size);
 
 string config[BUFLEN];
 
 int main (int argc, char *argv[]) {
-	int rc;
-    	int rate = atoi(argv[1]);
-    	int BER[rate];
+	    int rc;
+      Cmd cmdRX, cmdTX;
+      char RXpath[BUFLEN], TXpath[BUFLEN];
+    	//int rate = atoi(argv[1]);
+    	//int BER[rate];
     	//check arguments
     	if (argc != 2){
       		perror("Error: ./file [BER]");
@@ -36,16 +37,16 @@ int main (int argc, char *argv[]) {
     	//get ip and port from config file
     	GetConfig();
     	//populate BER array
-    	int i;
+    	/*int i;
     	for(i = 0; i<rate; i++){
-        	BER[i] = r\Rando();
+        	BER[i] = Rando();
         	cout << BER[i] << endl;
-          	if ((Same(BER[i],BER))){
+          	if (Same(BER[i],BER,rate)){
             		do {
               			BER[i] = Rando();
-            		} while (!Same(BER[i],BER));
+            		} while (!Same(BER[i],BER,rate));
           	}
-      	}
+      	}*/
       	// test discard
       	/*size_t k;
       	for (k = 0; k<(sizeof(BER)/sizeof(int)); k++){
@@ -56,42 +57,31 @@ int main (int argc, char *argv[]) {
     	string ipemulator = config[SERVERIP];
     	const char *connectionIP = ipemulator.c_str();
 
-    	/*
-    	string porte = config[EMULATORPORT];
-    	int eport = atoi(porte.c_str());
-    	Server *serverinclient = new Server(eport);
-
-    	string ips = config[SERVERIP];
-    	const char *sip = ips.c_str();
-    	string Ports = config[SERVERPORT];
-    	int sPort = atoi(ports.c_str());
-    	Client *clientoutserver = new Client(ips,sPort);
-
-    	string porte2 = config[EMULATORPORT2];
-    	int ePort2 = atoi(porte2.c_str());
-    	Server *serverinserver = new Server(ePort2);
-
-    	string ipC = config[CLIENTIP];
-    	const char *cIp = ipemulator.c_str();
-    	string portC = config[CLIENTPORT];
-    	int cPort = atoi(portC.c_str());
-    	Client *clientoutclient = new Client(ipC, cPort);*/
-
     	//set sockets to non-blocking
-    	Server *INclient = new Server(7006);
-    	rc = fcntl(INclient->GetSocket(),F_SETFL,O_NONBLOCK);
+    	Server *TXcmd = new Server(7006);
+    	rc = fcntl(TXcmd->GetSocket(),F_SETFL,O_NONBLOCK);
     	if (rc < 0){
-	    	perrorperror("Error setting socket to non-blocking");
+	    	 perror("Error setting socket to non-blocking");
 	    	exit(3);
     	}
-    	Client *OUTserver = new Client(connectionIP,7008);
-    	Server *INserver = new Server(7007);
-    	rc = fcntl(INserver->GetSocket(),F_SETFL,O_NONBLOCK);
+    	Client *RXdata = new Client(connectionIP,7008);
+      rc = fcntl(RXdata->GetSocket(),F_SETFL,O_NONBLOCK);
     	if (rc < 0){
-		perror("Error setting socket to non-blocking");
+	    	 perror("Error setting socket to non-blocking");
 	    	exit(3);
     	}
-	Client *OUTclient = new Client(connectionIP, 7005);
+    	Server *RXcmd = new Server(7007);
+    	rc = fcntl(RXcmd->GetSocket(),F_SETFL,O_NONBLOCK);
+    	if (rc < 0){
+		      perror("Error setting socket to non-blocking");
+	    	    exit(3);
+    	}
+	    Client *TXdata = new Client(connectionIP, 7005);
+      rc = fcntl(TXdata->GetSocket(),F_SETFL,O_NONBLOCK);
+    	if (rc < 0){
+	    	 perror("Error setting socket to non-blocking");
+	    	exit(3);
+    	}
 
     	fd_set listeningset,master;
     	//struct timeval timeout;
@@ -100,17 +90,20 @@ int main (int argc, char *argv[]) {
     	FD_ZERO(&listeningset);
     	FD_ZERO(&master);
     	//Add sockets to set
-    	FD_SET(INclient->GetSocket(),&listeningset);
-    	FD_SET(INserver->GetSocket(),&listeningset);
+    	FD_SET(TXcmd->GetSocket(),&listeningset);
+    	FD_SET(RXcmd->GetSocket(),&listeningset);
+      FD_SET(TXdata->GetSocket(),&listeningset);
+    	FD_SET(RXdata->GetSocket(),&listeningset);
 
     	//track the biggest file descriptor
-    	fdmax = INserver->GetSocket();
+    	fdmax = RXdata->GetSocket();
     	//set timeout value to one minute
     	//timeout.tv_sec = 1 * 60;
     	//timeout.tv_usec = 0;
 
     	while(1){
-		clock_t start = clock();
+		//clock_t start = clock();
+		//cout << "Delay started" << endl;
 		//copy listeningset to master
 		memcpy(&master, &listeningset, sizeof(listeningset));
 
@@ -119,17 +112,18 @@ int main (int argc, char *argv[]) {
 		//wait
 	    	rc = select (fdmax + 1, &master, NULL, NULL, NULL);
 	    	if (rc < 0){
-		    perror ("ERROR: Select()");
+		    perror("ERROR: Select()");
 		    exit(4);
 	    	}
 		//This can be used to see if it timed out can be used in the receiver
 		//if (rc == 0){	}
 
+
 	    	int i;
 	    	for (i = 0; i <= fdmax; i++){
 			//if descriptor is in the set
 			if (FD_ISSET(i, &master)){
-				double passed;
+				/*double passed;
 				double delay = 60;
 				bool timer = true;
 				// start timer
@@ -141,33 +135,45 @@ int main (int argc, char *argv[]) {
 							cout << "Seconds have passed: " << passed << endl;
 							timer = false;
 						}
-				}
+				}*/
 				//If descriptor is coming from client
 				//ADD ERROR HANDLING FOR RECEIVE AND SEND
-				if (i == INclient->GetSocket()){
+				if (i == TXcmd->GetSocket()){
 					//If BER == 1 discard packet
-					if (!Discard(BER,rate)){
+					//if (!Discard(BER,rate)){
 						//Data from client will always be data or EOT
-						//Receive packet from client
-						RecvFile(INclient->GetSocket(),path);
-						//Send packet to server
-						SendFile(OUTclient->GetSocket(),path);
-					}
+            cout <<"Transmitter command socket" << endl;
+            cmdTX = RecvCmd(TXcmd->GetSocket());
+            printf("Type: %d\n",cmdTX.type);
+            printf("Filename: %d\n",cmdTX.filename);
+            SendCmd(RXdata->GetSocket(),cmdTX);
+					//}
 
-				} else if(i == INserver->GetSocket()){
+				} else if(i == RXcmd->GetSocket()){
 					//If BER == 1 discard packet
-					if (!Discard(BER,rate)){
+					//if (!Discard(BER,rate)){
 					//Data from server will always be an Ack or EOT
-					//Receive packet from server
-					RecvFile(INserver->GetSocket(),path);
-					//Send Packet to client
-					SendFile(OUTserver->GetSocket(),path);
-					}
+          cout <<"Receiver command socket" << endl;
+          cmdRX = RecvCmd(RXcmd->GetSocket());
+          printf("Type: %d\n",cmdRX.type);
+          printf("Filename: %d\n",cmdRX.filename);
+          SendCmd(TXdata->GetSocket(),cmdRX);
+					//}
 
-				}
-			}
+				} else if(i == RXdata->GetSocket()){
+          cout <<"Receiver data socket" << endl;
+          SendFile(TXdata->GetSocket(), cmdTX.filename);
+
+			} else if(i == TXdata->GetSocket()){
+        cout <<"Transmitter data socket" << endl;
+          SendFile(RXdata->GetSocket(), cmdRX.filename);
+
 	    }
+    }
+  }
 }
+}
+
 void GetConfig(){
 	ifstream file;
      	file.open("config");
@@ -192,28 +198,28 @@ char *ParseString(string str){
     	return cstr;
 }
 
-int Rando(){
+/*int Rando(){
   	return rand() % 100 +1;
 }
 
-bool Same(int val,int arr[],int size){
-  	size_t i;
+bool Same(int val,int *arr,int size){
+  	int i;
   	for(i = 0; i<size; i++){
       		if (arr[i] == val){
         		return true;
-      		}	
+      		}
   	}
   return false;
 }
 
-bool Discard(int arr[],int size){
-  	size_t i;
+bool Discard(int *arr,int size){
+  	int i;
   	int val = Rando();
   	cout << "checking value with" << val << endl;
   	for(i = 0; i<size; i++){
-    		if(Same(val,arr)){
+    		if(Same(val,arr,size)){
       			i = size;
       			return true;
     		}
   	}
-}
+}*/
