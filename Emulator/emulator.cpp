@@ -11,6 +11,9 @@
 #define EMULATORPORT2 4
 #define SERVERIP 5
 #define SERVERPORT 6
+#define DATA  0
+#define ACK		1
+#define EOT		2
 
 #define BUFLEN 1024
 
@@ -18,6 +21,7 @@ using namespace std;
 
 void GetConfig();
 int Rando();
+void SetBlocking(int socket);
 //bool Same(int i,int *arr,int size);
 //char *ParseString(string str);
 //bool Discard(int *arr,int size);
@@ -25,7 +29,8 @@ int Rando();
 string config[BUFLEN];
 
 int main (int argc, char *argv[]) {
-	    int rc;
+			Packet packet;
+	    int rc, type;
       Cmd cmdRX, cmdTX;
       char RXpath[BUFLEN], TXpath[BUFLEN];
     	//int rate = atoi(argv[1]);
@@ -59,29 +64,13 @@ int main (int argc, char *argv[]) {
 
     	//set sockets to non-blocking
     	Server *TXcmd = new Server(7006);
-    	rc = fcntl(TXcmd->GetSocket(),F_SETFL,O_NONBLOCK);
-    	if (rc < 0){
-	    	 perror("Error setting socket to non-blocking");
-	    	exit(3);
-    	}
+			SetBlocking(TXcmd->GetSocket());
     	Client *RXdata = new Client(connectionIP,7008);
-      rc = fcntl(RXdata->GetSocket(),F_SETFL,O_NONBLOCK);
-    	if (rc < 0){
-	    	 perror("Error setting socket to non-blocking");
-	    	exit(3);
-    	}
+      SetBlocking(RXdata->GetSocket());
     	Server *RXcmd = new Server(7007);
-    	rc = fcntl(RXcmd->GetSocket(),F_SETFL,O_NONBLOCK);
-    	if (rc < 0){
-		      perror("Error setting socket to non-blocking");
-	    	    exit(3);
-    	}
+			SetBlocking(RXcmd->GetSocket());
 	    Client *TXdata = new Client(connectionIP, 7005);
-      rc = fcntl(TXdata->GetSocket(),F_SETFL,O_NONBLOCK);
-    	if (rc < 0){
-	    	 perror("Error setting socket to non-blocking");
-	    	exit(3);
-    	}
+      SetBlocking(TXdata->GetSocket());
 
     	fd_set listeningset,master;
     	//struct timeval timeout;
@@ -162,11 +151,15 @@ int main (int argc, char *argv[]) {
 
 				} else if(i == RXdata->GetSocket()){
           cout <<"Receiver data socket" << endl;
-          SendFile(TXdata->GetSocket(), cmdTX.filename);
+					packet = RecvPacket(RXdata->GetSocket(),cmdRX.filename);
+					SendPacket(TXdata->GetSocket(),cmdTX.filename, packet);
+
 
 			} else if(i == TXdata->GetSocket()){
         cout <<"Transmitter data socket" << endl;
-          SendFile(RXdata->GetSocket(), cmdRX.filename);
+					packet = RecvPacket(TXdata->GetSocket(),cmdTX.filename);
+					SendPacket(RXdata->GetSocket(),cmdRX.filename, packet);
+
 
 	    }
     }
@@ -197,6 +190,42 @@ char *ParseString(string str){
 
     	return cstr;
 }
+
+Packet SendPacket(int socket, char *filename, Packet packet){
+		int bytesRead, bytesSent;
+
+			//Send the DATA packet
+			if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+				perror("Error writing to socket DATA: ");
+				return;
+			}
+		return packet;
+}
+
+Packet RecvPacket(int socket, char* filename) {
+	int bytesRecv, writeCount = 0;
+	Packet packet;
+
+	//receive the packet
+	while((bytesRecv = read(socket, &packet, sizeof(packet))) > 0) {
+			//check the packet type and treat accordingly
+			if(packet.Type == DATA) {
+				printf("Type: DATA\n");
+				PrintPacket(packet);	//print content of file
+			} else if(packet.Type == EOT) {
+				printf("Type: EOT\n");
+			}
+		}
+		return packet;
+	}
+
+	void SetBlocking (int socket){
+		rc = fcntl(socket,F_SETFL,O_NONBLOCK);
+		if (rc < 0){
+			 perror("Error setting socket to non-blocking");
+			exit(3);
+		}
+	}
 
 /*int Rando(){
   	return rand() % 100 +1;
