@@ -46,9 +46,15 @@ using namespace std;
 -- NOTES:      Constructor for a Server
 ----------------------------------------------------------------------------------------------- */
 void SetBlocking(int socket);
+Packet RecvPacket(int socket, char* filename);
+void WritePacket(Packet packet);
+Packet SendACK(int socket, Packet packet,int packettype,int SEQ);
+bool isValidFile(char *cfilename);
 void Timeout();
 
 int main (int argc, char *argv[]) {
+	Packet packet;
+	int expectedSEQ;
 	Cmd cmd;			//command structure
 	char path[BUFLEN];	//path of files according to the root directory of the executable
 
@@ -56,23 +62,6 @@ int main (int argc, char *argv[]) {
 	SetBlocking(commandConnection->GetSocket());
 	Client *transferConnection = new Client(commandConnection->GetTransferIP(), 70005);//Client object for transfers
 	SetBlocking(transferConnection->GetSocket());
-
-	fd_set backup,master;
-	struct timeval timeout;
-	int fdmax;
-	//empty set
-	FD_ZERO(&backup);
-	FD_ZERO(&master);
-
-	//Add sockets to set
-	FD_SET(commandConnection->GetSocket(),&backup);
-	FD_SET(transferConnection->GetSocket(),&backup);
-
-	//track the biggest file descriptor
-	fdmax = transferConnection->GetSocket();
-	//set timeout value to one minute
-	timeout.tv_sec = 1 * 60;
-	timeout.tv_usec = 0;
 
 	do{
 		//cmd = commandConnection->WaitCommand();					//Wait for the client
@@ -85,41 +74,23 @@ int main (int argc, char *argv[]) {
 
 		if(cmd.type == SEND) {
 			RecvFile(transferConnection->GetSocket(), path);
+			if (packet.SeqNum == expectedSEQ){
+				packet = RecvPacket(transferConnection->GetSocket(), path);
+				if (packet.type == DATA && packet.SeqNum == expectedSEQ){
+						WritePacket(packet);
+						SendACK(transferConnection->GetSocket(),ACK,expectedSEQ);
+						expectedSEQ += BUFLEN;
+				} else if (packet.type == EOT && packet.SeqNum == expectedSEQ){
+					WritePacket(packet);
+					SendACK(transferConnection->GetSocket(),EOT,expectedSEQ);
+					expectedSEQ += BUFLEN;
+				}
+			}
 		} else if (cmd.type == GET) {
 			SendFile(transferConnection->GetSocket(), path);
 		}
 
 	} while (cmd.type != EXIT);
-
-	while(1){
-		//backup FD_SET
-		memcpy(&master, &backup, sizeof(backup));
-
-		cout << "waiting for event" << endl;
-
-		rc = select (fdmax + 1, &master, NULL, NULL, timeout);
-		if (rc < 0){
-		perror("ERROR: Select()");
-		exit(4);
-		}
-
-		int i;
-		for (i = 0; i <= fdmax; i++){
-				//if descriptor is in the set
-				if (FD_ISSET(i, &master)){
-
-						if(i == commandConnection->GetSocket(){
-
-						} else if (i == transferConnection->GetSocket()){
-
-						}
-
-				}
-		}
-		if (rc == 0){
-			Timeout();
-		}
-	}
 
 	close(transferConnection->GetSocket());
 	close(commandConnection->GetSocket());
@@ -135,6 +106,62 @@ void SetBlocking (int socket){
 	}
 }
 
-void Timeout(){
+Packet RecvPacket(int socket, char* filename) {
+	int bytesRecv, writeCount = 0;
+	Packet packet;
 
-}
+	//receive the packet
+	while((bytesRecv = read(socket, &packet, sizeof(packet))) > 0) {
+			//check the packet type and treat accordingly
+			if(packet.Type == DATA) {
+				printf("Type: DATA\n");
+				PrintPacket(packet);	//print content of file
+			} else if(packet.Type == EOT) {
+				printf("Type: EOT\n");
+			}
+		}
+		return packet;
+	}
+
+	void WritePacket(Packet packet){
+		FILE *file;
+		int writeCount = 0;
+		Packet packet;
+
+		//open file to write in binary
+		if((file = fopen(filename, "wb")) == NULL) {
+			printf("file failed to open: %s\n", filename);
+			return;
+		}
+
+		PrintPacket(packet);	//print content of file
+
+		if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
+			perror("Write failed");
+			return;
+		}
+
+	}
+
+	Packet SendACK(int socket, Packet packet,int packettype,int SEQ){
+			int bytesRead, bytesSent;
+
+				//Send the DATA packet
+				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+					perror("Error writing to socket DATA: ");
+					return;
+				}
+			return packet;
+	}
+
+	bool isValidFile(char *cfilename) {
+		FILE *file;
+
+		if((file = fopen(cfilename, "rb")) == NULL) {
+			printf("file doesn't exist\n");
+			return false;
+		}
+
+		fclose(file);
+		return true;
+	}

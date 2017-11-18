@@ -32,8 +32,9 @@ using namespace std;
 //void SendFile(int socket, char *filename);
 bool isValidFile(char *cfilename);
 bool isCommand(string strcommand, int &command);
+void SetBlocking(int socket);
 char *ParseString(string str);
-int findLen(char* str); 
+int findLen(char* str);
 
 
 /*-----------------------------------------------------------------------------------------------
@@ -59,20 +60,40 @@ int main (int argc, char *argv[]) {
 	string filename, strcommand, serverIP, serverPort;
 	char *cfilename, path[BUFLEN];
 
-	//get ip, port and transfer port 
+	//get ip, port and transfer port
 	cout << "Enter server IP:" << endl;
-	cin >> serverIP; 
+	cin >> serverIP;
 
 	Client *commandConnection = new Client(ParseString(serverIP), 7005);
+	SetBlocking(commandConnection->GetSocket());
 	Server *transferConnection = new Server(70005);
+	SetBlocking(transferConnection->GetSocket());
+
+	fd_set backup,master;
+	struct timeval timeout;
+	int fdmax;
+	//empty set
+	FD_ZERO(&backup);
+	FD_ZERO(&master);
+
+	//Add sockets to set
+	FD_SET(commandConnection->GetSocket(),&backup);
+	FD_SET(transferConnection->GetSocket(),&backup);
+
+	//track the biggest file descriptor
+	fdmax = transferConnection->GetSocket();
+	//set timeout value to one minute
+	timeout.tv_sec = 1 * 60;
+	timeout.tv_usec = 0;
 
 	do{
 		fflush(stdin);
 
 		//get user input and validate
+
 		do {
 			cout << "Enter command: " << endl;
-			cin >> strcommand; 
+			cin >> strcommand;
 		} while(!isCommand(strcommand, command));
 
 		//get user input for filename and validate
@@ -80,7 +101,7 @@ int main (int argc, char *argv[]) {
 			//get filename
 			do {
 				cout << "Enter fileame: " << endl;
-				cin >> filename; 
+				cin >> filename;
 				cfilename = ParseString(filename);
 				strcpy(path, PATH);
 				strcat(path, cfilename);
@@ -94,6 +115,33 @@ int main (int argc, char *argv[]) {
 		//send the command
 		SendCmd(commandConnection->GetSocket(), cmd);
 		//send or receive the file
+		while(1){
+		memcpy(&master, &backup, sizeof(backup));
+
+			cout << "waiting for event" << endl;
+
+			rc = select (fdmax + 1, &master, NULL, NULL, timeout);
+			if (rc < 0){
+			perror("ERROR: Select()");
+			exit(4);
+			}
+			//timeout
+			if (rc == 0){
+				timeout();
+			}
+
+			if (){
+
+			}
+			int i;
+			for (i = 0; i <= fdmax; i++){
+				if (FD_ISSET(i, &master)){
+					if (i == transferConnection->GetSocket()){
+
+					}
+				}
+		}
+		}
 		if(cmd.type == SEND) {
 			printf("sending file\n");
 			SendFile(transferConnection->GetSocket(), path);
@@ -104,6 +152,9 @@ int main (int argc, char *argv[]) {
 			printf("exiting\n");
 		}
 	} while (cmd.type != EXIT);
+
+
+
 
 	return 0;
 }
@@ -199,4 +250,10 @@ bool isValidFile(char *cfilename) {
 	return true;
 }
 
-
+void SetBlocking (int socket){
+	rc = fcntl(socket,F_SETFL,O_NONBLOCK);
+	if (rc < 0){
+		 perror("Error setting socket to non-blocking");
+		exit(3);
+	}
+}
