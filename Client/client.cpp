@@ -25,7 +25,7 @@
 
 
 #define PATH "./Client_files/"
-
+#define BUFLEN 1024
 using namespace std;
 
 //void RecvFile(int socket, char* filename);
@@ -35,6 +35,7 @@ bool isCommand(string strcommand, int &command);
 void SetBlocking(int socket);
 char *ParseString(string str);
 int findLen(char* str);
+Packet RecvPacket(int socket, char* filename);
 
 
 /*-----------------------------------------------------------------------------------------------
@@ -55,6 +56,9 @@ int findLen(char* str);
 -- NOTES:      Constructor for a Server
 ----------------------------------------------------------------------------------------------- */
 int main (int argc, char *argv[]) {
+	int base = 0;
+	int nextSEQ = BUFLEN;
+	int WindowSize;
 	int command;
 	Cmd cmd;
 	string filename, strcommand, serverIP, serverPort;
@@ -114,42 +118,56 @@ int main (int argc, char *argv[]) {
 		cmd = CreateCmd(command, cfilename);
 		//send the command
 		SendCmd(commandConnection->GetSocket(), cmd);
-		//send or receive the file
-		while(1){
-		memcpy(&master, &backup, sizeof(backup));
+		packet = RecvPacket(commandConnection->GetSocket(),path);
+		if (packet.Type == ACK){
+			base = packet.SeqNum + BUFLEN;
+			if(cmd.type == SEND) {
+				while(1){
+					memcpy(&master, &backup, sizeof(backup));
 
-			cout << "waiting for event" << endl;
+					cout << "waiting for event" << endl;
 
-			rc = select (fdmax + 1, &master, NULL, NULL, timeout);
-			if (rc < 0){
-			perror("ERROR: Select()");
-			exit(4);
-			}
-			//timeout
-			if (rc == 0){
-				timeout();
-			}
+					do{
+							SendFile(transferConnection->GetSocket(),path);
+							nextSEQ += BUFLEN;
+					} while(nextSEQ != base + (WindowSize*BUFLEN));
 
-			if (){
+					rc = select (fdmax + 1, &master, NULL, NULL, timeout);
+					if (rc < 0){
+					perror("ERROR: Select()");
+					exit(4);
+					}
+					//timeout
+					if (rc == 0){
+						timeout();
+					}
 
-			}
-			int i;
-			for (i = 0; i <= fdmax; i++){
-				if (FD_ISSET(i, &master)){
-					if (i == transferConnection->GetSocket()){
+					if (){
 
 					}
+					int i;
+					for (i = 0; i <= fdmax; i++){
+						if(nextSEQ != (base + (WindowSize*BUFLEN) || base != nextSEQ){
+							SendFile(transferConnection->GetSocket(), path);
+							nextSEQ += BUFLEN;
+						}
+						if (FD_ISSET(i, &master)){
+							if (i == transferConnection->GetSocket()){
+									packet = RecvPacket(transferConnection->GetSocket(),path);
+									if (packet.Type == ACK){
+										base = packet.SeqNum + BUFLEN;
+									}
+
+							}
+						}
 				}
-		}
-		}
-		if(cmd.type == SEND) {
-			printf("sending file\n");
-			SendFile(transferConnection->GetSocket(), path);
-		} else if(cmd.type == GET) {
-			printf("getting file\n");
-			RecvFile(transferConnection->GetSocket(), path);
-		} else {
-			printf("exiting\n");
+				}
+			} else if(cmd.type == GET) {
+				printf("getting file\n");
+				RecvFile(transferConnection->GetSocket(), path);
+			} else {
+				printf("exiting\n");
+			}
 		}
 	} while (cmd.type != EXIT);
 
@@ -257,3 +275,20 @@ void SetBlocking (int socket){
 		exit(3);
 	}
 }
+
+Packet RecvPacket(int socket, char* filename) {
+	int bytesRecv, writeCount = 0;
+	Packet packet;
+
+	//receive the packet
+	while((bytesRecv = read(socket, &packet, sizeof(packet))) > 0) {
+			//check the packet type and treat accordingly
+			if(packet.Type == DATA) {
+				printf("Type: DATA\n");
+				PrintPacket(packet);	//print content of file
+			} else if(packet.Type == EOT) {
+				printf("Type: EOT\n");
+			}
+		}
+		return packet;
+	}

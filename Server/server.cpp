@@ -54,7 +54,7 @@ void Timeout();
 
 int main (int argc, char *argv[]) {
 	Packet packet;
-	int expectedSEQ;
+	int expectedSEQ = 0;
 	Cmd cmd;			//command structure
 	char path[BUFLEN];	//path of files according to the root directory of the executable
 
