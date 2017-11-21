@@ -319,7 +319,14 @@ int RecvMsg(int sockfd, char* buffer) {
 	return bytesRecv;
 }
 
-
+//set to non-blocking
+void SetNonBlocking(int socket) {
+	int n = fcntl(socket, F_SETFL, O_NONBLOCK);
+	if(n < 0) {
+		perror("Error setting socket to non-blocking");
+		exit(3);
+	}
+}
 
 
 

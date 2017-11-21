@@ -49,8 +49,11 @@ int main (int argc, char *argv[]) {
 	Cmd cmd;			//command structure 
 	char path[BUFLEN];	//path of files according to the root directory of the executable
 
-	Server *commandConnection = new Server(7005);					//Server object for commands	
-	Client *transferConnection = new Client(commandConnection->GetTransferIP(), 70005);//Client object for transfers
+	Server *commandConnection = new Server(7008);					//Server object for commands	
+	Client *transferConnection = new Client(commandConnection->GetTransferIP(), 7007);//Client object for transfers
+	
+	SetNonBlocking(commandConnection->GetSocket());
+	SetNonBlocking(transferConnection->GetSocket());
 	
 	do{ 
 		//cmd = commandConnection->WaitCommand();					//Wait for the client 

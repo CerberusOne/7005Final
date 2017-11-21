@@ -3,7 +3,7 @@
 --
 -- PROGRAM:     COMP7005 - Final Project
 --
--- FUNCTIONS:  
+-- FUNCTIONS:
 -- DATE:        Nov 12, 2017
 --
 -- DESIGNER:    Aing Ragunathan
@@ -24,7 +24,7 @@ using namespace std;
 --
 -- PROGRAMMER: Aing Ragunathan
 --
--- INTERFACE:  void SendFile(int socket, char *filename) 
+-- INTERFACE:  void SendFile(int socket, char *filename)
 --
 -- PARAMETER:  	int socket 		- socket to send the data into
 --				char *filename	- file to send through the socket
@@ -32,44 +32,111 @@ using namespace std;
 -- RETURNS:    void
 --
 -- NOTES:      Sends an entire file through the socket
+--		Expects to use a non-blocking socket
 ----------------------------------------------------------------------------------------------- */
 void SendFile(int socket, char *filename) {
 	FILE *file;
 	char buffer[BUFLEN];
-	int bytesRead, bytesSent, seqNum;	
+	int bytesRead, bytesSent;
 	Packet packet;
 
+	int seqNum = 0;
+	int ackNum = 0;
+	int windowSize = 4 * BUFLEN;	//bytes in transmission
+	int base = 0;			//base +1 is the next expected ACK
+	int nextSeq = base;
+
+	//open file
 	if((file = fopen(filename, "rb")) == NULL) {
 		perror("file doesn't exist\n");
 		return;
 	}
 
+	//reset buffers
 	memset(buffer, '\0', BUFLEN);
 	memset(packet.Data, '\0', BUFLEN);
 
-	while((bytesRead = fread(buffer, 1, sizeof(buffer), file)) != 0) {
-		//calculate the sequence number for the next packet (move to end of loop)
-		seqNum = bytesRead + packet.SeqNum;
+	int passed;
+	clock_t start = 0;
 
-		//Send the DATA packet
-		packet = CreatePacket(DATA, seqNum, buffer, 0, 0);
-		if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-			perror("Error writing to socket DATA: ");
-			return;
-		} 
 
-		memset(buffer, '\0', BUFLEN);
-		
-		//send the EOT packet: End of transmission
-		if(bytesRead < BUFLEN) {
-			packet = CreatePacket(EOT, seqNum, buffer, 0, 0);	
-			if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-				perror("Error writing to socket EOT: ");
+	while(1) {
+		//check data socket for new ACK in NON-BLOCKING
+		if((read(socket, &packet, sizeof(packet))) != -1) {
+			//check packet type for EOT or ACK
+			if(packet.Type == EOT) {
+				fclose(file);
 				return;
 			}
+			else if(packet.Type == ACK) {
+				//check if it is the next expected packet, otherwise discard
+				if(packet.AckNum == base + (int)sizeof(packet.Data)) {
+					//increment base of window (slide window)
+					base += sizeof(packet.Data);
+
+					//if the window is empty
+					if(base == nextSeq) {
+						//stop to timer
+						start = 0;
+					} else {
+						//restart the timer
+						start = clock();
+					}
+				} else {
+					//discard packet
+					cout << "discarding packet" << endl;
+				}
+			}
 		}
+
+		//check if there is a timeout
+		passed = (clock() - start)/CLOCKS_PER_SEC;
+		if(passed >= 10){
+			//set nextSeq to base
+			nextSeq = base;
+			//seek file back to bytesRead - base
+			fseek(file, base, SEEK_SET);
+		}
+		//only send next packet if window isn't full
+		if(nextSeq < base + windowSize) {
+			//read file
+			if((bytesRead = fread(buffer, sizeof(char), sizeof(buffer), file)) != -1) {
+
+				//check for EOT and send packet
+				if(bytesRead < (int)sizeof(buffer)) {
+					packet = CreatePacket(EOT, seqNum, buffer, 0, 0);
+				} else {
+					packet = CreatePacket(DATA, seqNum, buffer, windowSize, ackNum);
+				}
+
+
+				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+					perror("Error writing to socket DATA: ");
+					return;
+				}
+
+				seqNum += bytesRead;	//calculate next seq number
+				memset(buffer, '\0', BUFLEN);	//reset buffer
+
+				if(base == nextSeq) {
+					//start timer
+					start = clock();
+					cout << "Timeout Started" << endl;
+				}
+
+				nextSeq += bytesRead;	//update next sequence
+				if(nextSeq != (base + windowSize)) {
+					//set the send flag
+				}
+			} else {
+				perror("Reading file: ");
+				exit(1);
+			}
+		}
+
+
 	}
-	
+
 	fclose(file);
 }
 
@@ -94,43 +161,59 @@ void SendFile(int socket, char *filename) {
 ----------------------------------------------------------------------------------------------- */
 void RecvFile(int socket, char* filename) {
 	FILE *file;
-	char buffer[BUFLEN];
-	int bytesRecv, writeCount = 0;
+	int bytesSent, expectedSEQ=0, bytesRecv, writeCount = 0;
 	Packet packet;
 
 	//open file to write in binary
 	if((file = fopen(filename, "wb")) == NULL) {
 		printf("file failed to open: %s\n", filename);
 		return;
-	}	
-
+	}
 	truncate(filename, 0);
 
 	while(1) {
-		bzero(buffer, sizeof(buffer));
-
 		//receive the packet
 		if((bytesRecv = read(socket, &packet, sizeof(packet))) < 0) {
 			perror("Error receiving from socket");
 			return;
 		} else {
 			//check the packet type and treat accordingly
-			if(packet.Type == DATA) {
+			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
 				PrintPacket(packet);	//print content of file
-			
-				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
+				//create ACK packet
+				packet = CreatePacket(ACK,0,0,0,expectedSEQ);
+				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+					perror("Error writing to socket DATA: ");
+					return;
+				}
+				//update expectedSEQ
+				expectedSEQ+=BUFLEN;
+				//write file
+				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
 					perror("Write failed");
 					return;
 				}
 
-			} else if(packet.Type == EOT) {
+			}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
+				printf("Data packet discarded\n");
+				printf("SeqNum: %d\n",packet.SeqNum);
+			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("Type: EOT\n");
+				printf("SeqNum: %d\n",packet.SeqNum);
+				packet = CreatePacket(EOT,0,0,0,expectedSEQ);
+				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+					perror("Error writing to socket DATA: ");
+					return;
+				}
+				//update expectedSEQ
+				expectedSEQ+=BUFLEN;
 				fclose(file);
 				return;
 			}
 		}
 	}
 }
+
 
 /*-----------------------------------------------------------------------------------------------
 -- FUNCTION:   RecvCmd
@@ -174,7 +257,7 @@ Cmd RecvCmd(int sockfd) {
 --
 -- PROGRAMMER: Aing Ragunathan
 --
--- INTERFACE:  Cmd CreateCmd(int type, char *filename) 
+-- INTERFACE:  Cmd CreateCmd(int type, char *filename)
 --
 -- PARAMETER:  	int type 		- the type of command to attach to the Cmd object
 --				char *filename	- the filename to attach to the Cmd object
@@ -189,7 +272,7 @@ Cmd CreateCmd(int type, char *filename) {
 	cmd.type = type;
     strcpy(cmd.filename, filename);
 
-	return cmd;	
+	return cmd;
 }
 
 /*-----------------------------------------------------------------------------------------------
@@ -201,24 +284,24 @@ Cmd CreateCmd(int type, char *filename) {
 --
 -- PROGRAMMER: Aing Ragunathan
 --
--- INTERFACE:  Packet CreatePacket(int type, int SeqNum, char *PayloadLen, int WindowSize, int AckNum) 
+-- INTERFACE:  Packet CreatePacket(int type, int SeqNum, char *PayloadLen, int WindowSize, int AckNum)
 --
--- PARAMETER:  	
+-- PARAMETER:
 --
--- RETURNS:   
+-- RETURNS:
 --
--- NOTES:    
+-- NOTES:
 ----------------------------------------------------------------------------------------------- */
 Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum) {
 	Packet packet;
 
 	packet.Type = type;
-	packet.SeqNum = SeqNum; 
+	packet.SeqNum = SeqNum;
     	strcpy(packet.Data, data);
 	packet.WindowSize = WindowSize;
-	packet.AckNum = AckNum;	
+	packet.AckNum = AckNum;
 
-	return packet;	
+	return packet;
 }
 
 //print content of the file
@@ -240,6 +323,41 @@ bool SendCmd(int socket, Cmd cmd) {
     return true;
 }
 
+char *ParseString(string str){
+    	char *cstr;
+
+    	cstr = new char[str.length() + 1];
+    	strcpy(cstr, str.c_str());
+
+    	return cstr;
+}
 
 
+/*-----------------------------------------------------------------------------------------------
+-- FUNCTION:   isValidFile
+--
+-- DATE:       Oct 2, 2017
+--
+-- DESIGNER:   Aing Ragunathan
+--
+-- PROGRAMMER: Aing Ragunathan
+--
+-- INTERFACE:  bool isValidFile(char *cfilename)
+--
+-- PARAMETER:  	char *cfilename 	- file to be checked
+--
+-- RETURNS:    true if the file exists
+--
+-- NOTES:      Checks if a file exists
+----------------------------------------------------------------------------------------------- */
+bool isValidFile(char *cfilename) {
+	FILE *file;
 
+	if((file = fopen(cfilename, "rb")) == NULL) {
+		printf("file doesn't exist\n");
+		return false;
+	}
+
+	fclose(file);
+	return true;
+}
