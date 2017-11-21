@@ -3,6 +3,18 @@
 
 #include "socketwrappers.h"
 
+#include <stdio.h>
+#include <errno.h>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <unistd.h>
+#include <string>
+#include <strings.h>
+#include <string.h>
+#include <arpa/inet.h>
+#include <time.h>
+#include <iostream>
+
 #define SERVER_PORT     7005
 #define TRANSFER_PORT   70005
 #define EXIT            0
@@ -12,6 +24,14 @@
 #define DATA		0
 #define ACK		1
 #define EOT		2
+
+#define CLIENTIP 0
+#define CLIENTPORT 1
+#define EMULATORIP 2
+#define EMULATORPORT1 3
+#define EMULATORPORT2 4
+#define SERVERIP 5
+#define SERVERPORT 6
 
 typedef struct 
 {
@@ -35,6 +55,8 @@ Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int
 void PrintPacket(Packet packet);
 void RecvFile(int socket, char* filename);
 void SendFile(int socket, char *filename);
+char *ParseString(std::string str);
+bool isValidFile(char *cfilename);
 
 
 #endif //LIBRARY_H

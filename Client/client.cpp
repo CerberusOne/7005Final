@@ -28,13 +28,8 @@
 
 using namespace std;
 
-//void RecvFile(int socket, char* filename);
-//void SendFile(int socket, char *filename);
 bool isValidFile(char *cfilename);
 bool isCommand(string strcommand, int &command);
-char *ParseString(string str);
-int findLen(char* str); 
-
 
 /*-----------------------------------------------------------------------------------------------
 -- FUNCTION:   Main
@@ -60,11 +55,24 @@ int main (int argc, char *argv[]) {
 	char *cfilename, path[BUFLEN];
 
 	//get ip, port and transfer port 
+
+
+//---------------------------------------------------
+	//get from config file instead
 	cout << "Enter server IP:" << endl;
 	cin >> serverIP; 
+//---------------------------------------------------
 
-	Client *commandConnection = new Client(ParseString(serverIP), 7005);
-	Server *transferConnection = new Server(70005);
+
+
+
+
+	Client *commandConnection = new Client(ParseString(serverIP), 7006);
+	Server *transferConnection = new Server(7005);
+	
+	SetNonBlocking(commandConnection->GetSocket());
+	SetNonBlocking(transferConnection->GetSocket());
+
 
 	do{
 		fflush(stdin);
@@ -108,33 +116,6 @@ int main (int argc, char *argv[]) {
 	return 0;
 }
 
-
-/*-----------------------------------------------------------------------------------------------
--- FUNCTION:   ParseString
---
--- DATE:       Oct 2, 2017
---
--- DESIGNER:   Aing Ragunathan
---
--- PROGRAMMER: Aing Ragunathan
---
--- INTERFACE:  void ParseString(string str)
---
--- PARAMETER:  string str 	- string to be parsed
---
--- RETURNS:    a char array version of the string
---
--- NOTES:      Converts a string to a char array
------------------------------------------------------------------------------------------------ */
-char *ParseString(string str) {
-	char *cstr;
-
-	cstr = new char[str.length() + 1];
-	strcpy(cstr, str.c_str());
-
-	return cstr;
-}
-
 /*-----------------------------------------------------------------------------------------------
 -- FUNCTION:   isCommand
 --
@@ -170,33 +151,5 @@ bool isCommand(string strcommand, int &command) {
 	}
 }
 
-/*-----------------------------------------------------------------------------------------------
--- FUNCTION:   isValidFile
---
--- DATE:       Oct 2, 2017
---
--- DESIGNER:   Aing Ragunathan
---
--- PROGRAMMER: Aing Ragunathan
---
--- INTERFACE:  bool isValidFile(char *cfilename)
---
--- PARAMETER:  	char *cfilename 	- file to be checked
---
--- RETURNS:    true if the file exists
---
--- NOTES:      Checks if a file exists
------------------------------------------------------------------------------------------------ */
-bool isValidFile(char *cfilename) {
-	FILE *file;
-
-	if((file = fopen(cfilename, "rb")) == NULL) {
-		printf("file doesn't exist\n");
-		return false;
-	}
-
-	fclose(file);
-	return true;
-}
 
 

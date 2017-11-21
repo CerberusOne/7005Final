@@ -10,6 +10,8 @@
 #include <strings.h>
 #include <string.h>
 #include <arpa/inet.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 #define BUFLEN		1024
 
@@ -23,12 +25,7 @@ void ConfigClientSocket(struct sockaddr_in *servaddr, const char* ip, int port);
 bool Connect(int sockfd, struct sockaddr_in sockaddr);
 bool SendMsg(int sockfd, char* buffer);
 int RecvMsg(int sockfd, char* buffer);
+void SetNonBlocking(int socket);
 
-/*
-Cmd RecvCmd(int sockfd);
-Cmd CreateCmd(int type, char *filename);
-Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum);
-void PrintPacket(Packet packet);
-*/
 #endif //SOCKETWRAPPERS_H
 
