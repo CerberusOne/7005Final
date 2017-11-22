@@ -64,13 +64,13 @@ int main (int argc, char *argv[]) {
 
     	//set sockets to non-blocking
     	Server *TXcmd = new Server(7006);
-			SetNonBlocking(TXcmd->GetSocket());
+	//SetNonBlocking(TXcmd->GetSocket());
     	Client *RXdata = new Client(connectionIP,7008);
-      	SetNonBlocking(RXdata->GetSocket());
+      	//SetNonBlocking(RXdata->GetSocket());
     	Server *RXcmd = new Server(7007);
-	SetNonBlocking(RXcmd->GetSocket());
+	//SetNonBlocking(RXcmd->GetSocket());
 	Client *TXdata = new Client(connectionIP, 7005);
-      	SetNonBlocking(TXdata->GetSocket());
+      	//SetNonBlocking(TXdata->GetSocket());
 
     	fd_set listeningset,master;
     	//struct timeval timeout;

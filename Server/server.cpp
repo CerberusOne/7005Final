@@ -52,9 +52,6 @@ int main (int argc, char *argv[]) {
 	Server *commandConnection = new Server(7008);					//Server object for commands	
 	Client *transferConnection = new Client(commandConnection->GetTransferIP(), 7007);//Client object for transfers
 	
-	SetNonBlocking(commandConnection->GetSocket());
-	SetNonBlocking(transferConnection->GetSocket());
-	
 	do{ 
 		//cmd = commandConnection->WaitCommand();					//Wait for the client 
 		cmd = RecvCmd(commandConnection->GetSocket());	

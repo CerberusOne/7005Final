@@ -58,13 +58,16 @@ void SendFile(int socket, char *filename) {
 
 	int passed;
 	clock_t start = 0;
-
+	bool send = false;
 
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
 		if((read(socket, &packet, sizeof(packet))) != -1) {
+			printf("received packet\n");
+
 			//check packet type for EOT or ACK
 			if(packet.Type == EOT) {
+				printf("EOT found, ending transmission\n");
 				fclose(file);
 				return;
 			}
@@ -96,45 +99,61 @@ void SendFile(int socket, char *filename) {
 			nextSeq = base;
 			//seek file back to bytesRead - base
 			fseek(file, base, SEEK_SET);
-		}
+		} 
+		
 		//only send next packet if window isn't full
 		if(nextSeq < base + windowSize) {
-			//read file
-			if((bytesRead = fread(buffer, sizeof(char), sizeof(buffer), file)) != -1) {
+			//check if we are ready to send and if a packet hasn't been created
+			if(!send) {
+				//read file
+				if((bytesRead = fread(buffer, sizeof(char), sizeof(buffer), file)) != -1) {
 
-				//check for EOT and send packet
-				if(bytesRead < (int)sizeof(buffer)) {
-					packet = CreatePacket(EOT, seqNum, buffer, 0, 0);
+					//check for EOT and send packet
+					if(bytesRead < (int)sizeof(buffer)) {
+						packet = CreatePacket(EOT, seqNum, buffer, 0, 0);
+					} else {
+						packet = CreatePacket(DATA, seqNum, buffer, windowSize, ackNum);
+					}
+					
+					if(bytesRead > 0) {
+						send = true; //packet ready to send
+					}
 				} else {
-					packet = CreatePacket(DATA, seqNum, buffer, windowSize, ackNum);
+					perror("Reading file: ");
+					exit(1);
 				}
+		
 
-
-				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					perror("Error writing to socket DATA: ");
-					return;
-				}
-
-				seqNum += bytesRead;	//calculate next seq number
-				memset(buffer, '\0', BUFLEN);	//reset buffer
-
-				if(base == nextSeq) {
-					//start timer
-					start = clock();
-					cout << "Timeout Started" << endl;
-				}
-
-				nextSeq += bytesRead;	//update next sequence
-				if(nextSeq != (base + windowSize)) {
-					//set the send flag
-				}
-			} else {
-				perror("Reading file: ");
-				exit(1);
 			}
+
+			if(send) {
+				if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
+					printf("bytes sent: %d", bytesSent);
+					seqNum += bytesRead;		//calculate next seq number
+					memset(buffer, '\0', BUFLEN);	//reset buffer
+
+					if(base == nextSeq) {
+						//start timer
+						start = clock();
+						cout << "Timeout Started" << endl;
+					}
+
+					nextSeq += bytesRead;	//update next sequence
+					if(nextSeq != (base + windowSize)) {
+						//set the send flag
+					}
+
+					send = false;	//not ready to send another packet, packet used
+				} else if (bytesSent == -1) {
+					//perror("Send File: Error writing to socket DATA");
+
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						return;
+					}
+				}
+			}		
 		}
-
-
 	}
 
 	fclose(file);
@@ -202,7 +221,7 @@ void RecvFile(int socket, char* filename) {
 				printf("SeqNum: %d\n",packet.SeqNum);
 				packet = CreatePacket(EOT,0,0,0,expectedSEQ);
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					perror("Error writing to socket DATA: ");
+					perror("Recv File: Error writing to socket DATA");
 					return;
 				}
 				//update expectedSEQ

@@ -70,7 +70,7 @@ int main (int argc, char *argv[]) {
 	Client *commandConnection = new Client(ParseString(serverIP), 7006);
 	Server *transferConnection = new Server(7005);
 	
-	SetNonBlocking(commandConnection->GetSocket());
+	//SetNonBlocking(commandConnection->GetSocket());
 	SetNonBlocking(transferConnection->GetSocket());
 
 
