@@ -49,9 +49,16 @@ int main (int argc, char *argv[]) {
 	Cmd cmd;			//command structure 
 	char path[BUFLEN];	//path of files according to the root directory of the executable
 
+	//change IP back to before
+	Client *transferConnection = new Client("127.0.0.1", 7007);//Client object for transfers
 	Server *commandConnection = new Server(7008);					//Server object for commands	
-	Client *transferConnection = new Client(commandConnection->GetTransferIP(), 7007);//Client object for transfers
+
+	//Client *transferConnection = new Client(commandConnection->GetTransferIP(), 7007);//Client object for transfers
 	
+	//fix seg faults
+		//change to non-blocking
+		//close sockets if after sending EXIT ACK
+		//close sockets regardless	
 	do{ 
 		//cmd = commandConnection->WaitCommand();					//Wait for the client 
 		cmd = RecvCmd(commandConnection->GetSocket());	

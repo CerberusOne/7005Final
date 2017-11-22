@@ -81,13 +81,16 @@ void SendFile(int socket, char *filename) {
 					if(base == nextSeq) {
 						//stop to timer
 						start = 0;
+						printf("Recv ACK, starting timer\n");
+						
 					} else {
 						//restart the timer
 						start = clock();
+						printf("Recv ACK, restarting timer\n");
 					}
 				} else {
 					//discard packet
-					cout << "discarding packet" << endl;
+					printf("discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
 				}
 			}
 		}
@@ -95,6 +98,7 @@ void SendFile(int socket, char *filename) {
 		//check if there is a timeout
 		passed = (clock() - start)/CLOCKS_PER_SEC;
 		if(passed >= 10){
+			printf("timeout, base: %d", base);
 			//set nextSeq to base
 			nextSeq = base;
 			//seek file back to bytesRead - base
@@ -117,6 +121,7 @@ void SendFile(int socket, char *filename) {
 					
 					if(bytesRead > 0) {
 						send = true; //packet ready to send
+						printf("Ready to send, seq %d", seqNum);
 					}
 				} else {
 					perror("Reading file: ");
@@ -135,15 +140,12 @@ void SendFile(int socket, char *filename) {
 					if(base == nextSeq) {
 						//start timer
 						start = clock();
-						cout << "Timeout Started" << endl;
+						printf("Starting timer, base: %d\n", base);
 					}
 
 					nextSeq += bytesRead;	//update next sequence
-					if(nextSeq != (base + windowSize)) {
-						//set the send flag
-					}
-
 					send = false;	//not ready to send another packet, packet used
+
 				} else if (bytesSent == -1) {
 					//perror("Send File: Error writing to socket DATA");
 
@@ -199,6 +201,7 @@ void RecvFile(int socket, char* filename) {
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
 				PrintPacket(packet);	//print content of file
+				
 				//create ACK packet
 				packet = CreatePacket(ACK,0,0,0,expectedSEQ);
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
@@ -217,13 +220,29 @@ void RecvFile(int socket, char* filename) {
 				printf("Data packet discarded\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
+				printf("\nRecv Data\n");
 				printf("Type: EOT\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
-				packet = CreatePacket(EOT,0,0,0,expectedSEQ);
+				printf("Data: %s\n", packet.Data);
+
+				
+				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
+					perror("RecvFile write failed");
+					return;
+				}
+
+				//reset the EOT packet
+				//packet = CreatePacket(EOT,0,0,0,expectedSEQ);
+				packet = {0};
+				packet.Type = EOT;
+				packet.AckNum = expectedSEQ;
+
+				//send back the EOT packet for confirmation
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					perror("Recv File: Error writing to socket DATA");
 					return;
 				}
+				
 				//update expectedSEQ
 				expectedSEQ+=BUFLEN;
 				fclose(file);
@@ -262,7 +281,7 @@ Cmd RecvCmd(int sockfd) {
 		cmd = CreateCmd(0, NULL);
 	}
 
-    printf("RecvCmd: %d %s\n", cmd.type, cmd.filename);
+   	printf("RecvCmd: %d %s\n", cmd.type, cmd.filename);
 
 	return cmd;
 }
