@@ -201,6 +201,7 @@ void RecvFile(int socket, char* filename) {
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
 				PrintPacket(packet);	//print content of file
+				
 				//create ACK packet
 				packet = CreatePacket(ACK,0,0,0,expectedSEQ);
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
@@ -219,13 +220,29 @@ void RecvFile(int socket, char* filename) {
 				printf("Data packet discarded\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
+				printf("\nRecv Data\n");
 				printf("Type: EOT\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
-				packet = CreatePacket(EOT,0,0,0,expectedSEQ);
+				printf("Data: %s\n", packet.Data);
+
+				
+				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
+					perror("RecvFile write failed");
+					return;
+				}
+
+				//reset the EOT packet
+				//packet = CreatePacket(EOT,0,0,0,expectedSEQ);
+				packet = {0};
+				packet.Type = EOT;
+				packet.AckNum = expectedSEQ;
+
+				//send back the EOT packet for confirmation
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					perror("Recv File: Error writing to socket DATA");
 					return;
 				}
+				
 				//update expectedSEQ
 				expectedSEQ+=BUFLEN;
 				fclose(file);
@@ -264,7 +281,7 @@ Cmd RecvCmd(int sockfd) {
 		cmd = CreateCmd(0, NULL);
 	}
 
-    printf("RecvCmd: %d %s\n", cmd.type, cmd.filename);
+   	printf("RecvCmd: %d %s\n", cmd.type, cmd.filename);
 
 	return cmd;
 }
