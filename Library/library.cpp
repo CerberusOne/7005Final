@@ -81,13 +81,16 @@ void SendFile(int socket, char *filename) {
 					if(base == nextSeq) {
 						//stop to timer
 						start = 0;
+						printf("Recv ACK, starting timer\n");
+						
 					} else {
 						//restart the timer
 						start = clock();
+						printf("Recv ACK, restarting timer\n");
 					}
 				} else {
 					//discard packet
-					cout << "discarding packet" << endl;
+					printf("discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
 				}
 			}
 		}
@@ -95,6 +98,7 @@ void SendFile(int socket, char *filename) {
 		//check if there is a timeout
 		passed = (clock() - start)/CLOCKS_PER_SEC;
 		if(passed >= 10){
+			printf("timeout, base: %d", base);
 			//set nextSeq to base
 			nextSeq = base;
 			//seek file back to bytesRead - base
@@ -117,6 +121,7 @@ void SendFile(int socket, char *filename) {
 					
 					if(bytesRead > 0) {
 						send = true; //packet ready to send
+						printf("Ready to send, seq %d", seqNum);
 					}
 				} else {
 					perror("Reading file: ");
@@ -135,15 +140,12 @@ void SendFile(int socket, char *filename) {
 					if(base == nextSeq) {
 						//start timer
 						start = clock();
-						cout << "Timeout Started" << endl;
+						printf("Starting timer, base: %d\n", base);
 					}
 
 					nextSeq += bytesRead;	//update next sequence
-					if(nextSeq != (base + windowSize)) {
-						//set the send flag
-					}
-
 					send = false;	//not ready to send another packet, packet used
+
 				} else if (bytesSent == -1) {
 					//perror("Send File: Error writing to socket DATA");
 
