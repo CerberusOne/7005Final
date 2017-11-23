@@ -82,7 +82,7 @@ void SendFile(int socket, char *filename) {
 						//stop to timer
 						start = 0;
 						printf("Recv ACK, starting timer\n");
-						
+
 					} else {
 						//restart the timer
 						start = clock();
@@ -103,8 +103,8 @@ void SendFile(int socket, char *filename) {
 			nextSeq = base;
 			//seek file back to bytesRead - base
 			fseek(file, base, SEEK_SET);
-		} 
-		
+		}
+
 		//only send next packet if window isn't full
 		if(nextSeq < base + windowSize) {
 			//check if we are ready to send and if a packet hasn't been created
@@ -118,7 +118,7 @@ void SendFile(int socket, char *filename) {
 					} else {
 						packet = CreatePacket(DATA, seqNum, buffer, windowSize, ackNum);
 					}
-					
+
 					if(bytesRead > 0) {
 						send = true; //packet ready to send
 						printf("Ready to send, seq %d", seqNum);
@@ -127,7 +127,7 @@ void SendFile(int socket, char *filename) {
 					perror("Reading file: ");
 					exit(1);
 				}
-		
+
 
 			}
 
@@ -154,7 +154,7 @@ void SendFile(int socket, char *filename) {
 						return;
 					}
 				}
-			}		
+			}
 		}
 	}
 
@@ -201,7 +201,7 @@ void RecvFile(int socket, char* filename) {
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
 				PrintPacket(packet);	//print content of file
-				
+
 				//create ACK packet
 				packet = CreatePacket(ACK,0,0,0,expectedSEQ);
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
@@ -225,7 +225,7 @@ void RecvFile(int socket, char* filename) {
 				printf("SeqNum: %d\n",packet.SeqNum);
 				printf("Data: %s\n", packet.Data);
 
-				
+
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
 					perror("RecvFile write failed");
 					return;
@@ -233,7 +233,7 @@ void RecvFile(int socket, char* filename) {
 
 				//reset the EOT packet
 				//packet = CreatePacket(EOT,0,0,0,expectedSEQ);
-				packet = {0};
+				memset (&packet, 0, sizeof(packet));
 				packet.Type = EOT;
 				packet.AckNum = expectedSEQ;
 
@@ -242,7 +242,7 @@ void RecvFile(int socket, char* filename) {
 					perror("Recv File: Error writing to socket DATA");
 					return;
 				}
-				
+
 				//update expectedSEQ
 				expectedSEQ+=BUFLEN;
 				fclose(file);
@@ -368,6 +368,21 @@ char *ParseString(string str){
     	strcpy(cstr, str.c_str());
 
     	return cstr;
+}
+
+void GetConfig(char *filename, std::string config[]){
+	ifstream file;
+     	file.open(filename);
+     	//check if file exists
+        if (!file){
+        	perror("Files does not exist");
+       	} else {
+        	int i;
+                for(i=0; i <SERVERPORT; i++){
+                	getline(file, config[i]);
+                    	//cout << config[i] << endl;
+                }
+        }
 }
 
 
