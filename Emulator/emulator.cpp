@@ -15,82 +15,137 @@
 #define ACK		1
 #define EOT		2
 
+#define ROOT "../"
+
 #define BUFLEN 1024
 
 using namespace std;
 
-void GetConfig();
 int Rando();
-//bool Same(int i,int *arr,int size);
-//char *ParseString(string str);
-//bool Discard(int *arr,int size);
+bool Same(int i,int arr[],int size);
+bool Discard(int arr[],int size);
 
 string config[BUFLEN];
 
 int main (int argc, char *argv[]) {
-	GetConfig();
-    	
+	char *filename, configpath[BUFLEN];
+	time_t t;
+  srand((unsigned) time(&t));
+  int rate = atoi(argv[1]);
+  int BER[rate];
+  cout << "rate: " << rate << endl;
+  if (argc != 2){
+      		perror("Error: ./file [BER]");
+    	}
+
+  //populate BER array
+	int i;
+	for(i = 0; i<rate; i++){
+    	BER[i] = Rando();
+      	if (Same(BER[i],BER,rate)){
+        		do {
+          			BER[i] = Rando();
+        		} while (!Same(BER[i],BER,rate));
+      	}
+      //cout << BER[i] << endl;
+  }
+
+	filename = ParseString("config");
+	strcpy(configpath, ROOT);
+	strcat(configpath, filename);
+	GetConfig(configpath, config);
+
 	//for testing purposes
-    	string ipemulator = config[SERVERIP];
-  	const char *connectionIP = ipemulator.c_str();
+  string ipemulator = config[SERVERIP];
+  const char *connectionIP = ipemulator.c_str();
 
 	//setup sockets, ORDER MATTERS
-    	Server *serverData = new Server(7007);
-    	Client *serverCmd = new Client(connectionIP,7008);
-    	
+  Server *serverData = new Server(7007);
+  Client *serverCmd = new Client(connectionIP,7008);
+
 	Server *clientCmd = new Server(7006);
 	Client *clientData = new Client(connectionIP, 7005);
 
 	//set all sockets to non-blocking
-      	SetNonBlocking(clientData->GetSocket());
+  SetNonBlocking(clientData->GetSocket());
 	SetNonBlocking(clientCmd->GetSocket());
 	SetNonBlocking(serverData->GetSocket());
-      	SetNonBlocking(serverCmd->GetSocket());
+  SetNonBlocking(serverCmd->GetSocket());
 
 	//setup command and packet objects to read/write from sockets with
 	Cmd cmd;
 	Packet packet;
 	int bytesRecv = 0;
 	int bytesSent = 0;
-
+	double passed;
+	double delay = 3;
+	bool timer = true;
+	clock_t start;
 	//check all ports for data
-    	while(1){
-		//reset cmd and packet for next recv
-		cmd = {0};
-		packet = {0};
+  while(1){
 
+		//reset cmd and packet for next recv
+		//cmd = {0};
+		//packet = {0};
+
+		memset (&cmd, 0, sizeof(cmd));
+		memset (&packet, 0, sizeof(packet));
 		//CMD--------------------------------------------------
 
 		//check if there is a new command from client
 		if((bytesRecv = recv(clientCmd->GetSocket(), &cmd, sizeof(Cmd), 0) > 0)) {
+			start = clock();
+			printf("Delay started\n");
 			printf("Client Command found\n");
 			printf("\tCmd Type: %d\tFilename: %s\n", cmd.type, cmd.filename);
-
+			//wait timer ends
+			while(timer){
+			  passed = (clock() - start) / CLOCKS_PER_SEC;
+			    //If timer is not over
+			    if (passed >= delay){
+			      cout << "Seconds have passed:\n " << passed << endl;
+			      timer = false;
+			    }
+			}
+			timer = true;
 			//pass the command on to the server
 			if((bytesSent = send(serverCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
 				printf("Cmd sent to server\n");
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 				perror("Send serverCmd failed");
 			}
-				
-			//exit if client sends exit command, check for EXIT ACK from server after testing
-			if(cmd.type == EXIT)
-				break;
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv clientCmd failed");
 		}
-		
-		
-		//check if there is a command ACK from server
-		if((bytesRecv = recv(serverCmd->GetSocket(), &cmd, sizeof(Cmd), 0) > 0)) {	
-			printf("Server Command ACK found\n");
 
+
+		//check if there is a command ACK from server
+		if((bytesRecv = recv(serverCmd->GetSocket(), &cmd, sizeof(Cmd), 0) > 0)) {
+			printf("Server Command ACK found\n");
+			start = clock();
+			printf("Delay started\n");
+
+			//wait timer ends
+			while(timer){
+			  passed = (clock() - start) / CLOCKS_PER_SEC;
+			    //If timer is not over
+			    if (passed >= delay){
+			      cout << "Seconds have passed:\n " << passed << endl;
+			      timer = false;
+			    }
+			}
+			timer = true;
 			//pass the command ACK on to the client
 			if((bytesSent = send(clientCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
 				printf("Cmd ACK sent to client\n");
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 				perror("Send clientCmd failed");
 			}
+
+				//exit if server sends exit command, check for EXIT ACK from server after testing
+				if(cmd.type == EXIT){
+					break;
+				}
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv serverCmd failed");
 		}
@@ -98,26 +153,58 @@ int main (int argc, char *argv[]) {
 
 
 		//DATA----------------------------------------------
-		
+
 		//check if there is a data packet from client
 		if((bytesRecv = recv(clientData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
+			if (!Discard(BER,rate)){
 			printf("Client data found\n");
 			printf("\tPacket Type: %d\t", packet.Type);
+			start = clock();
+			printf("Delay started\n");
 
-			//pass the command on to the server
+			//wait timer ends
+			while(timer){
+			  passed = (clock() - start) / CLOCKS_PER_SEC;
+			    //If timer is not over
+			    if (passed >= delay){
+			      cout << "Seconds have passed:\n " << passed << endl;
+			      timer = false;
+			    }
+			}
+			timer = true;
+
+			//pass the packet to the server
 			if((bytesSent = send(serverData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
 				printf("Packet sent to server\n");
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
-				perror("Send serverData failed");
+				perror("Send serverData failed\n");
 			}
+		} else{
+			printf("Packet Discarded\n");
+		}
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv clientData failed");
 		}
 
-		
+
 		//check if there is a data ACK from server
-		if((bytesRecv = recv(serverData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {	
+		if((bytesRecv = recv(serverData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
+			if (!Discard(BER,rate)){
 			printf("Server data ACK found\n");
+
+			start = clock();
+			printf("Delay started\n");
+
+			//wait timer ends
+			while(timer){
+			  passed = (clock() - start) / CLOCKS_PER_SEC;
+			    //If timer is not over
+			    if (passed >= delay){
+			      cout << "Seconds have passed:\n " << passed << endl;
+			      timer = false;
+			    }
+			}
+			timer = true;
 
 			//pass the command ACK on to the client
 			if((bytesSent = send(clientData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
@@ -125,6 +212,12 @@ int main (int argc, char *argv[]) {
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 				perror("Send clientData failed");
 			}
+			if(cmd.type == EOT){
+				printf("EOT received from Server");
+			}
+		} else{
+			printf("Packet Discarded\n");
+		}
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv serverData failed");
 		}
@@ -140,19 +233,27 @@ int main (int argc, char *argv[]) {
 	return 0;
 }
 
-void GetConfig(){
-	ifstream file;
-     	file.open("config");
-     	//check if file exists
-        if (!file){
-        	perror("Files does not exist");
-       	} else {
-        	int i;
-                for(i=0; i <SERVERPORT; i++){
-                	getline(file, config[i]);
-                    	//cout << config[i] << endl;
-                }
-        }
+int Rando(){
+  	return rand() % 100 +1;
 }
-
-
+bool Same(int val,int arr[],int size){
+  	int i;
+  	for(i = 0; i<size; i++){
+      		if (arr[i] == val){
+        		return true;
+      		}
+  	}
+  return false;
+}
+bool Discard(int arr[],int size){
+  	int i;
+  	int val = Rando();
+  	//cout << "checking value with: " << val << endl;
+  	for(i = 0; i<size; i++){
+    		if(Same(val,arr,size)){
+      			i = size;
+      			return true;
+    		}
+  	}
+    return false;
+}

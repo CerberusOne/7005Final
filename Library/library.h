@@ -14,6 +14,7 @@
 #include <arpa/inet.h>
 #include <time.h>
 #include <iostream>
+#include <fstream>
 
 #define SERVER_PORT     7005
 #define TRANSFER_PORT   70005
@@ -33,7 +34,7 @@
 #define SERVERIP 5
 #define SERVERPORT 6
 
-typedef struct 
+typedef struct
 {
 	int type;
 	char filename[BUFLEN];	//isn't this too much?
@@ -42,14 +43,14 @@ typedef struct
 typedef struct
 {
 	int Type;			//numeric code (ACK, DATA or EOT)
-	int SeqNum;			
+	int SeqNum;
 	char Data[BUFLEN];
 	int WindowSize;			//number of packets being sent in first burst, size of window
 	int AckNum;
 }Packet;
 
 Cmd RecvCmd(int sockfd);
-bool SendCmd(int socket, Cmd cmd); 
+bool SendCmd(int socket, Cmd cmd);
 Cmd CreateCmd(int type, char *filename);
 Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum);
 void PrintPacket(Packet packet);
@@ -57,6 +58,7 @@ void RecvFile(int socket, char* filename);
 void SendFile(int socket, char *filename);
 char *ParseString(std::string str);
 bool isValidFile(char *cfilename);
+void GetConfig(char *filename, std::string config[]);
 
 
 #endif //LIBRARY_H
