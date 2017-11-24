@@ -378,7 +378,7 @@ void GetConfig(char *filename, std::string config[]){
         	perror("Files does not exist");
        	} else {
         	int i;
-                for(i=0; i <SERVERPORT; i++){
+                for(i=0; i <=SERVERPORT; i++){
                 	getline(file, config[i]);
                     	//cout << config[i] << endl;
                 }
