@@ -93,7 +93,7 @@ void SendFile(int socket, char *filename) {
 					printf("discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
 				}
 			}
-		}
+		} else
 
 		//check if there is a timeout
 		passed = (clock() - start)/CLOCKS_PER_SEC;

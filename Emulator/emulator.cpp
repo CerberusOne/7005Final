@@ -100,12 +100,13 @@ int main (int argc, char *argv[]) {
 
 		//check if there is a new command from client
 		if((bytesRecv = recv(clientCmd->GetSocket(), &cmd, sizeof(Cmd), 0) > 0)) {
-			start = clock();
-			printf("Delay started\n");
+			//if (!Discard(BER,rate)){
+			//start = clock();
+			//printf("Delay started\n");
 			printf("Client Command found\n");
 			printf("\tCmd Type: %d\tFilename: %s\n", cmd.type, cmd.filename);
 			//wait timer ends
-			while(timer){
+			/*while(timer){
 			  passed = (clock() - start) / CLOCKS_PER_SEC;
 			    //If timer is not over
 			    if (passed >= delay){
@@ -113,13 +114,16 @@ int main (int argc, char *argv[]) {
 			      timer = false;
 			    }
 			}
-			timer = true;
+			timer = true;*/
 			//pass the command on to the server
 			if((bytesSent = send(serverCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
 				printf("Cmd sent to server\n");
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 				perror("Send serverCmd failed");
 			}
+		/*} else {
+			printf("Packet Discarded\n");
+		}*/
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv clientCmd failed");
 		}
@@ -127,12 +131,13 @@ int main (int argc, char *argv[]) {
 
 		//check if there is a command ACK from server
 		if((bytesRecv = recv(serverCmd->GetSocket(), &cmd, sizeof(Cmd), 0) > 0)) {
+			//if (!Discard(BER,rate)){
 			printf("Server Command ACK found\n");
-			start = clock();
-			printf("Delay started\n");
+			//start = clock();
+			//printf("Delay started\n");
 
 			//wait timer ends
-			while(timer){
+			/*while(timer){
 			  passed = (clock() - start) / CLOCKS_PER_SEC;
 			    //If timer is not over
 			    if (passed >= delay){
@@ -140,9 +145,11 @@ int main (int argc, char *argv[]) {
 			      timer = false;
 			    }
 			}
-			timer = true;
+			timer = true;*/
 			//pass the command ACK on to the client
 			if((bytesSent = send(clientCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
+
+
 				printf("Cmd ACK sent to client\n");
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 				perror("Send clientCmd failed");
@@ -152,6 +159,9 @@ int main (int argc, char *argv[]) {
 				if(cmd.type == EXIT){
 					break;
 				}
+			/*} else {
+				printf("Packet Discarded\n");
+			}*/
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv serverCmd failed");
 		}

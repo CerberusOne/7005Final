@@ -75,7 +75,7 @@ int main (int argc, char *argv[]) {
 	cout <<"Port: "<< config[EMULATORPORT2] << endl;
 
 	//Client *transferConnection = new Client(commandConnection->GetTransferIP(), 7007);//Client object for transfers
-
+//
 	//fix seg faults
 		//change to non-blocking
 		//close sockets if after sending EXIT ACK
