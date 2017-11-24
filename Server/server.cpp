@@ -69,6 +69,8 @@ int main (int argc, char *argv[]) {
 	Client *transferConnection = new Client(ParseString(config[EMULATORIP]), atoi(ParseString(config[EMULATORPORT2])));//Client object for transfers
 	Server *commandConnection = new Server(atoi(ParseString(config[SERVERPORT])));					//Server object for commands
 
+	SetNonBlocking(transferConnection->GetSocket());
+
 	cout <<"Connecting to IP: " << config[EMULATORIP] << endl;
 	cout <<"Port: "<< config[EMULATORPORT2] << endl;
 

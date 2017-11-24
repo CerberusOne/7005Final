@@ -195,8 +195,10 @@ void RecvFile(int socket, char* filename) {
 	while(1) {
 		//receive the packet
 		if((bytesRecv = read(socket, &packet, sizeof(packet))) < 0) {
-			perror("Error receiving from socket");
-			return;
+			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+				perror("ERROR not EAGAIN or EWOULDBLOCK");
+				return;
+			}
 		} else {
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
@@ -205,11 +207,13 @@ void RecvFile(int socket, char* filename) {
 				//create ACK packet
 				packet = CreatePacket(ACK,0,0,0,expectedSEQ);
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					perror("Error writing to socket DATA: ");
-					return;
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						return;
+					}
 				}
 				//update expectedSEQ
-				expectedSEQ+=BUFLEN;
+				expectedSEQ+=sizeof(packet.Data);
 				//write file
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
 					perror("Write failed");
@@ -223,7 +227,6 @@ void RecvFile(int socket, char* filename) {
 				printf("\nRecv Data\n");
 				printf("Type: EOT\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
-				printf("Data: %s\n", packet.Data);
 
 
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
