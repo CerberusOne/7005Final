@@ -62,7 +62,7 @@ void SendFile(int socket, char *filename) {
 
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
-		if((read(socket, &packet, sizeof(packet))) != -1) {
+		if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
 			printf("received packet\n");
 
 			//check packet type for EOT or ACK
@@ -93,7 +93,12 @@ void SendFile(int socket, char *filename) {
 					printf("discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
 				}
 			}
-		} else
+		} else if (bytesRead == -1) {
+			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+				perror("ERROR not EAGAIN or EWOULDBLOCK");
+				return;
+			}
+		}
 
 		//check if there is a timeout
 		passed = (clock() - start)/CLOCKS_PER_SEC;
@@ -193,8 +198,9 @@ void RecvFile(int socket, char* filename) {
 	truncate(filename, 0);
 
 	while(1) {
+		memset(&packet, 0, sizeof(packet));
 		//receive the packet
-		if((bytesRecv = read(socket, &packet, sizeof(packet))) < 0) {
+		if((bytesRecv = read(socket, &packet, sizeof(packet))) == -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 				perror("ERROR not EAGAIN or EWOULDBLOCK");
 				return;
@@ -205,7 +211,10 @@ void RecvFile(int socket, char* filename) {
 				PrintPacket(packet);	//print content of file
 
 				//create ACK packet
-				packet = CreatePacket(ACK,0,0,0,expectedSEQ);
+				//packet = CreatePacket(ACK,0,0,0,expectedSEQ);
+				memset (&packet, 0, sizeof(packet));
+				packet.Type = ACK;
+				packet.AckNum = expectedSEQ;
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
@@ -221,7 +230,7 @@ void RecvFile(int socket, char* filename) {
 				}
 
 			}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
-				printf("Data packet discarded\n");
+				printf("Duplicate packet discarded\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("\nRecv Data\n");
@@ -242,8 +251,10 @@ void RecvFile(int socket, char* filename) {
 
 				//send back the EOT packet for confirmation
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					perror("Recv File: Error writing to socket DATA");
-					return;
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						return;
+					}
 				}
 
 				//update expectedSEQ

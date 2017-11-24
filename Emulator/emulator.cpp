@@ -148,8 +148,6 @@ int main (int argc, char *argv[]) {
 			timer = true;*/
 			//pass the command ACK on to the client
 			if((bytesSent = send(clientCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
-
-
 				printf("Cmd ACK sent to client\n");
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 				perror("Send clientCmd failed");
@@ -159,10 +157,11 @@ int main (int argc, char *argv[]) {
 				if(cmd.type == EXIT){
 					break;
 				}
+			}
 			/*} else {
 				printf("Packet Discarded\n");
 			}*/
-		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
+		 else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv serverCmd failed");
 		}
 
@@ -183,7 +182,7 @@ int main (int argc, char *argv[]) {
 			  passed = (clock() - start) / CLOCKS_PER_SEC;
 			    //If timer is not over
 			    if (passed >= delay){
-			      cout << "Delay End:\n " << passed << endl;
+			      cout << "Delay End\n " << endl;
 			      timer = false;
 			    }
 			}
