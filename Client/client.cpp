@@ -23,13 +23,23 @@
 #include "../Library/client.h"
 #include "../Library/server.h"
 
+#define CLIENTIP 0
+#define CLIENTPORT 1
+#define EMULATORIP 2
+#define EMULATORPORT1 3
+#define EMULATORPORT2 4
+#define SERVERIP 5
+#define SERVERPORT 6
 
 #define PATH "./Client_files/"
+#define ROOT "../"
 
 using namespace std;
 
 bool isValidFile(char *cfilename);
 bool isCommand(string strcommand, int &command);
+
+string config[BUFLEN];
 
 /*-----------------------------------------------------------------------------------------------
 -- FUNCTION:   Main
@@ -54,22 +64,20 @@ int main (int argc, char *argv[]) {
 	string filename, strcommand, serverIP, serverPort;
 	char *cfilename, path[BUFLEN];
 
-	//get ip, port and transfer port 
+	char *configFilename, configpath[BUFLEN];
+
+	configFilename = ParseString("config");
+	strcpy(configpath, ROOT);
+	strcat(configpath, configFilename);
+	GetConfig(configpath, config);
 
 
-//---------------------------------------------------
-	//get from config file instead
-	cout << "Enter server IP:" << endl;
-	cin >> serverIP; 
-//---------------------------------------------------
+	Client *commandConnection = new Client(ParseString(config[EMULATORIP]), atoi(ParseString(config[EMULATORPORT1])));
+	Server *transferConnection = new Server(atoi(ParseString(config[CLIENTPORT])));
 
+	cout <<"Connecting to IP: " << config[EMULATORIP] << endl;
+	cout <<"Port: "<< config[EMULATORPORT1] << endl;
 
-
-
-
-	Client *commandConnection = new Client(ParseString(serverIP), 7006);
-	Server *transferConnection = new Server(7005);
-	
 	//SetNonBlocking(commandConnection->GetSocket());
 	SetNonBlocking(transferConnection->GetSocket());
 
@@ -80,7 +88,7 @@ int main (int argc, char *argv[]) {
 		//get user input and validate
 		do {
 			cout << "Enter command: " << endl;
-			cin >> strcommand; 
+			cin >> strcommand;
 		} while(!isCommand(strcommand, command));
 
 		//get user input for filename and validate
@@ -88,7 +96,7 @@ int main (int argc, char *argv[]) {
 			//get filename
 			do {
 				cout << "Enter fileame: " << endl;
-				cin >> filename; 
+				cin >> filename;
 				cfilename = ParseString(filename);
 				strcpy(path, PATH);
 				strcat(path, cfilename);
@@ -150,6 +158,3 @@ bool isCommand(string strcommand, int &command) {
 		return false;
 	}
 }
-
-
-

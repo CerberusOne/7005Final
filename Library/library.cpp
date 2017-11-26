@@ -62,7 +62,7 @@ void SendFile(int socket, char *filename) {
 
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
-		if((read(socket, &packet, sizeof(packet))) != -1) {
+		if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
 			printf("received packet\n");
 
 			//check packet type for EOT or ACK
@@ -93,12 +93,17 @@ void SendFile(int socket, char *filename) {
 					printf("discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
 				}
 			}
+		} else if (bytesRead == -1) {
+			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+				perror("ERROR not EAGAIN or EWOULDBLOCK");
+				return;
+			}
 		}
 
 		//check if there is a timeout
 		passed = (clock() - start)/CLOCKS_PER_SEC;
 		if(passed >= 10){
-			printf("timeout, base: %d", base);
+			printf("timeout, base: %d\n", base);
 			//set nextSeq to base
 			nextSeq = base;
 			//seek file back to bytesRead - base
@@ -121,7 +126,7 @@ void SendFile(int socket, char *filename) {
 
 					if(bytesRead > 0) {
 						send = true; //packet ready to send
-						printf("Ready to send, seq %d", seqNum);
+						printf("Ready to send, seq %d\n", seqNum);
 					}
 				} else {
 					perror("Reading file: ");
@@ -133,7 +138,7 @@ void SendFile(int socket, char *filename) {
 
 			if(send) {
 				if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
-					printf("bytes sent: %d", bytesSent);
+					printf("bytes sent: %d\n", bytesSent);
 					seqNum += bytesRead;		//calculate next seq number
 					memset(buffer, '\0', BUFLEN);	//reset buffer
 
@@ -193,37 +198,41 @@ void RecvFile(int socket, char* filename) {
 	truncate(filename, 0);
 
 	while(1) {
+		memset(&packet, 0, sizeof(packet));
 		//receive the packet
-		if((bytesRecv = read(socket, &packet, sizeof(packet))) < 0) {
-			perror("Error receiving from socket");
-			return;
+		if((bytesRecv = read(socket, &packet, sizeof(packet))) == -1) {
+			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+				perror("ERROR not EAGAIN or EWOULDBLOCK");
+				return;
+			}
 		} else {
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
-				PrintPacket(packet);	//print content of file
-
-				//create ACK packet
-				packet = CreatePacket(ACK,0,0,0,expectedSEQ);
-				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					perror("Error writing to socket DATA: ");
-					return;
-				}
-				//update expectedSEQ
-				expectedSEQ+=BUFLEN;
 				//write file
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
 					perror("Write failed");
 					return;
 				}
-
+				PrintPacket(packet);	//print content of file
+				//create ACK packet
+				memset (&packet, 0, sizeof(packet));
+				packet.Type = ACK;
+				packet.AckNum = expectedSEQ;
+				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						return;
+					}
+				}
+				//update expectedSEQ
+				expectedSEQ+=sizeof(packet.Data);
 			}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
-				printf("Data packet discarded\n");
+				printf("Duplicate packet discarded\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("\nRecv Data\n");
 				printf("Type: EOT\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
-				printf("Data: %s\n", packet.Data);
 
 
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
@@ -232,15 +241,16 @@ void RecvFile(int socket, char* filename) {
 				}
 
 				//reset the EOT packet
-				//packet = CreatePacket(EOT,0,0,0,expectedSEQ);
 				memset (&packet, 0, sizeof(packet));
 				packet.Type = EOT;
 				packet.AckNum = expectedSEQ;
 
 				//send back the EOT packet for confirmation
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					perror("Recv File: Error writing to socket DATA");
-					return;
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						return;
+					}
 				}
 
 				//update expectedSEQ
@@ -348,7 +358,7 @@ void PrintPacket(Packet packet) {
         printf("SeqNum: %d\n", packet.SeqNum);
 	printf("WinSize: %d\n", packet.WindowSize);
 	printf("AckNum: %d\n", packet.AckNum);
-	printf("Payload: %s", packet.Data);
+	//printf("Payload: %s", packet.Data);
 }
 
 
@@ -378,7 +388,7 @@ void GetConfig(char *filename, std::string config[]){
         	perror("Files does not exist");
        	} else {
         	int i;
-                for(i=0; i <SERVERPORT; i++){
+                for(i=0; i <=SERVERPORT; i++){
                 	getline(file, config[i]);
                     	//cout << config[i] << endl;
                 }
