@@ -59,6 +59,7 @@ void SendFile(int socket, char *filename) {
 	int passed;
 	clock_t start = 0;
 	bool send = false;
+	int timeoutCounter;
 
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
@@ -92,7 +93,7 @@ void SendFile(int socket, char *filename) {
 					}
 				} else {
 					//discard packet
-					printf("discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
+					printf("Duplicate ACK found, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
 					//move window's base to next expected byte for the receiver
 					base = packet.AckNum;
 				//	nextSeq = base;
@@ -113,7 +114,11 @@ void SendFile(int socket, char *filename) {
 		//check if there is a timeout
 		passed = (clock() - start)/CLOCKS_PER_SEC;
 		if(passed >= 10){
+			timeoutCounter++; 
+
 			printf("timeout, base: %d\n", base);
+			printf("timeoutCounter: %d\n", timeoutCounter);
+
 			//set nextSeq to base
 			nextSeq = base;
 			seqNum = base;
