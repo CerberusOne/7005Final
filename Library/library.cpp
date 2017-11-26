@@ -75,7 +75,23 @@ void SendFile(int socket, char *filename) {
 			else if(packet.Type == ACK) {
 				printf("ACK found: %d\n", packet.AckNum);
 
-				//check if it is the next expected packet, otherwise discard
+				base = packet.AckNum;
+				
+				if(fseek(file, base, SEEK_SET) < 0) {
+					perror("duplicate ACK fseek");	
+				}
+
+				if(base == nextSeq) {
+					start = 0;
+					printf("Stopping timer\n");
+				} else {
+					start = clock();
+					printf("Starting timer\n");
+				}
+
+				
+
+/*				//check if it is the next expected packet, otherwise discard
 				if(packet.AckNum == base + (int)sizeof(packet.Data)) {
 					//increment base of window (slide window)
 					base += sizeof(packet.Data);
@@ -96,13 +112,15 @@ void SendFile(int socket, char *filename) {
 					printf("Duplicate ACK found, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
 					//move window's base to next expected byte for the receiver
 					base = packet.AckNum;
-				//	nextSeq = base;
+					nextSeq = base;
 					seqNum = base;
 					send = false;
 					if(fseek(file, base, SEEK_SET) < 0) {
 						perror("duplicate ack fseek");	
 					}
 				}
+*/
+
 			}
 		} else if (bytesRead == -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
@@ -249,8 +267,9 @@ void RecvFile(int socket, char* filename) {
 				}
 
 			}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
-				printf("Duplicate packet discarded\n");
-				printf("SeqNum: %d\n",packet.SeqNum);
+				printf("Wrong SEQ found, discarding packet\n");
+				printf("\tSEQ: %d\n",packet.SeqNum);
+				printf("\tExpected SEQ: %d\n", expectedSEQ);
 				
 				memset (&packet, 0, sizeof(packet));
 				
@@ -266,8 +285,8 @@ void RecvFile(int socket, char* filename) {
 
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("\nRecv Data\n");
-				printf("Type: EOT\n");
-				printf("SeqNum: %d\n",packet.SeqNum);
+				printf("\tType: EOT\n");
+				printf("\tSeqNum: %d\n",packet.SeqNum);
 
 
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
