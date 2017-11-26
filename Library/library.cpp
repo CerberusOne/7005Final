@@ -103,7 +103,7 @@ void SendFile(int socket, char *filename) {
 		//check if there is a timeout
 		passed = (clock() - start)/CLOCKS_PER_SEC;
 		if(passed >= 10){
-			printf("timeout, base: %d", base);
+			printf("timeout, base: %d\n", base);
 			//set nextSeq to base
 			nextSeq = base;
 			//seek file back to bytesRead - base
@@ -126,7 +126,7 @@ void SendFile(int socket, char *filename) {
 
 					if(bytesRead > 0) {
 						send = true; //packet ready to send
-						printf("Ready to send, seq %d", seqNum);
+						printf("Ready to send, seq %d\n", seqNum);
 					}
 				} else {
 					perror("Reading file: ");
@@ -138,7 +138,7 @@ void SendFile(int socket, char *filename) {
 
 			if(send) {
 				if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
-					printf("bytes sent: %d", bytesSent);
+					printf("bytes sent: %d\n", bytesSent);
 					seqNum += bytesRead;		//calculate next seq number
 					memset(buffer, '\0', BUFLEN);	//reset buffer
 
@@ -208,10 +208,13 @@ void RecvFile(int socket, char* filename) {
 		} else {
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
+				//write file
+				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
+					perror("Write failed");
+					return;
+				}
 				PrintPacket(packet);	//print content of file
-
 				//create ACK packet
-				//packet = CreatePacket(ACK,0,0,0,expectedSEQ);
 				memset (&packet, 0, sizeof(packet));
 				packet.Type = ACK;
 				packet.AckNum = expectedSEQ;
@@ -223,12 +226,6 @@ void RecvFile(int socket, char* filename) {
 				}
 				//update expectedSEQ
 				expectedSEQ+=sizeof(packet.Data);
-				//write file
-				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
-					perror("Write failed");
-					return;
-				}
-
 			}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
 				printf("Duplicate packet discarded\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
@@ -244,7 +241,6 @@ void RecvFile(int socket, char* filename) {
 				}
 
 				//reset the EOT packet
-				//packet = CreatePacket(EOT,0,0,0,expectedSEQ);
 				memset (&packet, 0, sizeof(packet));
 				packet.Type = EOT;
 				packet.AckNum = expectedSEQ;
@@ -362,7 +358,7 @@ void PrintPacket(Packet packet) {
         printf("SeqNum: %d\n", packet.SeqNum);
 	printf("WinSize: %d\n", packet.WindowSize);
 	printf("AckNum: %d\n", packet.AckNum);
-	printf("Payload: %s", packet.Data);
+	//printf("Payload: %s", packet.Data);
 }
 
 
