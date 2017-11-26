@@ -72,6 +72,8 @@ void SendFile(int socket, char *filename) {
 				return;
 			}
 			else if(packet.Type == ACK) {
+				printf("ACK found: %d\n", packet.AckNum);
+
 				//check if it is the next expected packet, otherwise discard
 				if(packet.AckNum == base + (int)sizeof(packet.Data)) {
 					//increment base of window (slide window)
@@ -81,16 +83,24 @@ void SendFile(int socket, char *filename) {
 					if(base == nextSeq) {
 						//stop to timer
 						start = 0;
-						printf("Recv ACK, starting timer\n");
+						printf("Starting timer\n");
 
 					} else {
 						//restart the timer
 						start = clock();
-						printf("Recv ACK, restarting timer\n");
+						printf("Restarting timer\n");
 					}
 				} else {
 					//discard packet
 					printf("discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
+					//move window's base to next expected byte for the receiver
+					base = packet.AckNum;
+				//	nextSeq = base;
+					seqNum = base;
+					send = false;
+					if(fseek(file, base, SEEK_SET) < 0) {
+						perror("duplicate ack fseek");	
+					}
 				}
 			}
 		} else if (bytesRead == -1) {
@@ -106,8 +116,12 @@ void SendFile(int socket, char *filename) {
 			printf("timeout, base: %d\n", base);
 			//set nextSeq to base
 			nextSeq = base;
+			seqNum = base;
+			send = false;
 			//seek file back to bytesRead - base
-			fseek(file, base, SEEK_SET);
+			if(fseek(file, base, SEEK_SET) < 0) {
+				perror("fseek");
+			}
 		}
 
 		//only send next packet if window isn't full
@@ -214,8 +228,12 @@ void RecvFile(int socket, char* filename) {
 					return;
 				}
 				PrintPacket(packet);	//print content of file
-				//create ACK packet
+				
+				//update expectedSEQ
+				expectedSEQ+=sizeof(packet.Data);
 				memset (&packet, 0, sizeof(packet));
+				
+				//create ACK packet
 				packet.Type = ACK;
 				packet.AckNum = expectedSEQ;
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
@@ -224,11 +242,23 @@ void RecvFile(int socket, char* filename) {
 						return;
 					}
 				}
-				//update expectedSEQ
-				expectedSEQ+=sizeof(packet.Data);
+
 			}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
 				printf("Duplicate packet discarded\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
+				
+				memset (&packet, 0, sizeof(packet));
+				
+				//create ACK packet
+				packet.Type = ACK;
+				packet.AckNum = expectedSEQ;
+				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						return;
+					}
+				}
+
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("\nRecv Data\n");
 				printf("Type: EOT\n");
@@ -354,7 +384,7 @@ Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int
 
 //print content of the file
 void PrintPacket(Packet packet) {
-	printf("Type: Data\n");
+	printf("Type: %d\n", packet.Type);
         printf("SeqNum: %d\n", packet.SeqNum);
 	printf("WinSize: %d\n", packet.WindowSize);
 	printf("AckNum: %d\n", packet.AckNum);
