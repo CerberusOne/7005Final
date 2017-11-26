@@ -33,7 +33,7 @@ int main (int argc, char *argv[]) {
 	int bytesRecv = 0;
 	int bytesSent = 0;
 	double passed;
-	double delay = 3;
+	double delay = atoi(argv[2]);
 	bool timer = true;
 	clock_t start;
 	char *filename, configpath[BUFLEN];
@@ -41,8 +41,9 @@ int main (int argc, char *argv[]) {
   srand((unsigned) time(&t));
   int rate = atoi(argv[1]);
   int BER[rate];
-  if (argc != 2){
-      		perror("Error: ./file [BER]");
+  if (argc != 3){
+      		perror("Error: ./file [BER] [DELAY]");
+					exit(0);
     	}
 
   //populate BER array
