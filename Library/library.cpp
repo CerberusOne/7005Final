@@ -60,6 +60,8 @@ void SendFile(int socket, char *filename) {
 	clock_t start = 0;
 	bool send = false;
 	int timeoutCounter;
+	int lastAck = sizeof(packet.Data);
+	int dupAckCount = 0;
 
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
@@ -74,22 +76,36 @@ void SendFile(int socket, char *filename) {
 			}
 			else if(packet.Type == ACK) {
 				printf("ACK found: %d\n", packet.AckNum);
+									
+				//check if its a duplicate ack, if dAck, then only reset base once
+				if(lastAck != packet.AckNum || dupAckCount == 0) {
+					if(lastAck != packet.AckNum) {
+						dupAckCount++;
+						printf("Duplicate ACK found: %d\n", packet.AckNum);
+						printf("lastAck: %d\n", lastAck);
+					} else {
+						dupAckCount = 0;
+						lastAck += sizeof(packet.Data);
+						base = packet.AckNum;
+						
+						/*if(fseek(file, base, SEEK_SET) < 0) {
+							perror("ACK fseek");	
+						}*/
 
-				base = packet.AckNum;
+						if(base == nextSeq) {
+							start = 0;
+							printf("Stopping timer\n");
+						} else {
+							start = clock();
+							printf("Starting timer\n");
+						}
+					}
+				} 
 				
-				if(fseek(file, base, SEEK_SET) < 0) {
-					perror("duplicate ACK fseek");	
-				}
-
-				if(base == nextSeq) {
-					start = 0;
-					printf("Stopping timer\n");
-				} else {
-					start = clock();
-					printf("Starting timer\n");
-				}
-
 				
+
+			//	nextSeq = base;
+
 
 /*				//check if it is the next expected packet, otherwise discard
 				if(packet.AckNum == base + (int)sizeof(packet.Data)) {
@@ -119,9 +135,9 @@ void SendFile(int socket, char *filename) {
 						perror("duplicate ack fseek");	
 					}
 				}
-*/
 
-			}
+				printf("\n");
+*/			}
 		} else if (bytesRead == -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 				perror("ERROR not EAGAIN or EWOULDBLOCK");
@@ -133,7 +149,8 @@ void SendFile(int socket, char *filename) {
 		passed = (clock() - start)/CLOCKS_PER_SEC;
 		if(passed >= 10){
 			timeoutCounter++; 
-
+			
+			printf("nextSeq: %d\n", nextSeq);
 			printf("timeout, base: %d\n", base);
 			printf("timeoutCounter: %d\n", timeoutCounter);
 
@@ -145,6 +162,8 @@ void SendFile(int socket, char *filename) {
 			if(fseek(file, base, SEEK_SET) < 0) {
 				perror("fseek");
 			}
+	
+			//printf("\n");
 		}
 
 		//only send next packet if window isn't full
@@ -153,7 +172,6 @@ void SendFile(int socket, char *filename) {
 			if(!send) {
 				//read file
 				if((bytesRead = fread(buffer, sizeof(char), sizeof(buffer), file)) != -1) {
-
 					//check for EOT and send packet
 					if(bytesRead < (int)sizeof(buffer)) {
 						packet = CreatePacket(EOT, seqNum, buffer, 0, 0);
@@ -197,7 +215,10 @@ void SendFile(int socket, char *filename) {
 					}
 				}
 			}
-		}
+
+			//printf("\n");
+		} 
+		
 	}
 
 	fclose(file);
