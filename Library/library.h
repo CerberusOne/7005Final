@@ -34,6 +34,8 @@
 #define SERVERIP 5
 #define SERVERPORT 6
 
+using namespace std;
+
 typedef struct
 {
 	int type;
@@ -49,13 +51,13 @@ typedef struct
 	int AckNum;
 }Packet;
 
-Cmd RecvCmd(int sockfd);
+Cmd RecvCmd(int sockfd, FILE *logs);
 bool SendCmd(int socket, Cmd cmd);
 Cmd CreateCmd(int type, char *filename);
 Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum);
 void PrintPacket(Packet packet);
-void RecvFile(int socket, char* filename);
-void SendFile(int socket, char *filename);
+void RecvFile(int socket, char* filename, FILE *logs);
+void SendFile(int socket, char *filename, FILE *logs);
 char *ParseString(std::string str);
 bool isValidFile(char *cfilename);
 void GetConfig(char *filename, std::string config[]);

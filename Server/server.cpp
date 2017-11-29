@@ -30,6 +30,7 @@
 
 #define PATH "./Server_files/"
 #define ROOT "../"
+#define LOGPATH "log"
 
 //void SendFile(int socket, char *filename);
 //void RecvFile(int socket, char* filename);
@@ -60,6 +61,11 @@ int main (int argc, char *argv[]) {
 	Cmd cmd;			//command structure
 	char path[BUFLEN],*filename, configpath[BUFLEN];	//path of files according to the root directory of the executable
 
+	FILE *logs;
+	if((logs = fopen(LOGPATH, "a")) == NULL) {
+		perror("file doesn't exist\n");
+	}
+
 	filename = ParseString("config");
 	strcpy(configpath, ROOT);
 	strcat(configpath, filename);
@@ -68,8 +74,8 @@ int main (int argc, char *argv[]) {
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
 
-
-	printf("LOG DATE: %d/%d/%d %d:%d:%d \n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_min, tm.tm_sec);
+	printf("LOG DATE: %d/%d/%d %d:%d:%d \n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+	fprintf(logs, "LOG DATE: %d/%d/%d %d:%d:%d \n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 
 	//change IP back to before
 	Client *transferConnection = new Client(ParseString(config[EMULATORIP]), atoi(ParseString(config[EMULATORPORT2])));//Client object for transfers
@@ -78,7 +84,9 @@ int main (int argc, char *argv[]) {
 	SetNonBlocking(transferConnection->GetSocket());
 
 	cout <<"Connecting to IP: " << config[EMULATORIP] << endl;
+	fprintf(logs,"Connecting to IP: %s\n", config[EMULATORIP].c_str());
 	cout <<"Port: "<< config[EMULATORPORT2] << endl;
+	fprintf(logs,"Connecting to Port: %s\n", config[EMULATORPORT2].c_str());
 
 	//Client *transferConnection = new Client(commandConnection->GetTransferIP(), 7007);//Client object for transfers
 //
@@ -88,17 +96,21 @@ int main (int argc, char *argv[]) {
 		//close sockets regardless
 	do{
 		//cmd = commandConnection->WaitCommand();					//Wait for the client
-		cmd = RecvCmd(commandConnection->GetSocket());
+		cmd = RecvCmd(commandConnection->GetSocket(), logs);
 		printf("Type: %d\n",cmd.type);
+		fprintf(logs,"Type: %d\n",cmd.type);
+		printf("Type: %d\n",cmd.type);
+		fprintf(logs,"Type: %d\n",cmd.type);
 		printf("Filename: %s\n",cmd.filename);
+		fprintf(logs,"Filename: %s\n",cmd.filename);
 
 		strcpy(path, PATH);
 		strcat(path, cmd.filename);
 
 		if(cmd.type == SEND) {
-			RecvFile(transferConnection->GetSocket(), path);
+			RecvFile(transferConnection->GetSocket(), path, logs);
 		} else if (cmd.type == GET) {
-			SendFile(transferConnection->GetSocket(), path);
+			SendFile(transferConnection->GetSocket(), path, logs);
 		}
 
 	} while (cmd.type != EXIT);

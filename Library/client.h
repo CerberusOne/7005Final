@@ -4,10 +4,11 @@
 #include "socketwrappers.h"
 #include "library.h"
 #include <netinet/in.h>
-#include <iostream> 
+#include <iostream>
 #include <strings.h>
 #include <stdlib.h>
 #include <cstring>
+#include <fstream>
 
 using namespace std;
 
@@ -22,11 +23,9 @@ public:
     bool SendCmd(Cmd cmd);
     //int GetTransferSocket();
     int GetSocket();
-private: 
+private:
     int servfd;
     struct sockaddr_in servaddr;
 };
 
 #endif
-
-

@@ -34,7 +34,7 @@ using namespace std;
 -- NOTES:      Sends an entire file through the socket
 --		Expects to use a non-blocking socket
 ----------------------------------------------------------------------------------------------- */
-void SendFile(int socket, char *filename) {
+void SendFile(int socket, char *filename, FILE *logs) {
 	FILE *file;
 	char buffer[BUFLEN];
 	int bytesRead, bytesSent;
@@ -48,7 +48,8 @@ void SendFile(int socket, char *filename) {
 
 	//open file
 	if((file = fopen(filename, "rb")) == NULL) {
-		perror("file doesn't exist\n");
+		perror("file doesn't exist, please create a logs file in root folder\n");
+		fprintf(logs,"file doesn't exist\n");
 		return;
 	}
 
@@ -64,10 +65,12 @@ void SendFile(int socket, char *filename) {
 		//check data socket for new ACK in NON-BLOCKING
 		if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
 			printf("received packet\n");
+			fprintf(logs,"received packet\n");
 
 			//check packet type for EOT or ACK
 			if(packet.Type == EOT) {
 				printf("EOT found, ending transmission\n");
+				fprintf(logs,"EOT found, ending transmission\n");
 				fclose(file);
 				return;
 			}
@@ -82,20 +85,24 @@ void SendFile(int socket, char *filename) {
 						//stop to timer
 						start = 0;
 						printf("Recv ACK, starting timer\n");
+						fprintf(logs,"Recv ACK, starting timer\n");
 
 					} else {
 						//restart the timer
 						start = clock();
 						printf("Recv ACK, restarting timer\n");
+						fprintf(logs,"Recv ACK, restarting timer\n");
 					}
 				} else {
 					//discard packet
 					printf("discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
+					fprintf(logs,"discarding packet, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
 				}
 			}
 		} else if (bytesRead == -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 				perror("ERROR not EAGAIN or EWOULDBLOCK");
+				fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
 				return;
 			}
 		}
@@ -104,6 +111,7 @@ void SendFile(int socket, char *filename) {
 		passed = (clock() - start)/CLOCKS_PER_SEC;
 		if(passed >= 10){
 			printf("timeout, base: %d\n", base);
+			fprintf(logs,"timeout, base: %d\n", base);
 			//set nextSeq to base
 			nextSeq = base;
 			//seek file back to bytesRead - base
@@ -127,9 +135,11 @@ void SendFile(int socket, char *filename) {
 					if(bytesRead > 0) {
 						send = true; //packet ready to send
 						printf("Ready to send, seq %d\n", seqNum);
+						fprintf(logs,"Ready to send, seq %d\n", seqNum);
 					}
 				} else {
 					perror("Reading file: ");
+					fprintf(logs,"Reading file: ");
 					exit(1);
 				}
 
@@ -139,6 +149,7 @@ void SendFile(int socket, char *filename) {
 			if(send) {
 				if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
 					printf("bytes sent: %d\n", bytesSent);
+					fprintf(logs,"bytes sent: %d\n", bytesSent);
 					seqNum += bytesRead;		//calculate next seq number
 					memset(buffer, '\0', BUFLEN);	//reset buffer
 
@@ -146,6 +157,7 @@ void SendFile(int socket, char *filename) {
 						//start timer
 						start = clock();
 						printf("Starting timer, base: %d\n", base);
+						fprintf(logs,"Starting timer, base: %d\n", base);
 					}
 
 					nextSeq += bytesRead;	//update next sequence
@@ -156,6 +168,7 @@ void SendFile(int socket, char *filename) {
 
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
 						return;
 					}
 				}
@@ -185,7 +198,7 @@ void SendFile(int socket, char *filename) {
 --
 -- NOTES:      Receives an entire file through the socket
 ----------------------------------------------------------------------------------------------- */
-void RecvFile(int socket, char* filename) {
+void RecvFile(int socket, char* filename, FILE *logss) {
 	FILE *file;
 	int bytesSent, expectedSEQ=0, bytesRecv, writeCount = 0;
 	Packet packet;
@@ -193,6 +206,7 @@ void RecvFile(int socket, char* filename) {
 	//open file to write in binary
 	if((file = fopen(filename, "wb")) == NULL) {
 		printf("file failed to open: %s\n", filename);
+		fprintf(logss,"file doesn't exist\n");
 		return;
 	}
 	truncate(filename, 0);
@@ -203,6 +217,7 @@ void RecvFile(int socket, char* filename) {
 		if((bytesRecv = read(socket, &packet, sizeof(packet))) == -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 				perror("ERROR not EAGAIN or EWOULDBLOCK");
+				fprintf(logss,"ERROR not EAGAIN or EWOULDBLOCK");
 				return;
 			}
 		} else {
@@ -211,6 +226,7 @@ void RecvFile(int socket, char* filename) {
 				//write file
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
 					perror("Write failed");
+					fprintf(logss,"Write failed");
 					return;
 				}
 				PrintPacket(packet);	//print content of file
@@ -221,6 +237,7 @@ void RecvFile(int socket, char* filename) {
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						fprintf(logss,"ERROR not EAGAIN or EWOULDBLOCK");
 						return;
 					}
 				}
@@ -228,15 +245,21 @@ void RecvFile(int socket, char* filename) {
 				expectedSEQ+=sizeof(packet.Data);
 			}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
 				printf("Duplicate packet discarded\n");
+				fprintf(logss,"Duplicate packet discarded\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
+				fprintf(logss,"SeqNum: %d\n",packet.SeqNum);
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("\nRecv Data\n");
+				fprintf(logss,"\nRecv Data\n");
 				printf("Type: EOT\n");
+				fprintf(logss,"Type: EOT\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
+				fprintf(logss,"SeqNum: %d\n",packet.SeqNum);
 
 
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
 					perror("RecvFile write failed");
+					fprintf(logss,"RecvFile write failed");
 					return;
 				}
 
@@ -249,6 +272,7 @@ void RecvFile(int socket, char* filename) {
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						fprintf(logss,"ERROR not EAGAIN or EWOULDBLOCK");
 						return;
 					}
 				}
@@ -280,14 +304,16 @@ void RecvFile(int socket, char* filename) {
 --
 -- NOTES:      wrapper function for receiving a Cmd object
 ----------------------------------------------------------------------------------------------- */
-Cmd RecvCmd(int sockfd) {
+Cmd RecvCmd(int sockfd, FILE *logss) {
 	Cmd cmd;
 	int bytesRecv;
 
 	if((bytesRecv = recv(sockfd, &cmd, sizeof(Cmd), 0)) == -1) {
 		perror("RecvCmd Failed");
+		fprintf(logss,"RecvCmd Failed");
 	} else if(bytesRecv == 0) {
 		printf("Connection ended\n");
+		fprintf(logss,"Connection ended");
 		cmd = CreateCmd(0, NULL);
 	}
 

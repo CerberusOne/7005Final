@@ -1,0 +1,48 @@
+LOG DATE: 2017/11/29 1:4:25 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet
+EOT found, ending transmission
+Enter command: exit
+LOG DATE: 2017/11/29 1:6:50 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet
+EOT found, ending transmission
+Enter command: exit
+LOG DATE: 2017/11/29 1:7:55 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet
+EOT found, ending transmission
+Enter command: exit
+LOG DATE: 2017/11/29 1:10:35 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet
+EOT found, ending transmission
+Enter command: exit
