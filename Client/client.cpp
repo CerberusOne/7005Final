@@ -151,7 +151,6 @@ bool isCommand(string strcommand, int &command) {
 		return true;
 	} if(strcommand == "exit") {
 		command = EXIT;
-		exit(1);
 		return true;
 	} else {
 		cout << strcommand << endl;
