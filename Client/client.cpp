@@ -71,6 +71,10 @@ int main (int argc, char *argv[]) {
 	strcat(configpath, configFilename);
 	GetConfig(configpath, config);
 
+	time_t t = time(NULL);
+	struct tm tm = *localtime(&t);
+
+	printf("LOG DATE: %d/%d/%d %d:%d:%d \n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 
 	Client *commandConnection = new Client(ParseString(config[EMULATORIP]), atoi(ParseString(config[EMULATORPORT1])));
 	Server *transferConnection = new Server(atoi(ParseString(config[CLIENTPORT])));

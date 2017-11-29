@@ -1,0 +1,5 @@
+./emulator 1 0
+Please enter the delay
+Please enter the BER
+Please enter the delay
+Please enter the BER

@@ -41,7 +41,16 @@ int main (int argc, char *argv[]) {
   srand((unsigned) time(&t));
   int rate = atoi(argv[1]);
   int BER[rate];
+    /**char ratestr;
+    *char delaystr;
+    cout <<"Please enter the delay" << endl;
+    cin >> delaystr;
+    cout <<"Please enter the BER" << endl;
+    cin >> ratestr;
+    rate = atoi(ratestr);
+    delay = atoi(delaystr);*/
   if (argc != 3){
+            cout << argc << endl;
       		perror("Error: ./file [BER] [DELAY]");
 					exit(0);
     	}

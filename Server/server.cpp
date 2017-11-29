@@ -65,6 +65,12 @@ int main (int argc, char *argv[]) {
 	strcat(configpath, filename);
 	GetConfig(configpath, config);
 
+	time_t t = time(NULL);
+	struct tm tm = *localtime(&t);
+
+
+	printf("LOG DATE: %d/%d/%d %d:%d:%d \n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_min, tm.tm_sec);
+
 	//change IP back to before
 	Client *transferConnection = new Client(ParseString(config[EMULATORIP]), atoi(ParseString(config[EMULATORPORT2])));//Client object for transfers
 	Server *commandConnection = new Server(atoi(ParseString(config[SERVERPORT])));					//Server object for commands
