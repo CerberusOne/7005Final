@@ -1,4 +1,7 @@
-LOG DATE: 2017/11/29 17:42:36 
+LOG DATE: 2017/11/29 20:28:46 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+LOG DATE: 2017/11/29 20:38:3 
 Connecting to IP: 127.0.0.1
 Connecting to Port: 7007
 Type: 2
@@ -8,19 +11,16 @@ Filename: test.txt
 Recv Data
 Type: EOT
 SeqNum: 0
-LOG DATE: 2017/11/29 17:43:10 
+LOG DATE: 2017/11/29 20:46:7 
 Connecting to IP: 127.0.0.1
 Connecting to Port: 7007
 Type: 2
 Type: 2
-Filename: 5.txt
+Filename: test.txt
 
 Recv Data
 Type: EOT
-SeqNum: 5120
-LOG DATE: 2017/11/29 17:48:36 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7007
+SeqNum: 0
 Type: 2
 Type: 2
 Filename: 5.txt

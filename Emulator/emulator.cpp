@@ -159,14 +159,18 @@ int main (int argc, char *argv[]) {
 			//pass the command ACK on to the client
 			if((bytesSent = send(clientCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
 				printf("Cmd ACK sent to client\n");
+				if(cmd.type == EXIT){
+					printf("Exit command received from server\n");
+					break;
+				}
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 				perror("Send clientCmd failed");
 			}
 
 				//exit if server sends exit command, check for EXIT ACK from server after testing
-				if(cmd.type == EXIT){
+				/*if(cmd.type == EXIT){
 					break;
-				}
+				}*/
 			}
 			/*} else {
 				printf("Packet Discarded\n");

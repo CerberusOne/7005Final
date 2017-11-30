@@ -1,4 +1,275 @@
-LOG DATE: 2017/11/29 17:42:38 
+LOG DATE: 2017/11/29 20:28:49 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 100.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet
+ACK found: 1024
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 3072
+Duplicate ACK found: 3072
+lastAck: 2048
+received packet
+ACK found: 4096
+Duplicate ACK found: 4096
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32766
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32767
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32768
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32769
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32770
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32771
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32772
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32773
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+received packet
+ACK found: 5120
+Duplicate ACK found: 5120
+lastAck: 2048
+nextSeq: 5120
+timeout, base: 1024
+timeoutCounter: 32774
+Ready to send, seq 1024
+bytes sent: 1040
+Starting timer, base: 1024
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKLOG DATE: 2017/11/29 20:38:5 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/11/29 20:46:10 
 Connecting to IP: 127.0.0.1
 Connecting to Port: 7006
 Enter command: send
@@ -9,42 +280,6 @@ bytes sent: 1040
 Starting timer, base: 0
 received packet
 EOT found, ending transmission
-LOG DATE: 2017/11/29 17:43:12 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7006
-Enter command: send
-Enter filename 10pkts.txt
-Enter filename 10.txt
-Enter filename 5.txt
-sending file
-Ready to send, seq 0
-bytes sent: 1040
-Starting timer, base: 0
-Ready to send, seq 1024
-bytes sent: 1040
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-received packet
-discarding packet, recv: 0	expected: 1024 
-received packet
-Recv ACK, restarting timer
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-Recv ACK, restarting timer
-Ready to send, seq 5120
-bytes sent: 1040
-received packet
-Recv ACK, restarting timer
-received packet
-Recv ACK, restarting timer
-received packet
-EOT found, ending transmission
-LOG DATE: 2017/11/29 17:48:38 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7006
 Enter command: send
 Enter filename 5.txt
 sending file
@@ -58,19 +293,24 @@ bytes sent: 1040
 Ready to send, seq 3072
 bytes sent: 1040
 received packet
-discarding packet, recv: 0	expected: 1024 
-received packet
-Recv ACK, restarting timer
+ACK found: 1024
+Starting timer
 Ready to send, seq 4096
 bytes sent: 1040
 received packet
-Recv ACK, restarting timer
+ACK found: 2048
+Starting timer
 Ready to send, seq 5120
 bytes sent: 1040
 received packet
-Recv ACK, restarting timer
+ACK found: 3072
+Starting timer
 received packet
-Recv ACK, restarting timer
+ACK found: 4096
+Starting timer
+received packet
+ACK found: 5120
+Starting timer
 received packet
 EOT found, ending transmission
 Enter command: exit
