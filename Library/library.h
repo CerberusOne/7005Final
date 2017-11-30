@@ -51,11 +51,11 @@ typedef struct
 	int AckNum;
 }Packet;
 
-Cmd RecvCmd(int sockfd, FILE *logs);
+Cmd RecvCmd(int sockfd);
 bool SendCmd(int socket, Cmd cmd);
 Cmd CreateCmd(int type, char *filename);
 Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum);
-void PrintPacket(Packet packet);
+void PrintPacket(Packet packet,FILE *logs);
 void RecvFile(int socket, char* filename, FILE *logs);
 void SendFile(int socket, char *filename, FILE *logs);
 char *ParseString(std::string str);

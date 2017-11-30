@@ -93,10 +93,14 @@ int main (int argc, char *argv[]) {
 
 	//SetNonBlocking(commandConnection->GetSocket());
 	SetNonBlocking(transferConnection->GetSocket());
-
+    fclose(logs);
 
 	do{
 		fflush(stdin);
+    	FILE *logs;
+	    if((logs = fopen(LOGPATH, "a")) == NULL) {
+		perror("file doesn't exist\n");
+	    }
 
 		//get user input and validate
 		do {
@@ -137,6 +141,7 @@ int main (int argc, char *argv[]) {
 			printf("exiting\n");
 			fprintf(logs,"exiting\n");
 		}
+		fclose(logs);
 	} while (cmd.type != EXIT);
 
 	return 0;

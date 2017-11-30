@@ -3,6 +3,6 @@ case $1 in
     make
     ;;
   1)
-  ./server 2>&1  | tee --append logs.txt
+  ./server  | tee -a logs.txt
   ;;
 esac

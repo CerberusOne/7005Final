@@ -209,7 +209,7 @@ void RecvFile(int socket, char* filename, FILE *logss) {
 		fprintf(logss,"file doesn't exist\n");
 		return;
 	}
-	truncate(filename, 0);
+	//truncate(filename, 0);
 
 	while(1) {
 		memset(&packet, 0, sizeof(packet));
@@ -229,7 +229,7 @@ void RecvFile(int socket, char* filename, FILE *logss) {
 					fprintf(logss,"Write failed");
 					return;
 				}
-				PrintPacket(packet);	//print content of file
+				PrintPacket(packet,logss);	//print content of file
 				//create ACK packet
 				memset (&packet, 0, sizeof(packet));
 				packet.Type = ACK;
@@ -304,16 +304,14 @@ void RecvFile(int socket, char* filename, FILE *logss) {
 --
 -- NOTES:      wrapper function for receiving a Cmd object
 ----------------------------------------------------------------------------------------------- */
-Cmd RecvCmd(int sockfd, FILE *logss) {
+Cmd RecvCmd(int sockfd) {
 	Cmd cmd;
 	int bytesRecv;
 
 	if((bytesRecv = recv(sockfd, &cmd, sizeof(Cmd), 0)) == -1) {
 		perror("RecvCmd Failed");
-		fprintf(logss,"RecvCmd Failed");
 	} else if(bytesRecv == 0) {
 		printf("Connection ended\n");
-		fprintf(logss,"Connection ended");
 		cmd = CreateCmd(0, NULL);
 	}
 
@@ -379,11 +377,15 @@ Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int
 }
 
 //print content of the file
-void PrintPacket(Packet packet) {
+void PrintPacket(Packet packet,FILE *logs) {
 	printf("Type: Data\n");
-        printf("SeqNum: %d\n", packet.SeqNum);
+	fprintf(logs, "Type: Data\n");
+    printf("SeqNum: %d\n", packet.SeqNum);
+    fprintf(logs,"SeqNum: %d\n", packet.SeqNum);
 	printf("WinSize: %d\n", packet.WindowSize);
+	fprintf(logs,"WinSize: %d\n", packet.WindowSize);
 	printf("AckNum: %d\n", packet.AckNum);
+    fprintf(logs,"AckNum: %d\n", packet.AckNum);
 	//printf("Payload: %s", packet.Data);
 }
 
@@ -419,6 +421,7 @@ void GetConfig(char *filename, std::string config[]){
                     	//cout << config[i] << endl;
                 }
         }
+        file.close();
 }
 
 

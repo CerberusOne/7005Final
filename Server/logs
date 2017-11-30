@@ -1,0 +1,50 @@
+LOG DATE: 2017/11/29 17:42:36 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: test.txt
+
+Recv Data
+Type: EOT
+SeqNum: 0
+LOG DATE: 2017/11/29 17:43:10 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+
+Recv Data
+Type: EOT
+SeqNum: 5120
+LOG DATE: 2017/11/29 17:48:36 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+
+Recv Data
+Type: EOT
+SeqNum: 5120
