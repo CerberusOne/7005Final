@@ -1,29 +1,6 @@
-LOG DATE: 2017/11/29 20:28:46 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7007
-LOG DATE: 2017/11/29 20:38:3 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7007
 Type: 2
 Type: 2
-Filename: test.txt
-
-Recv Data
-Type: EOT
-SeqNum: 0
-LOG DATE: 2017/11/29 20:46:7 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7007
-Type: 2
-Type: 2
-Filename: test.txt
-
-Recv Data
-Type: EOT
-SeqNum: 0
-Type: 2
-Type: 2
-Filename: 5.txt
+Filename: 100.txt
 Type: Data
 SeqNum: 0
 WinSize: 4096
@@ -44,7 +21,3159 @@ Type: Data
 SeqNum: 4096
 WinSize: 4096
 AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 6144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 7168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 8192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 9216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 10240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 11264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 12288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 13312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 14336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 15360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 16384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 17408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 18432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 19456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 20480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 21504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 22528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 23552
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 24576
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 25600
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 26624
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 27648
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 28672
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 29696
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 30720
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 31744
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 32768
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 33792
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 34816
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 35840
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 36864
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 37888
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 38912
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 39936
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 40960
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 41984
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 43008
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 44032
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 45056
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 46080
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 47104
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 48128
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 49152
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 50176
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 51200
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 52224
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 53248
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 54272
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 55296
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 56320
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 57344
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 58368
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 59392
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 60416
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 61440
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 62464
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 63488
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 64512
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 65536
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 66560
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 67584
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 68608
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 69632
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 70656
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 71680
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 72704
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 73728
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 74752
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 75776
+WinSize: 4096
+AckNum: 0
 
 Recv Data
 Type: EOT
+SeqNum: 76800
+Type: 2
+Type: 2
+Filename: 500.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
 SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 6144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 7168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 8192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 9216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 10240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 11264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 12288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 13312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 14336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 15360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 16384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 17408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 18432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 19456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 20480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 21504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 22528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 23552
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 24576
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 25600
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 26624
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 27648
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 28672
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 29696
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 30720
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 31744
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 32768
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 33792
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 34816
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 35840
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 36864
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 37888
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 38912
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 39936
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 40960
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 41984
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 43008
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 44032
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 45056
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 46080
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 47104
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 48128
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 49152
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 50176
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 51200
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 52224
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 53248
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 54272
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 55296
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 56320
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 57344
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 58368
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 59392
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 60416
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 61440
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 62464
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 63488
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 64512
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 65536
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 66560
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 67584
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 68608
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 69632
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 70656
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 71680
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 72704
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 73728
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 74752
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 75776
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 76800
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 77824
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 77824
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 77824
+Type: Data
+SeqNum: 77824
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 78848
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 79872
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 80896
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 77824
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 78848
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 79872
+	Expected SEQ: 81920
+Wrong SEQ found, discarding packet
+	SEQ: 80896
+	ExpLOG DATE: 2017/11/29 23:35:5 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+LOG DATE: 2017/11/29 23:37:1 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 500.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 6144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 7168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 8192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 9216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 10240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 11264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 12288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 13312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 14336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 15360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 16384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 17408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 18432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 19456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 20480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 21504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 22528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 23552
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 24576
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 25600
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 26624
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 27648
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 28672
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 29696
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 30720
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 31744
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 32768
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 33792
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 34816
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 35840
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 36864
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 37888
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 38912
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 39936
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 40960
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 41984
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 43008
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 44032
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 45056
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 46080
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 47104
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 48128
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 49152
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 50176
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 51200
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 52224
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 53248
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 54272
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 55296
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 56320
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 57344
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 58368
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 59392
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 60416
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 61440
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 62464
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 63488
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 64512
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 65536
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 66560
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 67584
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 68608
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 69632
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 70656
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 71680
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 72704
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 73728
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 74752
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 75776
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 76800
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 77824
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 78848
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 79872
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 80896
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 81920
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 82944
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 83968
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 84992
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 86016
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 87040
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 88064
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 89088
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 90112
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 91136
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 92160
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 93184
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 94208
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 95232
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 96256
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 97280
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 98304
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 99328
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 100352
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 101376
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 102400
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 103424
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 104448
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 105472
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 106496
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 107520
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 108544
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 109568
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 110592
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 111616
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 112640
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 113664
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 114688
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 115712
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 116736
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 117760
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 118784
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 119808
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 120832
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 121856
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 122880
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 123904
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 124928
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 125952
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 126976
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 128000
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 129024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 130048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 131072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 132096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 133120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 134144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 135168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 136192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 137216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 138240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 139264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 140288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 141312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 142336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 143360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 144384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 145408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 146432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 147456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 148480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 149504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 150528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 151552
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 152576
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 153600
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 154624
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 155648
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 156672
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 157696
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 158720
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 159744
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 160768
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 161792
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 162816
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 163840
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 164864
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 165888
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 166912
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 167936
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 168960
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 169984
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 171008
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 172032
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 173056
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 174080
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 175104
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 176128
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 177152
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 178176
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 179200
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 180224
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 181248
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 182272
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 183296
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 184320
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 185344
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 186368
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 187392
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 188416
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 189440
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 190464
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 191488
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 192512
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 193536
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 194560
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 195584
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 196608
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 197632
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 198656
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 199680
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 200704
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 201728
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 202752
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 203776
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 204800
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 205824
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 206848
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 207872
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 208896
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 209920
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 210944
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 211968
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 212992
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 214016
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 215040
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 216064
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 217088
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 218112
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 219136
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 220160
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 221184
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 222208
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 223232
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 224256
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 225280
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 226304
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 227328
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 228352
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 229376
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 230400
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 231424
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 232448
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 233472
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 234496
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 235520
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 236544
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 237568
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 238592
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 239616
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 240640
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 241664
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 242688
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 243712
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 244736
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 245760
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 246784
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 247808
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 248832
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 249856
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 250880
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 251904
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 252928
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 253952
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 254976
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 256000
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 257024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 258048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 259072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 260096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 261120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 262144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 263168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 264192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 265216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 266240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 267264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 268288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 269312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 270336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 271360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 272384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 273408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 274432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 275456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 276480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 277504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 278528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 279552
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 280576
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 281600
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 282624
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 283648
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 284672
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 285696
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 286720
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 287744
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 288768
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 289792
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 290816
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 291840
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 292864
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 293888
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 294912
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 295936
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 296960
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 297984
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 299008
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 300032
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 301056
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 302080
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 303104
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 304128
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 305152
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 306176
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 307200
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 308224
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 309248
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 310272
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 311296
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 312320
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 313344
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 314368
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 315392
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 316416
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 317440
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 318464
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 319488
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 320512
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 321536
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 322560
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 323584
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 324608
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 325632
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 326656
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 327680
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 328704
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 329728
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 330752
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 331776
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 332800
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 333824
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 334848
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 335872
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 336896
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 337920
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 338944
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 339968
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 340992
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 342016
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 343040
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 344064
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 345088
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 346112
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 347136
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 348160
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 349184
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 350208
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 351232
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 352256
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 353280
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 354304
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 355328
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 356352
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 357376
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 358400
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 359424
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 360448
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 361472
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 362496
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 363520
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 364544
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 365568
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 366592
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 367616
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 368640
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 369664
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 370688
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 371712
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 372736
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 373760
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 374784
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 375808
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 376832
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 377856
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 378880
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 379904
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 380928
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 381952
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 382976
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 384000
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 385024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 386048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 387072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 388096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 389120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 390144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 391168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 392192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 393216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 394240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 395264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 396288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 397312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 398336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 399360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 400384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 401408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 402432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 403456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 404480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 405504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 406528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 407552
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 408576
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 409600
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 410624
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 411648
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 412672
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 413696
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 414720
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 415744
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 416768
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 417792
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 418816
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 419840
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 420864
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 421888
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 422912
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 423936
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 424960
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 425984
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 427008
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 428032
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 429056
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 430080
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 431104
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 432128
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 433152
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 434176
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 435200
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 436224
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 437248
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 438272
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 439296
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 440320
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 441344
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 442368
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 443392
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 444416
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 445440
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 446464
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 447488
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 448512
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 449536
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 450560
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 451584
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 452608
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 453632
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 454656
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 455680
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 456704
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 457728
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 458752
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 459776
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 460800
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 461824
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 462848
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 463872
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 464896
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 465920
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 466944
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 467968
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 468992
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 470016
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 471040
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 472064
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 473088
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 474112
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 475136
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 476160
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 477184
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 478208
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 479232
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 480256
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 481280
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 482304
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 483328
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 484352
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 485376
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 486400
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 487424
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 488448
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 489472
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 490496
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 491520
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 492544
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 493568
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 494592
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 495616
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 496640
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 497664
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 498688
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 499712
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 500736
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 501760
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 502784
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 503808
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 504832
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 505856
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 506880
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 507904
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 508928
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 509952
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 510976
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 512000
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 513024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 514048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 515072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 516096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 517120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 518144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 519168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 520192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 521216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 522240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 523264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 524288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 525312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 526336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 527360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 528384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 529408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 530432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 531456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 532480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 533504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 534528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 535552
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 536576
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 537600
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 538624
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 539648
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 540672
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 541696
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 542720
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 543744
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 544768
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 545792
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 546816
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 547840
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 548864
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 549888
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 550912
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 551936
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 552960
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 553984
+WinSize: 4096
+AckNum: 0
+
+Recv Data
+Type: EOT
+SeqNum: 555008
