@@ -45,7 +45,7 @@ typedef struct
 	char filename[BUFLEN];	//isn't this too much?
 }Cmd;
 
-typedef struct
+extern "C" typedef struct
 {
 	int Type;			//numeric code (ACK, DATA or EOT)
 	int SeqNum;
