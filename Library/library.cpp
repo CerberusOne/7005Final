@@ -36,24 +36,6 @@ using namespace std;
 ----------------------------------------------------------------------------------------------- */
 void SendFile(int socket, char *filename, FILE *logs) {
 	FILE *file;
-<<<<<<< HEAD
-		char buffer[BUFLEN];
-		int bytesRead, bytesSent;
-		Packet packet;
-
-		int seqNum = 0;
-		int ackNum = 0;
-		int windowSize = 4 * BUFLEN;	//bytes in transmission
-		int base = 0;			//base +1 is the next expected ACK
-		int nextSeq = base;
-
-		//open file
-		if((file = fopen(filename, "rb")) == NULL) {
-			perror("file doesn't exist\n");
-			fprintf(logs,"file doesn't exist\n");
-			return;
-		}
-=======
 	char buffer[BUFLEN];
 	int bytesRead, bytesSent;
 	Packet packet;
@@ -70,6 +52,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		return;
 	}
 
+
 	//reset buffers
 	memset(buffer, '\0', BUFLEN);
 	memset(packet.Data, '\0', BUFLEN);
@@ -77,213 +60,64 @@ void SendFile(int socket, char *filename, FILE *logs) {
 	int passed;
 	clock_t start = 0;
 	bool send = false;
-	int timeoutCounter;
+	int timeoutCounter = 0;
 	int lastAck = sizeof(packet.Data);
 	int dupAckCount = 0;
+	
 
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
 		if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
 			printf("received packet\n");
+			fprintf(logs,"received packet\n");
 
 			//check packet type for EOT or ACK
 			if(packet.Type == EOT) {
 				printf("EOT found, ending transmission\n");
+				fprintf(logs,"EOT found, ending transmission\n");
 				fclose(file);
 				return;
 			}
 			else if(packet.Type == ACK) {
 				printf("ACK found: %d\n", packet.AckNum);
-									
-				//check if its a duplicate ack, if dAck, then only reset base once
-				if(lastAck != packet.AckNum || dupAckCount == 0) {
-					if(lastAck != packet.AckNum) {
-						dupAckCount++;
-						printf("Duplicate ACK found: %d\n", packet.AckNum);
-						printf("lastAck: %d\n", lastAck);
-					} else {
-						dupAckCount = 0;
-						lastAck += sizeof(packet.Data);
-						base = packet.AckNum;
-						
-						/*if(fseek(file, base, SEEK_SET) < 0) {
-							perror("ACK fseek");	
-						}*/
-
-						if(base == nextSeq) {
-							start = 0;
-							printf("Stopping timer\n");
-						} else {
-							start = clock();
-							printf("Starting timer\n");
-						}
-					}
-				} 
-				
-				
-
-			//	nextSeq = base;
-
-
-/*				//check if it is the next expected packet, otherwise discard
-				if(packet.AckNum == base + (int)sizeof(packet.Data)) {
-					//increment base of window (slide window)
-					base += sizeof(packet.Data);
-
-					//if the window is empty
-					if(base == nextSeq) {
-						//stop to timer
-						start = 0;
-						printf("Starting timer\n");
->>>>>>> develop
-
-		//reset buffers
-		memset(buffer, '\0', BUFLEN);
-		memset(packet.Data, '\0', BUFLEN);
-
-		int passed;
-		clock_t start = 0;
-		bool send = false;
-		int timeoutCounter = 0;
-		int lastAck = sizeof(packet.Data);
-		int dupAckCount = 0;
-		
-
-		while(1) {
-			//check data socket for new ACK in NON-BLOCKING
-			if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
-				printf("received packet\n");
-				fprintf(logs,"received packet\n");
-
-				//check packet type for EOT or ACK
-				if(packet.Type == EOT) {
-					printf("EOT found, ending transmission\n");
-					fprintf(logs,"EOT found, ending transmission\n");
-					fclose(file);
-					return;
-				}
-				else if(packet.Type == ACK) {
-					printf("ACK found: %d\n", packet.AckNum);
-					fprintf(logs,"ACK found: %d\n", packet.AckNum);
-
-					//check if its a duplicate ack, if dAck, then only reset base once
-					//if(lastAck != packet.AckNum || dupAckCount == 0) {
-					/*	if(lastAck != packet.AckNum) {
-							dupAckCount++;
-							printf("Duplicate ACK found: %d\n", packet.AckNum);
-							fprintf(logs,"Duplicate ACK found: %d\n", packet.AckNum);
-							printf("lastAck: %d\n", lastAck);
-							fprintf(logs,"lastAck: %d\n", lastAck);
-							fprintf(logs,"lastAck: %d\n", lastAck);
-						} else {
-					*/
-					//		dupAckCount = 0;
-					//		lastAck += sizeof(packet.Data);
-							base = packet.AckNum;
-							timeoutCounter = 0;
-
-							/*if(fseek(file, base, SEEK_SET) < 0) {
-								perror("ACK fseek");
-							}*/
-
-							if(base == nextSeq) {
-								start = 0;
-								printf("Stopping timer\n");
-								fprintf(logs,"Starting timer\n");
-							} else {
-								start = clock();
-								printf("Starting timer\n");
-								fprintf(logs,"Starting timer\n");
-							}
-						}
-				//	}
-
-
-
-				//	nextSeq = base;
-
-
-	/*				//check if it is the next expected packet, otherwise discard
-					if(packet.AckNum == base + (int)sizeof(packet.Data)) {
-						//increment base of window (slide window)
-						base += sizeof(packet.Data);
-						//if the window is empty
-						if(base == nextSeq) {
-							//stop to timer
-							start = 0;
-							printf("Starting timer\n");
-						} else {
-							//restart the timer
-							start = clock();
-							printf("Restarting timer\n");
-						}
-					} else {
-<<<<<<< HEAD
-						//discard packet
-						printf("Duplicate ACK found, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
-						//move window's base to next expected byte for the receiver
-						base = packet.AckNum;
-						nextSeq = base;
-						seqNum = base;
-						send = false;
-						if(fseek(file, base, SEEK_SET) < 0) {
-							perror("duplicate ack fseek");
-						}
-					}
-					printf("\n");
-				}
-*/
-			} else if (bytesRead == -1) {
-				if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
-					perror("ERROR not EAGAIN or EWOULDBLOCK");
-					fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
-					return;
+				fprintf(logs,"ACK found: %d\n", packet.AckNum);
+				base = packet.AckNum;
+				timeoutCounter = 0;
+				if(base == nextSeq) {
+					start = 0;
+					printf("Stopping timer\n");
+					fprintf(logs,"Starting timer\n");
+				} else {
+					start = clock();
+					printf("Starting timer\n");
+					fprintf(logs,"Starting timer\n");
 				}
 			}
-
-			//check if there is a timeout
-			passed = (clock() - start)/CLOCKS_PER_SEC;
-			if(passed >= SENDTIMER){
-				timeoutCounter++;
-				printf("timeout counter: %d", timeoutCounter);
-
-				if(timeoutCounter == 10) {
-					fclose(logs);
-=======
-						//restart the timer
-						start = clock();
-						printf("Restarting timer\n");
-					}
-				} else {
-					//discard packet
-					printf("Duplicate ACK found, recv: %d\texpected: %d \n", packet.AckNum, base + (int)sizeof(packet.Data));
-					//move window's base to next expected byte for the receiver
-					base = packet.AckNum;
-					nextSeq = base;
-					seqNum = base;
-					send = false;
-					if(fseek(file, base, SEEK_SET) < 0) {
-						perror("duplicate ack fseek");	
-					}
-				}
-
-				printf("\n");
-*/			}
 		} else if (bytesRead == -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 				perror("ERROR not EAGAIN or EWOULDBLOCK");
+				fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
 				return;
 			}
 		}
 
 		//check if there is a timeout
 		passed = (clock() - start)/CLOCKS_PER_SEC;
-		if(passed >= 10){
-			timeoutCounter++; 
-			
+		if(passed >= SENDTIMER){
+			timeoutCounter++;
+			printf("timeout counter: %d", timeoutCounter);
+
+			if(timeoutCounter == 10) {
+				fclose(logs);
+				exit(1);
+			}
+
 			printf("nextSeq: %d\n", nextSeq);
+			fprintf(logs,"nextSeq: %d\n", nextSeq);
 			printf("timeout, base: %d\n", base);
+			fprintf(logs,"timeout, base: %d\n", base);
 			printf("timeoutCounter: %d\n", timeoutCounter);
+			fprintf(logs,"timeoutCounter: %d\n", timeoutCounter);
 
 			//set nextSeq to base
 			nextSeq = base;
@@ -293,7 +127,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 			if(fseek(file, base, SEEK_SET) < 0) {
 				perror("fseek");
 			}
-	
+
 			//printf("\n");
 		}
 
@@ -313,101 +147,48 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					if(bytesRead > 0) {
 						send = true; //packet ready to send
 						printf("Ready to send, seq %d\n", seqNum);
+						fprintf(logs,"Ready to send, seq %d\n", seqNum);
 					}
 				} else {
 					perror("Reading file: ");
->>>>>>> develop
+					fprintf(logs,"Reading file: ");
 					exit(1);
 				}
 
-				printf("nextSeq: %d\n", nextSeq);
-				fprintf(logs,"nextSeq: %d\n", nextSeq);
-				printf("timeout, base: %d\n", base);
-				fprintf(logs,"timeout, base: %d\n", base);
-				printf("timeoutCounter: %d\n", timeoutCounter);
-				fprintf(logs,"timeoutCounter: %d\n", timeoutCounter);
 
-				//set nextSeq to base
-				nextSeq = base;
-				seqNum = base;
-				send = false;
-				//seek file back to bytesRead - base
-				if(fseek(file, base, SEEK_SET) < 0) {
-					perror("fseek");
-				}
-
-				//printf("\n");
 			}
 
-			//only send next packet if window isn't full
-			if(nextSeq < base + windowSize) {
-				//check if we are ready to send and if a packet hasn't been created
-				if(!send) {
-					//read file
-					if((bytesRead = fread(buffer, sizeof(char), sizeof(buffer), file)) != -1) {
-						//check for EOT and send packet
-						if(bytesRead < (int)sizeof(buffer)) {
-							packet = CreatePacket(EOT, seqNum, buffer, 0, 0);
-						} else {
-							packet = CreatePacket(DATA, seqNum, buffer, windowSize, ackNum);
-						}
+			if(send) {
+				if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
+					printf("bytes sent: %d\n", bytesSent);
+					fprintf(logs,"bytes sent: %d\n", bytesSent);
+					seqNum += bytesRead;		//calculate next seq number
+					memset(buffer, '\0', BUFLEN);	//reset buffer
 
-						if(bytesRead > 0) {
-							send = true; //packet ready to send
-							printf("Ready to send, seq %d\n", seqNum);
-							fprintf(logs,"Ready to send, seq %d\n", seqNum);
-						}
-					} else {
-						perror("Reading file: ");
-						fprintf(logs,"Reading file: ");
-						exit(1);
+					if(base == nextSeq) {
+						//start timer
+						start = clock();
+						printf("Starting timer, base: %d\n", base);
+						fprintf(logs,"Starting timer, base: %d\n", base);
 					}
 
+					nextSeq += bytesRead;	//update next sequence
+					send = false;	//not ready to send another packet, packet used
 
-				}
+				} else if (bytesSent == -1) {
+					//perror("Send File: Error writing to socket DATA");
 
-				if(send) {
-					if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
-						printf("bytes sent: %d\n", bytesSent);
-						fprintf(logs,"bytes sent: %d\n", bytesSent);
-						seqNum += bytesRead;		//calculate next seq number
-						memset(buffer, '\0', BUFLEN);	//reset buffer
-
-						if(base == nextSeq) {
-							//start timer
-							start = clock();
-							printf("Starting timer, base: %d\n", base);
-							fprintf(logs,"Starting timer, base: %d\n", base);
-						}
-
-						nextSeq += bytesRead;	//update next sequence
-						send = false;	//not ready to send another packet, packet used
-
-					} else if (bytesSent == -1) {
-						//perror("Send File: Error writing to socket DATA");
-
-						if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
-							perror("ERROR not EAGAIN or EWOULDBLOCK");
-							fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
-							return;
-						}
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
+						return;
 					}
 				}
-
-				//printf("\n");
 			}
-
-<<<<<<< HEAD
 		}
-=======
-			//printf("\n");
-		} 
-		
-	}
->>>>>>> develop
-
-		fclose(file);
-	}
+	} 
+	fclose(file);
+}
 
 
 /*-----------------------------------------------------------------------------------------------
@@ -498,37 +279,13 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 					fprintf(logs,"Write failed");
 					return;
 				}
-<<<<<<< HEAD
 
 				PrintPacket(packet,logs);	//print content of file
 				//update expectedSEQ
 				expectedSEQ+=sizeof(packet.Data);
 				memset (&packet, 0, sizeof(packet));
 				discardCounter = 0;
-
-				//create ACK packet
-				//packet.Type = ACK;
-				//packet.AckNum = expectedSEQ;
-				/*
-=======
-				PrintPacket(packet);	//print content of file
-				
-				//update expectedSEQ
-				expectedSEQ+=sizeof(packet.Data);
-				memset (&packet, 0, sizeof(packet));
-				
-				//create ACK packet
-				packet.Type = ACK;
-				packet.AckNum = expectedSEQ;
->>>>>>> develop
-				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
-						perror("ERROR not EAGAIN or EWOULDBLOCK");
-						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
-					return;
-					}
-				}
-				*/
+			
 			} else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
 				discardCounter++;
 
@@ -548,19 +305,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 
 				memset (&packet, 0, sizeof(packet));
 
-				//create ACK packet
-				//packet.Type = ACK;
-				//packet.AckNum = expectedSEQ;
-				/*	
- 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
-						perror("ERROR not EAGAIN or EWOULDBLOCK");
-						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
-						return;
-					}
-				}
-<<<<<<< HEAD
-				*/
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("\nRecv Data\n");
 				fprintf(logs,"\nRecv Data\n");
@@ -568,31 +312,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				fprintf(logs,"Type: EOT\n");
 				printf("SeqNum: %d\n",packet.SeqNum);
 				fprintf(logs,"SeqNum: %d\n",packet.SeqNum);
-=======
-
-			}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
-				printf("Wrong SEQ found, discarding packet\n");
-				printf("\tSEQ: %d\n",packet.SeqNum);
-				printf("\tExpected SEQ: %d\n", expectedSEQ);
-				
-				memset (&packet, 0, sizeof(packet));
-				
-				//create ACK packet
-				packet.Type = ACK;
-				packet.AckNum = expectedSEQ;
-				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
-						perror("ERROR not EAGAIN or EWOULDBLOCK");
-						return;
-					}
-				}
-
-			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
-				printf("\nRecv Data\n");
-				printf("\tType: EOT\n");
-				printf("\tSeqNum: %d\n",packet.SeqNum);
->>>>>>> develop
-
 
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) < 0) {
 					perror("RecvFile write failed");
@@ -713,17 +432,11 @@ Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int
 }
 
 //print content of the file
-<<<<<<< HEAD
 void PrintPacket(Packet packet,FILE *logs) {
 	printf("Type: Data\n");
 	fprintf(logs, "Type: Data\n");
     printf("SeqNum: %d\n", packet.SeqNum);
     fprintf(logs,"SeqNum: %d\n", packet.SeqNum);
-=======
-void PrintPacket(Packet packet) {
-	printf("Type: %d\n", packet.Type);
-        printf("SeqNum: %d\n", packet.SeqNum);
->>>>>>> develop
 	printf("WinSize: %d\n", packet.WindowSize);
 	fprintf(logs,"WinSize: %d\n", packet.WindowSize);
 	printf("AckNum: %d\n", packet.AckNum);
