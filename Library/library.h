@@ -35,7 +35,7 @@
 #define SERVERPORT 6
 
 #define RECVTIMER 1 
-#define SENDTIMER 5 
+#define SENDTIMER 10 
 
 using namespace std;
 

@@ -99,8 +99,9 @@ int main (int argc, char *argv[]) {
 	fclose(logfile);
 	do{
 		if((logfile = fopen(LOG, "a")) == NULL) {
-		perror("file doesn't exist\n");
+			perror("file doesn't exist\n");
         }
+		printf("Waiting for command\n");
 		//cmd = commandConnection->WaitCommand();					//Wait for the client
 		cmd = RecvCmd(commandConnection->GetSocket());
 		printf("Type: %d\n",cmd.type);

@@ -96,6 +96,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					//		dupAckCount = 0;
 					//		lastAck += sizeof(packet.Data);
 							base = packet.AckNum;
+							timeoutCounter = 0;
 
 							/*if(fseek(file, base, SEEK_SET) < 0) {
 								perror("ACK fseek");
@@ -161,7 +162,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 				timeoutCounter++;
 				printf("timeout counter: %d", timeoutCounter);
 
-				if(timeoutCounter == 4) {
+				if(timeoutCounter == 10) {
 					fclose(logs);
 					exit(1);
 				}
@@ -287,10 +288,11 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 
 	while(1) {
 		//check if a packet has been received
-		if(newAck) {
-			timer = (clock()-start)/CLOCKS_PER_SEC;
-			//if the timer has ran out
-			if(timer >= RECVTIMER) {
+
+		timer = (clock()-start)/CLOCKS_PER_SEC;
+		//if the timer has ran out
+		if(timer >= RECVTIMER) {
+			if(newAck) {
 				printf("Timer expired, sending ACK\n");
 				newAck = false;
 				start = 0;
@@ -321,12 +323,14 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				return;
 			}
 		} else {
+			if(!newAck) {
+				newAck = true;
+				start = clock();
+			}
+
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
-				if(!newAck) {
-					newAck = true;
-					start = clock();
-				}
+
 
 				//write file
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
@@ -339,6 +343,7 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				//update expectedSEQ
 				expectedSEQ+=sizeof(packet.Data);
 				memset (&packet, 0, sizeof(packet));
+				discardCounter = 0;
 
 				//create ACK packet
 				//packet.Type = ACK;
