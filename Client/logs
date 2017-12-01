@@ -94366,3 +94366,66 @@ received packet
 EOT found, ending transmission
 Enter command: exit
 exiting
+LOG DATE: 2017/11/30 20:27:34 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 2
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 3
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 4
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 5
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 6
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 7
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 8
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 9
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
