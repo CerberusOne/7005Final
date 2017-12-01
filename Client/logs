@@ -1,287 +1,8 @@
-LOG DATE: 2017/11/29 20:28:49 
+LOG DATE: 2017/11/30 1:2:7 
 Connecting to IP: 127.0.0.1
 Connecting to Port: 7006
 Enter command: send
-Enter filename 100.txt
-sending file
-Ready to send, seq 0
-bytes sent: 1040
-Starting timer, base: 0
-Ready to send, seq 1024
-bytes sent: 1040
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-received packet
-ACK found: 1024
-Starting timer
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 3072
-Duplicate ACK found: 3072
-lastAck: 2048
-received packet
-ACK found: 4096
-Duplicate ACK found: 4096
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32766
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32767
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32768
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32769
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32770
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32771
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32772
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32773
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-received packet
-ACK found: 5120
-Duplicate ACK found: 5120
-lastAck: 2048
-nextSeq: 5120
-timeout, base: 1024
-timeoutCounter: 32774
-Ready to send, seq 1024
-bytes sent: 1040
-Starting timer, base: 1024
-Ready to send, seq 2048
-bytes sent: 1040
-Ready to send, seq 3072
-bytes sent: 1040
-Ready to send, seq 4096
-bytes sent: 1040
-ERROR not EAGAIN or EWOULDBLOCKLOG DATE: 2017/11/29 20:38:5 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7006
-LOG DATE: 2017/11/29 20:46:10 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7006
-Enter command: send
-Enter filename test.txt
-sending file
-Ready to send, seq 0
-bytes sent: 1040
-Starting timer, base: 0
-received packet
-EOT found, ending transmission
-Enter command: send
-Enter filename 5.txt
+Enter filename 500.txt
 sending file
 Ready to send, seq 0
 bytes sent: 1040
@@ -305,12 +26,125 @@ bytes sent: 1040
 received packet
 ACK found: 3072
 Starting timer
+Ready to send, seq 6144
+bytes sent: 1040
 received packet
 ACK found: 4096
 Starting timer
+Ready to send, seq 7168
+bytes sent: 1040
 received packet
 ACK found: 5120
 Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
 received packet
-EOT found, ending transmission
-Enter command: exit
+ACK found: 6144
+Starting timer
+Ready to send, seq 9216
+bytes sent: 1040
+received packet
+ACK found: 7168
+Starting timer
+Ready to send, seq 10240
+bytes sent: 1040
+received packet
+ACK found: 8192
+Starting timer
+Ready to send, seq 11264
+bytes sent: 1040
+received packet
+ACK found: 9216
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+received packet
+ACK found: 10240
+Starting timer
+Ready to send, seq 13312
+bytes sent: 1040
+received packet
+ACK found: 11264
+Starting timer
+Ready to send, seq 14336
+bytes sent: 1040
+received packet
+ACK found: 12288
+Starting timer
+Ready to send, seq 15360
+bytes sent: 1040
+received packet
+ACK found: 13312
+Starting timer
+Ready to send, seq 16384
+bytes sent: 1040
+received packet
+ACK found: 14336
+Starting timer
+Ready to send, seq 17408
+bytes sent: 1040
+received packet
+ACK found: 15360
+Starting timer
+Ready to send, seq 18432
+bytes sent: 1040
+received packet
+ACK found: 16384
+Starting timer
+Ready to send, seq 19456
+bytes sent: 1040
+received packet
+ACK found: 18432
+Duplicate ACK found: 18432
+lastAck: 17408
+lastAck: 17408
+received packet
+ACK found: 19456
+Duplicate ACK found: 19456
+lastAck: 17408
+lastAck: 17408
+received packet
+ACK found: 20480
+Duplicate ACK found: 20480
+lastAck: 17408
+lastAck: 17408
+nextSeq: 20480
+timeout, base: 16384
+timeoutCounter: 1
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet
+ACK found: 20480
+Duplicate ACK found: 20480
+lastAck: 17408
+lastAck: 17408
+received packet
+ACK found: 20480
+Duplicate ACK found: 20480
+lastAck: 17408
+lastAck: 17408
+received packet
+ACK found: 20480
+Duplicate ACK found: 20480
+lastAck: 17408
+lastAck: 17408
+nextSeq: 20480
+timeout, base: 16384
+timeoutCounter: 2
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKEnter command: exit

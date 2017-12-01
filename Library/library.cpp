@@ -60,9 +60,10 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		int passed;
 		clock_t start = 0;
 		bool send = false;
-		int timeoutCounter;
+		int timeoutCounter = 0;
 		int lastAck = sizeof(packet.Data);
 		int dupAckCount = 0;
+		
 
 		while(1) {
 			//check data socket for new ACK in NON-BLOCKING
@@ -156,6 +157,12 @@ void SendFile(int socket, char *filename, FILE *logs) {
 			passed = (clock() - start)/CLOCKS_PER_SEC;
 			if(passed >= 10){
 				timeoutCounter++;
+				printf("timeout counter: %d", timeoutCounter);
+
+				if(timeoutCounter == 4) {
+					fclose(logs);
+					exit(1);
+				}
 
 				printf("nextSeq: %d\n", nextSeq);
 				fprintf(logs,"nextSeq: %d\n", nextSeq);
@@ -259,9 +266,15 @@ void SendFile(int socket, char *filename, FILE *logs) {
 -- NOTES:      Receives an entire file through the socket
 ----------------------------------------------------------------------------------------------- */
 void RecvFile(int socket, char* filename, FILE *logs) {
+	//ACK timer
+	int timer = 0;
+	int start = 0;
+	bool newTimer = false;
+
 	FILE *file;
 	int bytesSent, expectedSEQ=0, bytesRecv, writeCount = 0;
 	Packet packet;
+	int discardCounter = 0;
 
 	//open file to write in binary
 	if((file = fopen(filename, "wb")) == NULL) {
@@ -282,6 +295,11 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 		} else {
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
+				if(!newTimer) {
+					newTimer = true;
+					start = clock();
+				}
+
 				//write file
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
 					perror("Write failed");
@@ -303,26 +321,34 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 						return;
 					}
 				}
-				}else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
-					printf("Wrong SEQ found, discarding packet\n");
-					fprintf(logs,"Wrong SEQ found, discarding packet\n");
-					printf("\tSEQ: %d\n",packet.SeqNum);
-					fprintf(logs, "\tSEQ: %d\n",packet.SeqNum);
-					printf("\tExpected SEQ: %d\n", expectedSEQ);
-					fprintf(logs,"\tExpected SEQ: %d\n", expectedSEQ);
+			} else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
+				discardCounter++;
 
-					memset (&packet, 0, sizeof(packet));
+				printf("Wrong SEQ found, discarding %d packet\n", discardCounter);
+				fprintf(logs,"Wrong SEQ found, discarding packet\n");
+				printf("\tSEQ: %d\n",packet.SeqNum);
+				fprintf(logs, "\tSEQ: %d\n",packet.SeqNum);
+				printf("\tExpected SEQ: %d\n", expectedSEQ);
+				fprintf(logs,"\tExpected SEQ: %d\n", expectedSEQ);
 
-					//create ACK packet
-					packet.Type = ACK;
-					packet.AckNum = expectedSEQ;
-					if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
-						if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
-							perror("ERROR not EAGAIN or EWOULDBLOCK");
-							fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
-							return;
-						}
+				if(discardCounter == 4) {
+					printf("4 duplicates found, closing\n");
+					fclose(logs);
+					exit(1);
+				}
+
+				memset (&packet, 0, sizeof(packet));
+
+				//create ACK packet
+				packet.Type = ACK;
+				packet.AckNum = expectedSEQ;
+				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
+						return;
 					}
+				}
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("\nRecv Data\n");
 				fprintf(logs,"\nRecv Data\n");

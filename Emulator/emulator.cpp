@@ -186,31 +186,31 @@ int main (int argc, char *argv[]) {
 		//check if there is a data packet from client
 		if((bytesRecv = recv(clientData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
 			if (!Discard(BER,rate)){
-			printf("Client data found\n");
-			printf("\tPacket Type: %d\t", packet.Type);
-			start = clock();
-			printf("Delay started\n");
+				printf("Client data found\n");
+				printf("\tPacket Type: %d\t", packet.Type);
+				start = clock();
+				printf("Delay started\n");
 
-			//wait timer ends
-			while(timer){
-			  passed = (clock() - start) / CLOCKS_PER_SEC;
-			    //If timer is not over
-			    if (passed >= delay){
-			      cout << "Delay End\n " << endl;
-			      timer = false;
-			    }
-			}
-			timer = true;
+				//wait timer ends
+				while(timer){
+				  passed = (clock() - start) / CLOCKS_PER_SEC;
+				    //If timer is not over
+				    if (passed >= delay){
+				      cout << "Delay End\n " << endl;
+				      timer = false;
+				    }
+				}
+				timer = true;
 
-			//pass the packet to the server
-			if((bytesSent = send(serverData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
-				printf("Packet sent to server\n");
-			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
-				perror("Send serverData failed\n");
+				//pass the packet to the server
+				if((bytesSent = send(serverData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
+					printf("Packet sent to server\n");
+				} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
+					perror("Send serverData failed\n");
+				}
+			} else{
+				printf("Packet Discarded: %d\n", packet.SeqNum);
 			}
-		} else{
-			printf("Packet Discarded\n");
-		}
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv clientData failed");
 		}
@@ -245,7 +245,7 @@ int main (int argc, char *argv[]) {
 				printf("EOT received from Server");
 			}
 		} else{
-			printf("Packet Discarded\n");
+			printf("Packet Discarded: %d\n", packet.AckNum);
 		}
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv serverData failed");

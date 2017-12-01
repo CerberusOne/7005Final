@@ -1,29 +1,9 @@
-LOG DATE: 2017/11/29 20:28:46 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7007
-LOG DATE: 2017/11/29 20:38:3 
+LOG DATE: 2017/11/30 1:2:1 
 Connecting to IP: 127.0.0.1
 Connecting to Port: 7007
 Type: 2
 Type: 2
-Filename: test.txt
-
-Recv Data
-Type: EOT
-SeqNum: 0
-LOG DATE: 2017/11/29 20:46:7 
-Connecting to IP: 127.0.0.1
-Connecting to Port: 7007
-Type: 2
-Type: 2
-Filename: test.txt
-
-Recv Data
-Type: EOT
-SeqNum: 0
-Type: 2
-Type: 2
-Filename: 5.txt
+Filename: 500.txt
 Type: Data
 SeqNum: 0
 WinSize: 4096
@@ -44,7 +24,75 @@ Type: Data
 SeqNum: 4096
 WinSize: 4096
 AckNum: 0
-
-Recv Data
-Type: EOT
+Type: Data
 SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 6144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 7168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 8192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 9216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 10240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 11264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 12288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 13312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 14336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 15360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 16384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 17408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 18432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 19456
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 16384
+	Expected SEQ: 20480
+Wrong SEQ found, discarding packet
+	SEQ: 17408
+	Expected SEQ: 20480
+Wrong SEQ found, discarding packet
+	SEQ: 18432
+	Expected SEQ: 20480
+Wrong SEQ found, discarding packet
+	SEQ: 19456
+	Expected SEQ: 20480
