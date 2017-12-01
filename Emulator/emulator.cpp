@@ -21,9 +21,7 @@
 
 using namespace std;
 
-int Rando();
-bool Same(int i,int *arr,int size);
-bool Discard(int *arr,int size);
+bool Discard(double probability);
 
 string config[BUFLEN];
 
@@ -40,7 +38,6 @@ int main (int argc, char *argv[]) {
 	time_t t;
   srand((unsigned) time(&t));
   int rate = atoi(argv[1]);
-  int BER[rate];
     /**char ratestr;
     *char delaystr;
     cout <<"Please enter the delay" << endl;
@@ -54,18 +51,6 @@ int main (int argc, char *argv[]) {
       		perror("Error: ./file [BER] [DELAY]");
 					exit(0);
     	}
-
-  //populate BER array
-	int i;
-	for(i = 0; i<rate; i++){
-    	BER[i] = Rando();
-      	if (Same(BER[i],BER,rate)){
-        		do {
-          			BER[i] = Rando();
-        		} while (!Same(BER[i],BER,rate));
-      	}
-      //cout << BER[i] << endl;
-  }
 
 	filename = ParseString("config");
 	strcpy(configpath, ROOT);
@@ -185,7 +170,7 @@ int main (int argc, char *argv[]) {
 
 		//check if there is a data packet from client
 		if((bytesRecv = recv(clientData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
-			if (!Discard(BER,rate)){
+			if (!Discard(rate)){
 				printf("Client data found\n");
 				printf("\tPacket Type: %d\t", packet.Type);
 				start = clock();
@@ -218,7 +203,7 @@ int main (int argc, char *argv[]) {
 
 		//check if there is a data ACK from server
 		if((bytesRecv = recv(serverData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
-			if (!Discard(BER,rate)){
+			if (!Discard(rate)){
 			printf("Server data ACK found\n");
 
 			start = clock();
@@ -262,27 +247,6 @@ int main (int argc, char *argv[]) {
 	return 0;
 }
 
-int Rando(){
-  	return rand() % 100 +1;
-}
-bool Same(int val,int *arr,int size){
-  	int i;
-  	for(i = 0; i<size; i++){
-      		if (arr[i] == val){
-        		return true;
-      		}
-  	}
-  return false;
-}
-bool Discard(int *arr,int size){
-  	int i;
-  	int val = Rando();
-  	//cout << "checking value with: " << val << endl;
-  	for(i = 0; i<size; i++){
-    		if(Same(val,arr,size)){
-      			i = size;
-      			return true;
-    		}
-  	}
-    return false;
+bool Discard(double probability){
+    return rand() < probability * ((double)RAND_MAX + 1.0);
 }

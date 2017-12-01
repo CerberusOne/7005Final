@@ -14083,3 +14083,43 @@ SeqNum: 24576
 Type: 0
 Type: 0
 Filename: exit
+LOG DATE: 2017/11/30 20:27:30 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: test.txt
+Type: Data
+SeqNum: 0
+WinSize: 0
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
