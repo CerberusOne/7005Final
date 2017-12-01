@@ -34,6 +34,9 @@
 #define SERVERIP 5
 #define SERVERPORT 6
 
+#define RECVTIMER 1 
+#define SENDTIMER 5 
+
 using namespace std;
 
 typedef struct

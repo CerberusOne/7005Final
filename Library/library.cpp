@@ -83,8 +83,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					fprintf(logs,"ACK found: %d\n", packet.AckNum);
 
 					//check if its a duplicate ack, if dAck, then only reset base once
-					if(lastAck != packet.AckNum || dupAckCount == 0) {
-						if(lastAck != packet.AckNum) {
+					//if(lastAck != packet.AckNum || dupAckCount == 0) {
+					/*	if(lastAck != packet.AckNum) {
 							dupAckCount++;
 							printf("Duplicate ACK found: %d\n", packet.AckNum);
 							fprintf(logs,"Duplicate ACK found: %d\n", packet.AckNum);
@@ -92,8 +92,9 @@ void SendFile(int socket, char *filename, FILE *logs) {
 							fprintf(logs,"lastAck: %d\n", lastAck);
 							fprintf(logs,"lastAck: %d\n", lastAck);
 						} else {
-							dupAckCount = 0;
-							lastAck += sizeof(packet.Data);
+					*/
+					//		dupAckCount = 0;
+					//		lastAck += sizeof(packet.Data);
 							base = packet.AckNum;
 
 							/*if(fseek(file, base, SEEK_SET) < 0) {
@@ -110,7 +111,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 								fprintf(logs,"Starting timer\n");
 							}
 						}
-					}
+				//	}
 
 
 
@@ -144,7 +145,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 						}
 					}
 					printf("\n");
-	*/			}
+				}
+*/
 			} else if (bytesRead == -1) {
 				if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 					perror("ERROR not EAGAIN or EWOULDBLOCK");
@@ -155,7 +157,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 
 			//check if there is a timeout
 			passed = (clock() - start)/CLOCKS_PER_SEC;
-			if(passed >= 10){
+			if(passed >= SENDTIMER){
 				timeoutCounter++;
 				printf("timeout counter: %d", timeoutCounter);
 
@@ -268,8 +270,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 void RecvFile(int socket, char* filename, FILE *logs) {
 	//ACK timer
 	int timer = 0;
-	int start = 0;
-	bool newTimer = false;
+	clock_t start = 0;
+	bool newAck = false;
 
 	FILE *file;
 	int bytesSent, expectedSEQ=0, bytesRecv, writeCount = 0;
@@ -284,6 +286,32 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 	}
 
 	while(1) {
+		//check if a packet has been received
+		if(newAck) {
+			timer = (clock()-start)/CLOCKS_PER_SEC;
+			//if the timer has ran out
+			if(timer >= RECVTIMER) {
+				printf("Timer expired, sending ACK\n");
+				newAck = false;
+				start = 0;
+
+				//send the cumulative ACK 
+				memset(&packet, 0, sizeof(packet));
+				packet.Type = ACK;
+				packet.AckNum = expectedSEQ;
+				
+			
+				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+						perror("ERROR not EAGAIN or EWOULDBLOCK");
+						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
+						return;
+					}
+				}
+			}
+		}
+
+
 		memset(&packet, 0, sizeof(packet));
 		//receive the packet
 		if((bytesRecv = read(socket, &packet, sizeof(packet))) == -1) {
@@ -295,8 +323,8 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 		} else {
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
-				if(!newTimer) {
-					newTimer = true;
+				if(!newAck) {
+					newAck = true;
 					start = clock();
 				}
 
@@ -306,21 +334,24 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 					fprintf(logs,"Write failed");
 					return;
 				}
+
 				PrintPacket(packet,logs);	//print content of file
 				//update expectedSEQ
 				expectedSEQ+=sizeof(packet.Data);
 				memset (&packet, 0, sizeof(packet));
 
 				//create ACK packet
-				packet.Type = ACK;
-				packet.AckNum = expectedSEQ;
+				//packet.Type = ACK;
+				//packet.AckNum = expectedSEQ;
+				/*
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
 						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
-						return;
+					return;
 					}
 				}
+				*/
 			} else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
 				discardCounter++;
 
@@ -330,9 +361,10 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				fprintf(logs, "\tSEQ: %d\n",packet.SeqNum);
 				printf("\tExpected SEQ: %d\n", expectedSEQ);
 				fprintf(logs,"\tExpected SEQ: %d\n", expectedSEQ);
-
-				if(discardCounter == 4) {
-					printf("4 duplicates found, closing\n");
+				
+				//allows the logging file to be saved if things go to shit
+				if(discardCounter == 10) {
+					printf("10 duplicates found, closing\n");
 					fclose(logs);
 					exit(1);
 				}
@@ -340,15 +372,17 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				memset (&packet, 0, sizeof(packet));
 
 				//create ACK packet
-				packet.Type = ACK;
-				packet.AckNum = expectedSEQ;
-				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
+				//packet.Type = ACK;
+				//packet.AckNum = expectedSEQ;
+				/*	
+ 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
 						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
 						return;
 					}
 				}
+				*/
 			} else if(packet.Type == EOT && packet.SeqNum == expectedSEQ) {
 				printf("\nRecv Data\n");
 				fprintf(logs,"\nRecv Data\n");

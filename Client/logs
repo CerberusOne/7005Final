@@ -148,3 +148,347 @@ bytes sent: 1040
 Ready to send, seq 19456
 bytes sent: 1040
 ERROR not EAGAIN or EWOULDBLOCKEnter command: exit
+LOG DATE: 2017/11/30 17:35:47 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 2
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKLOG DATE: 2017/11/30 17:38:22 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 2
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKEnter command: exit
+LOG DATE: 2017/11/30 17:39:46 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/11/30 17:44:38 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKLOG DATE: 2017/11/30 17:47:6 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet
+ACK found: 4096
+Duplicate ACK found: 4096
+lastAck: 1024
+lastAck: 1024
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 2
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKLOG DATE: 2017/11/30 17:52:20 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet
+EOT found, ending transmission
+Enter command: send
+Enter filename 10.txt
+Enter filename 25.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet
+ACK found: 8192
+Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet
+ACK found: 12288
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet
+ACK found: 16384
+Starting timer
+nextSeq: 16384
+timeout, base: 16384
+timeoutCounter: 1
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet
+ACK found: 20480
+Starting timer
+nextSeq: 20480
+timeout, base: 20480
+timeoutCounter: 2
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet
+ACK found: 24576
+Starting timer
+nextSeq: 24576
+timeout, base: 24576
+timeoutCounter: 3
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+received packet
+EOT found, ending transmission
+Enter command: send
+Enter filename 5.txt
+sending file
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet
+ACK found: 4096
+Starting timer
+nextSeq: 4096
+timeout, base: 4096
+timeoutCounter: 2
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet
+EOT found, ending transmission
+Enter command: send
+Enter filename 25.txt
+sending file
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet
+ACK found: 4096
+Starting timer
+nextSeq: 4096
+timeout, base: 4096
+timeoutCounter: 2
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet
+ACK found: 8192
+Starting timer
+nextSeq: 8192
+timeout, base: 8192
+timeoutCounter: 3
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet
+ACK found: 12288
+Starting timer
