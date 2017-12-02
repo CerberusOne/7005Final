@@ -36,6 +36,7 @@
 
 #define RECVTIMER 1 
 #define SENDTIMER 10 
+#define MAXTIMEOUT 10
 
 using namespace std;
 
@@ -56,11 +57,17 @@ extern "C" typedef struct
 
 Cmd RecvCmd(int sockfd);
 bool SendCmd(int socket, Cmd cmd);
+int RecvCmdNoBlock(int socket, Cmd cmd);
+int SendCmdNoBlock(int socket, Cmd cmd);
+int rRecvCmd(int socket, Cmd cmd);
+int rSendCmd(int socket, Cmd cmd);
+
 Cmd CreateCmd(int type, char *filename);
 Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum);
 void PrintPacket(Packet packet,FILE *logs);
 void RecvFile(int socket, char* filename, FILE *logs);
 void SendFile(int socket, char *filename, FILE *logs);
+
 char *ParseString(std::string str);
 bool isValidFile(char *cfilename);
 void GetConfig(char *filename, std::string config[]);

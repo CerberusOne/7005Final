@@ -82,6 +82,7 @@ int main (int argc, char *argv[]) {
 	Client *transferConnection = new Client(ParseString(config[EMULATORIP]), atoi(ParseString(config[EMULATORPORT2])));//Client object for transfers
 	Server *commandConnection = new Server(atoi(ParseString(config[SERVERPORT])));					//Server object for commands
 
+	SetNonBlocking(commandConnection->GetSocket());
 	SetNonBlocking(transferConnection->GetSocket());
 
 	cout <<"Connecting to IP: " << config[EMULATORIP] << endl;
@@ -103,7 +104,9 @@ int main (int argc, char *argv[]) {
         }
 		printf("Waiting for command\n");
 		//cmd = commandConnection->WaitCommand();					//Wait for the client
-		cmd = RecvCmd(commandConnection->GetSocket());
+		rRecvCmd(commandConnection->GetSocket(), cmd); 
+	
+		//cmd = RecvCmd(commandConnection->GetSocket());
 		printf("Type: %d\n",cmd.type);
 		fprintf(logfile,"Type: %d\n",cmd.type);
 		printf("Type: %d\n",cmd.type);

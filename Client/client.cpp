@@ -91,16 +91,16 @@ int main (int argc, char *argv[]) {
 	cout <<"Port: "<< config[EMULATORPORT1] << endl;
 	fprintf(logs,"Connecting to Port: %s\n", config[EMULATORPORT1].c_str());
 
-	//SetNonBlocking(commandConnection->GetSocket());
+	SetNonBlocking(commandConnection->GetSocket());
 	SetNonBlocking(transferConnection->GetSocket());
-    fclose(logs);
+	fclose(logs);
 
 	do{
 		fflush(stdin);
-    	FILE *logs;
-	    if((logs = fopen(LOGPATH, "a")) == NULL) {
-		perror("file doesn't exist\n");
-	    }
+    		FILE *logs;
+		if((logs = fopen(LOGPATH, "a")) == NULL) {
+			perror("file doesn't exist\n");
+	    	}
 
 		//get user input and validate
 		do {
@@ -126,8 +126,12 @@ int main (int argc, char *argv[]) {
 
 		//create a command
 		cmd = CreateCmd(command, cfilename);
-		//send the command
-		SendCmd(commandConnection->GetSocket(), cmd);
+
+		rSendCmd(commandConnection->GetSocket(), cmd);
+		
+		//UNRELIABLIY send the command
+		//SendCmd(commandConnection->GetSocket(), cmd);
+
 		//send or receive the file
 		if(cmd.type == SEND) {
 			printf("sending file\n");
