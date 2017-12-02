@@ -14083,3 +14083,540 @@ SeqNum: 24576
 Type: 0
 Type: 0
 Filename: exit
+LOG DATE: 2017/12/1 0:54:58 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 25.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 6144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 7168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 8192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 9216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 10240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 11264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 12288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 13312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 14336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 15360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 16384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 17408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 18432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 19456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 20480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 21504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 22528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 23552
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 24576
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 25600
+LOG DATE: 2017/12/1 0:55:55 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+LOG DATE: 2017/12/1 0:59:59 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+LOG DATE: 2017/12/1 1:3:17 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+LOG DATE: 2017/12/1 1:5:21 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+LOG DATE: 2017/12/1 1:13:24 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+LOG DATE: 2017/12/1 1:14:53 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+LOG DATE: 2017/12/1 1:15:53 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+LOG DATE: 2017/12/1 1:20:52 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 6144
+LOG DATE: 2017/12/1 16:5:25 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+Type: Data
+SeqNum: 0
+WinSize: 0
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+LOG DATE: 2017/12/1 16:5:51 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+LOG DATE: 2017/12/1 16:6:5 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+LOG DATE: 2017/12/1 16:6:21 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+LOG DATE: 2017/12/1 16:7:13 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007
+Type: 2
+Type: 2
+Filename: 5.txt
+Type: Data
+SeqNum: 0
+WinSize: 0
+AckNum: 0
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+Wrong SEQ found, discarding packet
+	SEQ: 0
+	Expected SEQ: 1024
+LOG DATE: 2017/12/1 16:9:35 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7007

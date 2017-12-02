@@ -52,6 +52,11 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		return;
 	}
 
+	int filesize;
+	fseek(file, 0,SEEK_END);
+	filesize = ftell(file);
+	printf("Filesize: %d\n",filesize);
+	rewind(file);
 
 	//reset buffers
 	memset(buffer, '\0', BUFLEN);
@@ -63,7 +68,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 	int timeoutCounter = 0;
 	int lastAck = sizeof(packet.Data);
 	int dupAckCount = 0;
-	
+	bool EOTSend = false;
 
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
@@ -132,19 +137,23 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		}
 
 		//only send next packet if window isn't full
-		if(nextSeq < base + windowSize) {
+		if(nextSeq < base + windowSize || EOTSend) {
 			//check if we are ready to send and if a packet hasn't been created
 			if(!send) {
 				//read file
 				if((bytesRead = fread(buffer, sizeof(char), sizeof(buffer), file)) != -1) {
 					//check for EOT and send packet
-					if(bytesRead < (int)sizeof(buffer)) {
+					/*if(bytesRead < (int)sizeof(buffer)) {
 						packet = CreatePacket(EOT, seqNum, buffer, 0, 0);
-					} else {
+					} else {*/
+					if(feof(file)){
+						packet = CreatePacket(EOT,seqNum,0,windowSize,0);
+						EOTSend = true;
+					} else{
 						packet = CreatePacket(DATA, seqNum, buffer, windowSize, ackNum);
 					}
 
-					if(bytesRead > 0) {
+					if(bytesRead >=  0) {
 						send = true; //packet ready to send
 						printf("Ready to send, seq %d\n", seqNum);
 						fprintf(logs,"Ready to send, seq %d\n", seqNum);
@@ -154,9 +163,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					fprintf(logs,"Reading file: ");
 					exit(1);
 				}
-
-
 			}
+		}
 
 			if(send) {
 				if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
@@ -186,7 +194,6 @@ void SendFile(int socket, char *filename, FILE *logs) {
 				}
 			}
 		}
-	} 
 	fclose(file);
 }
 
@@ -238,12 +245,12 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				newAck = false;
 				start = 0;
 
-				//send the cumulative ACK 
+				//send the cumulative ACK
 				memset(&packet, 0, sizeof(packet));
 				packet.Type = ACK;
 				packet.AckNum = expectedSEQ;
-				
-			
+
+
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
@@ -285,7 +292,7 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				expectedSEQ+=sizeof(packet.Data);
 				memset (&packet, 0, sizeof(packet));
 				discardCounter = 0;
-			
+
 			} else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
 				discardCounter++;
 
@@ -295,7 +302,7 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				fprintf(logs, "\tSEQ: %d\n",packet.SeqNum);
 				printf("\tExpected SEQ: %d\n", expectedSEQ);
 				fprintf(logs,"\tExpected SEQ: %d\n", expectedSEQ);
-				
+
 				//allows the logging file to be saved if things go to shit
 				if(discardCounter == 10) {
 					printf("10 duplicates found, closing\n");
