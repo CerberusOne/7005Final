@@ -34,7 +34,7 @@ using namespace std;
 -- NOTES:      Sends an entire file through the socket
 --		Expects to use a non-blocking socket
 ----------------------------------------------------------------------------------------------- */
-void SendFile(int socket, char *filename, FILE *logs) {
+void SendFile(int socket, int cmdSocket, bool isClient, char *filename, FILE *logs) {
 	FILE *file;
 	char buffer[BUFLEN];
 	int bytesRead, bytesSent;
@@ -63,9 +63,60 @@ void SendFile(int socket, char *filename, FILE *logs) {
 	int timeoutCounter = 0;
 	int lastAck = sizeof(packet.Data);
 	int dupAckCount = 0;
+	Cmd cmdRecv;
 	
-
+	//commands
+	if(isClient) {
+		sendCmd = true;		//send the command to the server
+		sendFile = false;	//don't send file until an command ack is received
+	} else {
+		sendCmd = true;		//ACK the command before sending
+		sendFile = true;	//sendfile after the ack is sent, code structure implemented
+	}
+	
 	while(1) {
+		//check command socket for new ACK
+		if((bytesRead = read(cmdSocket, &cmdRecv, sizeof(cmdRecv))) != -1) {
+			timeoutCounter = 0;
+
+			//client received an command ACK
+			if(isClient && cmdRecv.filename == cmd.filename) {
+				printf("received command ACK\n");
+				fprintf(logs, "received command ACK\n");
+				
+				sendCmd = false;
+				sendFile = true;
+				start = 0;
+			} else {	//server received additional command
+				sendCmd = true; //send the ack after this if block
+				sendFile = true; 
+			}
+		} else if (bytesRead == -1) {
+			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+				perror("ERROR not EAGAIN or EWOULDBLOCK");
+				fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
+				return;
+			}
+		}
+
+		//send the command again
+		//sendCmd is only true at the beginning or after a timeout
+		if(sendCmd) {
+			start = clock();
+			if((bytesSent = write(socket, &cmd, sizeof(packet))) != -1) {
+				printf("bytes sent: %d\n", bytesSent);
+				fprintf(logs,"bytes sent: %d\n", bytesSent);
+				
+				sendCmd = false;	
+			} else if (bytesSent == -1) {
+				if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+					perror("ERROR not EAGAIN or EWOULDBLOCK");
+					fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
+					return;
+				}
+			}
+		}
+		
 		//check data socket for new ACK in NON-BLOCKING
 		if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
 			printf("received packet\n");
@@ -112,6 +163,10 @@ void SendFile(int socket, char *filename, FILE *logs) {
 				exit(1);
 			}
 
+			if(!sendFile) {
+				sendCmd = true;
+			}
+
 			printf("nextSeq: %d\n", nextSeq);
 			fprintf(logs,"nextSeq: %d\n", nextSeq);
 			printf("timeout, base: %d\n", base);
@@ -132,7 +187,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		}
 
 		//only send next packet if window isn't full
-		if(nextSeq < base + windowSize) {
+		if(nextSeq < base + windowSize && sendFile) {
 			//check if we are ready to send and if a packet hasn't been created
 			if(!send) {
 				//read file
@@ -209,7 +264,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 --
 -- NOTES:      Receives an entire file through the socket
 ----------------------------------------------------------------------------------------------- */
-void RecvFile(int socket, char* filename, FILE *logs) {
+void RecvFile(int socket, int cmdSocket, bool isClient, char* filename, FILE *logs) {
 	//ACK timer
 	int timer = 0;
 	clock_t start = 0;
@@ -228,8 +283,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 	}
 
 	while(1) {
-		//check if a packet has been received
-
 		timer = (clock()-start)/CLOCKS_PER_SEC;
 		//if the timer has ran out
 		if(timer >= RECVTIMER) {
@@ -253,6 +306,8 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				}
 			}
 		}
+
+		if((
 
 
 		memset(&packet, 0, sizeof(packet));
