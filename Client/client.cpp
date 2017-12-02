@@ -127,7 +127,7 @@ int main (int argc, char *argv[]) {
 		//create a command
 		cmd = CreateCmd(command, cfilename);
 
-		rSendCmd(commandConnection->GetSocket(), cmd);
+		rSendCmd(commandConnection->GetSocket(), &cmd);
 		
 		//UNRELIABLIY send the command
 		//SendCmd(commandConnection->GetSocket(), cmd);

@@ -104,7 +104,7 @@ int main (int argc, char *argv[]) {
         }
 		printf("Waiting for command\n");
 		//cmd = commandConnection->WaitCommand();					//Wait for the client
-		rRecvCmd(commandConnection->GetSocket(), cmd); 
+		rRecvCmd(commandConnection->GetSocket(), &cmd); 
 	
 		//cmd = RecvCmd(commandConnection->GetSocket());
 		printf("Type: %d\n",cmd.type);

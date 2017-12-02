@@ -451,10 +451,11 @@ bool SendCmd(int socket, Cmd cmd) {
     	return true;
 }
 
-int RecvCmdNoBlock(int socket, Cmd cmd) {
+int RecvCmdNoBlock(int socket, Cmd *cmd) {
 	int bytesRead = 0;
 
-	if((bytesRead = read(socket, &cmd, sizeof(cmd))) != -1) {
+//	if((bytesRead = read(socket, cmd, sizeof(Cmd))) != -1) {
+	if((bytesRead = recv(socket, cmd, sizeof(Cmd), 0)) != -1) {
 		printf("received command\n");
 		return bytesRead;
 
@@ -468,10 +469,10 @@ int RecvCmdNoBlock(int socket, Cmd cmd) {
 	return -1;
 }
 
-int SendCmdNoBlock(int socket, Cmd cmd) {
+int SendCmdNoBlock(int socket, Cmd *cmd) {
 	int bytesSent = 0;
 	
-	if((bytesSent = write(socket, &cmd, sizeof(cmd))) != -1) {
+	if((bytesSent = write(socket, cmd, sizeof(Cmd))) != -1) {
 		printf("bytesSent: %d\n", bytesSent);
 		return bytesSent;	
 
@@ -486,7 +487,7 @@ int SendCmdNoBlock(int socket, Cmd cmd) {
 }
 
 //reliabily sends a file using ACKs
-int rSendCmd(int socket, Cmd cmd) {
+int rSendCmd(int socket, Cmd *cmd) {
 	int passed = 0;
 	clock_t start = 0;
 	bool send = true;
@@ -496,13 +497,13 @@ int rSendCmd(int socket, Cmd cmd) {
 	Cmd cmdRecv = {0};
 
 	while(1) {
-		if((bytesRead = RecvCmdNoBlock(socket, cmdRecv)) != -1) {
+		if((bytesRead = RecvCmdNoBlock(socket, &cmdRecv)) != -1) {
 			printf("rSendCmd: received ACK\n");
 			return bytesRead;
 		}
 
 		passed = (clock() - start)/CLOCKS_PER_SEC;
-		if(passed >= SENDTIMER) {
+		if(passed >= 10) {
 			timeoutCounter++;
 			send = true;
 			printf("rSendCmd: timeout counter: %d\n", timeoutCounter);
@@ -526,29 +527,30 @@ int rSendCmd(int socket, Cmd cmd) {
 }
 
 //recv and ACK the command before leaving function
-int rRecvCmd(int socket, Cmd cmd) {
+int rRecvCmd(int socket, Cmd *cmd) {
 	int passed = 0;
 	clock_t start = 0;
-	bool sendCmd = false;
+	int sendCmd = 0;
 	int timeoutCounter = 0;
 	int bytesRead = 0;
-	bool cmdReceived = false;
+	int cmdReceived = 0;
 	int bytesSent = 0;
 
 	while(1) {
-		if((bytesRead = RecvCmdNoBlock(socket, cmd)) > 0) {
+		if((bytesRead = RecvCmdNoBlock(socket, cmd)) != -1) {
 			printf("rRecvCmd: received Cmd\n");
-			sendCmd = true;
-			cmdReceived = true;	//in case send fails
+			printf("rRecvCmd received: %d bytes\n", bytesRead);
+			sendCmd = 1;
+			cmdReceived = 1;	//in case send fails
 		}
 
 		passed = (clock() - start)/CLOCKS_PER_SEC;
-		if(passed >= SENDTIMER) {
+		if(passed >= 100) {
 			printf("rRecvCmd: timeout counter: %d\n", timeoutCounter);	
 			timeoutCounter++;
 
-			if(cmdReceived)
-				sendCmd = true;	//in case send fails
+			if(cmdReceived == 1)
+				sendCmd = 1;	//in case send fails
 			
 			if(timeoutCounter >= MAXTIMEOUT) {
 				printf("max timeout counter reached\n");
@@ -557,8 +559,8 @@ int rRecvCmd(int socket, Cmd cmd) {
 		}
 
 		//after cmd has been received
-		if(sendCmd) {
-			sendCmd = false;
+		if(sendCmd == 1) {
+			sendCmd = 0;
 			
 			//send ACK 
 			if((bytesSent = SendCmdNoBlock(socket, cmd)) != -1) {
