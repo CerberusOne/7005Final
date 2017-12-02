@@ -135,7 +135,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		}
 
 		//only send next packet if window isn't full
-		if(feof(file)){
+		if(!feof(file)){
 		if(nextSeq < base + windowSize) {
 			//check if we are ready to send and if a packet hasn't been created
 			if(!send) {
@@ -200,7 +200,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 			packet.SeqNum = seqNum;
 		}
 
-		}	
+		}
 	fclose(file);
 }
 

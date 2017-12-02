@@ -94369,3 +94369,36 @@ exiting
 LOG DATE: 2017/12/2 14:12:44 
 Connecting to IP: 192.168.0.10
 Connecting to Port: 8006
+LOG DATE: 2017/12/2 14:17:50 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 8006
+Enter command: send
+Enter filename 5.txt
+sending file
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 1
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 2
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 3
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 4
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 5
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 6
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 7
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 8
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 9
