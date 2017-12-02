@@ -52,11 +52,10 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		return;
 	}
 
-	int filesize;
-	fseek(file, 0,SEEK_END);
-	filesize = ftell(file);
-	printf("Filesize: %d\n",filesize);
+	fseek(file, 0, SEEK_END);
+	int filesize = ftell(file);
 	rewind(file);
+	printf("FILESIZE: %d",filesize);
 
 	//reset buffers
 	memset(buffer, '\0', BUFLEN);
@@ -68,7 +67,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 	int timeoutCounter = 0;
 	int lastAck = sizeof(packet.Data);
 	int dupAckCount = 0;
-	bool EOTSend = false;
+
 
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
@@ -90,7 +89,34 @@ void SendFile(int socket, char *filename, FILE *logs) {
 				timeoutCounter = 0;
 				if(base == nextSeq) {
 					start = 0;
-					printf("Stopping timer\n");
+					printf("Stopping timer\n");passed = (clock() - start)/CLOCKS_PER_SEC;
+		if(passed >= SENDTIMER){
+			timeoutCounter++;
+			printf("timeout counter: %d", timeoutCounter);
+
+			if(timeoutCounter == 10) {
+				fclose(logs);
+				exit(1);
+			}
+
+			printf("nextSeq: %d\n", nextSeq);
+			fprintf(logs,"nextSeq: %d\n", nextSeq);
+			printf("timeout, base: %d\n", base);
+			fprintf(logs,"timeout, base: %d\n", base);
+			printf("timeoutCounter: %d\n", timeoutCounter);
+			fprintf(logs,"timeoutCounter: %d\n", timeoutCounter);
+
+			//set nextSeq to base
+			nextSeq = base;
+			seqNum = base;
+			send = false;
+			//seek file back to bytesRead - base
+			if(fseek(file, base, SEEK_SET) < 0) {
+				perror("fseek");
+			}
+
+			//printf("\n");
+		}
 					fprintf(logs,"Starting timer\n");
 				} else {
 					start = clock();
@@ -137,7 +163,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		}
 
 		//only send next packet if window isn't full
-		if(nextSeq < base + windowSize || EOTSend) {
+		if(nextSeq < base + windowSize) {
 			//check if we are ready to send and if a packet hasn't been created
 			if(!send) {
 				//read file
@@ -146,14 +172,10 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					/*if(bytesRead < (int)sizeof(buffer)) {
 						packet = CreatePacket(EOT, seqNum, buffer, 0, 0);
 					} else {*/
-					if(feof(file)){
-						packet = CreatePacket(EOT,seqNum,0,windowSize,0);
-						EOTSend = true;
-					} else{
 						packet = CreatePacket(DATA, seqNum, buffer, windowSize, ackNum);
-					}
+					//}
 
-					if(bytesRead >=  0) {
+					if(bytesRead > 0) {
 						send = true; //packet ready to send
 						printf("Ready to send, seq %d\n", seqNum);
 						fprintf(logs,"Ready to send, seq %d\n", seqNum);
@@ -163,9 +185,11 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					fprintf(logs,"Reading file: ");
 					exit(1);
 				}
-			}
-		}
 
+
+			}
+
+			if(!(base >= filesize)){
 			if(send) {
 				if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
 					printf("bytes sent: %d\n", bytesSent);
@@ -193,7 +217,20 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					}
 				}
 			}
+		} else {
+			memset(&packet, 0, sizeof(packet));
+			packet.Type = EOT;
+			if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
+				printf("EOT SENT\n");
+				if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
+					perror("ERROR not EAGAIN or EWOULDBLOCK");
+					fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
+					return;
+				}
 		}
+		}
+	}
+}
 	fclose(file);
 }
 
@@ -277,7 +314,7 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 			}
 
 			//check the packet type and treat accordingly
-			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
+			if(packet.Type == DATA && (packet.SeqNum >= expectedSEQ && packet.SeqNum <= (expectedSEQ+sizeof(packet.Data)))) {
 
 
 				//write file
@@ -289,11 +326,12 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 
 				PrintPacket(packet,logs);	//print content of file
 				//update expectedSEQ
-				expectedSEQ+=sizeof(packet.Data);
+				expectedSEQ=packet.SeqNum+1;
+				printf("EpectedSEQ: %d\n",expectedSEQ);
 				memset (&packet, 0, sizeof(packet));
 				discardCounter = 0;
 
-			} else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
+			} else if(packet.Type == DATA && !(packet.SeqNum >= expectedSEQ && packet.SeqNum <= (expectedSEQ+sizeof(packet.Data)))){
 				discardCounter++;
 
 				printf("Wrong SEQ found, discarding %d packet\n", discardCounter);
@@ -327,7 +365,7 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				}
 
 				//update expectedSEQ
-				expectedSEQ+=BUFLEN;
+				expectedSEQ=packet.SeqNum+1;
 				//reset the EOT packet
 				memset (&packet, 0, sizeof(packet));
 				packet.Type = EOT;
