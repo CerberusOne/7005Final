@@ -135,8 +135,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 		}
 
 		//only send next packet if window isn't full
-		int ff = feof(file);
-		printf("FEOF VALUE: %d\n",ff);
+		if(feof(file)){
 		if(nextSeq < base + windowSize) {
 			//check if we are ready to send and if a packet hasn't been created
 			if(!send) {
@@ -162,6 +161,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 
 
 			}
+		}
+	}
 
 			if (!(base > filesize) || !(seqNum > filesize)){
 			if(send) {
@@ -199,8 +200,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 			packet.SeqNum = seqNum;
 		}
 
-		}
-	}
+		}	
 	fclose(file);
 }
 
