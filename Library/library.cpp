@@ -65,6 +65,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
 		if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
+		//if((bytesRead = recv(socket, &packet, sizeof(packet), 0)) != -1) {
+		//if((bytesRead = ReadPacket(socket, &packet)) != -1) {
 			printf("received packet: %d\n", bytesRead);
 			fprintf(logs,"received packet: %d\n", bytesRead);
 
@@ -213,9 +215,11 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 	bool newAck = false;
 
 	FILE *file;
-	int bytesSent, expectedSEQ=0, bytesRecv, writeCount = 0;
+	int bytesSent, expectedSEQ=0, writeCount = 0;
 	Packet packet;
 	int discardCounter = 0;
+
+	int bytesRead = 0;
 
 	//open file to write in binary
 	if((file = fopen(filename, "wb")) == NULL) {
@@ -254,13 +258,17 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 
 		memset(&packet, 0, sizeof(packet));
 		//receive the packet
-		if((bytesRecv = read(socket, &packet, sizeof(packet))) == -1) {
+		if((bytesRead = read(socket, &packet, sizeof(packet))) == -1) {
+		//if((bytesRecv = recv(socket, &packet, sizeof(packet), 0)) == -1) {
+		//if((bytesRead = ReadPacket(socket, &packet)) != -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 				perror("ERROR not EAGAIN or EWOULDBLOCK");
 				fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
 				return;
 			}
-		} else {
+		} else if(bytesRead == sizeof(Packet)){
+			printf("bytesRead: %d\n", bytesRead);
+
 			if(!newAck) {
 				newAck = true;
 				start = clock();
@@ -570,6 +578,45 @@ int rRecvCmd(int socket, Cmd *cmd) {
 		}
 	}
 }
+
+int ReadPacket(int socket, Packet *packet){
+	int bytesRead = 0;
+	memset(packet, 0, sizeof(Packet));
+	
+	if((bytesRead = read(socket, packet, sizeof(packet))) == sizeof(Packet)) {
+		printf("received packet, bytesRead = %d\n", bytesRead);
+		printf("packet type = %d\n", packet->Type);
+		printf("packet data = %s\n", packet->Data);
+		return bytesRead;
+	}
+	
+	return -1;	
+}
+
+/*
+int ReadPacket(int socket, Packet *packet) {
+	int bytesRead = 0;
+	int result = 0;
+	char buffer[sizeof(packet)] = {0};
+
+	memset(packet, 0 ,sizeof(Packet));
+	
+	while(bytesRead < (int)sizeof(Packet)) {
+		result = read(socket, buffer + bytesRead, sizeof(Packet) - bytesRead);
+		printf("ReadSocket received: %d\n", result);
+
+		if(result < 1) {
+			return -1;
+		}
+
+		bytesRead += result;
+	}	
+
+	packet = (Packet)buffer;
+
+	return bytesRead;
+}
+*/
 
 char *ParseString(string str){
     	char *cstr;

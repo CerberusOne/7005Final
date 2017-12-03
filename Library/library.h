@@ -61,6 +61,7 @@ int RecvCmdNoBlock(int socket, Cmd *cmd);
 int SendCmdNoBlock(int socket, Cmd *cmd);
 int rRecvCmd(int socket, Cmd *cmd);
 int rSendCmd(int socket, Cmd *cmd);
+int ReadPacket(int socket, Packet *packet);
 
 Cmd CreateCmd(int type, char *filename);
 Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum);
