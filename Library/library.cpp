@@ -65,8 +65,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 	while(1) {
 		//check data socket for new ACK in NON-BLOCKING
 		if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
-			printf("received packet\n");
-			fprintf(logs,"received packet\n");
+			printf("received packet: %d\n", bytesRead);
+			fprintf(logs,"received packet: %d\n", bytesRead);
 
 			//check packet type for EOT or ACK
 			if(packet.Type == EOT) {

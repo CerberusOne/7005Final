@@ -21,9 +21,7 @@
 
 using namespace std;
 
-int Rando();
-bool Same(int i,int *arr,int size);
-bool Discard(int *arr,int size);
+bool Discard(double probability);
 
 string config[BUFLEN];
 
@@ -40,7 +38,6 @@ int main (int argc, char *argv[]) {
 	time_t t;
   srand((unsigned) time(&t));
   int rate = atoi(argv[1]);
-  int BER[rate];
     /**char ratestr;
     *char delaystr;
     cout <<"Please enter the delay" << endl;
@@ -54,18 +51,6 @@ int main (int argc, char *argv[]) {
       		perror("Error: ./file [BER] [DELAY]");
 					exit(0);
     	}
-
-  //populate BER array
-	int i;
-	for(i = 0; i<rate; i++){
-    	BER[i] = Rando();
-      	if (Same(BER[i],BER,rate)){
-        		do {
-          			BER[i] = Rando();
-        		} while (!Same(BER[i],BER,rate));
-      	}
-      //cout << BER[i] << endl;
-  }
 
 	filename = ParseString("config");
 	strcpy(configpath, ROOT);
@@ -110,30 +95,30 @@ int main (int argc, char *argv[]) {
 
 		//check if there is a new command from client
 		if((bytesRecv = recv(clientCmd->GetSocket(), &cmd, sizeof(Cmd), 0) > 0)) {
-			//if (!Discard(BER,rate)){
-			//start = clock();
-			//printf("Delay started\n");
-			printf("Client Command found\n");
-			printf("\tCmd Type: %d\tFilename: %s\n", cmd.type, cmd.filename);
-			//wait timer ends
-			/*while(timer){
-			  passed = (clock() - start) / CLOCKS_PER_SEC;
-			    //If timer is not over
-			    if (passed >= delay){
-			      cout << "Delay End:\n " << passed << endl;
-			      timer = false;
-			    }
+			if (!Discard(rate)){
+				start = clock();
+				printf("Delay started\n");
+				printf("Client Command found\n");
+				printf("\tCmd Type: %d\tFilename: %s\n", cmd.type, cmd.filename);
+				//wait timer ends
+				while(timer){
+				  passed = (clock() - start) / CLOCKS_PER_SEC;
+				    //If timer is not over
+				    if (passed >= delay){
+				      cout << "Delay End:\n " << passed << endl;
+				      timer = false;
+				    }
+				}
+				timer = true;
+				//pass the command on to the server
+				if((bytesSent = send(serverCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
+					printf("Cmd sent to server\n");
+				} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
+					perror("Send serverCmd failed");
+				}
+			} else {
+				printf("Packet Discarded\n");
 			}
-			timer = true;*/
-			//pass the command on to the server
-			if((bytesSent = send(serverCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
-				printf("Cmd sent to server\n");
-			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
-				perror("Send serverCmd failed");
-			}
-		/*} else {
-			printf("Packet Discarded\n");
-		}*/
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv clientCmd failed");
 		}
@@ -141,13 +126,13 @@ int main (int argc, char *argv[]) {
 
 		//check if there is a command ACK from server
 		if((bytesRecv = recv(serverCmd->GetSocket(), &cmd, sizeof(Cmd), 0) > 0)) {
-			//if (!Discard(BER,rate)){
+			if (!Discard(rate)){
 			printf("Server Command ACK found\n");
-			//start = clock();
-			//printf("Delay started\n");
+			start = clock();
+			printf("Delay started\n");
 
 			//wait timer ends
-			/*while(timer){
+			while(timer){
 			  passed = (clock() - start) / CLOCKS_PER_SEC;
 			    //If timer is not over
 			    if (passed >= delay){
@@ -155,7 +140,7 @@ int main (int argc, char *argv[]) {
 			      timer = false;
 			    }
 			}
-			timer = true;*/
+			timer = true;
 			//pass the command ACK on to the client
 			if((bytesSent = send(clientCmd->GetSocket(), &cmd, sizeof(Cmd), 0)) > 0) {
 				printf("Cmd ACK sent to client\n");
@@ -168,14 +153,13 @@ int main (int argc, char *argv[]) {
 			}
 
 				//exit if server sends exit command, check for EXIT ACK from server after testing
-				/*if(cmd.type == EXIT){
-					break;
-				}*/
-			}
-			/*} else {
+				if(cmd.type == EXIT){
+					exit(1);
+				}
+			} else {
 				printf("Packet Discarded\n");
-			}*/
-		 else if(errno != EAGAIN || errno != EWOULDBLOCK) {
+			}
+		 }else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv serverCmd failed");
 		}
 
@@ -185,7 +169,7 @@ int main (int argc, char *argv[]) {
 
 		//check if there is a data packet from client
 		if((bytesRecv = recv(clientData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
-			if (!Discard(BER,rate)){
+			if (!Discard(rate)){
 				printf("Client data found\n");
 				printf("\tPacket Type: %d\t", packet.Type);
 				start = clock();
@@ -218,7 +202,7 @@ int main (int argc, char *argv[]) {
 
 		//check if there is a data ACK from server
 		if((bytesRecv = recv(serverData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
-			if (!Discard(BER,rate)){
+			if (!Discard(rate)){
 			printf("Server data ACK found\n");
 
 			start = clock();
@@ -262,27 +246,7 @@ int main (int argc, char *argv[]) {
 	return 0;
 }
 
-int Rando(){
-  	return rand() % 100 +1;
-}
-bool Same(int val,int *arr,int size){
-  	int i;
-  	for(i = 0; i<size; i++){
-      		if (arr[i] == val){
-        		return true;
-      		}
-  	}
-  return false;
-}
-bool Discard(int *arr,int size){
-  	int i;
-  	int val = Rando();
-  	//cout << "checking value with: " << val << endl;
-  	for(i = 0; i<size; i++){
-    		if(Same(val,arr,size)){
-      			i = size;
-      			return true;
-    		}
-  	}
-    return false;
+bool Discard(double probability){
+	probability /= 100;
+    return rand() < probability * ((double)RAND_MAX + 1.0);
 }

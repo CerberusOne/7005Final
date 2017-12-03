@@ -99,9 +99,10 @@ int main (int argc, char *argv[]) {
 
 	fclose(logfile);
 	do{
+		memset(&cmd, 0, sizeof(Cmd));
 		if((logfile = fopen(LOG, "a")) == NULL) {
 			perror("file doesn't exist\n");
-        }
+       		}
 		printf("Waiting for command\n");
 		//cmd = commandConnection->WaitCommand();					//Wait for the client
 		rRecvCmd(commandConnection->GetSocket(), &cmd); 
