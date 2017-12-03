@@ -124,11 +124,21 @@ int main (int argc, char *argv[]) {
 			cfilename = ParseString("exit");
 		}
 
+		//open the file to check the size of the file
+		FILE *sizeoffile;
+		if((sizeoffile = fopen(path, "r")) == NULL) {
+			perror("file doesn't exist\n");
+	  }
+	 	fseek(sizeoffile, 0, SEEK_END);
+		int filesize = ftell(sizeoffile);
+		rewind(sizeoffile);
+		fclose(sizeoffile);
+
 		//create a command
-		cmd = CreateCmd(command, cfilename);
+		cmd = CreateCmd(command, cfilename, filesize);
 
 		rSendCmd(commandConnection->GetSocket(), &cmd);
-		
+
 		//UNRELIABLIY send the command
 		//SendCmd(commandConnection->GetSocket(), cmd);
 
@@ -136,11 +146,11 @@ int main (int argc, char *argv[]) {
 		if(cmd.type == SEND) {
 			printf("sending file\n");
 			fprintf(logs,"sending file\n");
-			SendFile(transferConnection->GetSocket(), path, logs);
+			SendFile(transferConnection->GetSocket(), path, logs, filesize);
 		} else if(cmd.type == GET) {
 			printf("getting file\n");
 			fprintf(logs,"Getting file\n");
-			RecvFile(transferConnection->GetSocket(), path, logs);
+			RecvFile(transferConnection->GetSocket(), path, logs, filesize);
 		} else {
 			printf("exiting\n");
 			fprintf(logs,"exiting\n");

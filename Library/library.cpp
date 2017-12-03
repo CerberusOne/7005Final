@@ -34,7 +34,7 @@ using namespace std;
 -- NOTES:      Sends an entire file through the socket
 --		Expects to use a non-blocking socket
 ----------------------------------------------------------------------------------------------- */
-void SendFile(int socket, char *filename, FILE *logs) {
+void SendFile(int socket, char *filename, FILE *logs, int filesize) {
 	FILE *file;
 	char buffer[BUFLEN];
 	int bytesRead, bytesSent;
@@ -46,12 +46,15 @@ void SendFile(int socket, char *filename, FILE *logs) {
 	int base = 0;			//base +1 is the next expected ACK
 	int nextSeq = base;
 
+	bool EOTsend = false;
+
 	//open file
 	if((file = fopen(filename, "rb")) == NULL) {
 		perror("file doesn't exist\n");
 		return;
 	}
 
+	printf("FILESIZE: %d\n",filesize);
 
 	//reset buffers
 	memset(buffer, '\0', BUFLEN);
@@ -59,7 +62,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 
 	int passed;
 	clock_t start = 0;
-	bool send = false;
+	bool send = true;
 	int timeoutCounter = 0;
 
 	while(1) {
@@ -120,12 +123,20 @@ void SendFile(int socket, char *filename, FILE *logs) {
 			nextSeq = base;
 			seqNum = base;
 			send = false;
-			//seek file back to bytesRead - base
-			if(fseek(file, base, SEEK_SET) < 0) {
-				perror("fseek");
+
+			//send EOT when timer is over
+			if(filesize == seqNum){
+					EOTsend = true;
+			} else{
+				//seek file back to bytesRead - base
+				if(fseek(file, base, SEEK_SET) < 0) {
+					perror("fseek");
+				}
+
+				//printf("\n");
 			}
 
-			//printf("\n");
+
 		}
 
 		//only send next packet if window isn't full
@@ -135,9 +146,15 @@ void SendFile(int socket, char *filename, FILE *logs) {
 				//read file
 				if((bytesRead = fread(buffer, sizeof(char), sizeof(buffer), file)) != -1) {
 					//check for EOT and send packet
-					if(bytesRead < (int)sizeof(buffer)) {
-						packet = CreatePacket(EOT, seqNum, buffer, 0, 0);
-					} else {
+					if(seqNum == filesize && EOTsend) {
+						printf("\nEOT SENT\n");
+						memset(&packet, 0 ,sizeof(packet));
+						packet.Type = EOT;
+						packet.SeqNum = filesize;
+						send = true;
+						//start = clock();
+					} else if(seqNum < filesize) {
+						seqNum += bytesRead;
 						packet = CreatePacket(DATA, seqNum, buffer, windowSize, ackNum);
 					}
 
@@ -159,7 +176,6 @@ void SendFile(int socket, char *filename, FILE *logs) {
 				if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
 					printf("bytes sent: %d\n", bytesSent);
 					fprintf(logs,"bytes sent: %d\n", bytesSent);
-					seqNum += bytesRead;		//calculate next seq number
 					memset(buffer, '\0', BUFLEN);	//reset buffer
 
 					if(base == nextSeq) {
@@ -169,9 +185,11 @@ void SendFile(int socket, char *filename, FILE *logs) {
 						fprintf(logs,"Starting timer, base: %d\n", base);
 					}
 
-					nextSeq += bytesRead;	//update next sequence
+					nextSeq = seqNum;	//update next sequence
 					send = false;	//not ready to send another packet, packet used
-
+					if(filesize == seqNum && EOTsend){
+							EOTsend = false;
+					}
 				} else if (bytesSent == -1) {
 					//perror("Send File: Error writing to socket DATA");
 
@@ -183,7 +201,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 				}
 			}
 		}
-	} 
+	}
 	fclose(file);
 }
 
@@ -206,7 +224,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 --
 -- NOTES:      Receives an entire file through the socket
 ----------------------------------------------------------------------------------------------- */
-void RecvFile(int socket, char* filename, FILE *logs) {
+void RecvFile(int socket, char* filename, FILE *logs, int filesize) {
 	//ACK timer
 	int timer = 0;
 	clock_t start = 0;
@@ -235,12 +253,12 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				newAck = false;
 				start = 0;
 
-				//send the cumulative ACK 
+				//send the cumulative ACK
 				memset(&packet, 0, sizeof(packet));
 				packet.Type = ACK;
 				packet.AckNum = expectedSEQ;
-				
-			
+
+
 				if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
@@ -267,7 +285,8 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 			}
 
 			//check the packet type and treat accordingly
-			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
+			//when bytes read is fixed BUFLEN can be changed to size of data packet
+			if(packet.Type == DATA && (packet.SeqNum <= (expectedSEQ+BUFLEN) && packet.SeqNum >= expectedSEQ)) {
 
 
 				//write file
@@ -277,13 +296,24 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 					return;
 				}
 
+				if((expectedSEQ+sizeof(packet.Data))>filesize){
+					//last packet before EOT
+					int difference = filesize - expectedSEQ;
+					expectedSEQ = (expectedSEQ+difference);
+				} else if(expectedSEQ == filesize){
+					//wait for EOT
+					printf("WAITING FOR EOT\n");
+				} else {
+					//update expectedSEQ
+					expectedSEQ+=sizeof(packet.Data);
+				}
+				printf("EXPECTEDSEQ: %d\n", expectedSEQ);
 				PrintPacket(packet,logs);	//print content of file
-				//update expectedSEQ
-				expectedSEQ+=sizeof(packet.Data);
+
 				memset (&packet, 0, sizeof(packet));
 				discardCounter = 0;
-			
-			} else if(packet.Type == DATA && packet.SeqNum != expectedSEQ){
+
+			} else if(packet.Type == DATA && !(packet.SeqNum <= (expectedSEQ+BUFLEN) && packet.SeqNum >= expectedSEQ)){
 				discardCounter++;
 
 				printf("Wrong SEQ found, discarding %d packet\n", discardCounter);
@@ -292,7 +322,7 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				fprintf(logs, "\tSEQ: %d\n",packet.SeqNum);
 				printf("\tExpected SEQ: %d\n", expectedSEQ);
 				fprintf(logs,"\tExpected SEQ: %d\n", expectedSEQ);
-				
+
 				//allows the logging file to be saved if things go to shit
 				if(discardCounter == 10) {
 					printf("10 duplicates found, closing\n");
@@ -316,8 +346,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 					return;
 				}
 
-				//update expectedSEQ
-				expectedSEQ+=BUFLEN;
 				//reset the EOT packet
 				memset (&packet, 0, sizeof(packet));
 				packet.Type = EOT;
@@ -364,7 +392,7 @@ Cmd RecvCmd(int sockfd) {
 		perror("RecvCmd Failed");
 	} else if(bytesRecv == 0) {
 		printf("Connection ended\n");
-		cmd = CreateCmd(0, NULL);
+		cmd = CreateCmd(0, NULL, 0);
 	}
 
    	printf("RecvCmd: %d %s\n", cmd.type, cmd.filename);
@@ -390,11 +418,12 @@ Cmd RecvCmd(int sockfd) {
 --
 -- NOTES:      wrapper function for creating a Cmd object
 ----------------------------------------------------------------------------------------------- */
-Cmd CreateCmd(int type, char *filename) {
+Cmd CreateCmd(int type, char *filename, int filesize) {
 	Cmd cmd;
 
 	cmd.type = type;
     strcpy(cmd.filename, filename);
+	cmd.filesize = filesize;
 
 	return cmd;
 }
@@ -471,10 +500,10 @@ int RecvCmdNoBlock(int socket, Cmd *cmd) {
 
 int SendCmdNoBlock(int socket, Cmd *cmd) {
 	int bytesSent = 0;
-	
+
 	if((bytesSent = write(socket, cmd, sizeof(Cmd))) != -1) {
 		printf("bytesSent: %d\n", bytesSent);
-		return bytesSent;	
+		return bytesSent;
 
 	} else if (bytesSent == -1) {
 		if((errno != EAGAIN) || (errno != EWOULDBLOCK)) {
@@ -513,10 +542,10 @@ int rSendCmd(int socket, Cmd *cmd) {
 				return -1;
 			}
 		}
-		
+
 		if(send) {
 			send = false;
-	
+
 			if((bytesSent = SendCmdNoBlock(socket, cmd)) != -1) {
 				printf("rSendCmd: sent %d bytes\n", bytesSent);
 			}
@@ -546,12 +575,12 @@ int rRecvCmd(int socket, Cmd *cmd) {
 
 		passed = (clock() - start)/CLOCKS_PER_SEC;
 		if(passed >= 100) {
-			printf("rRecvCmd: timeout counter: %d\n", timeoutCounter);	
+			printf("rRecvCmd: timeout counter: %d\n", timeoutCounter);
 			timeoutCounter++;
 
 			if(cmdReceived == 1)
 				sendCmd = 1;	//in case send fails
-			
+
 			if(timeoutCounter >= MAXTIMEOUT) {
 				printf("max timeout counter reached\n");
 				return -1;
@@ -561,8 +590,8 @@ int rRecvCmd(int socket, Cmd *cmd) {
 		//after cmd has been received
 		if(sendCmd == 1) {
 			sendCmd = 0;
-			
-			//send ACK 
+
+			//send ACK
 			if((bytesSent = SendCmdNoBlock(socket, cmd)) != -1) {
 				printf("rRecvCmd: sent %d bytes\n", bytesSent);
 				return bytesRead;

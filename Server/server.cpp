@@ -65,7 +65,7 @@ int main (int argc, char *argv[]) {
 	if((logfile = fopen(LOG, "a")) == NULL) {
 		perror("file doesn't exist\n");
         }
-    
+
 
 	filename = ParseString("config");
 	strcpy(configpath, ROOT);
@@ -105,8 +105,8 @@ int main (int argc, char *argv[]) {
        		}
 		printf("Waiting for command\n");
 		//cmd = commandConnection->WaitCommand();					//Wait for the client
-		rRecvCmd(commandConnection->GetSocket(), &cmd); 
-	
+		rRecvCmd(commandConnection->GetSocket(), &cmd);
+
 		//cmd = RecvCmd(commandConnection->GetSocket());
 		printf("Type: %d\n",cmd.type);
 		fprintf(logfile,"Type: %d\n",cmd.type);
@@ -119,9 +119,9 @@ int main (int argc, char *argv[]) {
 		strcat(path, cmd.filename);
 
 		if(cmd.type == SEND) {
-			RecvFile(transferConnection->GetSocket(), path, logfile);
+			RecvFile(transferConnection->GetSocket(), path, logfile, cmd.filesize);
 		} else if (cmd.type == GET) {
-			SendFile(transferConnection->GetSocket(), path, logfile);
+			SendFile(transferConnection->GetSocket(), path, logfile, cmd.filesize);
 		}
     fclose(logfile);
 

@@ -34,8 +34,8 @@
 #define SERVERIP 5
 #define SERVERPORT 6
 
-#define RECVTIMER 1 
-#define SENDTIMER 10 
+#define RECVTIMER 1
+#define SENDTIMER 10
 #define MAXTIMEOUT 10
 
 using namespace std;
@@ -44,6 +44,7 @@ typedef struct
 {
 	int type;
 	char filename[BUFLEN];	//isn't this too much?
+	int filesize;
 }Cmd;
 
 extern "C" typedef struct
@@ -62,11 +63,11 @@ int SendCmdNoBlock(int socket, Cmd *cmd);
 int rRecvCmd(int socket, Cmd *cmd);
 int rSendCmd(int socket, Cmd *cmd);
 
-Cmd CreateCmd(int type, char *filename);
+Cmd CreateCmd(int type, char *filename, int filesize);
 Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum);
 void PrintPacket(Packet packet,FILE *logs);
-void RecvFile(int socket, char* filename, FILE *logs);
-void SendFile(int socket, char *filename, FILE *logs);
+void RecvFile(int socket, char* filename, FILE *logs, int filesize);
+void SendFile(int socket, char *filename, FILE *logs, int filesize);
 
 char *ParseString(std::string str);
 bool isValidFile(char *cfilename);
