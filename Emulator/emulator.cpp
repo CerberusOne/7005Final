@@ -36,17 +36,17 @@ int main (int argc, char *argv[]) {
 	clock_t start;
 	char *filename, configpath[BUFLEN];
 	time_t t;
-  srand((unsigned) time(&t));
-  int rate = atoi(argv[1]);
-    /**char ratestr;
-    *char delaystr;
-    cout <<"Please enter the delay" << endl;
-    cin >> delaystr;
-    cout <<"Please enter the BER" << endl;
-    cin >> ratestr;
-    rate = atoi(ratestr);
-    delay = atoi(delaystr);*/
-  if (argc != 3){
+	srand((unsigned) time(&t));
+	int rate = atoi(argv[1]);
+	/**char ratestr;
+	*char delaystr;
+	cout <<"Please enter the delay" << endl;
+	cin >> delaystr;
+	cout <<"Please enter the BER" << endl;
+	cin >> ratestr;
+	rate = atoi(ratestr);
+	delay = atoi(delaystr);*/
+	if (argc != 3){
             cout << argc << endl;
       		perror("Error: ./file [BER] [DELAY]");
 					exit(0);
@@ -58,12 +58,12 @@ int main (int argc, char *argv[]) {
 	GetConfig(configpath, config);
 
 	//for testing purposes
-  //string ipemulator = config[SERVERIP];
-//  const char *connectionIP = ipemulator.c_str();
+	//string ipemulator = config[SERVERIP];
+	//  const char *connectionIP = ipemulator.c_str();
 
 	//setup sockets, ORDER MATTERS
-  Server *serverData = new Server(atoi(ParseString(config[EMULATORPORT2])));
-  Client *serverCmd = new Client(ParseString(config[SERVERIP]),atoi(ParseString(config[SERVERPORT])));
+	Server *serverData = new Server(atoi(ParseString(config[EMULATORPORT2])));
+	Client *serverCmd = new Client(ParseString(config[SERVERIP]),atoi(ParseString(config[SERVERPORT])));
 
 	cout <<"Connecting to IP: " << config[SERVERIP] << endl;
 	cout <<"Port: "<< config[SERVERPORT] << endl;
@@ -77,13 +77,18 @@ int main (int argc, char *argv[]) {
 	cout <<"BER set to: " << rate << endl;
 	cout <<"Delay set to: " << delay << endl;
 	//set all sockets to non-blocking
-  SetNonBlocking(clientData->GetSocket());
+	SetNonBlocking(clientData->GetSocket());
 	SetNonBlocking(clientCmd->GetSocket());
 	SetNonBlocking(serverData->GetSocket());
-  SetNonBlocking(serverCmd->GetSocket());
+	SetNonBlocking(serverCmd->GetSocket());
+
+
+
+	char* buffer = (char*) malloc(sizeof(char) * sizeof(PacketBuffer));
+
 
 	//check all ports for data
-  while(1){
+	while(1){
 
 		//reset cmd and packet for next recv
 		//cmd = {0};
@@ -168,10 +173,14 @@ int main (int argc, char *argv[]) {
 		//DATA----------------------------------------------
 
 		//check if there is a data packet from client
-		if((bytesRecv = recv(clientData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
+
+		//if((bytesRecv = read(clientData->GetSocket(), &packet, sizeof(Packet))) > 0) {
+		if((bytesRecv = recv(clientData->GetSocket(), &packet, sizeof(Packet), MSG_WAITALL)) > 0) {
+		//if((bytesRecv = recv(clientData->GetSocket(), buffer, sizeof(PacketBuffer), MSG_WAITALL) > 0)) {
 			if (!Discard(rate)){
 				printf("Client data found\n");
-				printf("\tPacket Type: %d\t", packet.Type);
+				//printf("buffer: %s\n", buffer);
+				//printf("\tPacket Type: %d\t", packet.Type);
 				start = clock();
 				printf("Delay started\n");
 
@@ -188,22 +197,29 @@ int main (int argc, char *argv[]) {
 
 				//pass the packet to the server
 				if((bytesSent = send(serverData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
+				//if((bytesSent = write(serverData->GetSocket(), buffer, sizeof(PacketBuffer))) > 0 ){
 					printf("Packet sent to server\n");
 				} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 					perror("Send serverData failed\n");
 				}
-			} else{
+			} else {
 				printf("Packet Discarded: %d\n", packet.SeqNum);
 			}
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv clientData failed");
 		}
+		
+
+		memset(buffer, 0, sizeof(PacketBuffer));
+
 
 
 		//check if there is a data ACK from server
-		if((bytesRecv = recv(serverData->GetSocket(), &packet, sizeof(Packet), 0) > 0)) {
+		if((bytesRecv = recv(serverData->GetSocket(), &packet, sizeof(Packet), MSG_WAITALL) > 0)) {
+		//if((bytesRecv = read(serverData->GetSocket(), buffer, sizeof(PacketBuffer)) > 0)) {
 			if (!Discard(rate)){
 			printf("Server data ACK found\n");
+			//printf("buffer: %s\n", buffer);
 
 			start = clock();
 			printf("Delay started\n");
@@ -228,12 +244,15 @@ int main (int argc, char *argv[]) {
 			if(cmd.type == EOT){
 				printf("EOT received from Server");
 			}
-		} else{
-			printf("Packet Discarded: %d\n", packet.AckNum);
-		}
+			} else{
+				printf("Packet Discarded: %d\n", packet.AckNum);
+			}
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv serverData failed");
 		}
+
+
+		memset(buffer, 0, sizeof(PacketBuffer));
 	}
 
 

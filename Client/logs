@@ -199510,3 +199510,7840 @@ Ready to send, seq 5120
 bytes sent: 1040
 received packet: 1040
 EOT found, ending transmission
+LOG DATE: 2017/12/2 20:29:38 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+nextSeq: 5526
+timeout, base: 3072
+timeoutCounter: 1
+Ready to send, seq 3072
+bytes sent: 1040
+Starting timer, base: 3072
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 5120
+Starting timer
+nextSeq: 5526
+timeout, base: 5120
+timeoutCounter: 1
+Ready to send, seq 5120
+bytes sent: 1040
+Starting timer, base: 5120
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/2 20:30:55 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 25.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+nextSeq: 7168
+timeout, base: 3072
+timeoutCounter: 1
+Ready to send, seq 3072
+bytes sent: 1040
+Starting timer, base: 3072
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+received packet: 1040
+ACK found: 6144
+Starting timer
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+received packet: 1040
+ACK found: 6144
+Starting timer
+nextSeq: 10240
+timeout, base: 6144
+timeoutCounter: 1
+Ready to send, seq 6144
+bytes sent: 1040
+Starting timer, base: 6144
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+received packet: 1040
+ACK found: 9216
+Starting timer
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+received packet: 1040
+ACK found: 9216
+Starting timer
+nextSeq: 13312
+timeout, base: 9216
+timeoutCounter: 1
+Ready to send, seq 9216
+bytes sent: 1040
+Starting timer, base: 9216
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+nextSeq: 16384
+timeout, base: 12288
+timeoutCounter: 1
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+nextSeq: 18432
+timeout, base: 14336
+timeoutCounter: 1
+Ready to send, seq 14336
+bytes sent: 1040
+Starting timer, base: 14336
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 17408
+Starting timer
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+received packet: 1040
+ACK found: 17408
+Starting timer
+nextSeq: 21504
+timeout, base: 17408
+timeoutCounter: 1
+Ready to send, seq 17408
+bytes sent: 1040
+Starting timer, base: 17408
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+nextSeq: 24576
+timeout, base: 20480
+timeoutCounter: 1
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 23552
+Starting timer
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+ACK found: 23552
+Starting timer
+nextSeq: 24986
+timeout, base: 23552
+timeoutCounter: 1
+Ready to send, seq 23552
+bytes sent: 1040
+Starting timer, base: 23552
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/2 20:33:9 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 100.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+nextSeq: 7168
+timeout, base: 3072
+timeoutCounter: 1
+Ready to send, seq 3072
+bytes sent: 1040
+Starting timer, base: 3072
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+received packet: 1040
+ACK found: 6144
+Starting timer
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+received packet: 1040
+ACK found: 6144
+Starting timer
+nextSeq: 10240
+timeout, base: 6144
+timeoutCounter: 1
+Ready to send, seq 6144
+bytes sent: 1040
+Starting timer, base: 6144
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+received packet: 1040
+ACK found: 9216
+Starting timer
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+received packet: 1040
+ACK found: 9216
+Starting timer
+nextSeq: 13312
+timeout, base: 9216
+timeoutCounter: 1
+Ready to send, seq 9216
+bytes sent: 1040
+Starting timer, base: 9216
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+received packet: 1040
+ACK found: 11264
+Starting timer
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+received packet: 1040
+ACK found: 11264
+Starting timer
+nextSeq: 15360
+timeout, base: 11264
+timeoutCounter: 1
+Ready to send, seq 11264
+bytes sent: 1040
+Starting timer, base: 11264
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+nextSeq: 18432
+timeout, base: 14336
+timeoutCounter: 1
+Ready to send, seq 14336
+bytes sent: 1040
+Starting timer, base: 14336
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 17408
+Starting timer
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+received packet: 1040
+ACK found: 17408
+Starting timer
+nextSeq: 21504
+timeout, base: 17408
+timeoutCounter: 1
+Ready to send, seq 17408
+bytes sent: 1040
+Starting timer, base: 17408
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+nextSeq: 24576
+timeout, base: 20480
+timeoutCounter: 1
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 22528
+Starting timer
+Ready to send, seq 24576
+bytes sent: 1040
+Ready to send, seq 25600
+bytes sent: 1040
+received packet: 1040
+ACK found: 22528
+Starting timer
+nextSeq: 26624
+timeout, base: 22528
+timeoutCounter: 1
+Ready to send, seq 22528
+bytes sent: 1040
+Starting timer, base: 22528
+Ready to send, seq 23552
+bytes sent: 1040
+Ready to send, seq 24576
+bytes sent: 1040
+Ready to send, seq 25600
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+Ready to send, seq 26624
+bytes sent: 1040
+Ready to send, seq 27648
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+nextSeq: 28672
+timeout, base: 24576
+timeoutCounter: 1
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+Ready to send, seq 25600
+bytes sent: 1040
+Ready to send, seq 26624
+bytes sent: 1040
+Ready to send, seq 27648
+bytes sent: 1040
+received packet: 1040
+ACK found: 27648
+Starting timer
+Ready to send, seq 28672
+bytes sent: 1040
+Ready to send, seq 29696
+bytes sent: 1040
+Ready to send, seq 30720
+bytes sent: 1040
+received packet: 1040
+ACK found: 27648
+Starting timer
+nextSeq: 31744
+timeout, base: 27648
+timeoutCounter: 1
+Ready to send, seq 27648
+bytes sent: 1040
+Starting timer, base: 27648
+Ready to send, seq 28672
+bytes sent: 1040
+Ready to send, seq 29696
+bytes sent: 1040
+Ready to send, seq 30720
+bytes sent: 1040
+received packet: 1040
+ACK found: 30720
+Starting timer
+Ready to send, seq 31744
+bytes sent: 1040
+Ready to send, seq 32768
+bytes sent: 1040
+Ready to send, seq 33792
+bytes sent: 1040
+received packet: 1040
+ACK found: 30720
+Starting timer
+nextSeq: 34816
+timeout, base: 30720
+timeoutCounter: 1
+Ready to send, seq 30720
+bytes sent: 1040
+Starting timer, base: 30720
+Ready to send, seq 31744
+bytes sent: 1040
+Ready to send, seq 32768
+bytes sent: 1040
+Ready to send, seq 33792
+bytes sent: 1040
+received packet: 1040
+ACK found: 34816
+Starting timer
+nextSeq: 34816
+timeout, base: 34816
+timeoutCounter: 1
+Ready to send, seq 34816
+bytes sent: 1040
+Starting timer, base: 34816
+Ready to send, seq 35840
+bytes sent: 1040
+Ready to send, seq 36864
+bytes sent: 1040
+Ready to send, seq 37888
+bytes sent: 1040
+received packet: 1040
+ACK found: 36864
+Starting timer
+Ready to send, seq 38912
+bytes sent: 1040
+Ready to send, seq 39936
+bytes sent: 1040
+received packet: 1040
+ACK found: 36864
+Starting timer
+nextSeq: 40960
+timeout, base: 36864
+timeoutCounter: 1
+Ready to send, seq 36864
+bytes sent: 1040
+Starting timer, base: 36864
+Ready to send, seq 37888
+bytes sent: 1040
+Ready to send, seq 38912
+bytes sent: 1040
+Ready to send, seq 39936
+bytes sent: 1040
+received packet: 1040
+ACK found: 38912
+Starting timer
+Ready to send, seq 40960
+bytes sent: 1040
+Ready to send, seq 41984
+bytes sent: 1040
+received packet: 1040
+ACK found: 38912
+Starting timer
+nextSeq: 43008
+timeout, base: 38912
+timeoutCounter: 1
+Ready to send, seq 38912
+bytes sent: 1040
+Starting timer, base: 38912
+Ready to send, seq 39936
+bytes sent: 1040
+Ready to send, seq 40960
+bytes sent: 1040
+Ready to send, seq 41984
+bytes sent: 1040
+received packet: 1040
+ACK found: 41984
+Starting timer
+Ready to send, seq 43008
+bytes sent: 1040
+Ready to send, seq 44032
+bytes sent: 1040
+Ready to send, seq 45056
+bytes sent: 1040
+received packet: 1040
+ACK found: 41984
+Starting timer
+nextSeq: 46080
+timeout, base: 41984
+timeoutCounter: 1
+Ready to send, seq 41984
+bytes sent: 1040
+Starting timer, base: 41984
+Ready to send, seq 43008
+bytes sent: 1040
+Ready to send, seq 44032
+bytes sent: 1040
+Ready to send, seq 45056
+bytes sent: 1040
+received packet: 1040
+ACK found: 44032
+Starting timer
+Ready to send, seq 46080
+bytes sent: 1040
+Ready to send, seq 47104
+bytes sent: 1040
+received packet: 1040
+ACK found: 44032
+Starting timer
+nextSeq: 48128
+timeout, base: 44032
+timeoutCounter: 1
+Ready to send, seq 44032
+bytes sent: 1040
+Starting timer, base: 44032
+Ready to send, seq 45056
+bytes sent: 1040
+Ready to send, seq 46080
+bytes sent: 1040
+Ready to send, seq 47104
+bytes sent: 1040
+received packet: 1040
+ACK found: 46080
+Starting timer
+Ready to send, seq 48128
+bytes sent: 1040
+Ready to send, seq 49152
+bytes sent: 1040
+received packet: 1040
+ACK found: 46080
+Starting timer
+nextSeq: 50176
+timeout, base: 46080
+timeoutCounter: 1
+Ready to send, seq 46080
+bytes sent: 1040
+Starting timer, base: 46080
+Ready to send, seq 47104
+bytes sent: 1040
+Ready to send, seq 48128
+bytes sent: 1040
+Ready to send, seq 49152
+bytes sent: 1040
+received packet: 1040
+ACK found: 49152
+Starting timer
+Ready to send, seq 50176
+bytes sent: 1040
+Ready to send, seq 51200
+bytes sent: 1040
+Ready to send, seq 52224
+bytes sent: 1040
+received packet: 1040
+ACK found: 49152
+Starting timer
+nextSeq: 53248
+timeout, base: 49152
+timeoutCounter: 1
+Ready to send, seq 49152
+bytes sent: 1040
+Starting timer, base: 49152
+Ready to send, seq 50176
+bytes sent: 1040
+Ready to send, seq 51200
+bytes sent: 1040
+Ready to send, seq 52224
+bytes sent: 1040
+received packet: 1040
+ACK found: 51200
+Starting timer
+Ready to send, seq 53248
+bytes sent: 1040
+Ready to send, seq 54272
+bytes sent: 1040
+received packet: 1040
+ACK found: 51200
+Starting timer
+nextSeq: 55296
+timeout, base: 51200
+timeoutCounter: 1
+Ready to send, seq 51200
+bytes sent: 1040
+Starting timer, base: 51200
+Ready to send, seq 52224
+bytes sent: 1040
+Ready to send, seq 53248
+bytes sent: 1040
+Ready to send, seq 54272
+bytes sent: 1040
+received packet: 1040
+ACK found: 54272
+Starting timer
+Ready to send, seq 55296
+bytes sent: 1040
+Ready to send, seq 56320
+bytes sent: 1040
+Ready to send, seq 57344
+bytes sent: 1040
+received packet: 1040
+ACK found: 54272
+Starting timer
+nextSeq: 58368
+timeout, base: 54272
+timeoutCounter: 1
+Ready to send, seq 54272
+bytes sent: 1040
+Starting timer, base: 54272
+Ready to send, seq 55296
+bytes sent: 1040
+Ready to send, seq 56320
+bytes sent: 1040
+Ready to send, seq 57344
+bytes sent: 1040
+received packet: 1040
+ACK found: 56320
+Starting timer
+Ready to send, seq 58368
+bytes sent: 1040
+Ready to send, seq 59392
+bytes sent: 1040
+received packet: 1040
+ACK found: 56320
+Starting timer
+nextSeq: 60416
+timeout, base: 56320
+timeoutCounter: 1
+Ready to send, seq 56320
+bytes sent: 1040
+Starting timer, base: 56320
+Ready to send, seq 57344
+bytes sent: 1040
+Ready to send, seq 58368
+bytes sent: 1040
+Ready to send, seq 59392
+bytes sent: 1040
+received packet: 1040
+ACK found: 58368
+Starting timer
+Ready to send, seq 60416
+bytes sent: 1040
+Ready to send, seq 61440
+bytes sent: 1040
+received packet: 1040
+ACK found: 58368
+Starting timer
+nextSeq: 62464
+timeout, base: 58368
+timeoutCounter: 1
+Ready to send, seq 58368
+bytes sent: 1040
+Starting timer, base: 58368
+Ready to send, seq 59392
+bytes sent: 1040
+Ready to send, seq 60416
+bytes sent: 1040
+Ready to send, seq 61440
+bytes sent: 1040
+received packet: 1040
+ACK found: 62464
+Starting timer
+nextSeq: 62464
+timeout, base: 62464
+timeoutCounter: 1
+Ready to send, seq 62464
+bytes sent: 1040
+Starting timer, base: 62464
+Ready to send, seq 63488
+bytes sent: 1040
+Ready to send, seq 64512
+bytes sent: 1040
+Ready to send, seq 65536
+bytes sent: 1040
+received packet: 1040
+ACK found: 66560
+Starting timer
+nextSeq: 66560
+timeout, base: 66560
+timeoutCounter: 1
+Ready to send, seq 66560
+bytes sent: 1040
+Starting timer, base: 66560
+Ready to send, seq 67584
+bytes sent: 1040
+Ready to send, seq 68608
+bytes sent: 1040
+Ready to send, seq 69632
+bytes sent: 1040
+received packet: 1040
+ACK found: 68608
+Starting timer
+Ready to send, seq 70656
+bytes sent: 1040
+Ready to send, seq 71680
+bytes sent: 1040
+received packet: 1040
+ACK found: 68608
+Starting timer
+nextSeq: 72704
+timeout, base: 68608
+timeoutCounter: 1
+Ready to send, seq 68608
+bytes sent: 1040
+Starting timer, base: 68608
+Ready to send, seq 69632
+bytes sent: 1040
+Ready to send, seq 70656
+bytes sent: 1040
+Ready to send, seq 71680
+bytes sent: 1040
+received packet: 1040
+ACK found: 70656
+Starting timer
+Ready to send, seq 72704
+bytes sent: 1040
+Ready to send, seq 73728
+bytes sent: 1040
+received packet: 1040
+ACK found: 70656
+Starting timer
+nextSeq: 74752
+timeout, base: 70656
+timeoutCounter: 1
+Ready to send, seq 70656
+bytes sent: 1040
+Starting timer, base: 70656
+Ready to send, seq 71680
+bytes sent: 1040
+Ready to send, seq 72704
+bytes sent: 1040
+Ready to send, seq 73728
+bytes sent: 1040
+received packet: 1040
+ACK found: 73728
+Starting timer
+Ready to send, seq 74752
+bytes sent: 1040
+Ready to send, seq 75776
+bytes sent: 1040
+Ready to send, seq 76800
+bytes sent: 1040
+received packet: 1040
+ACK found: 73728
+Starting timer
+nextSeq: 77290
+timeout, base: 73728
+timeoutCounter: 1
+Ready to send, seq 73728
+bytes sent: 1040
+Starting timer, base: 73728
+Ready to send, seq 74752
+bytes sent: 1040
+Ready to send, seq 75776
+bytes sent: 1040
+Ready to send, seq 76800
+bytes sent: 1040
+received packet: 1040
+ACK found: 75776
+Starting timer
+nextSeq: 77290
+timeout, base: 75776
+timeoutCounter: 1
+Ready to send, seq 75776
+bytes sent: 1040
+Starting timer, base: 75776
+Ready to send, seq 76800
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/2 20:56:48 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/2 20:58:29 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+nextSeq: 5526
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1040
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/2 21:0:51 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+nextSeq: 5526
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1040
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 5120
+Starting timer
+nextSeq: 5526
+timeout, base: 5120
+timeoutCounter: 1
+Ready to send, seq 5120
+bytes sent: 1040
+Starting timer, base: 5120
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename 25.txt
+sending file
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+nextSeq: 6144
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1040
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 5120
+Starting timer
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+received packet: 1040
+ACK found: 5120
+Starting timer
+nextSeq: 9216
+timeout, base: 5120
+timeoutCounter: 1
+Ready to send, seq 5120
+bytes sent: 1040
+Starting timer, base: 5120
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+nextSeq: 12288
+timeout, base: 8192
+timeoutCounter: 1
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 10240
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+received packet: 1040
+ACK found: 10240
+Starting timer
+nextSeq: 14336
+timeout, base: 10240
+timeoutCounter: 1
+Ready to send, seq 10240
+bytes sent: 1040
+Starting timer, base: 10240
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+nextSeq: 14336
+timeout, base: 14336
+timeoutCounter: 1
+Ready to send, seq 14336
+bytes sent: 1040
+Starting timer, base: 14336
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 17408
+Starting timer
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+received packet: 1040
+ACK found: 17408
+Starting timer
+nextSeq: 21504
+timeout, base: 17408
+timeoutCounter: 1
+Ready to send, seq 17408
+bytes sent: 1040
+Starting timer, base: 17408
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+nextSeq: 24576
+timeout, base: 20480
+timeoutCounter: 1
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 23552
+Starting timer
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+ACK found: 23552
+Starting timer
+nextSeq: 24986
+timeout, base: 23552
+timeoutCounter: 1
+Ready to send, seq 23552
+bytes sent: 1040
+Starting timer, base: 23552
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/2 21:4:39 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 25.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+nextSeq: 7168
+timeout, base: 3072
+timeoutCounter: 1
+Ready to send, seq 3072
+bytes sent: 1040
+Starting timer, base: 3072
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+received packet: 1040
+ACK found: 6144
+Starting timer
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+received packet: 1040
+ACK found: 6144
+Starting timer
+nextSeq: 10240
+timeout, base: 6144
+timeoutCounter: 1
+Ready to send, seq 6144
+bytes sent: 1040
+Starting timer, base: 6144
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+received packet: 1040
+ACK found: 9216
+Starting timer
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+received packet: 1040
+ACK found: 9216
+Starting timer
+nextSeq: 13312
+timeout, base: 9216
+timeoutCounter: 1
+Ready to send, seq 9216
+bytes sent: 1040
+Starting timer, base: 9216
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+received packet: 1040
+ACK found: 11264
+Starting timer
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+received packet: 1040
+ACK found: 11264
+Starting timer
+nextSeq: 15360
+timeout, base: 11264
+timeoutCounter: 1
+Ready to send, seq 11264
+bytes sent: 1040
+Starting timer, base: 11264
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+nextSeq: 18432
+timeout, base: 14336
+timeoutCounter: 1
+Ready to send, seq 14336
+bytes sent: 1040
+Starting timer, base: 14336
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 17408
+Starting timer
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+received packet: 1040
+ACK found: 17408
+Starting timer
+nextSeq: 21504
+timeout, base: 17408
+timeoutCounter: 1
+Ready to send, seq 17408
+bytes sent: 1040
+Starting timer, base: 17408
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+received packet: 1040
+ACK found: 21504
+Starting timer
+nextSeq: 21504
+timeout, base: 21504
+timeoutCounter: 1
+Ready to send, seq 21504
+bytes sent: 1040
+Starting timer, base: 21504
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+ACK found: 23552
+Starting timer
+nextSeq: 24986
+timeout, base: 23552
+timeoutCounter: 1
+Ready to send, seq 23552
+bytes sent: 1040
+Starting timer, base: 23552
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/2 22:14:10 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+nextSeq: 5526
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1040
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+nextSeq: 5526
+timeout, base: 4096
+timeoutCounter: 1
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/2 22:15:10 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 25.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+nextSeq: 7168
+timeout, base: 3072
+timeoutCounter: 1
+Ready to send, seq 3072
+bytes sent: 1040
+Starting timer, base: 3072
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+received packet: 1040
+ACK found: 6144
+Starting timer
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+received packet: 1040
+ACK found: 6144
+Starting timer
+nextSeq: 10240
+timeout, base: 6144
+timeoutCounter: 1
+Ready to send, seq 6144
+bytes sent: 1040
+Starting timer, base: 6144
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+received packet: 1040
+ACK found: 9216
+Starting timer
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+received packet: 1040
+ACK found: 9216
+Starting timer
+nextSeq: 13312
+timeout, base: 9216
+timeoutCounter: 1
+Ready to send, seq 9216
+bytes sent: 1040
+Starting timer, base: 9216
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+received packet: 1040
+ACK found: 11264
+Starting timer
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+received packet: 1040
+ACK found: 11264
+Starting timer
+nextSeq: 15360
+timeout, base: 11264
+timeoutCounter: 1
+Ready to send, seq 11264
+bytes sent: 1040
+Starting timer, base: 11264
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+nextSeq: 18432
+timeout, base: 14336
+timeoutCounter: 1
+Ready to send, seq 14336
+bytes sent: 1040
+Starting timer, base: 14336
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+nextSeq: 20480
+timeout, base: 16384
+timeoutCounter: 1
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 18432
+Starting timer
+Ready to send, seq 20480
+bytes sent: 1040
+Ready to send, seq 21504
+bytes sent: 1040
+received packet: 1040
+ACK found: 18432
+Starting timer
+nextSeq: 22528
+timeout, base: 18432
+timeoutCounter: 1
+Ready to send, seq 18432
+bytes sent: 1040
+Starting timer, base: 18432
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+Ready to send, seq 21504
+bytes sent: 1040
+received packet: 1040
+ACK found: 22528
+Starting timer
+nextSeq: 22528
+timeout, base: 22528
+timeoutCounter: 1
+Ready to send, seq 22528
+bytes sent: 1040
+Starting timer, base: 22528
+Ready to send, seq 23552
+bytes sent: 1040
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+nextSeq: 24986
+timeout, base: 24576
+timeoutCounter: 1
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 1:4:52 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename 25.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename 100.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+nextSeq: 16384
+timeout, base: 16384
+timeoutCounter: 1
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+nextSeq: 20480
+timeout, base: 20480
+timeoutCounter: 1
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+nextSeq: 24576
+timeout, base: 24576
+timeoutCounter: 1
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+Ready to send, seq 25600
+bytes sent: 1040
+Ready to send, seq 26624
+bytes sent: 1040
+Ready to send, seq 27648
+bytes sent: 1040
+received packet: 1040
+ACK found: 28672
+Starting timer
+nextSeq: 28672
+timeout, base: 28672
+timeoutCounter: 1
+Ready to send, seq 28672
+bytes sent: 1040
+Starting timer, base: 28672
+Ready to send, seq 29696
+bytes sent: 1040
+Ready to send, seq 30720
+bytes sent: 1040
+Ready to send, seq 31744
+bytes sent: 1040
+received packet: 1040
+ACK found: 32768
+Starting timer
+nextSeq: 32768
+timeout, base: 32768
+timeoutCounter: 1
+Ready to send, seq 32768
+bytes sent: 1040
+Starting timer, base: 32768
+Ready to send, seq 33792
+bytes sent: 1040
+Ready to send, seq 34816
+bytes sent: 1040
+Ready to send, seq 35840
+bytes sent: 1040
+received packet: 1040
+ACK found: 36864
+Starting timer
+nextSeq: 36864
+timeout, base: 36864
+timeoutCounter: 1
+Ready to send, seq 36864
+bytes sent: 1040
+Starting timer, base: 36864
+Ready to send, seq 37888
+bytes sent: 1040
+Ready to send, seq 38912
+bytes sent: 1040
+Ready to send, seq 39936
+bytes sent: 1040
+received packet: 1040
+ACK found: 40960
+Starting timer
+nextSeq: 40960
+timeout, base: 40960
+timeoutCounter: 1
+Ready to send, seq 40960
+bytes sent: 1040
+Starting timer, base: 40960
+Ready to send, seq 41984
+bytes sent: 1040
+Ready to send, seq 43008
+bytes sent: 1040
+Ready to send, seq 44032
+bytes sent: 1040
+received packet: 1040
+ACK found: 45056
+Starting timer
+nextSeq: 45056
+timeout, base: 45056
+timeoutCounter: 1
+Ready to send, seq 45056
+bytes sent: 1040
+Starting timer, base: 45056
+Ready to send, seq 46080
+bytes sent: 1040
+Ready to send, seq 47104
+bytes sent: 1040
+Ready to send, seq 48128
+bytes sent: 1040
+received packet: 1040
+ACK found: 49152
+Starting timer
+nextSeq: 49152
+timeout, base: 49152
+timeoutCounter: 1
+Ready to send, seq 49152
+bytes sent: 1040
+Starting timer, base: 49152
+Ready to send, seq 50176
+bytes sent: 1040
+Ready to send, seq 51200
+bytes sent: 1040
+Ready to send, seq 52224
+bytes sent: 1040
+received packet: 1040
+ACK found: 53248
+Starting timer
+nextSeq: 53248
+timeout, base: 53248
+timeoutCounter: 1
+Ready to send, seq 53248
+bytes sent: 1040
+Starting timer, base: 53248
+Ready to send, seq 54272
+bytes sent: 1040
+Ready to send, seq 55296
+bytes sent: 1040
+Ready to send, seq 56320
+bytes sent: 1040
+received packet: 1040
+ACK found: 57344
+Starting timer
+nextSeq: 57344
+timeout, base: 57344
+timeoutCounter: 1
+Ready to send, seq 57344
+bytes sent: 1040
+Starting timer, base: 57344
+Ready to send, seq 58368
+bytes sent: 1040
+Ready to send, seq 59392
+bytes sent: 1040
+Ready to send, seq 60416
+bytes sent: 1040
+received packet: 1040
+ACK found: 61440
+Starting timer
+nextSeq: 61440
+timeout, base: 61440
+timeoutCounter: 1
+Ready to send, seq 61440
+bytes sent: 1040
+Starting timer, base: 61440
+Ready to send, seq 62464
+bytes sent: 1040
+Ready to send, seq 63488
+bytes sent: 1040
+Ready to send, seq 64512
+bytes sent: 1040
+received packet: 1040
+ACK found: 65536
+Starting timer
+nextSeq: 65536
+timeout, base: 65536
+timeoutCounter: 1
+Ready to send, seq 65536
+bytes sent: 1040
+Starting timer, base: 65536
+Ready to send, seq 66560
+bytes sent: 1040
+Ready to send, seq 67584
+bytes sent: 1040
+Ready to send, seq 68608
+bytes sent: 1040
+received packet: 1040
+ACK found: 69632
+Starting timer
+nextSeq: 69632
+timeout, base: 69632
+timeoutCounter: 1
+Ready to send, seq 69632
+bytes sent: 1040
+Starting timer, base: 69632
+Ready to send, seq 70656
+bytes sent: 1040
+Ready to send, seq 71680
+bytes sent: 1040
+Ready to send, seq 72704
+bytes sent: 1040
+received packet: 1040
+ACK found: 73728
+Starting timer
+nextSeq: 73728
+timeout, base: 73728
+timeoutCounter: 1
+Ready to send, seq 73728
+bytes sent: 1040
+Starting timer, base: 73728
+Ready to send, seq 74752
+bytes sent: 1040
+Ready to send, seq 75776
+bytes sent: 1040
+Ready to send, seq 76800
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename 500.txt
+sending file
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+nextSeq: 4096
+timeout, base: 4096
+timeoutCounter: 1
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+nextSeq: 8192
+timeout, base: 8192
+timeoutCounter: 1
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+nextSeq: 12288
+timeout, base: 12288
+timeoutCounter: 1
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+nextSeq: 16384
+timeout, base: 16384
+timeoutCounter: 1
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+nextSeq: 20480
+timeout, base: 20480
+timeoutCounter: 1
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+nextSeq: 24576
+timeout, base: 24576
+timeoutCounter: 1
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+Ready to send, seq 25600
+bytes sent: 1040
+Ready to send, seq 26624
+bytes sent: 1040
+Ready to send, seq 27648
+bytes sent: 1040
+received packet: 1040
+ACK found: 28672
+Starting timer
+nextSeq: 28672
+timeout, base: 28672
+timeoutCounter: 1
+Ready to send, seq 28672
+bytes sent: 1040
+Starting timer, base: 28672
+Ready to send, seq 29696
+bytes sent: 1040
+Ready to send, seq 30720
+bytes sent: 1040
+Ready to send, seq 31744
+bytes sent: 1040
+received packet: 1040
+ACK found: 32768
+Starting timer
+nextSeq: 32768
+timeout, base: 32768
+timeoutCounter: 1
+Ready to send, seq 32768
+bytes sent: 1040
+Starting timer, base: 32768
+Ready to send, seq 33792
+bytes sent: 1040
+Ready to send, seq 34816
+bytes sent: 1040
+Ready to send, seq 35840
+bytes sent: 1040
+received packet: 1040
+ACK found: 36864
+Starting timer
+nextSeq: 36864
+timeout, base: 36864
+timeoutCounter: 1
+Ready to send, seq 36864
+bytes sent: 1040
+Starting timer, base: 36864
+Ready to send, seq 37888
+bytes sent: 1040
+Ready to send, seq 38912
+bytes sent: 1040
+Ready to send, seq 39936
+bytes sent: 1040
+received packet: 1040
+ACK found: 40960
+Starting timer
+nextSeq: 40960
+timeout, base: 40960
+timeoutCounter: 1
+Ready to send, seq 40960
+bytes sent: 1040
+Starting timer, base: 40960
+Ready to send, seq 41984
+bytes sent: 1040
+Ready to send, seq 43008
+bytes sent: 1040
+Ready to send, seq 44032
+bytes sent: 1040
+received packet: 1040
+ACK found: 45056
+Starting timer
+nextSeq: 45056
+timeout, base: 45056
+timeoutCounter: 1
+Ready to send, seq 45056
+bytes sent: 1040
+Starting timer, base: 45056
+Ready to send, seq 46080
+bytes sent: 1040
+Ready to send, seq 47104
+bytes sent: 1040
+Ready to send, seq 48128
+bytes sent: 1040
+received packet: 1040
+ACK found: 49152
+Starting timer
+nextSeq: 49152
+timeout, base: 49152
+timeoutCounter: 1
+Ready to send, seq 49152
+bytes sent: 1040
+Starting timer, base: 49152
+Ready to send, seq 50176
+bytes sent: 1040
+Ready to send, seq 51200
+bytes sent: 1040
+Ready to send, seq 52224
+bytes sent: 1040
+received packet: 1040
+ACK found: 53248
+Starting timer
+nextSeq: 53248
+timeout, base: 53248
+timeoutCounter: 1
+Ready to send, seq 53248
+bytes sent: 1040
+Starting timer, base: 53248
+Ready to send, seq 54272
+bytes sent: 1040
+Ready to send, seq 55296
+bytes sent: 1040
+Ready to send, seq 56320
+bytes sent: 1040
+received packet: 1040
+ACK found: 57344
+Starting timer
+nextSeq: 57344
+timeout, base: 57344
+timeoutCounter: 1
+Ready to send, seq 57344
+bytes sent: 1040
+Starting timer, base: 57344
+Ready to send, seq 58368
+bytes sent: 1040
+Ready to send, seq 59392
+bytes sent: 1040
+Ready to send, seq 60416
+bytes sent: 1040
+received packet: 1040
+ACK found: 61440
+Starting timer
+nextSeq: 61440
+timeout, base: 61440
+timeoutCounter: 1
+Ready to send, seq 61440
+bytes sent: 1040
+Starting timer, base: 61440
+Ready to send, seq 62464
+bytes sent: 1040
+Ready to send, seq 63488
+bytes sent: 1040
+Ready to send, seq 64512
+bytes sent: 1040
+received packet: 1040
+ACK found: 65536
+Starting timer
+nextSeq: 65536
+timeout, base: 65536
+timeoutCounter: 1
+Ready to send, seq 65536
+bytes sent: 1040
+Starting timer, base: 65536
+Ready to send, seq 66560
+bytes sent: 1040
+Ready to send, seq 67584
+bytes sent: 1040
+Ready to send, seq 68608
+bytes sent: 1040
+received packet: 1040
+ACK found: 69632
+Starting timer
+nextSeq: 69632
+timeout, base: 69632
+timeoutCounter: 1
+Ready to send, seq 69632
+bytes sent: 1040
+Starting timer, base: 69632
+Ready to send, seq 70656
+bytes sent: 1040
+Ready to send, seq 71680
+bytes sent: 1040
+Ready to send, seq 72704
+bytes sent: 1040
+received packet: 1040
+ACK found: 73728
+Starting timer
+nextSeq: 73728
+timeout, base: 73728
+timeoutCounter: 1
+Ready to send, seq 73728
+bytes sent: 1040
+Starting timer, base: 73728
+Ready to send, seq 74752
+bytes sent: 1040
+Ready to send, seq 75776
+bytes sent: 1040
+Ready to send, seq 76800
+bytes sent: 1040
+received packet: 1040
+ACK found: 77824
+Starting timer
+nextSeq: 77824
+timeout, base: 77824
+timeoutCounter: 1
+Ready to send, seq 77824
+bytes sent: 1040
+Starting timer, base: 77824
+Ready to send, seq 78848
+bytes sent: 1040
+Ready to send, seq 79872
+bytes sent: 1040
+Ready to send, seq 80896
+bytes sent: 1040
+received packet: 1040
+ACK found: 81920
+Starting timer
+nextSeq: 81920
+timeout, base: 81920
+timeoutCounter: 1
+Ready to send, seq 81920
+bytes sent: 1040
+Starting timer, base: 81920
+Ready to send, seq 82944
+bytes sent: 1040
+Ready to send, seq 83968
+bytes sent: 1040
+Ready to send, seq 84992
+bytes sent: 1040
+received packet: 1040
+ACK found: 86016
+Starting timer
+nextSeq: 86016
+timeout, base: 86016
+timeoutCounter: 1
+Ready to send, seq 86016
+bytes sent: 1040
+Starting timer, base: 86016
+Ready to send, seq 87040
+bytes sent: 1040
+Ready to send, seq 88064
+bytes sent: 1040
+Ready to send, seq 89088
+bytes sent: 1040
+received packet: 1040
+ACK found: 90112
+Starting timer
+nextSeq: 90112
+timeout, base: 90112
+timeoutCounter: 1
+Ready to send, seq 90112
+bytes sent: 1040
+Starting timer, base: 90112
+Ready to send, seq 91136
+bytes sent: 1040
+Ready to send, seq 92160
+bytes sent: 1040
+Ready to send, seq 93184
+bytes sent: 1040
+received packet: 1040
+ACK found: 94208
+Starting timer
+nextSeq: 94208
+timeout, base: 94208
+timeoutCounter: 1
+Ready to send, seq 94208
+bytes sent: 1040
+Starting timer, base: 94208
+Ready to send, seq 95232
+bytes sent: 1040
+Ready to send, seq 96256
+bytes sent: 1040
+Ready to send, seq 97280
+bytes sent: 1040
+received packet: 1040
+ACK found: 98304
+Starting timer
+nextSeq: 98304
+timeout, base: 98304
+timeoutCounter: 1
+Ready to send, seq 98304
+bytes sent: 1040
+Starting timer, base: 98304
+Ready to send, seq 99328
+bytes sent: 1040
+Ready to send, seq 100352
+bytes sent: 1040
+Ready to send, seq 101376
+bytes sent: 1040
+received packet: 1040
+ACK found: 102400
+Starting timer
+nextSeq: 102400
+timeout, base: 102400
+timeoutCounter: 1
+Ready to send, seq 102400
+bytes sent: 1040
+Starting timer, base: 102400
+Ready to send, seq 103424
+bytes sent: 1040
+Ready to send, seq 104448
+bytes sent: 1040
+Ready to send, seq 105472
+bytes sent: 1040
+received packet: 1040
+ACK found: 106496
+Starting timer
+nextSeq: 106496
+timeout, base: 106496
+timeoutCounter: 1
+Ready to send, seq 106496
+bytes sent: 1040
+Starting timer, base: 106496
+Ready to send, seq 107520
+bytes sent: 1040
+Ready to send, seq 108544
+bytes sent: 1040
+Ready to send, seq 109568
+bytes sent: 1040
+received packet: 1040
+ACK found: 110592
+Starting timer
+nextSeq: 110592
+timeout, base: 110592
+timeoutCounter: 1
+Ready to send, seq 110592
+bytes sent: 1040
+Starting timer, base: 110592
+Ready to send, seq 111616
+bytes sent: 1040
+Ready to send, seq 112640
+bytes sent: 1040
+Ready to send, seq 113664
+bytes sent: 1040
+received packet: 1040
+ACK found: 114688
+Starting timer
+nextSeq: 114688
+timeout, base: 114688
+timeoutCounter: 1
+Ready to send, seq 114688
+bytes sent: 1040
+Starting timer, base: 114688
+Ready to send, seq 115712
+bytes sent: 1040
+Ready to send, seq 116736
+bytes sent: 1040
+Ready to send, seq 117760
+bytes sent: 1040
+received packet: 1040
+ACK found: 118784
+Starting timer
+nextSeq: 118784
+timeout, base: 118784
+timeoutCounter: 1
+Ready to send, seq 118784
+bytes sent: 1040
+Starting timer, base: 118784
+Ready to send, seq 119808
+bytes sent: 1040
+Ready to send, seq 120832
+bytes sent: 1040
+Ready to send, seq 121856
+bytes sent: 1040
+received packet: 1040
+ACK found: 122880
+Starting timer
+nextSeq: 122880
+timeout, base: 122880
+timeoutCounter: 1
+Ready to send, seq 122880
+bytes sent: 1040
+Starting timer, base: 122880
+Ready to send, seq 123904
+bytes sent: 1040
+Ready to send, seq 124928
+bytes sent: 1040
+Ready to send, seq 125952
+bytes sent: 1040
+received packet: 1040
+ACK found: 126976
+Starting timer
+nextSeq: 126976
+timeout, base: 126976
+timeoutCounter: 1
+Ready to send, seq 126976
+bytes sent: 1040
+Starting timer, base: 126976
+Ready to send, seq 128000
+bytes sent: 1040
+Ready to send, seq 129024
+bytes sent: 1040
+Ready to send, seq 130048
+bytes sent: 1040
+received packet: 1040
+ACK found: 131072
+Starting timer
+nextSeq: 131072
+timeout, base: 131072
+timeoutCounter: 1
+Ready to send, seq 131072
+bytes sent: 1040
+Starting timer, base: 131072
+Ready to send, seq 132096
+bytes sent: 1040
+Ready to send, seq 133120
+bytes sent: 1040
+Ready to send, seq 134144
+bytes sent: 1040
+received packet: 1040
+ACK found: 135168
+Starting timer
+nextSeq: 135168
+timeout, base: 135168
+timeoutCounter: 1
+Ready to send, seq 135168
+bytes sent: 1040
+Starting timer, base: 135168
+Ready to send, seq 136192
+bytes sent: 1040
+Ready to send, seq 137216
+bytes sent: 1040
+Ready to send, seq 138240
+bytes sent: 1040
+received packet: 1040
+ACK found: 139264
+Starting timer
+nextSeq: 139264
+timeout, base: 139264
+timeoutCounter: 1
+Ready to send, seq 139264
+bytes sent: 1040
+Starting timer, base: 139264
+Ready to send, seq 140288
+bytes sent: 1040
+Ready to send, seq 141312
+bytes sent: 1040
+Ready to send, seq 142336
+bytes sent: 1040
+received packet: 1040
+ACK found: 143360
+Starting timer
+nextSeq: 143360
+timeout, base: 143360
+timeoutCounter: 1
+Ready to send, seq 143360
+bytes sent: 1040
+Starting timer, base: 143360
+Ready to send, seq 144384
+bytes sent: 1040
+Ready to send, seq 145408
+bytes sent: 1040
+Ready to send, seq 146432
+bytes sent: 1040
+received packet: 1040
+ACK found: 147456
+Starting timer
+nextSeq: 147456
+timeout, base: 147456
+timeoutCounter: 1
+Ready to send, seq 147456
+bytes sent: 1040
+Starting timer, base: 147456
+Ready to send, seq 148480
+bytes sent: 1040
+Ready to send, seq 149504
+bytes sent: 1040
+Ready to send, seq 150528
+bytes sent: 1040
+received packet: 1040
+ACK found: 151552
+Starting timer
+nextSeq: 151552
+timeout, base: 151552
+timeoutCounter: 1
+Ready to send, seq 151552
+bytes sent: 1040
+Starting timer, base: 151552
+Ready to send, seq 152576
+bytes sent: 1040
+Ready to send, seq 153600
+bytes sent: 1040
+Ready to send, seq 154624
+bytes sent: 1040
+received packet: 1040
+ACK found: 155648
+Starting timer
+nextSeq: 155648
+timeout, base: 155648
+timeoutCounter: 1
+Ready to send, seq 155648
+bytes sent: 1040
+Starting timer, base: 155648
+Ready to send, seq 156672
+bytes sent: 1040
+Ready to send, seq 157696
+bytes sent: 1040
+Ready to send, seq 158720
+bytes sent: 1040
+received packet: 1040
+ACK found: 159744
+Starting timer
+nextSeq: 159744
+timeout, base: 159744
+timeoutCounter: 1
+Ready to send, seq 159744
+bytes sent: 1040
+Starting timer, base: 159744
+Ready to send, seq 160768
+bytes sent: 1040
+Ready to send, seq 161792
+bytes sent: 1040
+Ready to send, seq 162816
+bytes sent: 1040
+received packet: 1040
+ACK found: 163840
+Starting timer
+nextSeq: 163840
+timeout, base: 163840
+timeoutCounter: 1
+Ready to send, seq 163840
+bytes sent: 1040
+Starting timer, base: 163840
+Ready to send, seq 164864
+bytes sent: 1040
+Ready to send, seq 165888
+bytes sent: 1040
+Ready to send, seq 166912
+bytes sent: 1040
+received packet: 1040
+ACK found: 167936
+Starting timer
+nextSeq: 167936
+timeout, base: 167936
+timeoutCounter: 1
+Ready to send, seq 167936
+bytes sent: 1040
+Starting timer, base: 167936
+Ready to send, seq 168960
+bytes sent: 1040
+Ready to send, seq 169984
+bytes sent: 1040
+Ready to send, seq 171008
+bytes sent: 1040
+received packet: 1040
+ACK found: 172032
+Starting timer
+nextSeq: 172032
+timeout, base: 172032
+timeoutCounter: 1
+Ready to send, seq 172032
+bytes sent: 1040
+Starting timer, base: 172032
+Ready to send, seq 173056
+bytes sent: 1040
+Ready to send, seq 174080
+bytes sent: 1040
+Ready to send, seq 175104
+bytes sent: 1040
+received packet: 1040
+ACK found: 176128
+Starting timer
+nextSeq: 176128
+timeout, base: 176128
+timeoutCounter: 1
+Ready to send, seq 176128
+bytes sent: 1040
+Starting timer, base: 176128
+Ready to send, seq 177152
+bytes sent: 1040
+Ready to send, seq 178176
+bytes sent: 1040
+Ready to send, seq 179200
+bytes sent: 1040
+received packet: 1040
+ACK found: 180224
+Starting timer
+nextSeq: 180224
+timeout, base: 180224
+timeoutCounter: 1
+Ready to send, seq 180224
+bytes sent: 1040
+Starting timer, base: 180224
+Ready to send, seq 181248
+bytes sent: 1040
+Ready to send, seq 182272
+bytes sent: 1040
+Ready to send, seq 183296
+bytes sent: 1040
+received packet: 1040
+ACK found: 184320
+Starting timer
+nextSeq: 184320
+timeout, base: 184320
+timeoutCounter: 1
+Ready to send, seq 184320
+bytes sent: 1040
+Starting timer, base: 184320
+Ready to send, seq 185344
+bytes sent: 1040
+Ready to send, seq 186368
+bytes sent: 1040
+Ready to send, seq 187392
+bytes sent: 1040
+received packet: 1040
+ACK found: 188416
+Starting timer
+nextSeq: 188416
+timeout, base: 188416
+timeoutCounter: 1
+Ready to send, seq 188416
+bytes sent: 1040
+Starting timer, base: 188416
+Ready to send, seq 189440
+bytes sent: 1040
+Ready to send, seq 190464
+bytes sent: 1040
+Ready to send, seq 191488
+bytes sent: 1040
+received packet: 1040
+ACK found: 192512
+Starting timer
+nextSeq: 192512
+timeout, base: 192512
+timeoutCounter: 1
+Ready to send, seq 192512
+bytes sent: 1040
+Starting timer, base: 192512
+Ready to send, seq 193536
+bytes sent: 1040
+Ready to send, seq 194560
+bytes sent: 1040
+Ready to send, seq 195584
+bytes sent: 1040
+received packet: 1040
+ACK found: 196608
+Starting timer
+nextSeq: 196608
+timeout, base: 196608
+timeoutCounter: 1
+Ready to send, seq 196608
+bytes sent: 1040
+Starting timer, base: 196608
+Ready to send, seq 197632
+bytes sent: 1040
+Ready to send, seq 198656
+bytes sent: 1040
+Ready to send, seq 199680
+bytes sent: 1040
+received packet: 1040
+ACK found: 200704
+Starting timer
+nextSeq: 200704
+timeout, base: 200704
+timeoutCounter: 1
+Ready to send, seq 200704
+bytes sent: 1040
+Starting timer, base: 200704
+Ready to send, seq 201728
+bytes sent: 1040
+Ready to send, seq 202752
+bytes sent: 1040
+Ready to send, seq 203776
+bytes sent: 1040
+received packet: 1040
+ACK found: 204800
+Starting timer
+nextSeq: 204800
+timeout, base: 204800
+timeoutCounter: 1
+Ready to send, seq 204800
+bytes sent: 1040
+Starting timer, base: 204800
+Ready to send, seq 205824
+bytes sent: 1040
+Ready to send, seq 206848
+bytes sent: 1040
+Ready to send, seq 207872
+bytes sent: 1040
+received packet: 1040
+ACK found: 208896
+Starting timer
+nextSeq: 208896
+timeout, base: 208896
+timeoutCounter: 1
+Ready to send, seq 208896
+bytes sent: 1040
+Starting timer, base: 208896
+Ready to send, seq 209920
+bytes sent: 1040
+Ready to send, seq 210944
+bytes sent: 1040
+Ready to send, seq 211968
+bytes sent: 1040
+received packet: 1040
+ACK found: 212992
+Starting timer
+nextSeq: 212992
+timeout, base: 212992
+timeoutCounter: 1
+Ready to send, seq 212992
+bytes sent: 1040
+Starting timer, base: 212992
+Ready to send, seq 214016
+bytes sent: 1040
+Ready to send, seq 215040
+bytes sent: 1040
+Ready to send, seq 216064
+bytes sent: 1040
+received packet: 1040
+ACK found: 217088
+Starting timer
+nextSeq: 217088
+timeout, base: 217088
+timeoutCounter: 1
+Ready to send, seq 217088
+bytes sent: 1040
+Starting timer, base: 217088
+Ready to send, seq 218112
+bytes sent: 1040
+Ready to send, seq 219136
+bytes sent: 1040
+Ready to send, seq 220160
+bytes sent: 1040
+received packet: 1040
+ACK found: 221184
+Starting timer
+nextSeq: 221184
+timeout, base: 221184
+timeoutCounter: 1
+Ready to send, seq 221184
+bytes sent: 1040
+Starting timer, base: 221184
+Ready to send, seq 222208
+bytes sent: 1040
+Ready to send, seq 223232
+bytes sent: 1040
+Ready to send, seq 224256
+bytes sent: 1040
+received packet: 1040
+ACK found: 225280
+Starting timer
+nextSeq: 225280
+timeout, base: 225280
+timeoutCounter: 1
+Ready to send, seq 225280
+bytes sent: 1040
+Starting timer, base: 225280
+Ready to send, seq 226304
+bytes sent: 1040
+Ready to send, seq 227328
+bytes sent: 1040
+Ready to send, seq 228352
+bytes sent: 1040
+received packet: 1040
+ACK found: 229376
+Starting timer
+nextSeq: 229376
+timeout, base: 229376
+timeoutCounter: 1
+Ready to send, seq 229376
+bytes sent: 1040
+Starting timer, base: 229376
+Ready to send, seq 230400
+bytes sent: 1040
+Ready to send, seq 231424
+bytes sent: 1040
+Ready to send, seq 232448
+bytes sent: 1040
+received packet: 1040
+ACK found: 233472
+Starting timer
+nextSeq: 233472
+timeout, base: 233472
+timeoutCounter: 1
+Ready to send, seq 233472
+bytes sent: 1040
+Starting timer, base: 233472
+Ready to send, seq 234496
+bytes sent: 1040
+Ready to send, seq 235520
+bytes sent: 1040
+Ready to send, seq 236544
+bytes sent: 1040
+received packet: 1040
+ACK found: 237568
+Starting timer
+nextSeq: 237568
+timeout, base: 237568
+timeoutCounter: 1
+Ready to send, seq 237568
+bytes sent: 1040
+Starting timer, base: 237568
+Ready to send, seq 238592
+bytes sent: 1040
+Ready to send, seq 239616
+bytes sent: 1040
+Ready to send, seq 240640
+bytes sent: 1040
+received packet: 1040
+ACK found: 241664
+Starting timer
+nextSeq: 241664
+timeout, base: 241664
+timeoutCounter: 1
+Ready to send, seq 241664
+bytes sent: 1040
+Starting timer, base: 241664
+Ready to send, seq 242688
+bytes sent: 1040
+Ready to send, seq 243712
+bytes sent: 1040
+Ready to send, seq 244736
+bytes sent: 1040
+received packet: 1040
+ACK found: 245760
+Starting timer
+nextSeq: 245760
+timeout, base: 245760
+timeoutCounter: 1
+Ready to send, seq 245760
+bytes sent: 1040
+Starting timer, base: 245760
+Ready to send, seq 246784
+bytes sent: 1040
+Ready to send, seq 247808
+bytes sent: 1040
+Ready to send, seq 248832
+bytes sent: 1040
+received packet: 1040
+ACK found: 249856
+Starting timer
+nextSeq: 249856
+timeout, base: 249856
+timeoutCounter: 1
+Ready to send, seq 249856
+bytes sent: 1040
+Starting timer, base: 249856
+Ready to send, seq 250880
+bytes sent: 1040
+Ready to send, seq 251904
+bytes sent: 1040
+Ready to send, seq 252928
+bytes sent: 1040
+received packet: 1040
+ACK found: 253952
+Starting timer
+nextSeq: 253952
+timeout, base: 253952
+timeoutCounter: 1
+Ready to send, seq 253952
+bytes sent: 1040
+Starting timer, base: 253952
+Ready to send, seq 254976
+bytes sent: 1040
+Ready to send, seq 256000
+bytes sent: 1040
+Ready to send, seq 257024
+bytes sent: 1040
+received packet: 1040
+ACK found: 258048
+Starting timer
+nextSeq: 258048
+timeout, base: 258048
+timeoutCounter: 1
+Ready to send, seq 258048
+bytes sent: 1040
+Starting timer, base: 258048
+Ready to send, seq 259072
+bytes sent: 1040
+Ready to send, seq 260096
+bytes sent: 1040
+Ready to send, seq 261120
+bytes sent: 1040
+received packet: 1040
+ACK found: 262144
+Starting timer
+nextSeq: 262144
+timeout, base: 262144
+timeoutCounter: 1
+Ready to send, seq 262144
+bytes sent: 1040
+Starting timer, base: 262144
+Ready to send, seq 263168
+bytes sent: 1040
+Ready to send, seq 264192
+bytes sent: 1040
+Ready to send, seq 265216
+bytes sent: 1040
+received packet: 1040
+ACK found: 266240
+Starting timer
+nextSeq: 266240
+timeout, base: 266240
+timeoutCounter: 1
+Ready to send, seq 266240
+bytes sent: 1040
+Starting timer, base: 266240
+Ready to send, seq 267264
+bytes sent: 1040
+Ready to send, seq 268288
+bytes sent: 1040
+Ready to send, seq 269312
+bytes sent: 1040
+received packet: 1040
+ACK found: 270336
+Starting timer
+nextSeq: 270336
+timeout, base: 270336
+timeoutCounter: 1
+Ready to send, seq 270336
+bytes sent: 1040
+Starting timer, base: 270336
+Ready to send, seq 271360
+bytes sent: 1040
+Ready to send, seq 272384
+bytes sent: 1040
+Ready to send, seq 273408
+bytes sent: 1040
+received packet: 1040
+ACK found: 274432
+Starting timer
+nextSeq: 274432
+timeout, base: 274432
+timeoutCounter: 1
+Ready to send, seq 274432
+bytes sent: 1040
+Starting timer, base: 274432
+Ready to send, seq 275456
+bytes sent: 1040
+Ready to send, seq 276480
+bytes sent: 1040
+Ready to send, seq 277504
+bytes sent: 1040
+received packet: 1040
+ACK found: 278528
+Starting timer
+nextSeq: 278528
+timeout, base: 278528
+timeoutCounter: 1
+Ready to send, seq 278528
+bytes sent: 1040
+Starting timer, base: 278528
+Ready to send, seq 279552
+bytes sent: 1040
+Ready to send, seq 280576
+bytes sent: 1040
+Ready to send, seq 281600
+bytes sent: 1040
+received packet: 1040
+ACK found: 282624
+Starting timer
+nextSeq: 282624
+timeout, base: 282624
+timeoutCounter: 1
+Ready to send, seq 282624
+bytes sent: 1040
+Starting timer, base: 282624
+Ready to send, seq 283648
+bytes sent: 1040
+Ready to send, seq 284672
+bytes sent: 1040
+Ready to send, seq 285696
+bytes sent: 1040
+received packet: 1040
+ACK found: 286720
+Starting timer
+nextSeq: 286720
+timeout, base: 286720
+timeoutCounter: 1
+Ready to send, seq 286720
+bytes sent: 1040
+Starting timer, base: 286720
+Ready to send, seq 287744
+bytes sent: 1040
+Ready to send, seq 288768
+bytes sent: 1040
+Ready to send, seq 289792
+bytes sent: 1040
+received packet: 1040
+ACK found: 290816
+Starting timer
+nextSeq: 290816
+timeout, base: 290816
+timeoutCounter: 1
+Ready to send, seq 290816
+bytes sent: 1040
+Starting timer, base: 290816
+Ready to send, seq 291840
+bytes sent: 1040
+Ready to send, seq 292864
+bytes sent: 1040
+Ready to send, seq 293888
+bytes sent: 1040
+received packet: 1040
+ACK found: 294912
+Starting timer
+nextSeq: 294912
+timeout, base: 294912
+timeoutCounter: 1
+Ready to send, seq 294912
+bytes sent: 1040
+Starting timer, base: 294912
+Ready to send, seq 295936
+bytes sent: 1040
+Ready to send, seq 296960
+bytes sent: 1040
+Ready to send, seq 297984
+bytes sent: 1040
+received packet: 1040
+ACK found: 299008
+Starting timer
+nextSeq: 299008
+timeout, base: 299008
+timeoutCounter: 1
+Ready to send, seq 299008
+bytes sent: 1040
+Starting timer, base: 299008
+Ready to send, seq 300032
+bytes sent: 1040
+Ready to send, seq 301056
+bytes sent: 1040
+Ready to send, seq 302080
+bytes sent: 1040
+received packet: 1040
+ACK found: 303104
+Starting timer
+nextSeq: 303104
+timeout, base: 303104
+timeoutCounter: 1
+Ready to send, seq 303104
+bytes sent: 1040
+Starting timer, base: 303104
+Ready to send, seq 304128
+bytes sent: 1040
+Ready to send, seq 305152
+bytes sent: 1040
+Ready to send, seq 306176
+bytes sent: 1040
+received packet: 1040
+ACK found: 307200
+Starting timer
+nextSeq: 307200
+timeout, base: 307200
+timeoutCounter: 1
+Ready to send, seq 307200
+bytes sent: 1040
+Starting timer, base: 307200
+Ready to send, seq 308224
+bytes sent: 1040
+Ready to send, seq 309248
+bytes sent: 1040
+Ready to send, seq 310272
+bytes sent: 1040
+received packet: 1040
+ACK found: 311296
+Starting timer
+nextSeq: 311296
+timeout, base: 311296
+timeoutCounter: 1
+Ready to send, seq 311296
+bytes sent: 1040
+Starting timer, base: 311296
+Ready to send, seq 312320
+bytes sent: 1040
+Ready to send, seq 313344
+bytes sent: 1040
+Ready to send, seq 314368
+bytes sent: 1040
+received packet: 1040
+ACK found: 315392
+Starting timer
+nextSeq: 315392
+timeout, base: 315392
+timeoutCounter: 1
+Ready to send, seq 315392
+bytes sent: 1040
+Starting timer, base: 315392
+Ready to send, seq 316416
+bytes sent: 1040
+Ready to send, seq 317440
+bytes sent: 1040
+Ready to send, seq 318464
+bytes sent: 1040
+received packet: 1040
+ACK found: 319488
+Starting timer
+nextSeq: 319488
+timeout, base: 319488
+timeoutCounter: 1
+Ready to send, seq 319488
+bytes sent: 1040
+Starting timer, base: 319488
+Ready to send, seq 320512
+bytes sent: 1040
+Ready to send, seq 321536
+bytes sent: 1040
+Ready to send, seq 322560
+bytes sent: 1040
+received packet: 1040
+ACK found: 323584
+Starting timer
+nextSeq: 323584
+timeout, base: 323584
+timeoutCounter: 1
+Ready to send, seq 323584
+bytes sent: 1040
+Starting timer, base: 323584
+Ready to send, seq 324608
+bytes sent: 1040
+Ready to send, seq 325632
+bytes sent: 1040
+Ready to send, seq 326656
+bytes sent: 1040
+received packet: 1040
+ACK found: 327680
+Starting timer
+nextSeq: 327680
+timeout, base: 327680
+timeoutCounter: 1
+Ready to send, seq 327680
+bytes sent: 1040
+Starting timer, base: 327680
+Ready to send, seq 328704
+bytes sent: 1040
+Ready to send, seq 329728
+bytes sent: 1040
+Ready to send, seq 330752
+bytes sent: 1040
+received packet: 1040
+ACK found: 331776
+Starting timer
+nextSeq: 331776
+timeout, base: 331776
+timeoutCounter: 1
+Ready to send, seq 331776
+bytes sent: 1040
+Starting timer, base: 331776
+Ready to send, seq 332800
+bytes sent: 1040
+Ready to send, seq 333824
+bytes sent: 1040
+Ready to send, seq 334848
+bytes sent: 1040
+received packet: 1040
+ACK found: 335872
+Starting timer
+nextSeq: 335872
+timeout, base: 335872
+timeoutCounter: 1
+Ready to send, seq 335872
+bytes sent: 1040
+Starting timer, base: 335872
+Ready to send, seq 336896
+bytes sent: 1040
+Ready to send, seq 337920
+bytes sent: 1040
+Ready to send, seq 338944
+bytes sent: 1040
+received packet: 1040
+ACK found: 339968
+Starting timer
+nextSeq: 339968
+timeout, base: 339968
+timeoutCounter: 1
+Ready to send, seq 339968
+bytes sent: 1040
+Starting timer, base: 339968
+Ready to send, seq 340992
+bytes sent: 1040
+Ready to send, seq 342016
+bytes sent: 1040
+Ready to send, seq 343040
+bytes sent: 1040
+received packet: 1040
+ACK found: 344064
+Starting timer
+nextSeq: 344064
+timeout, base: 344064
+timeoutCounter: 1
+Ready to send, seq 344064
+bytes sent: 1040
+Starting timer, base: 344064
+Ready to send, seq 345088
+bytes sent: 1040
+Ready to send, seq 346112
+bytes sent: 1040
+Ready to send, seq 347136
+bytes sent: 1040
+received packet: 1040
+ACK found: 348160
+Starting timer
+nextSeq: 348160
+timeout, base: 348160
+timeoutCounter: 1
+Ready to send, seq 348160
+bytes sent: 1040
+Starting timer, base: 348160
+Ready to send, seq 349184
+bytes sent: 1040
+Ready to send, seq 350208
+bytes sent: 1040
+Ready to send, seq 351232
+bytes sent: 1040
+received packet: 1040
+ACK found: 352256
+Starting timer
+nextSeq: 352256
+timeout, base: 352256
+timeoutCounter: 1
+Ready to send, seq 352256
+bytes sent: 1040
+Starting timer, base: 352256
+Ready to send, seq 353280
+bytes sent: 1040
+Ready to send, seq 354304
+bytes sent: 1040
+Ready to send, seq 355328
+bytes sent: 1040
+received packet: 1040
+ACK found: 356352
+Starting timer
+nextSeq: 356352
+timeout, base: 356352
+timeoutCounter: 1
+Ready to send, seq 356352
+bytes sent: 1040
+Starting timer, base: 356352
+Ready to send, seq 357376
+bytes sent: 1040
+Ready to send, seq 358400
+bytes sent: 1040
+Ready to send, seq 359424
+bytes sent: 1040
+received packet: 1040
+ACK found: 360448
+Starting timer
+nextSeq: 360448
+timeout, base: 360448
+timeoutCounter: 1
+Ready to send, seq 360448
+bytes sent: 1040
+Starting timer, base: 360448
+Ready to send, seq 361472
+bytes sent: 1040
+Ready to send, seq 362496
+bytes sent: 1040
+Ready to send, seq 363520
+bytes sent: 1040
+received packet: 1040
+ACK found: 364544
+Starting timer
+nextSeq: 364544
+timeout, base: 364544
+timeoutCounter: 1
+Ready to send, seq 364544
+bytes sent: 1040
+Starting timer, base: 364544
+Ready to send, seq 365568
+bytes sent: 1040
+Ready to send, seq 366592
+bytes sent: 1040
+Ready to send, seq 367616
+bytes sent: 1040
+received packet: 1040
+ACK found: 368640
+Starting timer
+nextSeq: 368640
+timeout, base: 368640
+timeoutCounter: 1
+Ready to send, seq 368640
+bytes sent: 1040
+Starting timer, base: 368640
+Ready to send, seq 369664
+bytes sent: 1040
+Ready to send, seq 370688
+bytes sent: 1040
+Ready to send, seq 371712
+bytes sent: 1040
+received packet: 1040
+ACK found: 372736
+Starting timer
+nextSeq: 372736
+timeout, base: 372736
+timeoutCounter: 1
+Ready to send, seq 372736
+bytes sent: 1040
+Starting timer, base: 372736
+Ready to send, seq 373760
+bytes sent: 1040
+Ready to send, seq 374784
+bytes sent: 1040
+Ready to send, seq 375808
+bytes sent: 1040
+received packet: 1040
+ACK found: 376832
+Starting timer
+nextSeq: 376832
+timeout, base: 376832
+timeoutCounter: 1
+Ready to send, seq 376832
+bytes sent: 1040
+Starting timer, base: 376832
+Ready to send, seq 377856
+bytes sent: 1040
+Ready to send, seq 378880
+bytes sent: 1040
+Ready to send, seq 379904
+bytes sent: 1040
+received packet: 1040
+ACK found: 380928
+Starting timer
+nextSeq: 380928
+timeout, base: 380928
+timeoutCounter: 1
+Ready to send, seq 380928
+bytes sent: 1040
+Starting timer, base: 380928
+Ready to send, seq 381952
+bytes sent: 1040
+Ready to send, seq 382976
+bytes sent: 1040
+Ready to send, seq 384000
+bytes sent: 1040
+received packet: 1040
+ACK found: 385024
+Starting timer
+nextSeq: 385024
+timeout, base: 385024
+timeoutCounter: 1
+Ready to send, seq 385024
+bytes sent: 1040
+Starting timer, base: 385024
+Ready to send, seq 386048
+bytes sent: 1040
+Ready to send, seq 387072
+bytes sent: 1040
+Ready to send, seq 388096
+bytes sent: 1040
+received packet: 1040
+ACK found: 389120
+Starting timer
+nextSeq: 389120
+timeout, base: 389120
+timeoutCounter: 1
+Ready to send, seq 389120
+bytes sent: 1040
+Starting timer, base: 389120
+Ready to send, seq 390144
+bytes sent: 1040
+Ready to send, seq 391168
+bytes sent: 1040
+Ready to send, seq 392192
+bytes sent: 1040
+received packet: 1040
+ACK found: 393216
+Starting timer
+nextSeq: 393216
+timeout, base: 393216
+timeoutCounter: 1
+Ready to send, seq 393216
+bytes sent: 1040
+Starting timer, base: 393216
+Ready to send, seq 394240
+bytes sent: 1040
+Ready to send, seq 395264
+bytes sent: 1040
+Ready to send, seq 396288
+bytes sent: 1040
+received packet: 1040
+ACK found: 397312
+Starting timer
+nextSeq: 397312
+timeout, base: 397312
+timeoutCounter: 1
+Ready to send, seq 397312
+bytes sent: 1040
+Starting timer, base: 397312
+Ready to send, seq 398336
+bytes sent: 1040
+Ready to send, seq 399360
+bytes sent: 1040
+Ready to send, seq 400384
+bytes sent: 1040
+received packet: 1040
+ACK found: 401408
+Starting timer
+nextSeq: 401408
+timeout, base: 401408
+timeoutCounter: 1
+Ready to send, seq 401408
+bytes sent: 1040
+Starting timer, base: 401408
+Ready to send, seq 402432
+bytes sent: 1040
+Ready to send, seq 403456
+bytes sent: 1040
+Ready to send, seq 404480
+bytes sent: 1040
+received packet: 1040
+ACK found: 405504
+Starting timer
+nextSeq: 405504
+timeout, base: 405504
+timeoutCounter: 1
+Ready to send, seq 405504
+bytes sent: 1040
+Starting timer, base: 405504
+Ready to send, seq 406528
+bytes sent: 1040
+Ready to send, seq 407552
+bytes sent: 1040
+Ready to send, seq 408576
+bytes sent: 1040
+received packet: 1040
+ACK found: 409600
+Starting timer
+nextSeq: 409600
+timeout, base: 409600
+timeoutCounter: 1
+Ready to send, seq 409600
+bytes sent: 1040
+Starting timer, base: 409600
+Ready to send, seq 410624
+bytes sent: 1040
+Ready to send, seq 411648
+bytes sent: 1040
+Ready to send, seq 412672
+bytes sent: 1040
+received packet: 1040
+ACK found: 413696
+Starting timer
+nextSeq: 413696
+timeout, base: 413696
+timeoutCounter: 1
+Ready to send, seq 413696
+bytes sent: 1040
+Starting timer, base: 413696
+Ready to send, seq 414720
+bytes sent: 1040
+Ready to send, seq 415744
+bytes sent: 1040
+Ready to send, seq 416768
+bytes sent: 1040
+received packet: 1040
+ACK found: 417792
+Starting timer
+nextSeq: 417792
+timeout, base: 417792
+timeoutCounter: 1
+Ready to send, seq 417792
+bytes sent: 1040
+Starting timer, base: 417792
+Ready to send, seq 418816
+bytes sent: 1040
+Ready to send, seq 419840
+bytes sent: 1040
+Ready to send, seq 420864
+bytes sent: 1040
+received packet: 1040
+ACK found: 421888
+Starting timer
+nextSeq: 421888
+timeout, base: 421888
+timeoutCounter: 1
+Ready to send, seq 421888
+bytes sent: 1040
+Starting timer, base: 421888
+Ready to send, seq 422912
+bytes sent: 1040
+Ready to send, seq 423936
+bytes sent: 1040
+Ready to send, seq 424960
+bytes sent: 1040
+received packet: 1040
+ACK found: 425984
+Starting timer
+nextSeq: 425984
+timeout, base: 425984
+timeoutCounter: 1
+Ready to send, seq 425984
+bytes sent: 1040
+Starting timer, base: 425984
+Ready to send, seq 427008
+bytes sent: 1040
+Ready to send, seq 428032
+bytes sent: 1040
+Ready to send, seq 429056
+bytes sent: 1040
+received packet: 1040
+ACK found: 430080
+Starting timer
+nextSeq: 430080
+timeout, base: 430080
+timeoutCounter: 1
+Ready to send, seq 430080
+bytes sent: 1040
+Starting timer, base: 430080
+Ready to send, seq 431104
+bytes sent: 1040
+Ready to send, seq 432128
+bytes sent: 1040
+Ready to send, seq 433152
+bytes sent: 1040
+received packet: 1040
+ACK found: 434176
+Starting timer
+nextSeq: 434176
+timeout, base: 434176
+timeoutCounter: 1
+Ready to send, seq 434176
+bytes sent: 1040
+Starting timer, base: 434176
+Ready to send, seq 435200
+bytes sent: 1040
+Ready to send, seq 436224
+bytes sent: 1040
+Ready to send, seq 437248
+bytes sent: 1040
+received packet: 1040
+ACK found: 438272
+Starting timer
+nextSeq: 438272
+timeout, base: 438272
+timeoutCounter: 1
+Ready to send, seq 438272
+bytes sent: 1040
+Starting timer, base: 438272
+Ready to send, seq 439296
+bytes sent: 1040
+Ready to send, seq 440320
+bytes sent: 1040
+Ready to send, seq 441344
+bytes sent: 1040
+received packet: 1040
+ACK found: 442368
+Starting timer
+nextSeq: 442368
+timeout, base: 442368
+timeoutCounter: 1
+Ready to send, seq 442368
+bytes sent: 1040
+Starting timer, base: 442368
+Ready to send, seq 443392
+bytes sent: 1040
+Ready to send, seq 444416
+bytes sent: 1040
+Ready to send, seq 445440
+bytes sent: 1040
+received packet: 1040
+ACK found: 446464
+Starting timer
+nextSeq: 446464
+timeout, base: 446464
+timeoutCounter: 1
+Ready to send, seq 446464
+bytes sent: 1040
+Starting timer, base: 446464
+Ready to send, seq 447488
+bytes sent: 1040
+Ready to send, seq 448512
+bytes sent: 1040
+Ready to send, seq 449536
+bytes sent: 1040
+received packet: 1040
+ACK found: 450560
+Starting timer
+nextSeq: 450560
+timeout, base: 450560
+timeoutCounter: 1
+Ready to send, seq 450560
+bytes sent: 1040
+Starting timer, base: 450560
+Ready to send, seq 451584
+bytes sent: 1040
+Ready to send, seq 452608
+bytes sent: 1040
+Ready to send, seq 453632
+bytes sent: 1040
+received packet: 1040
+ACK found: 454656
+Starting timer
+nextSeq: 454656
+timeout, base: 454656
+timeoutCounter: 1
+Ready to send, seq 454656
+bytes sent: 1040
+Starting timer, base: 454656
+Ready to send, seq 455680
+bytes sent: 1040
+Ready to send, seq 456704
+bytes sent: 1040
+Ready to send, seq 457728
+bytes sent: 1040
+received packet: 1040
+ACK found: 458752
+Starting timer
+nextSeq: 458752
+timeout, base: 458752
+timeoutCounter: 1
+Ready to send, seq 458752
+bytes sent: 1040
+Starting timer, base: 458752
+Ready to send, seq 459776
+bytes sent: 1040
+Ready to send, seq 460800
+bytes sent: 1040
+Ready to send, seq 461824
+bytes sent: 1040
+received packet: 1040
+ACK found: 462848
+Starting timer
+nextSeq: 462848
+timeout, base: 462848
+timeoutCounter: 1
+Ready to send, seq 462848
+bytes sent: 1040
+Starting timer, base: 462848
+Ready to send, seq 463872
+bytes sent: 1040
+Ready to send, seq 464896
+bytes sent: 1040
+Ready to send, seq 465920
+bytes sent: 1040
+received packet: 1040
+ACK found: 466944
+Starting timer
+nextSeq: 466944
+timeout, base: 466944
+timeoutCounter: 1
+Ready to send, seq 466944
+bytes sent: 1040
+Starting timer, base: 466944
+Ready to send, seq 467968
+bytes sent: 1040
+Ready to send, seq 468992
+bytes sent: 1040
+Ready to send, seq 470016
+bytes sent: 1040
+received packet: 1040
+ACK found: 471040
+Starting timer
+nextSeq: 471040
+timeout, base: 471040
+timeoutCounter: 1
+Ready to send, seq 471040
+bytes sent: 1040
+Starting timer, base: 471040
+Ready to send, seq 472064
+bytes sent: 1040
+Ready to send, seq 473088
+bytes sent: 1040
+Ready to send, seq 474112
+bytes sent: 1040
+received packet: 1040
+ACK found: 475136
+Starting timer
+nextSeq: 475136
+timeout, base: 475136
+timeoutCounter: 1
+Ready to send, seq 475136
+bytes sent: 1040
+Starting timer, base: 475136
+Ready to send, seq 476160
+bytes sent: 1040
+Ready to send, seq 477184
+bytes sent: 1040
+Ready to send, seq 478208
+bytes sent: 1040
+received packet: 1040
+ACK found: 479232
+Starting timer
+nextSeq: 479232
+timeout, base: 479232
+timeoutCounter: 1
+Ready to send, seq 479232
+bytes sent: 1040
+Starting timer, base: 479232
+Ready to send, seq 480256
+bytes sent: 1040
+Ready to send, seq 481280
+bytes sent: 1040
+Ready to send, seq 482304
+bytes sent: 1040
+received packet: 1040
+ACK found: 483328
+Starting timer
+nextSeq: 483328
+timeout, base: 483328
+timeoutCounter: 1
+Ready to send, seq 483328
+bytes sent: 1040
+Starting timer, base: 483328
+Ready to send, seq 484352
+bytes sent: 1040
+Ready to send, seq 485376
+bytes sent: 1040
+Ready to send, seq 486400
+bytes sent: 1040
+received packet: 1040
+ACK found: 487424
+Starting timer
+nextSeq: 487424
+timeout, base: 487424
+timeoutCounter: 1
+Ready to send, seq 487424
+bytes sent: 1040
+Starting timer, base: 487424
+Ready to send, seq 488448
+bytes sent: 1040
+Ready to send, seq 489472
+bytes sent: 1040
+Ready to send, seq 490496
+bytes sent: 1040
+received packet: 1040
+ACK found: 491520
+Starting timer
+nextSeq: 491520
+timeout, base: 491520
+timeoutCounter: 1
+Ready to send, seq 491520
+bytes sent: 1040
+Starting timer, base: 491520
+Ready to send, seq 492544
+bytes sent: 1040
+Ready to send, seq 493568
+bytes sent: 1040
+Ready to send, seq 494592
+bytes sent: 1040
+received packet: 1040
+ACK found: 495616
+Starting timer
+nextSeq: 495616
+timeout, base: 495616
+timeoutCounter: 1
+Ready to send, seq 495616
+bytes sent: 1040
+Starting timer, base: 495616
+Ready to send, seq 496640
+bytes sent: 1040
+Ready to send, seq 497664
+bytes sent: 1040
+Ready to send, seq 498688
+bytes sent: 1040
+received packet: 1040
+ACK found: 499712
+Starting timer
+nextSeq: 499712
+timeout, base: 499712
+timeoutCounter: 1
+Ready to send, seq 499712
+bytes sent: 1040
+Starting timer, base: 499712
+Ready to send, seq 500736
+bytes sent: 1040
+Ready to send, seq 501760
+bytes sent: 1040
+Ready to send, seq 502784
+bytes sent: 1040
+received packet: 1040
+ACK found: 503808
+Starting timer
+nextSeq: 503808
+timeout, base: 503808
+timeoutCounter: 1
+Ready to send, seq 503808
+bytes sent: 1040
+Starting timer, base: 503808
+Ready to send, seq 504832
+bytes sent: 1040
+Ready to send, seq 505856
+bytes sent: 1040
+Ready to send, seq 506880
+bytes sent: 1040
+received packet: 1040
+ACK found: 507904
+Starting timer
+nextSeq: 507904
+timeout, base: 507904
+timeoutCounter: 1
+Ready to send, seq 507904
+bytes sent: 1040
+Starting timer, base: 507904
+Ready to send, seq 508928
+bytes sent: 1040
+Ready to send, seq 509952
+bytes sent: 1040
+Ready to send, seq 510976
+bytes sent: 1040
+received packet: 1040
+ACK found: 512000
+Starting timer
+nextSeq: 512000
+timeout, base: 512000
+timeoutCounter: 1
+Ready to send, seq 512000
+bytes sent: 1040
+Starting timer, base: 512000
+Ready to send, seq 513024
+bytes sent: 1040
+Ready to send, seq 514048
+bytes sent: 1040
+Ready to send, seq 515072
+bytes sent: 1040
+received packet: 1040
+ACK found: 516096
+Starting timer
+nextSeq: 516096
+timeout, base: 516096
+timeoutCounter: 1
+Ready to send, seq 516096
+bytes sent: 1040
+Starting timer, base: 516096
+Ready to send, seq 517120
+bytes sent: 1040
+Ready to send, seq 518144
+bytes sent: 1040
+Ready to send, seq 519168
+bytes sent: 1040
+received packet: 1040
+ACK found: 520192
+Starting timer
+nextSeq: 520192
+timeout, base: 520192
+timeoutCounter: 1
+Ready to send, seq 520192
+bytes sent: 1040
+Starting timer, base: 520192
+Ready to send, seq 521216
+bytes sent: 1040
+Ready to send, seq 522240
+bytes sent: 1040
+Ready to send, seq 523264
+bytes sent: 1040
+received packet: 1040
+ACK found: 524288
+Starting timer
+nextSeq: 524288
+timeout, base: 524288
+timeoutCounter: 1
+Ready to send, seq 524288
+bytes sent: 1040
+Starting timer, base: 524288
+Ready to send, seq 525312
+bytes sent: 1040
+Ready to send, seq 526336
+bytes sent: 1040
+Ready to send, seq 527360
+bytes sent: 1040
+received packet: 1040
+ACK found: 528384
+Starting timer
+nextSeq: 528384
+timeout, base: 528384
+timeoutCounter: 1
+Ready to send, seq 528384
+bytes sent: 1040
+Starting timer, base: 528384
+Ready to send, seq 529408
+bytes sent: 1040
+Ready to send, seq 530432
+bytes sent: 1040
+Ready to send, seq 531456
+bytes sent: 1040
+received packet: 1040
+ACK found: 532480
+Starting timer
+nextSeq: 532480
+timeout, base: 532480
+timeoutCounter: 1
+Ready to send, seq 532480
+bytes sent: 1040
+Starting timer, base: 532480
+Ready to send, seq 533504
+bytes sent: 1040
+Ready to send, seq 534528
+bytes sent: 1040
+Ready to send, seq 535552
+bytes sent: 1040
+received packet: 1040
+ACK found: 536576
+Starting timer
+nextSeq: 536576
+timeout, base: 536576
+timeoutCounter: 1
+Ready to send, seq 536576
+bytes sent: 1040
+Starting timer, base: 536576
+Ready to send, seq 537600
+bytes sent: 1040
+Ready to send, seq 538624
+bytes sent: 1040
+Ready to send, seq 539648
+bytes sent: 1040
+received packet: 1040
+ACK found: 540672
+Starting timer
+nextSeq: 540672
+timeout, base: 540672
+timeoutCounter: 1
+Ready to send, seq 540672
+bytes sent: 1040
+Starting timer, base: 540672
+Ready to send, seq 541696
+bytes sent: 1040
+Ready to send, seq 542720
+bytes sent: 1040
+Ready to send, seq 543744
+bytes sent: 1040
+received packet: 1040
+ACK found: 544768
+Starting timer
+nextSeq: 544768
+timeout, base: 544768
+timeoutCounter: 1
+Ready to send, seq 544768
+bytes sent: 1040
+Starting timer, base: 544768
+Ready to send, seq 545792
+bytes sent: 1040
+Ready to send, seq 546816
+bytes sent: 1040
+Ready to send, seq 547840
+bytes sent: 1040
+received packet: 1040
+ACK found: 548864
+Starting timer
+nextSeq: 548864
+timeout, base: 548864
+timeoutCounter: 1
+Ready to send, seq 548864
+bytes sent: 1040
+Starting timer, base: 548864
+Ready to send, seq 549888
+bytes sent: 1040
+Ready to send, seq 550912
+bytes sent: 1040
+Ready to send, seq 551936
+bytes sent: 1040
+received packet: 1040
+ACK found: 552960
+Starting timer
+nextSeq: 552960
+timeout, base: 552960
+timeoutCounter: 1
+Ready to send, seq 552960
+bytes sent: 1040
+Starting timer, base: 552960
+Ready to send, seq 553984
+bytes sent: 1040
+Ready to send, seq 555008
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/3 1:8:30 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 500.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+Ready to send, seq 25600
+bytes sent: 1040
+Ready to send, seq 26624
+bytes sent: 1040
+Ready to send, seq 27648
+bytes sent: 1040
+received packet: 1040
+ACK found: 28672
+Starting timer
+Ready to send, seq 28672
+bytes sent: 1040
+Starting timer, base: 28672
+Ready to send, seq 29696
+bytes sent: 1040
+Ready to send, seq 30720
+bytes sent: 1040
+Ready to send, seq 31744
+bytes sent: 1040
+received packet: 1040
+ACK found: 32768
+Starting timer
+Ready to send, seq 32768
+bytes sent: 1040
+Starting timer, base: 32768
+Ready to send, seq 33792
+bytes sent: 1040
+Ready to send, seq 34816
+bytes sent: 1040
+Ready to send, seq 35840
+bytes sent: 1040
+received packet: 1040
+ACK found: 36864
+Starting timer
+Ready to send, seq 36864
+bytes sent: 1040
+Starting timer, base: 36864
+Ready to send, seq 37888
+bytes sent: 1040
+Ready to send, seq 38912
+bytes sent: 1040
+Ready to send, seq 39936
+bytes sent: 1040
+received packet: 1040
+ACK found: 40960
+Starting timer
+Ready to send, seq 40960
+bytes sent: 1040
+Starting timer, base: 40960
+Ready to send, seq 41984
+bytes sent: 1040
+Ready to send, seq 43008
+bytes sent: 1040
+Ready to send, seq 44032
+bytes sent: 1040
+received packet: 1040
+ACK found: 45056
+Starting timer
+nextSeq: 45056
+timeout, base: 45056
+timeoutCounter: 1
+Ready to send, seq 45056
+bytes sent: 1040
+Starting timer, base: 45056
+Ready to send, seq 46080
+bytes sent: 1040
+Ready to send, seq 47104
+bytes sent: 1040
+Ready to send, seq 48128
+bytes sent: 1040
+received packet: 1040
+ACK found: 49152
+Starting timer
+nextSeq: 49152
+timeout, base: 49152
+timeoutCounter: 1
+Ready to send, seq 49152
+bytes sent: 1040
+Starting timer, base: 49152
+Ready to send, seq 50176
+bytes sent: 1040
+Ready to send, seq 51200
+bytes sent: 1040
+Ready to send, seq 52224
+bytes sent: 1040
+received packet: 1040
+ACK found: 53248
+Starting timer
+nextSeq: 53248
+timeout, base: 53248
+timeoutCounter: 1
+Ready to send, seq 53248
+bytes sent: 1040
+Starting timer, base: 53248
+Ready to send, seq 54272
+bytes sent: 1040
+Ready to send, seq 55296
+bytes sent: 1040
+Ready to send, seq 56320
+bytes sent: 1040
+received packet: 1040
+ACK found: 57344
+Starting timer
+nextSeq: 57344
+timeout, base: 57344
+timeoutCounter: 1
+Ready to send, seq 57344
+bytes sent: 1040
+Starting timer, base: 57344
+Ready to send, seq 58368
+bytes sent: 1040
+Ready to send, seq 59392
+bytes sent: 1040
+Ready to send, seq 60416
+bytes sent: 1040
+received packet: 1040
+ACK found: 61440
+Starting timer
+nextSeq: 61440
+timeout, base: 61440
+timeoutCounter: 1
+Ready to send, seq 61440
+bytes sent: 1040
+Starting timer, base: 61440
+Ready to send, seq 62464
+bytes sent: 1040
+Ready to send, seq 63488
+bytes sent: 1040
+Ready to send, seq 64512
+bytes sent: 1040
+received packet: 1040
+ACK found: 65536
+Starting timer
+nextSeq: 65536
+timeout, base: 65536
+timeoutCounter: 1
+Ready to send, seq 65536
+bytes sent: 1040
+Starting timer, base: 65536
+Ready to send, seq 66560
+bytes sent: 1040
+Ready to send, seq 67584
+bytes sent: 1040
+Ready to send, seq 68608
+bytes sent: 1040
+received packet: 1040
+ACK found: 69632
+Starting timer
+nextSeq: 69632
+timeout, base: 69632
+timeoutCounter: 1
+Ready to send, seq 69632
+bytes sent: 1040
+Starting timer, base: 69632
+Ready to send, seq 70656
+bytes sent: 1040
+Ready to send, seq 71680
+bytes sent: 1040
+Ready to send, seq 72704
+bytes sent: 1040
+received packet: 1040
+ACK found: 73728
+Starting timer
+nextSeq: 73728
+timeout, base: 73728
+timeoutCounter: 1
+Ready to send, seq 73728
+bytes sent: 1040
+Starting timer, base: 73728
+Ready to send, seq 74752
+bytes sent: 1040
+Ready to send, seq 75776
+bytes sent: 1040
+Ready to send, seq 76800
+bytes sent: 1040
+received packet: 1040
+ACK found: 77824
+Starting timer
+nextSeq: 77824
+timeout, base: 77824
+timeoutCounter: 1
+Ready to send, seq 77824
+bytes sent: 1040
+Starting timer, base: 77824
+Ready to send, seq 78848
+bytes sent: 1040
+Ready to send, seq 79872
+bytes sent: 1040
+Ready to send, seq 80896
+bytes sent: 1040
+received packet: 1040
+ACK found: 81920
+Starting timer
+nextSeq: 81920
+timeout, base: 81920
+timeoutCounter: 1
+Ready to send, seq 81920
+bytes sent: 1040
+Starting timer, base: 81920
+Ready to send, seq 82944
+bytes sent: 1040
+Ready to send, seq 83968
+bytes sent: 1040
+Ready to send, seq 84992
+bytes sent: 1040
+received packet: 1040
+ACK found: 86016
+Starting timer
+nextSeq: 86016
+timeout, base: 86016
+timeoutCounter: 1
+Ready to send, seq 86016
+bytes sent: 1040
+Starting timer, base: 86016
+Ready to send, seq 87040
+bytes sent: 1040
+Ready to send, seq 88064
+bytes sent: 1040
+Ready to send, seq 89088
+bytes sent: 1040
+received packet: 1040
+ACK found: 90112
+Starting timer
+nextSeq: 90112
+timeout, base: 90112
+timeoutCounter: 1
+Ready to send, seq 90112
+bytes sent: 1040
+Starting timer, base: 90112
+Ready to send, seq 91136
+bytes sent: 1040
+Ready to send, seq 92160
+bytes sent: 1040
+Ready to send, seq 93184
+bytes sent: 1040
+received packet: 1040
+ACK found: 94208
+Starting timer
+nextSeq: 94208
+timeout, base: 94208
+timeoutCounter: 1
+Ready to send, seq 94208
+bytes sent: 1040
+Starting timer, base: 94208
+Ready to send, seq 95232
+bytes sent: 1040
+Ready to send, seq 96256
+bytes sent: 1040
+Ready to send, seq 97280
+bytes sent: 1040
+received packet: 1040
+ACK found: 98304
+Starting timer
+nextSeq: 98304
+timeout, base: 98304
+timeoutCounter: 1
+Ready to send, seq 98304
+bytes sent: 1040
+Starting timer, base: 98304
+Ready to send, seq 99328
+bytes sent: 1040
+Ready to send, seq 100352
+bytes sent: 1040
+Ready to send, seq 101376
+bytes sent: 1040
+received packet: 1040
+ACK found: 102400
+Starting timer
+nextSeq: 102400
+timeout, base: 102400
+timeoutCounter: 1
+Ready to send, seq 102400
+bytes sent: 1040
+Starting timer, base: 102400
+Ready to send, seq 103424
+bytes sent: 1040
+Ready to send, seq 104448
+bytes sent: 1040
+Ready to send, seq 105472
+bytes sent: 1040
+received packet: 1040
+ACK found: 106496
+Starting timer
+nextSeq: 106496
+timeout, base: 106496
+timeoutCounter: 1
+Ready to send, seq 106496
+bytes sent: 1040
+Starting timer, base: 106496
+Ready to send, seq 107520
+bytes sent: 1040
+Ready to send, seq 108544
+bytes sent: 1040
+Ready to send, seq 109568
+bytes sent: 1040
+received packet: 1040
+ACK found: 110592
+Starting timer
+nextSeq: 110592
+timeout, base: 110592
+timeoutCounter: 1
+Ready to send, seq 110592
+bytes sent: 1040
+Starting timer, base: 110592
+Ready to send, seq 111616
+bytes sent: 1040
+Ready to send, seq 112640
+bytes sent: 1040
+Ready to send, seq 113664
+bytes sent: 1040
+received packet: 1040
+ACK found: 114688
+Starting timer
+nextSeq: 114688
+timeout, base: 114688
+timeoutCounter: 1
+Ready to send, seq 114688
+bytes sent: 1040
+Starting timer, base: 114688
+Ready to send, seq 115712
+bytes sent: 1040
+Ready to send, seq 116736
+bytes sent: 1040
+Ready to send, seq 117760
+bytes sent: 1040
+received packet: 1040
+ACK found: 118784
+Starting timer
+nextSeq: 118784
+timeout, base: 118784
+timeoutCounter: 1
+Ready to send, seq 118784
+bytes sent: 1040
+Starting timer, base: 118784
+Ready to send, seq 119808
+bytes sent: 1040
+Ready to send, seq 120832
+bytes sent: 1040
+Ready to send, seq 121856
+bytes sent: 1040
+received packet: 1040
+ACK found: 122880
+Starting timer
+nextSeq: 122880
+timeout, base: 122880
+timeoutCounter: 1
+Ready to send, seq 122880
+bytes sent: 1040
+Starting timer, base: 122880
+Ready to send, seq 123904
+bytes sent: 1040
+Ready to send, seq 124928
+bytes sent: 1040
+Ready to send, seq 125952
+bytes sent: 1040
+received packet: 1040
+ACK found: 126976
+Starting timer
+nextSeq: 126976
+timeout, base: 126976
+timeoutCounter: 1
+Ready to send, seq 126976
+bytes sent: 1040
+Starting timer, base: 126976
+Ready to send, seq 128000
+bytes sent: 1040
+Ready to send, seq 129024
+bytes sent: 1040
+Ready to send, seq 130048
+bytes sent: 1040
+received packet: 1040
+ACK found: 131072
+Starting timer
+nextSeq: 131072
+timeout, base: 131072
+timeoutCounter: 1
+Ready to send, seq 131072
+bytes sent: 1040
+Starting timer, base: 131072
+Ready to send, seq 132096
+bytes sent: 1040
+Ready to send, seq 133120
+bytes sent: 1040
+Ready to send, seq 134144
+bytes sent: 1040
+received packet: 1040
+ACK found: 135168
+Starting timer
+nextSeq: 135168
+timeout, base: 135168
+timeoutCounter: 1
+Ready to send, seq 135168
+bytes sent: 1040
+Starting timer, base: 135168
+Ready to send, seq 136192
+bytes sent: 1040
+Ready to send, seq 137216
+bytes sent: 1040
+Ready to send, seq 138240
+bytes sent: 1040
+received packet: 1040
+ACK found: 139264
+Starting timer
+nextSeq: 139264
+timeout, base: 139264
+timeoutCounter: 1
+Ready to send, seq 139264
+bytes sent: 1040
+Starting timer, base: 139264
+Ready to send, seq 140288
+bytes sent: 1040
+Ready to send, seq 141312
+bytes sent: 1040
+Ready to send, seq 142336
+bytes sent: 1040
+received packet: 1040
+ACK found: 143360
+Starting timer
+nextSeq: 143360
+timeout, base: 143360
+timeoutCounter: 1
+Ready to send, seq 143360
+bytes sent: 1040
+Starting timer, base: 143360
+Ready to send, seq 144384
+bytes sent: 1040
+Ready to send, seq 145408
+bytes sent: 1040
+Ready to send, seq 146432
+bytes sent: 1040
+received packet: 1040
+ACK found: 147456
+Starting timer
+nextSeq: 147456
+timeout, base: 147456
+timeoutCounter: 1
+Ready to send, seq 147456
+bytes sent: 1040
+Starting timer, base: 147456
+Ready to send, seq 148480
+bytes sent: 1040
+Ready to send, seq 149504
+bytes sent: 1040
+Ready to send, seq 150528
+bytes sent: 1040
+received packet: 1040
+ACK found: 151552
+Starting timer
+nextSeq: 151552
+timeout, base: 151552
+timeoutCounter: 1
+Ready to send, seq 151552
+bytes sent: 1040
+Starting timer, base: 151552
+Ready to send, seq 152576
+bytes sent: 1040
+Ready to send, seq 153600
+bytes sent: 1040
+Ready to send, seq 154624
+bytes sent: 1040
+received packet: 1040
+ACK found: 155648
+Starting timer
+nextSeq: 155648
+timeout, base: 155648
+timeoutCounter: 1
+Ready to send, seq 155648
+bytes sent: 1040
+Starting timer, base: 155648
+Ready to send, seq 156672
+bytes sent: 1040
+Ready to send, seq 157696
+bytes sent: 1040
+Ready to send, seq 158720
+bytes sent: 1040
+received packet: 1040
+ACK found: 159744
+Starting timer
+nextSeq: 159744
+timeout, base: 159744
+timeoutCounter: 1
+Ready to send, seq 159744
+bytes sent: 1040
+Starting timer, base: 159744
+Ready to send, seq 160768
+bytes sent: 1040
+Ready to send, seq 161792
+bytes sent: 1040
+Ready to send, seq 162816
+bytes sent: 1040
+received packet: 1040
+ACK found: 163840
+Starting timer
+nextSeq: 163840
+timeout, base: 163840
+timeoutCounter: 1
+Ready to send, seq 163840
+bytes sent: 1040
+Starting timer, base: 163840
+Ready to send, seq 164864
+bytes sent: 1040
+Ready to send, seq 165888
+bytes sent: 1040
+Ready to send, seq 166912
+bytes sent: 1040
+received packet: 1040
+ACK found: 167936
+Starting timer
+nextSeq: 167936
+timeout, base: 167936
+timeoutCounter: 1
+Ready to send, seq 167936
+bytes sent: 1040
+Starting timer, base: 167936
+Ready to send, seq 168960
+bytes sent: 1040
+Ready to send, seq 169984
+bytes sent: 1040
+Ready to send, seq 171008
+bytes sent: 1040
+received packet: 1040
+ACK found: 172032
+Starting timer
+nextSeq: 172032
+timeout, base: 172032
+timeoutCounter: 1
+Ready to send, seq 172032
+bytes sent: 1040
+Starting timer, base: 172032
+Ready to send, seq 173056
+bytes sent: 1040
+Ready to send, seq 174080
+bytes sent: 1040
+Ready to send, seq 175104
+bytes sent: 1040
+received packet: 1040
+ACK found: 176128
+Starting timer
+nextSeq: 176128
+timeout, base: 176128
+timeoutCounter: 1
+Ready to send, seq 176128
+bytes sent: 1040
+Starting timer, base: 176128
+Ready to send, seq 177152
+bytes sent: 1040
+Ready to send, seq 178176
+bytes sent: 1040
+Ready to send, seq 179200
+bytes sent: 1040
+received packet: 1040
+ACK found: 180224
+Starting timer
+nextSeq: 180224
+timeout, base: 180224
+timeoutCounter: 1
+Ready to send, seq 180224
+bytes sent: 1040
+Starting timer, base: 180224
+Ready to send, seq 181248
+bytes sent: 1040
+Ready to send, seq 182272
+bytes sent: 1040
+Ready to send, seq 183296
+bytes sent: 1040
+received packet: 1040
+ACK found: 184320
+Starting timer
+nextSeq: 184320
+timeout, base: 184320
+timeoutCounter: 1
+Ready to send, seq 184320
+bytes sent: 1040
+Starting timer, base: 184320
+Ready to send, seq 185344
+bytes sent: 1040
+Ready to send, seq 186368
+bytes sent: 1040
+Ready to send, seq 187392
+bytes sent: 1040
+received packet: 1040
+ACK found: 188416
+Starting timer
+nextSeq: 188416
+timeout, base: 188416
+timeoutCounter: 1
+Ready to send, seq 188416
+bytes sent: 1040
+Starting timer, base: 188416
+Ready to send, seq 189440
+bytes sent: 1040
+Ready to send, seq 190464
+bytes sent: 1040
+Ready to send, seq 191488
+bytes sent: 1040
+received packet: 1040
+ACK found: 192512
+Starting timer
+nextSeq: 192512
+timeout, base: 192512
+timeoutCounter: 1
+Ready to send, seq 192512
+bytes sent: 1040
+Starting timer, base: 192512
+Ready to send, seq 193536
+bytes sent: 1040
+Ready to send, seq 194560
+bytes sent: 1040
+Ready to send, seq 195584
+bytes sent: 1040
+received packet: 1040
+ACK found: 196608
+Starting timer
+nextSeq: 196608
+timeout, base: 196608
+timeoutCounter: 1
+Ready to send, seq 196608
+bytes sent: 1040
+Starting timer, base: 196608
+Ready to send, seq 197632
+bytes sent: 1040
+Ready to send, seq 198656
+bytes sent: 1040
+Ready to send, seq 199680
+bytes sent: 1040
+received packet: 1040
+ACK found: 200704
+Starting timer
+nextSeq: 200704
+timeout, base: 200704
+timeoutCounter: 1
+Ready to send, seq 200704
+bytes sent: 1040
+Starting timer, base: 200704
+Ready to send, seq 201728
+bytes sent: 1040
+Ready to send, seq 202752
+bytes sent: 1040
+Ready to send, seq 203776
+bytes sent: 1040
+received packet: 1040
+ACK found: 204800
+Starting timer
+nextSeq: 204800
+timeout, base: 204800
+timeoutCounter: 1
+Ready to send, seq 204800
+bytes sent: 1040
+Starting timer, base: 204800
+Ready to send, seq 205824
+bytes sent: 1040
+Ready to send, seq 206848
+bytes sent: 1040
+Ready to send, seq 207872
+bytes sent: 1040
+received packet: 1040
+ACK found: 208896
+Starting timer
+nextSeq: 208896
+timeout, base: 208896
+timeoutCounter: 1
+Ready to send, seq 208896
+bytes sent: 1040
+Starting timer, base: 208896
+Ready to send, seq 209920
+bytes sent: 1040
+Ready to send, seq 210944
+bytes sent: 1040
+Ready to send, seq 211968
+bytes sent: 1040
+received packet: 1040
+ACK found: 212992
+Starting timer
+nextSeq: 212992
+timeout, base: 212992
+timeoutCounter: 1
+Ready to send, seq 212992
+bytes sent: 1040
+Starting timer, base: 212992
+Ready to send, seq 214016
+bytes sent: 1040
+Ready to send, seq 215040
+bytes sent: 1040
+Ready to send, seq 216064
+bytes sent: 1040
+received packet: 1040
+ACK found: 217088
+Starting timer
+nextSeq: 217088
+timeout, base: 217088
+timeoutCounter: 1
+Ready to send, seq 217088
+bytes sent: 1040
+Starting timer, base: 217088
+Ready to send, seq 218112
+bytes sent: 1040
+Ready to send, seq 219136
+bytes sent: 1040
+Ready to send, seq 220160
+bytes sent: 1040
+received packet: 1040
+ACK found: 221184
+Starting timer
+nextSeq: 221184
+timeout, base: 221184
+timeoutCounter: 1
+Ready to send, seq 221184
+bytes sent: 1040
+Starting timer, base: 221184
+Ready to send, seq 222208
+bytes sent: 1040
+Ready to send, seq 223232
+bytes sent: 1040
+Ready to send, seq 224256
+bytes sent: 1040
+received packet: 1040
+ACK found: 225280
+Starting timer
+nextSeq: 225280
+timeout, base: 225280
+timeoutCounter: 1
+Ready to send, seq 225280
+bytes sent: 1040
+Starting timer, base: 225280
+Ready to send, seq 226304
+bytes sent: 1040
+Ready to send, seq 227328
+bytes sent: 1040
+Ready to send, seq 228352
+bytes sent: 1040
+received packet: 1040
+ACK found: 229376
+Starting timer
+nextSeq: 229376
+timeout, base: 229376
+timeoutCounter: 1
+Ready to send, seq 229376
+bytes sent: 1040
+Starting timer, base: 229376
+Ready to send, seq 230400
+bytes sent: 1040
+Ready to send, seq 231424
+bytes sent: 1040
+Ready to send, seq 232448
+bytes sent: 1040
+received packet: 1040
+ACK found: 233472
+Starting timer
+nextSeq: 233472
+timeout, base: 233472
+timeoutCounter: 1
+Ready to send, seq 233472
+bytes sent: 1040
+Starting timer, base: 233472
+Ready to send, seq 234496
+bytes sent: 1040
+Ready to send, seq 235520
+bytes sent: 1040
+Ready to send, seq 236544
+bytes sent: 1040
+received packet: 1040
+ACK found: 237568
+Starting timer
+nextSeq: 237568
+timeout, base: 237568
+timeoutCounter: 1
+Ready to send, seq 237568
+bytes sent: 1040
+Starting timer, base: 237568
+Ready to send, seq 238592
+bytes sent: 1040
+Ready to send, seq 239616
+bytes sent: 1040
+Ready to send, seq 240640
+bytes sent: 1040
+received packet: 1040
+ACK found: 241664
+Starting timer
+nextSeq: 241664
+timeout, base: 241664
+timeoutCounter: 1
+Ready to send, seq 241664
+bytes sent: 1040
+Starting timer, base: 241664
+Ready to send, seq 242688
+bytes sent: 1040
+Ready to send, seq 243712
+bytes sent: 1040
+Ready to send, seq 244736
+bytes sent: 1040
+received packet: 1040
+ACK found: 245760
+Starting timer
+nextSeq: 245760
+timeout, base: 245760
+timeoutCounter: 1
+Ready to send, seq 245760
+bytes sent: 1040
+Starting timer, base: 245760
+Ready to send, seq 246784
+bytes sent: 1040
+Ready to send, seq 247808
+bytes sent: 1040
+Ready to send, seq 248832
+bytes sent: 1040
+received packet: 1040
+ACK found: 249856
+Starting timer
+nextSeq: 249856
+timeout, base: 249856
+timeoutCounter: 1
+Ready to send, seq 249856
+bytes sent: 1040
+Starting timer, base: 249856
+Ready to send, seq 250880
+bytes sent: 1040
+Ready to send, seq 251904
+bytes sent: 1040
+Ready to send, seq 252928
+bytes sent: 1040
+received packet: 1040
+ACK found: 253952
+Starting timer
+nextSeq: 253952
+timeout, base: 253952
+timeoutCounter: 1
+Ready to send, seq 253952
+bytes sent: 1040
+Starting timer, base: 253952
+Ready to send, seq 254976
+bytes sent: 1040
+Ready to send, seq 256000
+bytes sent: 1040
+Ready to send, seq 257024
+bytes sent: 1040
+received packet: 1040
+ACK found: 258048
+Starting timer
+nextSeq: 258048
+timeout, base: 258048
+timeoutCounter: 1
+Ready to send, seq 258048
+bytes sent: 1040
+Starting timer, base: 258048
+Ready to send, seq 259072
+bytes sent: 1040
+Ready to send, seq 260096
+bytes sent: 1040
+Ready to send, seq 261120
+bytes sent: 1040
+received packet: 1040
+ACK found: 262144
+Starting timer
+nextSeq: 262144
+timeout, base: 262144
+timeoutCounter: 1
+Ready to send, seq 262144
+bytes sent: 1040
+Starting timer, base: 262144
+Ready to send, seq 263168
+bytes sent: 1040
+Ready to send, seq 264192
+bytes sent: 1040
+Ready to send, seq 265216
+bytes sent: 1040
+received packet: 1040
+ACK found: 266240
+Starting timer
+nextSeq: 266240
+timeout, base: 266240
+timeoutCounter: 1
+Ready to send, seq 266240
+bytes sent: 1040
+Starting timer, base: 266240
+Ready to send, seq 267264
+bytes sent: 1040
+Ready to send, seq 268288
+bytes sent: 1040
+Ready to send, seq 269312
+bytes sent: 1040
+received packet: 1040
+ACK found: 270336
+Starting timer
+nextSeq: 270336
+timeout, base: 270336
+timeoutCounter: 1
+Ready to send, seq 270336
+bytes sent: 1040
+Starting timer, base: 270336
+Ready to send, seq 271360
+bytes sent: 1040
+Ready to send, seq 272384
+bytes sent: 1040
+Ready to send, seq 273408
+bytes sent: 1040
+received packet: 1040
+ACK found: 274432
+Starting timer
+nextSeq: 274432
+timeout, base: 274432
+timeoutCounter: 1
+Ready to send, seq 274432
+bytes sent: 1040
+Starting timer, base: 274432
+Ready to send, seq 275456
+bytes sent: 1040
+Ready to send, seq 276480
+bytes sent: 1040
+Ready to send, seq 277504
+bytes sent: 1040
+received packet: 1040
+ACK found: 278528
+Starting timer
+nextSeq: 278528
+timeout, base: 278528
+timeoutCounter: 1
+Ready to send, seq 278528
+bytes sent: 1040
+Starting timer, base: 278528
+Ready to send, seq 279552
+bytes sent: 1040
+Ready to send, seq 280576
+bytes sent: 1040
+Ready to send, seq 281600
+bytes sent: 1040
+received packet: 1040
+ACK found: 282624
+Starting timer
+nextSeq: 282624
+timeout, base: 282624
+timeoutCounter: 1
+Ready to send, seq 282624
+bytes sent: 1040
+Starting timer, base: 282624
+Ready to send, seq 283648
+bytes sent: 1040
+Ready to send, seq 284672
+bytes sent: 1040
+Ready to send, seq 285696
+bytes sent: 1040
+received packet: 1040
+ACK found: 286720
+Starting timer
+nextSeq: 286720
+timeout, base: 286720
+timeoutCounter: 1
+Ready to send, seq 286720
+bytes sent: 1040
+Starting timer, base: 286720
+Ready to send, seq 287744
+bytes sent: 1040
+Ready to send, seq 288768
+bytes sent: 1040
+Ready to send, seq 289792
+bytes sent: 1040
+received packet: 1040
+ACK found: 290816
+Starting timer
+nextSeq: 290816
+timeout, base: 290816
+timeoutCounter: 1
+Ready to send, seq 290816
+bytes sent: 1040
+Starting timer, base: 290816
+Ready to send, seq 291840
+bytes sent: 1040
+Ready to send, seq 292864
+bytes sent: 1040
+Ready to send, seq 293888
+bytes sent: 1040
+received packet: 1040
+ACK found: 294912
+Starting timer
+nextSeq: 294912
+timeout, base: 294912
+timeoutCounter: 1
+Ready to send, seq 294912
+bytes sent: 1040
+Starting timer, base: 294912
+Ready to send, seq 295936
+bytes sent: 1040
+Ready to send, seq 296960
+bytes sent: 1040
+Ready to send, seq 297984
+bytes sent: 1040
+received packet: 1040
+ACK found: 299008
+Starting timer
+nextSeq: 299008
+timeout, base: 299008
+timeoutCounter: 1
+Ready to send, seq 299008
+bytes sent: 1040
+Starting timer, base: 299008
+Ready to send, seq 300032
+bytes sent: 1040
+Ready to send, seq 301056
+bytes sent: 1040
+Ready to send, seq 302080
+bytes sent: 1040
+received packet: 1040
+ACK found: 303104
+Starting timer
+nextSeq: 303104
+timeout, base: 303104
+timeoutCounter: 1
+Ready to send, seq 303104
+bytes sent: 1040
+Starting timer, base: 303104
+Ready to send, seq 304128
+bytes sent: 1040
+Ready to send, seq 305152
+bytes sent: 1040
+Ready to send, seq 306176
+bytes sent: 1040
+received packet: 1040
+ACK found: 307200
+Starting timer
+nextSeq: 307200
+timeout, base: 307200
+timeoutCounter: 1
+Ready to send, seq 307200
+bytes sent: 1040
+Starting timer, base: 307200
+Ready to send, seq 308224
+bytes sent: 1040
+Ready to send, seq 309248
+bytes sent: 1040
+Ready to send, seq 310272
+bytes sent: 1040
+received packet: 1040
+ACK found: 311296
+Starting timer
+nextSeq: 311296
+timeout, base: 311296
+timeoutCounter: 1
+Ready to send, seq 311296
+bytes sent: 1040
+Starting timer, base: 311296
+Ready to send, seq 312320
+bytes sent: 1040
+Ready to send, seq 313344
+bytes sent: 1040
+Ready to send, seq 314368
+bytes sent: 1040
+received packet: 1040
+ACK found: 315392
+Starting timer
+nextSeq: 315392
+timeout, base: 315392
+timeoutCounter: 1
+Ready to send, seq 315392
+bytes sent: 1040
+Starting timer, base: 315392
+Ready to send, seq 316416
+bytes sent: 1040
+Ready to send, seq 317440
+bytes sent: 1040
+Ready to send, seq 318464
+bytes sent: 1040
+received packet: 1040
+ACK found: 319488
+Starting timer
+nextSeq: 319488
+timeout, base: 319488
+timeoutCounter: 1
+Ready to send, seq 319488
+bytes sent: 1040
+Starting timer, base: 319488
+Ready to send, seq 320512
+bytes sent: 1040
+Ready to send, seq 321536
+bytes sent: 1040
+Ready to send, seq 322560
+bytes sent: 1040
+received packet: 1040
+ACK found: 323584
+Starting timer
+nextSeq: 323584
+timeout, base: 323584
+timeoutCounter: 1
+Ready to send, seq 323584
+bytes sent: 1040
+Starting timer, base: 323584
+Ready to send, seq 324608
+bytes sent: 1040
+Ready to send, seq 325632
+bytes sent: 1040
+Ready to send, seq 326656
+bytes sent: 1040
+received packet: 1040
+ACK found: 327680
+Starting timer
+nextSeq: 327680
+timeout, base: 327680
+timeoutCounter: 1
+Ready to send, seq 327680
+bytes sent: 1040
+Starting timer, base: 327680
+Ready to send, seq 328704
+bytes sent: 1040
+Ready to send, seq 329728
+bytes sent: 1040
+Ready to send, seq 330752
+bytes sent: 1040
+received packet: 1040
+ACK found: 331776
+Starting timer
+nextSeq: 331776
+timeout, base: 331776
+timeoutCounter: 1
+Ready to send, seq 331776
+bytes sent: 1040
+Starting timer, base: 331776
+Ready to send, seq 332800
+bytes sent: 1040
+Ready to send, seq 333824
+bytes sent: 1040
+Ready to send, seq 334848
+bytes sent: 1040
+received packet: 1040
+ACK found: 335872
+Starting timer
+nextSeq: 335872
+timeout, base: 335872
+timeoutCounter: 1
+Ready to send, seq 335872
+bytes sent: 1040
+Starting timer, base: 335872
+Ready to send, seq 336896
+bytes sent: 1040
+Ready to send, seq 337920
+bytes sent: 1040
+Ready to send, seq 338944
+bytes sent: 1040
+received packet: 1040
+ACK found: 339968
+Starting timer
+nextSeq: 339968
+timeout, base: 339968
+timeoutCounter: 1
+Ready to send, seq 339968
+bytes sent: 1040
+Starting timer, base: 339968
+Ready to send, seq 340992
+bytes sent: 1040
+Ready to send, seq 342016
+bytes sent: 1040
+Ready to send, seq 343040
+bytes sent: 1040
+received packet: 1040
+ACK found: 344064
+Starting timer
+nextSeq: 344064
+timeout, base: 344064
+timeoutCounter: 1
+Ready to send, seq 344064
+bytes sent: 1040
+Starting timer, base: 344064
+Ready to send, seq 345088
+bytes sent: 1040
+Ready to send, seq 346112
+bytes sent: 1040
+Ready to send, seq 347136
+bytes sent: 1040
+received packet: 1040
+ACK found: 348160
+Starting timer
+nextSeq: 348160
+timeout, base: 348160
+timeoutCounter: 1
+Ready to send, seq 348160
+bytes sent: 1040
+Starting timer, base: 348160
+Ready to send, seq 349184
+bytes sent: 1040
+Ready to send, seq 350208
+bytes sent: 1040
+Ready to send, seq 351232
+bytes sent: 1040
+received packet: 1040
+ACK found: 352256
+Starting timer
+nextSeq: 352256
+timeout, base: 352256
+timeoutCounter: 1
+Ready to send, seq 352256
+bytes sent: 1040
+Starting timer, base: 352256
+Ready to send, seq 353280
+bytes sent: 1040
+Ready to send, seq 354304
+bytes sent: 1040
+Ready to send, seq 355328
+bytes sent: 1040
+received packet: 1040
+ACK found: 356352
+Starting timer
+nextSeq: 356352
+timeout, base: 356352
+timeoutCounter: 1
+Ready to send, seq 356352
+bytes sent: 1040
+Starting timer, base: 356352
+Ready to send, seq 357376
+bytes sent: 1040
+Ready to send, seq 358400
+bytes sent: 1040
+Ready to send, seq 359424
+bytes sent: 1040
+received packet: 1040
+ACK found: 360448
+Starting timer
+nextSeq: 360448
+timeout, base: 360448
+timeoutCounter: 1
+Ready to send, seq 360448
+bytes sent: 1040
+Starting timer, base: 360448
+Ready to send, seq 361472
+bytes sent: 1040
+Ready to send, seq 362496
+bytes sent: 1040
+Ready to send, seq 363520
+bytes sent: 1040
+received packet: 1040
+ACK found: 364544
+Starting timer
+nextSeq: 364544
+timeout, base: 364544
+timeoutCounter: 1
+Ready to send, seq 364544
+bytes sent: 1040
+Starting timer, base: 364544
+Ready to send, seq 365568
+bytes sent: 1040
+Ready to send, seq 366592
+bytes sent: 1040
+Ready to send, seq 367616
+bytes sent: 1040
+received packet: 1040
+ACK found: 368640
+Starting timer
+nextSeq: 368640
+timeout, base: 368640
+timeoutCounter: 1
+Ready to send, seq 368640
+bytes sent: 1040
+Starting timer, base: 368640
+Ready to send, seq 369664
+bytes sent: 1040
+Ready to send, seq 370688
+bytes sent: 1040
+Ready to send, seq 371712
+bytes sent: 1040
+received packet: 1040
+ACK found: 372736
+Starting timer
+nextSeq: 372736
+timeout, base: 372736
+timeoutCounter: 1
+Ready to send, seq 372736
+bytes sent: 1040
+Starting timer, base: 372736
+Ready to send, seq 373760
+bytes sent: 1040
+Ready to send, seq 374784
+bytes sent: 1040
+Ready to send, seq 375808
+bytes sent: 1040
+received packet: 1040
+ACK found: 376832
+Starting timer
+nextSeq: 376832
+timeout, base: 376832
+timeoutCounter: 1
+Ready to send, seq 376832
+bytes sent: 1040
+Starting timer, base: 376832
+Ready to send, seq 377856
+bytes sent: 1040
+Ready to send, seq 378880
+bytes sent: 1040
+Ready to send, seq 379904
+bytes sent: 1040
+received packet: 1040
+ACK found: 380928
+Starting timer
+nextSeq: 380928
+timeout, base: 380928
+timeoutCounter: 1
+Ready to send, seq 380928
+bytes sent: 1040
+Starting timer, base: 380928
+Ready to send, seq 381952
+bytes sent: 1040
+Ready to send, seq 382976
+bytes sent: 1040
+Ready to send, seq 384000
+bytes sent: 1040
+received packet: 1040
+ACK found: 385024
+Starting timer
+nextSeq: 385024
+timeout, base: 385024
+timeoutCounter: 1
+Ready to send, seq 385024
+bytes sent: 1040
+Starting timer, base: 385024
+Ready to send, seq 386048
+bytes sent: 1040
+Ready to send, seq 387072
+bytes sent: 1040
+Ready to send, seq 388096
+bytes sent: 1040
+received packet: 1040
+ACK found: 389120
+Starting timer
+nextSeq: 389120
+timeout, base: 389120
+timeoutCounter: 1
+Ready to send, seq 389120
+bytes sent: 1040
+Starting timer, base: 389120
+Ready to send, seq 390144
+bytes sent: 1040
+Ready to send, seq 391168
+bytes sent: 1040
+Ready to send, seq 392192
+bytes sent: 1040
+received packet: 1040
+ACK found: 393216
+Starting timer
+nextSeq: 393216
+timeout, base: 393216
+timeoutCounter: 1
+Ready to send, seq 393216
+bytes sent: 1040
+Starting timer, base: 393216
+Ready to send, seq 394240
+bytes sent: 1040
+Ready to send, seq 395264
+bytes sent: 1040
+Ready to send, seq 396288
+bytes sent: 1040
+received packet: 1040
+ACK found: 397312
+Starting timer
+nextSeq: 397312
+timeout, base: 397312
+timeoutCounter: 1
+Ready to send, seq 397312
+bytes sent: 1040
+Starting timer, base: 397312
+Ready to send, seq 398336
+bytes sent: 1040
+Ready to send, seq 399360
+bytes sent: 1040
+Ready to send, seq 400384
+bytes sent: 1040
+received packet: 1040
+ACK found: 401408
+Starting timer
+nextSeq: 401408
+timeout, base: 401408
+timeoutCounter: 1
+Ready to send, seq 401408
+bytes sent: 1040
+Starting timer, base: 401408
+Ready to send, seq 402432
+bytes sent: 1040
+Ready to send, seq 403456
+bytes sent: 1040
+Ready to send, seq 404480
+bytes sent: 1040
+received packet: 1040
+ACK found: 405504
+Starting timer
+nextSeq: 405504
+timeout, base: 405504
+timeoutCounter: 1
+Ready to send, seq 405504
+bytes sent: 1040
+Starting timer, base: 405504
+Ready to send, seq 406528
+bytes sent: 1040
+Ready to send, seq 407552
+bytes sent: 1040
+Ready to send, seq 408576
+bytes sent: 1040
+received packet: 1040
+ACK found: 409600
+Starting timer
+nextSeq: 409600
+timeout, base: 409600
+timeoutCounter: 1
+Ready to send, seq 409600
+bytes sent: 1040
+Starting timer, base: 409600
+Ready to send, seq 410624
+bytes sent: 1040
+Ready to send, seq 411648
+bytes sent: 1040
+Ready to send, seq 412672
+bytes sent: 1040
+received packet: 1040
+ACK found: 413696
+Starting timer
+nextSeq: 413696
+timeout, base: 413696
+timeoutCounter: 1
+Ready to send, seq 413696
+bytes sent: 1040
+Starting timer, base: 413696
+Ready to send, seq 414720
+bytes sent: 1040
+Ready to send, seq 415744
+bytes sent: 1040
+Ready to send, seq 416768
+bytes sent: 1040
+received packet: 1040
+ACK found: 417792
+Starting timer
+nextSeq: 417792
+timeout, base: 417792
+timeoutCounter: 1
+Ready to send, seq 417792
+bytes sent: 1040
+Starting timer, base: 417792
+Ready to send, seq 418816
+bytes sent: 1040
+Ready to send, seq 419840
+bytes sent: 1040
+Ready to send, seq 420864
+bytes sent: 1040
+received packet: 1040
+ACK found: 421888
+Starting timer
+nextSeq: 421888
+timeout, base: 421888
+timeoutCounter: 1
+Ready to send, seq 421888
+bytes sent: 1040
+Starting timer, base: 421888
+Ready to send, seq 422912
+bytes sent: 1040
+Ready to send, seq 423936
+bytes sent: 1040
+Ready to send, seq 424960
+bytes sent: 1040
+received packet: 1040
+ACK found: 425984
+Starting timer
+nextSeq: 425984
+timeout, base: 425984
+timeoutCounter: 1
+Ready to send, seq 425984
+bytes sent: 1040
+Starting timer, base: 425984
+Ready to send, seq 427008
+bytes sent: 1040
+Ready to send, seq 428032
+bytes sent: 1040
+Ready to send, seq 429056
+bytes sent: 1040
+received packet: 1040
+ACK found: 430080
+Starting timer
+nextSeq: 430080
+timeout, base: 430080
+timeoutCounter: 1
+Ready to send, seq 430080
+bytes sent: 1040
+Starting timer, base: 430080
+Ready to send, seq 431104
+bytes sent: 1040
+Ready to send, seq 432128
+bytes sent: 1040
+Ready to send, seq 433152
+bytes sent: 1040
+received packet: 1040
+ACK found: 434176
+Starting timer
+nextSeq: 434176
+timeout, base: 434176
+timeoutCounter: 1
+Ready to send, seq 434176
+bytes sent: 1040
+Starting timer, base: 434176
+Ready to send, seq 435200
+bytes sent: 1040
+Ready to send, seq 436224
+bytes sent: 1040
+Ready to send, seq 437248
+bytes sent: 1040
+received packet: 1040
+ACK found: 438272
+Starting timer
+nextSeq: 438272
+timeout, base: 438272
+timeoutCounter: 1
+Ready to send, seq 438272
+bytes sent: 1040
+Starting timer, base: 438272
+Ready to send, seq 439296
+bytes sent: 1040
+Ready to send, seq 440320
+bytes sent: 1040
+Ready to send, seq 441344
+bytes sent: 1040
+received packet: 1040
+ACK found: 442368
+Starting timer
+nextSeq: 442368
+timeout, base: 442368
+timeoutCounter: 1
+Ready to send, seq 442368
+bytes sent: 1040
+Starting timer, base: 442368
+Ready to send, seq 443392
+bytes sent: 1040
+Ready to send, seq 444416
+bytes sent: 1040
+Ready to send, seq 445440
+bytes sent: 1040
+received packet: 1040
+ACK found: 446464
+Starting timer
+nextSeq: 446464
+timeout, base: 446464
+timeoutCounter: 1
+Ready to send, seq 446464
+bytes sent: 1040
+Starting timer, base: 446464
+Ready to send, seq 447488
+bytes sent: 1040
+Ready to send, seq 448512
+bytes sent: 1040
+Ready to send, seq 449536
+bytes sent: 1040
+received packet: 1040
+ACK found: 450560
+Starting timer
+nextSeq: 450560
+timeout, base: 450560
+timeoutCounter: 1
+Ready to send, seq 450560
+bytes sent: 1040
+Starting timer, base: 450560
+Ready to send, seq 451584
+bytes sent: 1040
+Ready to send, seq 452608
+bytes sent: 1040
+Ready to send, seq 453632
+bytes sent: 1040
+received packet: 1040
+ACK found: 454656
+Starting timer
+nextSeq: 454656
+timeout, base: 454656
+timeoutCounter: 1
+Ready to send, seq 454656
+bytes sent: 1040
+Starting timer, base: 454656
+Ready to send, seq 455680
+bytes sent: 1040
+Ready to send, seq 456704
+bytes sent: 1040
+Ready to send, seq 457728
+bytes sent: 1040
+received packet: 1040
+ACK found: 458752
+Starting timer
+nextSeq: 458752
+timeout, base: 458752
+timeoutCounter: 1
+Ready to send, seq 458752
+bytes sent: 1040
+Starting timer, base: 458752
+Ready to send, seq 459776
+bytes sent: 1040
+Ready to send, seq 460800
+bytes sent: 1040
+Ready to send, seq 461824
+bytes sent: 1040
+received packet: 1040
+ACK found: 462848
+Starting timer
+nextSeq: 462848
+timeout, base: 462848
+timeoutCounter: 1
+Ready to send, seq 462848
+bytes sent: 1040
+Starting timer, base: 462848
+Ready to send, seq 463872
+bytes sent: 1040
+Ready to send, seq 464896
+bytes sent: 1040
+Ready to send, seq 465920
+bytes sent: 1040
+received packet: 1040
+ACK found: 466944
+Starting timer
+nextSeq: 466944
+timeout, base: 466944
+timeoutCounter: 1
+Ready to send, seq 466944
+bytes sent: 1040
+Starting timer, base: 466944
+Ready to send, seq 467968
+bytes sent: 1040
+Ready to send, seq 468992
+bytes sent: 1040
+Ready to send, seq 470016
+bytes sent: 1040
+received packet: 1040
+ACK found: 471040
+Starting timer
+nextSeq: 471040
+timeout, base: 471040
+timeoutCounter: 1
+Ready to send, seq 471040
+bytes sent: 1040
+Starting timer, base: 471040
+Ready to send, seq 472064
+bytes sent: 1040
+Ready to send, seq 473088
+bytes sent: 1040
+Ready to send, seq 474112
+bytes sent: 1040
+received packet: 1040
+ACK found: 475136
+Starting timer
+nextSeq: 475136
+timeout, base: 475136
+timeoutCounter: 1
+Ready to send, seq 475136
+bytes sent: 1040
+Starting timer, base: 475136
+Ready to send, seq 476160
+bytes sent: 1040
+Ready to send, seq 477184
+bytes sent: 1040
+Ready to send, seq 478208
+bytes sent: 1040
+received packet: 1040
+ACK found: 479232
+Starting timer
+nextSeq: 479232
+timeout, base: 479232
+timeoutCounter: 1
+Ready to send, seq 479232
+bytes sent: 1040
+Starting timer, base: 479232
+Ready to send, seq 480256
+bytes sent: 1040
+Ready to send, seq 481280
+bytes sent: 1040
+Ready to send, seq 482304
+bytes sent: 1040
+received packet: 1040
+ACK found: 483328
+Starting timer
+nextSeq: 483328
+timeout, base: 483328
+timeoutCounter: 1
+Ready to send, seq 483328
+bytes sent: 1040
+Starting timer, base: 483328
+Ready to send, seq 484352
+bytes sent: 1040
+Ready to send, seq 485376
+bytes sent: 1040
+Ready to send, seq 486400
+bytes sent: 1040
+received packet: 1040
+ACK found: 487424
+Starting timer
+nextSeq: 487424
+timeout, base: 487424
+timeoutCounter: 1
+Ready to send, seq 487424
+bytes sent: 1040
+Starting timer, base: 487424
+Ready to send, seq 488448
+bytes sent: 1040
+Ready to send, seq 489472
+bytes sent: 1040
+Ready to send, seq 490496
+bytes sent: 1040
+received packet: 1040
+ACK found: 491520
+Starting timer
+nextSeq: 491520
+timeout, base: 491520
+timeoutCounter: 1
+Ready to send, seq 491520
+bytes sent: 1040
+Starting timer, base: 491520
+Ready to send, seq 492544
+bytes sent: 1040
+Ready to send, seq 493568
+bytes sent: 1040
+Ready to send, seq 494592
+bytes sent: 1040
+received packet: 1040
+ACK found: 495616
+Starting timer
+nextSeq: 495616
+timeout, base: 495616
+timeoutCounter: 1
+Ready to send, seq 495616
+bytes sent: 1040
+Starting timer, base: 495616
+Ready to send, seq 496640
+bytes sent: 1040
+Ready to send, seq 497664
+bytes sent: 1040
+Ready to send, seq 498688
+bytes sent: 1040
+received packet: 1040
+ACK found: 499712
+Starting timer
+nextSeq: 499712
+timeout, base: 499712
+timeoutCounter: 1
+Ready to send, seq 499712
+bytes sent: 1040
+Starting timer, base: 499712
+Ready to send, seq 500736
+bytes sent: 1040
+Ready to send, seq 501760
+bytes sent: 1040
+Ready to send, seq 502784
+bytes sent: 1040
+received packet: 1040
+ACK found: 503808
+Starting timer
+nextSeq: 503808
+timeout, base: 503808
+timeoutCounter: 1
+Ready to send, seq 503808
+bytes sent: 1040
+Starting timer, base: 503808
+Ready to send, seq 504832
+bytes sent: 1040
+Ready to send, seq 505856
+bytes sent: 1040
+Ready to send, seq 506880
+bytes sent: 1040
+received packet: 1040
+ACK found: 507904
+Starting timer
+nextSeq: 507904
+timeout, base: 507904
+timeoutCounter: 1
+Ready to send, seq 507904
+bytes sent: 1040
+Starting timer, base: 507904
+Ready to send, seq 508928
+bytes sent: 1040
+Ready to send, seq 509952
+bytes sent: 1040
+Ready to send, seq 510976
+bytes sent: 1040
+received packet: 1040
+ACK found: 512000
+Starting timer
+nextSeq: 512000
+timeout, base: 512000
+timeoutCounter: 1
+Ready to send, seq 512000
+bytes sent: 1040
+Starting timer, base: 512000
+Ready to send, seq 513024
+bytes sent: 1040
+Ready to send, seq 514048
+bytes sent: 1040
+Ready to send, seq 515072
+bytes sent: 1040
+received packet: 1040
+ACK found: 516096
+Starting timer
+nextSeq: 516096
+timeout, base: 516096
+timeoutCounter: 1
+Ready to send, seq 516096
+bytes sent: 1040
+Starting timer, base: 516096
+Ready to send, seq 517120
+bytes sent: 1040
+Ready to send, seq 518144
+bytes sent: 1040
+Ready to send, seq 519168
+bytes sent: 1040
+received packet: 1040
+ACK found: 520192
+Starting timer
+nextSeq: 520192
+timeout, base: 520192
+timeoutCounter: 1
+Ready to send, seq 520192
+bytes sent: 1040
+Starting timer, base: 520192
+Ready to send, seq 521216
+bytes sent: 1040
+Ready to send, seq 522240
+bytes sent: 1040
+Ready to send, seq 523264
+bytes sent: 1040
+received packet: 1040
+ACK found: 524288
+Starting timer
+nextSeq: 524288
+timeout, base: 524288
+timeoutCounter: 1
+Ready to send, seq 524288
+bytes sent: 1040
+Starting timer, base: 524288
+Ready to send, seq 525312
+bytes sent: 1040
+Ready to send, seq 526336
+bytes sent: 1040
+Ready to send, seq 527360
+bytes sent: 1040
+received packet: 1040
+ACK found: 528384
+Starting timer
+nextSeq: 528384
+timeout, base: 528384
+timeoutCounter: 1
+Ready to send, seq 528384
+bytes sent: 1040
+Starting timer, base: 528384
+Ready to send, seq 529408
+bytes sent: 1040
+Ready to send, seq 530432
+bytes sent: 1040
+Ready to send, seq 531456
+bytes sent: 1040
+received packet: 1040
+ACK found: 532480
+Starting timer
+nextSeq: 532480
+timeout, base: 532480
+timeoutCounter: 1
+Ready to send, seq 532480
+bytes sent: 1040
+Starting timer, base: 532480
+Ready to send, seq 533504
+bytes sent: 1040
+Ready to send, seq 534528
+bytes sent: 1040
+Ready to send, seq 535552
+bytes sent: 1040
+received packet: 1040
+ACK found: 536576
+Starting timer
+nextSeq: 536576
+timeout, base: 536576
+timeoutCounter: 1
+Ready to send, seq 536576
+bytes sent: 1040
+Starting timer, base: 536576
+Ready to send, seq 537600
+bytes sent: 1040
+Ready to send, seq 538624
+bytes sent: 1040
+Ready to send, seq 539648
+bytes sent: 1040
+received packet: 1040
+ACK found: 540672
+Starting timer
+nextSeq: 540672
+timeout, base: 540672
+timeoutCounter: 1
+Ready to send, seq 540672
+bytes sent: 1040
+Starting timer, base: 540672
+Ready to send, seq 541696
+bytes sent: 1040
+Ready to send, seq 542720
+bytes sent: 1040
+Ready to send, seq 543744
+bytes sent: 1040
+received packet: 1040
+ACK found: 544768
+Starting timer
+nextSeq: 544768
+timeout, base: 544768
+timeoutCounter: 1
+Ready to send, seq 544768
+bytes sent: 1040
+Starting timer, base: 544768
+Ready to send, seq 545792
+bytes sent: 1040
+Ready to send, seq 546816
+bytes sent: 1040
+Ready to send, seq 547840
+bytes sent: 1040
+received packet: 1040
+ACK found: 548864
+Starting timer
+nextSeq: 548864
+timeout, base: 548864
+timeoutCounter: 1
+Ready to send, seq 548864
+bytes sent: 1040
+Starting timer, base: 548864
+Ready to send, seq 549888
+bytes sent: 1040
+Ready to send, seq 550912
+bytes sent: 1040
+Ready to send, seq 551936
+bytes sent: 1040
+received packet: 1040
+ACK found: 552960
+Starting timer
+nextSeq: 552960
+timeout, base: 552960
+timeoutCounter: 1
+Ready to send, seq 552960
+bytes sent: 1040
+Starting timer, base: 552960
+Ready to send, seq 553984
+bytes sent: 1040
+Ready to send, seq 555008
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/3 1:11:46 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: get
+Enter filename 25.txt
+Getting file
+Type: Data
+SeqNum: 0
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 1024
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 2048
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 3072
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 4096
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 5120
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 6144
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 7168
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 8192
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 9216
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 10240
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 11264
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 12288
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 13312
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 14336
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 15360
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 16384
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 17408
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 18432
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 19456
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 20480
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 21504
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 22528
+WinSize: 4096
+AckNum: 0
+Type: Data
+SeqNum: 23552
+WinSize: 4096
+AckNum: 0
+
+Recv Data
+Type: EOT
+SeqNum: 24576
+LOG DATE: 2017/12/3 1:12:19 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 100.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+Ready to send, seq 25600
+bytes sent: 1040
+Ready to send, seq 26624
+bytes sent: 1040
+Ready to send, seq 27648
+bytes sent: 1040
+received packet: 1040
+ACK found: 28672
+Starting timer
+Ready to send, seq 28672
+bytes sent: 1040
+Starting timer, base: 28672
+Ready to send, seq 29696
+bytes sent: 1040
+Ready to send, seq 30720
+bytes sent: 1040
+Ready to send, seq 31744
+bytes sent: 1040
+received packet: 1040
+ACK found: 32768
+Starting timer
+Ready to send, seq 32768
+bytes sent: 1040
+Starting timer, base: 32768
+Ready to send, seq 33792
+bytes sent: 1040
+Ready to send, seq 34816
+bytes sent: 1040
+Ready to send, seq 35840
+bytes sent: 1040
+received packet: 1040
+ACK found: 36864
+Starting timer
+Ready to send, seq 36864
+bytes sent: 1040
+Starting timer, base: 36864
+Ready to send, seq 37888
+bytes sent: 1040
+Ready to send, seq 38912
+bytes sent: 1040
+Ready to send, seq 39936
+bytes sent: 1040
+received packet: 1040
+ACK found: 40960
+Starting timer
+Ready to send, seq 40960
+bytes sent: 1040
+Starting timer, base: 40960
+Ready to send, seq 41984
+bytes sent: 1040
+Ready to send, seq 43008
+bytes sent: 1040
+Ready to send, seq 44032
+bytes sent: 1040
+received packet: 1040
+ACK found: 45056
+Starting timer
+Ready to send, seq 45056
+bytes sent: 1040
+Starting timer, base: 45056
+Ready to send, seq 46080
+bytes sent: 1040
+Ready to send, seq 47104
+bytes sent: 1040
+Ready to send, seq 48128
+bytes sent: 1040
+received packet: 1040
+ACK found: 49152
+Starting timer
+Ready to send, seq 49152
+bytes sent: 1040
+Starting timer, base: 49152
+Ready to send, seq 50176
+bytes sent: 1040
+Ready to send, seq 51200
+bytes sent: 1040
+Ready to send, seq 52224
+bytes sent: 1040
+received packet: 1040
+ACK found: 53248
+Starting timer
+Ready to send, seq 53248
+bytes sent: 1040
+Starting timer, base: 53248
+Ready to send, seq 54272
+bytes sent: 1040
+Ready to send, seq 55296
+bytes sent: 1040
+Ready to send, seq 56320
+bytes sent: 1040
+received packet: 1040
+ACK found: 57344
+Starting timer
+Ready to send, seq 57344
+bytes sent: 1040
+Starting timer, base: 57344
+Ready to send, seq 58368
+bytes sent: 1040
+Ready to send, seq 59392
+bytes sent: 1040
+Ready to send, seq 60416
+bytes sent: 1040
+received packet: 1040
+ACK found: 61440
+Starting timer
+Ready to send, seq 61440
+bytes sent: 1040
+Starting timer, base: 61440
+Ready to send, seq 62464
+bytes sent: 1040
+Ready to send, seq 63488
+bytes sent: 1040
+Ready to send, seq 64512
+bytes sent: 1040
+received packet: 1040
+ACK found: 65536
+Starting timer
+Ready to send, seq 65536
+bytes sent: 1040
+Starting timer, base: 65536
+Ready to send, seq 66560
+bytes sent: 1040
+Ready to send, seq 67584
+bytes sent: 1040
+Ready to send, seq 68608
+bytes sent: 1040
+received packet: 1040
+ACK found: 69632
+Starting timer
+nextSeq: 69632
+timeout, base: 69632
+timeoutCounter: 1
+Ready to send, seq 69632
+bytes sent: 1040
+Starting timer, base: 69632
+Ready to send, seq 70656
+bytes sent: 1040
+Ready to send, seq 71680
+bytes sent: 1040
+Ready to send, seq 72704
+bytes sent: 1040
+received packet: 1040
+ACK found: 73728
+Starting timer
+nextSeq: 73728
+timeout, base: 73728
+timeoutCounter: 1
+Ready to send, seq 73728
+bytes sent: 1040
+Starting timer, base: 73728
+Ready to send, seq 74752
+bytes sent: 1040
+Ready to send, seq 75776
+bytes sent: 1040
+Ready to send, seq 76800
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 1:13:12 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 1:13:24 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 1:27:25 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 1:29:38 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 1:30:38 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKEnter command: exit
+exiting
+LOG DATE: 2017/12/3 1:38:30 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKLOG DATE: 2017/12/3 1:50:48 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 1:51:45 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 1:52:25 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+nextSeq: 4096
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+ERROR not EAGAIN or EWOULDBLOCKEnter command: exit
+exiting
+LOG DATE: 2017/12/3 1:55:28 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 1:56:31 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 1:57:38 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 2:3:49 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: get
+Enter filename test2.txt
+Getting file
+
+Recv Data
+Type: EOT
+SeqNum: 0
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 2:8:1 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+nextSeq: 5526
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1040
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 5120
+Starting timer
+nextSeq: 5526
+timeout, base: 5120
+timeoutCounter: 1
+Ready to send, seq 5120
+bytes sent: 1040
+Starting timer, base: 5120
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename 25.txt
+sending file
+nextSeq: 0
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+nextSeq: 6144
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1040
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+nextSeq: 8192
+timeout, base: 4096
+timeoutCounter: 1
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 7168
+Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+received packet: 1040
+ACK found: 7168
+Starting timer
+nextSeq: 11264
+timeout, base: 7168
+timeoutCounter: 1
+Ready to send, seq 7168
+bytes sent: 1040
+Starting timer, base: 7168
+Ready to send, seq 8192
+bytes sent: 1040
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+received packet: 1040
+ACK found: 10240
+Starting timer
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+received packet: 1040
+ACK found: 10240
+Starting timer
+nextSeq: 14336
+timeout, base: 10240
+timeoutCounter: 1
+Ready to send, seq 10240
+bytes sent: 1040
+Starting timer, base: 10240
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+nextSeq: 16384
+timeout, base: 12288
+timeoutCounter: 1
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 14336
+Starting timer
+nextSeq: 18432
+timeout, base: 14336
+timeoutCounter: 1
+Ready to send, seq 14336
+bytes sent: 1040
+Starting timer, base: 14336
+Ready to send, seq 15360
+bytes sent: 1040
+Ready to send, seq 16384
+bytes sent: 1040
+Ready to send, seq 17408
+bytes sent: 1040
+received packet: 1040
+ACK found: 18432
+Starting timer
+nextSeq: 18432
+timeout, base: 18432
+timeoutCounter: 1
+Ready to send, seq 18432
+bytes sent: 1040
+Starting timer, base: 18432
+Ready to send, seq 19456
+bytes sent: 1040
+Ready to send, seq 20480
+bytes sent: 1040
+Ready to send, seq 21504
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+nextSeq: 24576
+timeout, base: 20480
+timeoutCounter: 1
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+nextSeq: 24576
+timeout, base: 24576
+timeoutCounter: 1
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 2:11:3 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 25.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+nextSeq: 6144
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1040
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 5120
+Starting timer
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+received packet: 1040
+ACK found: 5120
+Starting timer
+nextSeq: 9216
+timeout, base: 5120
+timeoutCounter: 1
+Ready to send, seq 5120
+bytes sent: 1040
+Starting timer, base: 5120
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+Ready to send, seq 8192
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+nextSeq: 12288
+timeout, base: 8192
+timeoutCounter: 1
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 10240
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+received packet: 1040
+ACK found: 10240
+Starting timer
+nextSeq: 14336
+timeout, base: 10240
+timeoutCounter: 1
+Ready to send, seq 10240
+bytes sent: 1040
+Starting timer, base: 10240
+Ready to send, seq 11264
+bytes sent: 1040
+Ready to send, seq 12288
+bytes sent: 1040
+Ready to send, seq 13312
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+nextSeq: 16384
+timeout, base: 12288
+timeoutCounter: 1
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+nextSeq: 16384
+timeout, base: 16384
+timeoutCounter: 1
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 19456
+Starting timer
+Ready to send, seq 20480
+bytes sent: 1040
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+received packet: 1040
+ACK found: 19456
+Starting timer
+nextSeq: 23552
+timeout, base: 19456
+timeoutCounter: 1
+Ready to send, seq 19456
+bytes sent: 1040
+Starting timer, base: 19456
+Ready to send, seq 20480
+bytes sent: 1040
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+received packet: 1040
+ACK found: 22528
+Starting timer
+Ready to send, seq 23552
+bytes sent: 1040
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+ACK found: 22528
+Starting timer
+nextSeq: 24986
+timeout, base: 22528
+timeoutCounter: 1
+Ready to send, seq 22528
+bytes sent: 1040
+Starting timer, base: 22528
+Ready to send, seq 23552
+bytes sent: 1040
+Ready to send, seq 24576
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+nextSeq: 24986
+timeout, base: 24576
+timeoutCounter: 1
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 2:13:31 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 2048
+Starting timer
+nextSeq: 5526
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1040
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1040
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+nextSeq: 5526
+timeout, base: 4096
+timeoutCounter: 1
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: exiyt
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 12:4:50 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+ACK found: 3072
+Starting timer
+nextSeq: 5526
+timeout, base: 3072
+timeoutCounter: 1
+Ready to send, seq 3072
+bytes sent: 1040
+Starting timer, base: 3072
+Ready to send, seq 4096
+bytes sent: 1040
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 12:5:32 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 12:45:42 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 12:48:59 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 12:49:10 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 12:49:56 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 12:59:46 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:3:43 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/3 13:7:41 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:8:59 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:9:55 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:11:56 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:12:49 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:14:39 
+Connecting to IP: 192.168.0.10
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:18:17 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:57:24 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 13:58:1 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:0:29 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:1:2 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 14:1:28 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 14:1:53 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 14:2:9 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:2:43 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/3 14:3:10 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 14:3:52 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 14:6:7 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/3 14:8:12 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 14:12:47 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+LOG DATE: 2017/12/3 14:13:51 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting
+LOG DATE: 2017/12/3 14:33:50 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 8
+Starting timer, base: 0
+received packet: 1040
+ACK found: 0
+Starting timer
+received packet: 0
+EOT found, ending transmission
+LOG DATE: 2017/12/3 14:35:34 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:36:46 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:41:8 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:44:25 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 8
+Starting timer, base: 0
+received packet: 1040
+ACK found: 0
+Starting timer
+received packet: 0
+EOT found, ending transmission
+LOG DATE: 2017/12/3 14:45:22 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:47:52 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.tt
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 8
+Starting timer, base: 0
+received packet: 1040
+ACK found: 0
+Starting timer
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 8
+Starting timer, base: 0
+received packet: 1040
+ACK found: 0
+Starting timer
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 8
+Starting timer, base: 0
+received packet: 1040
+ACK found: 0
+Starting timer
+nextSeq: 15
+timeout, base: 0
+timeoutCounter: 1
+Ready to send, seq 0
+bytes sent: 8
+Starting timer, base: 0
+received packet: 1040
+ACK found: 0
+Starting timer
+received packet: 0
+EOT found, ending transmission
+LOG DATE: 2017/12/3 14:48:46 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:52:43 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:53:35 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:54:28 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:55:16 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 14:59:12 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:1:7 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:2:11 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:2:49 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:3:33 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:4:3 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:21:10 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:26:53 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+ERROR not EAGAIN or EWOULDBLOCKLOG DATE: 2017/12/3 15:28:12 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:37:56 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:38:16 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:54:12 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:54:44 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 15:59:52 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 16:4:12 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 16:5:55 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 16:7:36 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 16:23:43 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 16:24:30 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 16:26:54 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename 5.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename 25.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+received packet: 1040
+EOT found, ending transmission
+Enter command: send
+Enter filename 100.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1040
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1040
+Ready to send, seq 2048
+bytes sent: 1040
+Ready to send, seq 3072
+bytes sent: 1040
+received packet: 1040
+ACK found: 4096
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1040
+Starting timer, base: 4096
+Ready to send, seq 5120
+bytes sent: 1040
+Ready to send, seq 6144
+bytes sent: 1040
+Ready to send, seq 7168
+bytes sent: 1040
+received packet: 1040
+ACK found: 8192
+Starting timer
+Ready to send, seq 8192
+bytes sent: 1040
+Starting timer, base: 8192
+Ready to send, seq 9216
+bytes sent: 1040
+Ready to send, seq 10240
+bytes sent: 1040
+Ready to send, seq 11264
+bytes sent: 1040
+received packet: 1040
+ACK found: 12288
+Starting timer
+Ready to send, seq 12288
+bytes sent: 1040
+Starting timer, base: 12288
+Ready to send, seq 13312
+bytes sent: 1040
+Ready to send, seq 14336
+bytes sent: 1040
+Ready to send, seq 15360
+bytes sent: 1040
+received packet: 1040
+ACK found: 16384
+Starting timer
+nextSeq: 16384
+timeout, base: 16384
+timeoutCounter: 1
+Ready to send, seq 16384
+bytes sent: 1040
+Starting timer, base: 16384
+Ready to send, seq 17408
+bytes sent: 1040
+Ready to send, seq 18432
+bytes sent: 1040
+Ready to send, seq 19456
+bytes sent: 1040
+received packet: 1040
+ACK found: 20480
+Starting timer
+nextSeq: 20480
+timeout, base: 20480
+timeoutCounter: 1
+Ready to send, seq 20480
+bytes sent: 1040
+Starting timer, base: 20480
+Ready to send, seq 21504
+bytes sent: 1040
+Ready to send, seq 22528
+bytes sent: 1040
+Ready to send, seq 23552
+bytes sent: 1040
+received packet: 1040
+ACK found: 24576
+Starting timer
+nextSeq: 24576
+timeout, base: 24576
+timeoutCounter: 1
+Ready to send, seq 24576
+bytes sent: 1040
+Starting timer, base: 24576
+Ready to send, seq 25600
+bytes sent: 1040
+Ready to send, seq 26624
+bytes sent: 1040
+Ready to send, seq 27648
+bytes sent: 1040
+received packet: 1040
+ACK found: 28672
+Starting timer
+nextSeq: 28672
+timeout, base: 28672
+timeoutCounter: 1
+Ready to send, seq 28672
+bytes sent: 1040
+Starting timer, base: 28672
+Ready to send, seq 29696
+bytes sent: 1040
+Ready to send, seq 30720
+bytes sent: 1040
+Ready to send, seq 31744
+bytes sent: 1040
+received packet: 1040
+ACK found: 32768
+Starting timer
+nextSeq: 32768
+timeout, base: 32768
+timeoutCounter: 1
+Ready to send, seq 32768
+bytes sent: 1040
+Starting timer, base: 32768
+Ready to send, seq 33792
+bytes sent: 1040
+Ready to send, seq 34816
+bytes sent: 1040
+Ready to send, seq 35840
+bytes sent: 1040
+received packet: 1040
+ACK found: 36864
+Starting timer
+nextSeq: 36864
+timeout, base: 36864
+timeoutCounter: 1
+Ready to send, seq 36864
+bytes sent: 1040
+Starting timer, base: 36864
+Ready to send, seq 37888
+bytes sent: 1040
+Ready to send, seq 38912
+bytes sent: 1040
+Ready to send, seq 39936
+bytes sent: 1040
+received packet: 1040
+ACK found: 40960
+Starting timer
+nextSeq: 40960
+timeout, base: 40960
+timeoutCounter: 1
+Ready to send, seq 40960
+bytes sent: 1040
+Starting timer, base: 40960
+Ready to send, seq 41984
+bytes sent: 1040
+Ready to send, seq 43008
+bytes sent: 1040
+Ready to send, seq 44032
+bytes sent: 1040
+received packet: 1040
+ACK found: 45056
+Starting timer
+nextSeq: 45056
+timeout, base: 45056
+timeoutCounter: 1
+Ready to send, seq 45056
+bytes sent: 1040
+Starting timer, base: 45056
+Ready to send, seq 46080
+bytes sent: 1040
+Ready to send, seq 47104
+bytes sent: 1040
+Ready to send, seq 48128
+bytes sent: 1040
+received packet: 1040
+ACK found: 49152
+Starting timer
+nextSeq: 49152
+timeout, base: 49152
+timeoutCounter: 1
+Ready to send, seq 49152
+bytes sent: 1040
+Starting timer, base: 49152
+Ready to send, seq 50176
+bytes sent: 1040
+Ready to send, seq 51200
+bytes sent: 1040
+Ready to send, seq 52224
+bytes sent: 1040
+received packet: 1040
+ACK found: 53248
+Starting timer
+nextSeq: 53248
+timeout, base: 53248
+timeoutCounter: 1
+Ready to send, seq 53248
+bytes sent: 1040
+Starting timer, base: 53248
+Ready to send, seq 54272
+bytes sent: 1040
+Ready to send, seq 55296
+bytes sent: 1040
+Ready to send, seq 56320
+bytes sent: 1040
+received packet: 1040
+ACK found: 57344
+Starting timer
+nextSeq: 57344
+timeout, base: 57344
+timeoutCounter: 1
+Ready to send, seq 57344
+bytes sent: 1040
+Starting timer, base: 57344
+Ready to send, seq 58368
+bytes sent: 1040
+Ready to send, seq 59392
+bytes sent: 1040
+Ready to send, seq 60416
+bytes sent: 1040
+received packet: 1040
+ACK found: 61440
+Starting timer
+nextSeq: 61440
+timeout, base: 61440
+timeoutCounter: 1
+Ready to send, seq 61440
+bytes sent: 1040
+Starting timer, base: 61440
+Ready to send, seq 62464
+bytes sent: 1040
+Ready to send, seq 63488
+bytes sent: 1040
+Ready to send, seq 64512
+bytes sent: 1040
+received packet: 1040
+ACK found: 65536
+Starting timer
+nextSeq: 65536
+timeout, base: 65536
+timeoutCounter: 1
+Ready to send, seq 65536
+bytes sent: 1040
+Starting timer, base: 65536
+Ready to send, seq 66560
+bytes sent: 1040
+Ready to send, seq 67584
+bytes sent: 1040
+Ready to send, seq 68608
+bytes sent: 1040
+received packet: 1040
+ACK found: 69632
+Starting timer
+nextSeq: 69632
+timeout, base: 69632
+timeoutCounter: 1
+Ready to send, seq 69632
+bytes sent: 1040
+Starting timer, base: 69632
+Ready to send, seq 70656
+bytes sent: 1040
+Ready to send, seq 71680
+bytes sent: 1040
+Ready to send, seq 72704
+bytes sent: 1040
+received packet: 1040
+ACK found: 73728
+Starting timer
+nextSeq: 73728
+timeout, base: 73728
+timeoutCounter: 1
+Ready to send, seq 73728
+bytes sent: 1040
+Starting timer, base: 73728
+Ready to send, seq 74752
+bytes sent: 1040
+Ready to send, seq 75776
+bytes sent: 1040
+Ready to send, seq 76800
+bytes sent: 1040
+received packet: 1040
+EOT found, ending transmission
+Enter command: exit
+exiting

@@ -38,6 +38,8 @@
 #define SENDTIMER 10 
 #define MAXTIMEOUT 10
 
+#define PACKET_INT 32
+
 using namespace std;
 
 typedef struct
@@ -46,29 +48,52 @@ typedef struct
 	char filename[BUFLEN];	//isn't this too much?
 }Cmd;
 
-extern "C" typedef struct
+//extern "C" typedef struct
+typedef struct
 {
-	int Type;			//numeric code (ACK, DATA or EOT)
+	//char Type[PACKET_INT];			//numeric code (ACK, DATA or EOT)
+	int Type;
+	//char SeqNum[PACKET_INT];
 	int SeqNum;
 	char Data[BUFLEN];
-	int WindowSize;			//number of packets being sent in first burst, size of window
+	//char WindowSize[PACKET_INT];			//number of packets being sent in first burst, size of window
+	int WindowSize;
+	//char AckNum[PACKET_INT];
 	int AckNum;
 }Packet;
 
+typedef struct
+{
+	char Type[PACKET_INT];
+	char SeqNum[PACKET_INT];
+	char Data[BUFLEN];
+	char WindowSize[PACKET_INT];
+	char AckNum[PACKET_INT];
+}PacketBuffer;
+
+//command functions
+Cmd CreateCmd(int type, char *filename);
 Cmd RecvCmd(int sockfd);
 bool SendCmd(int socket, Cmd cmd);
 int RecvCmdNoBlock(int socket, Cmd *cmd);
 int SendCmdNoBlock(int socket, Cmd *cmd);
 int rRecvCmd(int socket, Cmd *cmd);
 int rSendCmd(int socket, Cmd *cmd);
-int ReadPacket(int socket, Packet *packet);
 
-Cmd CreateCmd(int type, char *filename);
+//Packet functions
 Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int AckNum);
+int ReadPacket(int socket, Packet *packet);
+int SendPacket(int socket, Packet *packet);
 void PrintPacket(Packet packet,FILE *logs);
+char* Packetize(Packet *packet);
+Packet Unpacketize(char* buffer);
+
+
+//transmitter and receiver functions
 void RecvFile(int socket, char* filename, FILE *logs);
 void SendFile(int socket, char *filename, FILE *logs);
 
+//string/file manipulation functions
 char *ParseString(std::string str);
 bool isValidFile(char *cfilename);
 void GetConfig(char *filename, std::string config[]);
