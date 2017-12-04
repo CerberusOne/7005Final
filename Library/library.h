@@ -86,7 +86,7 @@ int ReadPacket(int socket, Packet *packet);
 int SendPacket(int socket, Packet *packet);
 void PrintPacket(Packet packet,FILE *logs);
 char* Packetize(Packet *packet);
-Packet Unpacketize(char* buffer);
+void Unpacketize(char* buffer, Packet* packet);
 
 
 //transmitter and receiver functions

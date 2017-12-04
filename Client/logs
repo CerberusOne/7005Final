@@ -207347,3 +207347,124 @@ received packet: 1040
 EOT found, ending transmission
 Enter command: exit
 exiting
+LOG DATE: 2017/12/3 20:50:1 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 20:51:8 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 20:53:5 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 20:53:48 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 20:56:22 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 20:57:54 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 20:59:37 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 21:4:2 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:3:8 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:5:6 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:7:57 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:10:7 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:11:30 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:13:56 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:20:16 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:23:23 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:26:49 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:37:36 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:45:2 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:46:46 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:47:18 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:50:10 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:55:49 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:56:11 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 22:58:18 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+LOG DATE: 2017/12/3 23:2:5 
+Connecting to IP: 127.0.0.1
+Connecting to Port: 7006
+Enter command: send
+Enter filename test.txt
+sending file
+Ready to send, seq 0
+bytes sent: 26
+Starting timer, base: 0
+received packet: 1152
+EOT found, ending transmission
+Enter command: send
+Enter filename 25.txt
+sending file
+Ready to send, seq 0
+bytes sent: 1034
+Starting timer, base: 0
+Ready to send, seq 1024
+bytes sent: 1037
+Ready to send, seq 2048
+bytes sent: 1037
+Ready to send, seq 3072
+bytes sent: 1037
+received packet: 1152
+ACK found: 2048
+Starting timer
+Ready to send, seq 4096
+bytes sent: 1037
+Ready to send, seq 5120
+bytes sent: 1037
+received packet: 1152
+ACK found: 2048
+Starting timer
+nextSeq: 6144
+timeout, base: 2048
+timeoutCounter: 1
+Ready to send, seq 2048
+bytes sent: 1037
+Starting timer, base: 2048
+Ready to send, seq 3072
+bytes sent: 1037
+Ready to send, seq 4096
+bytes sent: 1037
+Ready to send, seq 5120
+bytes sent: 1037
+ERROR not EAGAIN or EWOULDBLOCK

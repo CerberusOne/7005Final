@@ -175,8 +175,8 @@ int main (int argc, char *argv[]) {
 		//check if there is a data packet from client
 
 		//if((bytesRecv = read(clientData->GetSocket(), &packet, sizeof(Packet))) > 0) {
-		if((bytesRecv = recv(clientData->GetSocket(), &packet, sizeof(Packet), MSG_WAITALL)) > 0) {
-		//if((bytesRecv = recv(clientData->GetSocket(), buffer, sizeof(PacketBuffer), MSG_WAITALL) > 0)) {
+		//if((bytesRecv = recv(clientData->GetSocket(), &packet, sizeof(Packet), MSG_WAITALL)) > 0) {
+		if((bytesRecv = recv(clientData->GetSocket(), buffer, sizeof(PacketBuffer), MSG_WAITALL) > 0)) {
 			if (!Discard(rate)){
 				printf("Client data found\n");
 				//printf("buffer: %s\n", buffer);
@@ -196,8 +196,10 @@ int main (int argc, char *argv[]) {
 				timer = true;
 
 				//pass the packet to the server
-				if((bytesSent = send(serverData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
+				//if((bytesSent = send(serverData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
 				//if((bytesSent = write(serverData->GetSocket(), buffer, sizeof(PacketBuffer))) > 0 ){
+				if((bytesSent = send(serverData->GetSocket(), buffer, sizeof(PacketBuffer), 0)) > 0) {
+					printf("Buffer: %s\n", buffer);
 					printf("Packet sent to server\n");
 				} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 					perror("Send serverData failed\n");
@@ -205,18 +207,19 @@ int main (int argc, char *argv[]) {
 			} else {
 				printf("Packet Discarded: %d\n", packet.SeqNum);
 			}
+
+			memset(buffer, 0, sizeof(PacketBuffer));
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv clientData failed");
 		}
 		
 
-		memset(buffer, 0, sizeof(PacketBuffer));
 
 
 
 		//check if there is a data ACK from server
-		if((bytesRecv = recv(serverData->GetSocket(), &packet, sizeof(Packet), MSG_WAITALL) > 0)) {
-		//if((bytesRecv = read(serverData->GetSocket(), buffer, sizeof(PacketBuffer)) > 0)) {
+		//if((bytesRecv = recv(serverData->GetSocket(), &packet, sizeof(Packet), MSG_WAITALL) > 0)) {
+		if((bytesRecv = read(serverData->GetSocket(), buffer, sizeof(PacketBuffer)) > 0)) {
 			if (!Discard(rate)){
 			printf("Server data ACK found\n");
 			//printf("buffer: %s\n", buffer);
@@ -236,7 +239,8 @@ int main (int argc, char *argv[]) {
 			timer = true;
 
 			//pass the command ACK on to the client
-			if((bytesSent = send(clientData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
+			//if((bytesSent = send(clientData->GetSocket(), &packet, sizeof(Packet), 0)) > 0) {
+			if((bytesSent = send(clientData->GetSocket(), buffer, sizeof(PacketBuffer), 0)) > 0) {
 				printf("Data ACK sent to client\n");
 			} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 				perror("Send clientData failed");
@@ -247,12 +251,11 @@ int main (int argc, char *argv[]) {
 			} else{
 				printf("Packet Discarded: %d\n", packet.AckNum);
 			}
+			
+			memset(buffer, 0, sizeof(PacketBuffer));
 		} else if(errno != EAGAIN || errno != EWOULDBLOCK) {
 			perror("Recv serverData failed");
 		}
-
-
-		memset(buffer, 0, sizeof(PacketBuffer));
 	}
 
 
@@ -267,5 +270,5 @@ int main (int argc, char *argv[]) {
 
 bool Discard(double probability){
 	probability /= 100;
-    return rand() < probability * ((double)RAND_MAX + 1.0);
+	return rand() < probability * ((double)RAND_MAX + 1.0);
 }
