@@ -9,13 +9,13 @@
 --				bool isCommand(string strcommand, int &command);
 --				char *ParseString(string str);
 --
--- DATE:        Oct 2, 2017
+-- DATE:        Dec 5, 2017
 --
 -- DESIGNER:    Aing Ragunathan
 --
 -- PROGRAMMER:  Aing Ragunathan
 --
--- NOTES:       Server class methods for creating and using a client for the FTP program
+-- NOTES:      Client main function that controls the user input, sending and receiving. 
 --------------------------------------------------------------------------------------------------*/
 
 #include "../Library/socketwrappers.h"
@@ -126,11 +126,9 @@ int main (int argc, char *argv[]) {
 
 		//create a command
 		cmd = CreateCmd(command, cfilename);
-
+	
+		//reliably send the command and receive an ACK for the command
 		rSendCmd(commandConnection->GetSocket(), &cmd);
-		
-		//UNRELIABLIY send the command
-		//SendCmd(commandConnection->GetSocket(), cmd);
 
 		//send or receive the file
 		if(cmd.type == SEND) {
@@ -145,6 +143,7 @@ int main (int argc, char *argv[]) {
 			printf("exiting\n");
 			fprintf(logs,"exiting\n");
 		}
+
 		fclose(logs);
 	} while (cmd.type != EXIT);
 

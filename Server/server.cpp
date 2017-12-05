@@ -1,12 +1,12 @@
 /*------------------------------------------------------------------------------------------------
 -- SOURCE FILE: server.cpp
 --
--- PROGRAM:     COMP7005 - Assignment 1 FTP
+-- PROGRAM:     COMP7005 - Final Project 
 --
 -- FUNCTIONS:   void SendFile(int socket, char *filename);
 --				void RecvFile(int socket, char* filename);
 --
--- DATE:        Oct 2, 2017
+-- DATE:        Dec 5, 2017
 --
 -- DESIGNER:    Aing Ragunathan
 --
@@ -47,7 +47,7 @@ string config[BUFLEN];
 --
 -- DESIGNER:   Aing Ragunathan
 --
--- PROGRAMMER: Aing Ragunathan
+-- PROGRAMMER: Aing Ragunathan & Ben Lo
 --
 -- INTERFACE:  main()
 --
@@ -90,24 +90,18 @@ int main (int argc, char *argv[]) {
 	cout <<"Port: "<< config[EMULATORPORT2] << endl;
 	fprintf(logfile,"Connecting to Port: %s\n", config[EMULATORPORT2].c_str());
 
-	//Client *transferConnection = new Client(commandConnection->GetTransferIP(), 7007);//Client object for transfers
-//
-	//fix seg faults
-		//change to non-blocking
-		//close sockets if after sending EXIT ACK
-		//close sockets regardless
-
 	fclose(logfile);
+	
 	do{
 		memset(&cmd, 0, sizeof(Cmd));
 		if((logfile = fopen(LOG, "a")) == NULL) {
 			perror("file doesn't exist\n");
        		}
 		printf("Waiting for command\n");
-		//cmd = commandConnection->WaitCommand();					//Wait for the client
-		rRecvCmd(commandConnection->GetSocket(), &cmd); 
+		
+		rRecvCmd(commandConnection->GetSocket(), &cmd); //reliabily receive a command from the client and ACK back
 	
-		//cmd = RecvCmd(commandConnection->GetSocket());
+		//log the command transaction
 		printf("Type: %d\n",cmd.type);
 		fprintf(logfile,"Type: %d\n",cmd.type);
 		printf("Type: %d\n",cmd.type);
@@ -118,18 +112,20 @@ int main (int argc, char *argv[]) {
 		strcpy(path, PATH);
 		strcat(path, cmd.filename);
 
+		//send or get the file from the client
 		if(cmd.type == SEND) {
 			RecvFile(transferConnection->GetSocket(), path, logfile);
 		} else if (cmd.type == GET) {
 			SendFile(transferConnection->GetSocket(), path, logfile);
 		}
-    fclose(logfile);
+	
+		fclose(logfile);
 
 	} while (cmd.type != EXIT);
 
 	close(transferConnection->GetSocket());
 	close(commandConnection->GetSocket());
 
-
 	return 0;
 }
+
