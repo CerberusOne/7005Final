@@ -63,12 +63,7 @@ void SendFile(int socket, char *filename, FILE *logs) {
 	int timeoutCounter = 0;
 
 	while(1) {
-		//check data socket for new ACK in NON-BLOCKING
-		//if((bytesRead = read(socket, &packet, sizeof(packet))) != -1) {
-		//if((bytesRead = recv(socket, &packet, sizeof(packet), MSG_WAITALL)) != -1) {
 		if((bytesRead = ReadPacket(socket, &packet)) != -1) {
-			printf("received packet: %d\n", bytesRead);
-			fprintf(logs,"received packet: %d\n", bytesRead);
 
 			//check packet type for EOT or ACK
 			if(packet.Type == EOT) {
@@ -91,6 +86,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					printf("Starting timer\n");
 					fprintf(logs,"Starting timer\n");
 				}
+
+				printf("base: %d\t nextSEQ: %d\t win size: %d\n", base, nextSeq, windowSize);
 			}
 		} else if (bytesRead == -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
@@ -122,12 +119,13 @@ void SendFile(int socket, char *filename, FILE *logs) {
 			nextSeq = base;
 			seqNum = base;
 			send = false;
+	
+			printf("base: %d\t nextSEQ: %d\t win size: %d\n", base, nextSeq, windowSize);
+			
 			//seek file back to bytesRead - base
 			if(fseek(file, base, SEEK_SET) < 0) {
 				perror("fseek");
 			}
-
-			//printf("\n");
 		}
 
 
@@ -154,15 +152,11 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					fprintf(logs,"Reading file: ");
 					exit(1);
 				}
-
-
 			}
 
+			//Send the next packet if it is ready or unsent
 			if(send) {
-				//if((bytesSent = write(socket, &packet, sizeof(packet))) != -1) {
 				if((bytesSent = SendPacket(socket, &packet)) != -1) {
-				//if((bytesSent = write(socket, &buffer, sizeof(buffer))) != -1) {
-					printf("bytes sent: %d\n", bytesSent);
 					fprintf(logs,"bytes sent: %d\n", bytesSent);
 					seqNum += bytesRead;		//calculate next seq number
 					memset(buffer, '\0', BUFLEN);	//reset buffer
@@ -177,9 +171,8 @@ void SendFile(int socket, char *filename, FILE *logs) {
 					nextSeq += bytesRead;	//update next sequence
 					send = false;	//not ready to send another packet, packet used
 
+					printf("base: %d\t nextSEQ: %d\t win size: %d\n", base, nextSeq, windowSize);
 				} else if (bytesSent == -1) {
-					//perror("Send File: Error writing to socket DATA");
-
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
 						fprintf(logs,"ERROR not EAGAIN or EWOULDBLOCK");
@@ -233,13 +226,12 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 	}
 
 	while(1) {
-		//check if a packet has been received
-
 		timer = (clock()-start)/CLOCKS_PER_SEC;
-		//if the timer has ran out
+
+		//if the timer has ran out, send a cumulative ACK
 		if(timer >= RECVTIMER) {
 			if(newAck) {
-				printf("Timer expired, sending ACK\n");
+				printf("Timer expired, sending ACK: %d\n", expectedSEQ);
 				newAck = false;
 				start = 0;
 
@@ -248,8 +240,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				packet.Type = ACK;
 				packet.AckNum = expectedSEQ;
 				
-			
-				//if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 				if((bytesSent = SendPacket(socket, &packet)) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
@@ -261,8 +251,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 		}
 		
 		//receive the packet
-		//if((bytesRead = read(socket, &packet, sizeof(packet))) == -1) {
-		//if((bytesRead = recv(socket, &packet, sizeof(packet), 0)) == -1) {
 		if((bytesRead = ReadPacket(socket, &packet)) == -1) {
 			if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 				perror("ERROR not EAGAIN or EWOULDBLOCK");
@@ -270,8 +258,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				return;
 			}
 		} else {
-			printf("bytesRead: %d\n", bytesRead);
-
 			if(!newAck) {
 				newAck = true;
 				start = clock();
@@ -279,7 +265,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 
 			//check the packet type and treat accordingly
 			if(packet.Type == DATA && packet.SeqNum == expectedSEQ) {
-
 
 				//write file
 				if((writeCount = fwrite(packet.Data, 1, strlen(packet.Data), file)) <0){
@@ -289,6 +274,7 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				}
 
 				PrintPacket(packet,logs);	//print content of file
+				
 				//update expectedSEQ
 				expectedSEQ+=sizeof(packet.Data);
 				memset (&packet, 0, sizeof(packet));
@@ -335,7 +321,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				packet.AckNum = expectedSEQ;
 
 				//send back the EOT packet for confirmation
-				//if((bytesSent = write(socket, &packet, sizeof(packet))) == -1) {
 				if((bytesSent = SendPacket(socket, &packet)) == -1) {
 					if((errno != EAGAIN) ||(errno != EWOULDBLOCK)){
 						perror("ERROR not EAGAIN or EWOULDBLOCK");
@@ -430,23 +415,6 @@ Cmd CreateCmd(int type, char *filename) {
 ----------------------------------------------------------------------------------------------- */
 Packet CreatePacket(int type, int seqNum, char data[BUFLEN], int windowSize, int ackNum) {
 	Packet packet;
-/*
-	char typeStr[PACKET_INT];
-	char seqNumStr[PACKET_INT];
-	char windowSizeStr[PACKET_INT];
-	char ackNumStr[PACKET_INT];
-
-	sprintf(typeStr, "%d", type);
-	sprintf(seqNumStr, "%d", seqNum);
-	sprintf(windowSizeStr, "%d", windowSize);
-	sprintf(ackNumStr, "%d", ackNum);
-
-	imemcpy(packet.Type, typeStr, sizeof(Packet.Type));
-	memcpy(packet.SeqNum, seqNumStr, sizeof(Packet.SeqNum));
-	memcpy(packet.WindowSize, windowSizeStr, sizeof(Packet.WindowSize);
-	memcpy(packet.AckNum, ackNumStr, sizeof(Packet.AckNum);
-*/
-	
 	
 	packet.Type = type;
 	packet.SeqNum = seqNum;
@@ -461,13 +429,12 @@ Packet CreatePacket(int type, int seqNum, char data[BUFLEN], int windowSize, int
 void PrintPacket(Packet packet,FILE *logs) {
 	printf("Type: Data\n");
 	fprintf(logs, "Type: Data\n");
-    printf("SeqNum: %d\n", packet.SeqNum);
-    fprintf(logs,"SeqNum: %d\n", packet.SeqNum);
+	printf("SeqNum: %d\n", packet.SeqNum);
+	fprintf(logs,"SeqNum: %d\n", packet.SeqNum);
 	printf("WinSize: %d\n", packet.WindowSize);
 	fprintf(logs,"WinSize: %d\n", packet.WindowSize);
 	printf("AckNum: %d\n", packet.AckNum);
-    fprintf(logs,"AckNum: %d\n", packet.AckNum);
-	//printf("Payload: %s", packet.Data);
+	fprintf(logs,"AckNum: %d\n", packet.AckNum);
 }
 
 
@@ -567,7 +534,6 @@ int rRecvCmd(int socket, Cmd *cmd) {
 
 	while(1) {
 		if((bytesRead = RecvCmdNoBlock(socket, cmd)) != -1) {
-			printf("rRecvCmd: received Cmd\n");
 			printf("rRecvCmd received: %d bytes\n", bytesRead);
 			sendCmd = 1;
 			cmdReceived = 1;	//in case send fails
@@ -604,51 +570,26 @@ int ReadPacket(int socket, Packet *packet) {
 	int bytesRead = 0;
 	int result = 0;
 	char buffer[sizeof(PacketBuffer)];
-	char packetSize[4];
-	long packetSizeLong = 0;
-	//char space;
-//what happens if one of the packets are dropped
+	
+	result = 0;
+	int n = 0;
 
-/*
-	//check if there's data in the socket, get the packetsize if there is
-	if((result = recv(socket, packetSize, sizeof(packetSize), 0)) > 0) {
-		//find the packet size
-		packetSizeLong = strtol(packetSize, nullptr, 10);
+	while(n < (int)sizeof(PacketBuffer)) {
+		if((result = read(socket, buffer + n, sizeof(PacketBuffer) - n)) > 0) {
 
-		printf("ReadPacket: packetSize: %s\n", packetSize);
-		printf("ReadPacket: packetSizeLong: %lu\n", packetSizeLong);
-		printf("ReadPacket: bytesRead = %d\n", result);
-		
-		//recv(socket, &space, 1, 0);	//discard the space after the packet size			
-*/		result = 0;
-		int n = 0;
-
-		//while(n < packetSizeLong) {
-		while(n < sizeof(PacketBuffer)) {
-			if((result = read(socket, buffer + n, sizeof(PacketBuffer) - n)) > 0) {
-
-				n += result;	
-				printf("ReadPacket: buffer: %s\n", buffer);
-				printf("ReadPacket: bytesRead: %d\n", result);
-				printf("ReadPacket: accumulation: %d\n\n", n);
-			} else {
-				return -1;
-			}
+			n += result;	
+			printf("ReadPacket: bytesRead: %d\n", result);
+			printf("ReadPacket: accumulation: %d\n\n", n);
+		} else {
+			return -1;
 		}
-
-		printf("Buffer: %s\n",buffer);		
-/*	} else {
-		return -1;
 	}
-*/
-	printf("Recv complete: %s\n", buffer);
-
+	
 	Unpacketize(buffer, packet);	
 
 	printf("Receive Packet results:\n");
 	printf("Packet.Type: %d\n", packet->Type);
 	printf("Packet.SeqNum: %d\n", packet->SeqNum);
-	printf("Packet.Data: %s\n", packet->Data);
 	printf("Packet.WindowSize: %d\n", packet->WindowSize);
 	printf("Packet.AckNum: %d\n", packet->AckNum);
 
@@ -658,28 +599,10 @@ int ReadPacket(int socket, Packet *packet) {
 int SendPacket(int socket, Packet *packet) {
 	int bytesSent = 0;
 	char buffer[sizeof(PacketBuffer)] = {0};
-	char sendBuf[sizeof(PacketBuffer)] = {0};// + sizeof(int)] = {0};
-	char packetSize[4];
-	int packetSizeInt = 0;
 
 	
 	Packetize(packet, buffer);	//convert packet to char array
 	
-	//packetSizeInt = sizeof(buffer) + sizeof(packetSize);	//get the total bytes to send
-	//packetSizeInt = strlen(buffer) + 4;	//get the total bytes to send
-	//memset(packetSize, 0, sizeof(packetSize));
-	//snprintf(packetSize, sizeof(packetSize), "%d", packetSizeInt);	//convert total to string
-	//snprintf(sendBuf, sizeof(PacketBuffer), "%s %s", packetSize, buffer);	//make send array
-	
-	//printf("SendPacket: sendBuf: %s\n", sendBuf);	
-	
-	//snprintf(sendBuf, sizeof(PacketBuffer), "%s", buffer);
-	
-	
-	printf("SendPacket: size of buffer: %d\n", (int)sizeof(buffer));
-	printf("SendPacket: buffer: %s\n", buffer);
-
-	//if((bytesSent = send(socket, sendBuf, sizeof(sendBuf), 0)) != -1) {
 	if((bytesSent = write(socket, buffer, sizeof(PacketBuffer))) != -1) {
 		printf("BytesSent: %d\n", bytesSent);
 		return bytesSent;
@@ -703,9 +626,6 @@ void Packetize(Packet *packet, char buffer[]) {
 
 	snprintf(buffer, sizeof(PacketBuffer), "%s %s %s %s %s", packetBuffer.Type, packetBuffer.SeqNum,
 		packetBuffer.WindowSize, packetBuffer.AckNum, packetBuffer.Data);
-
-	printf("Packetize: Buffer:\n%s\n", buffer);
-	printf("Packetize: strlen(buffer) = %d\n\n", (int)strlen(buffer));
 }
 
 void Unpacketize(char* buffer, Packet* packet) {
@@ -717,13 +637,6 @@ void Unpacketize(char* buffer, Packet* packet) {
 	packet->WindowSize = strtol(end, &end, 10);
 	packet->AckNum = strtol(end, &end, 10);
 	memcpy(packet->Data, end+1, sizeof(packet->Data));
-	
-	printf("Unpacketizing:\n");
-	printf("packet.Type = %d\n", packet->Type);
-	printf("packet.SeqNum = %d\n", packet->SeqNum);
-	printf("packet.WindowSize = %d\n", packet->WindowSize);
-	printf("packet.AckNum = %d\n", packet->AckNum);
-	printf("packet.Data = %s\n\n", packet->Data);
 }
 
 
@@ -781,3 +694,4 @@ bool isValidFile(char *cfilename) {
 	fclose(file);
 	return true;
 }
+

@@ -181,7 +181,6 @@ int main (int argc, char *argv[]) {
 		if((bytesRecv = read(clientData->GetSocket(), buffer, sizeof(PacketBuffer))) > 0) {
 			printf("\nRecv Client Data:\n");
 			printf("BytesRecv from client: %d\n", bytesRecv);
-			printf("Buffer from client: %s\n", buffer);
 
 			Packet recvp;
 			Unpacketize(buffer, &recvp);
@@ -233,7 +232,6 @@ int main (int argc, char *argv[]) {
 		if((bytesRecv = read(serverData->GetSocket(), buffer, sizeof(PacketBuffer)) > 0)) {
 			if (!Discard(rate)){
 			printf("Server data ACK found\n");
-			//printf("buffer: %s\n", buffer);
 
 			start = clock();
 			printf("Delay started\n");
