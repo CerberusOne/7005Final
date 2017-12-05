@@ -259,9 +259,6 @@ void RecvFile(int socket, char* filename, FILE *logs) {
 				}
 			}
 		}
-
-
-		memset(&packet, 0, sizeof(packet));
 		
 		//receive the packet
 		//if((bytesRead = read(socket, &packet, sizeof(packet))) == -1) {
@@ -606,21 +603,44 @@ int rRecvCmd(int socket, Cmd *cmd) {
 int ReadPacket(int socket, Packet *packet) {
 	int bytesRead = 0;
 	int result = 0;
-	char* buffer = (char*) malloc(sizeof(char) * sizeof(PacketBuffer));
-	memset(buffer, 0, (int) sizeof(buffer));
+	char buffer[sizeof(PacketBuffer)];
+	char packetSize[4];
+	long packetSizeLong = 0;
+	//char space;
+//what happens if one of the packets are dropped
 
-	while(bytesRead < (int)sizeof(PacketBuffer)) {
-		if((result = recv(socket, buffer + bytesRead, sizeof(PacketBuffer) - bytesRead, 0)) > 0){
-			printf("ReadSocket received: %d\n", result);
-			printf("Buffer: %s\n", buffer);
-			bytesRead += result;
-			
-		} else {
-			//printf("Read Packet failed: result: %d\n", result);
-			return -1;
+/*
+	//check if there's data in the socket, get the packetsize if there is
+	if((result = recv(socket, packetSize, sizeof(packetSize), 0)) > 0) {
+		//find the packet size
+		packetSizeLong = strtol(packetSize, nullptr, 10);
+
+		printf("ReadPacket: packetSize: %s\n", packetSize);
+		printf("ReadPacket: packetSizeLong: %lu\n", packetSizeLong);
+		printf("ReadPacket: bytesRead = %d\n", result);
+		
+		//recv(socket, &space, 1, 0);	//discard the space after the packet size			
+*/		result = 0;
+		int n = 0;
+
+		//while(n < packetSizeLong) {
+		while(n < sizeof(PacketBuffer)) {
+			if((result = recv(socket, buffer + n, sizeof(PacketBuffer) - n, 0)) > 0) {
+
+				n += result;	
+				printf("ReadPacket: buffer: %s\n", buffer);
+				printf("ReadPacket: bytesRead: %d\n", result);
+				printf("ReadPacket: accumulation: %d\n\n", n);
+			} else {
+				return -1;
+			}
 		}
-	}
 
+		printf("Buffer: %s\n",buffer);		
+/*	} else {
+		return -1;
+	}
+*/
 	printf("Recv complete: %s\n", buffer);
 
 	Unpacketize(buffer, packet);	
@@ -637,14 +657,26 @@ int ReadPacket(int socket, Packet *packet) {
 
 int SendPacket(int socket, Packet *packet) {
 	int bytesSent = 0;
-	char* buffer = (char*) malloc(sizeof(char) * sizeof(PacketBuffer));;
+	char buffer[sizeof(PacketBuffer)] = {0};
+	char sendBuf[sizeof(PacketBuffer) + sizeof(int)] = {0};
+	char packetSize[4];
+	int packetSizeInt = 0;
+
 	
-	buffer = Packetize(packet);
+	Packetize(packet, buffer);	//convert packet to char array
 	
+	//packetSizeInt = sizeof(buffer) + sizeof(packetSize);	//get the total bytes to send
+	//packetSizeInt = strlen(buffer) + 4;	//get the total bytes to send
+	//memset(packetSize, 0, sizeof(packetSize));
+	//snprintf(packetSize, sizeof(packetSize), "%d", packetSizeInt);	//convert total to string
+	//snprintf(sendBuf, sizeof(PacketBuffer), "%s%s", packetSize, buffer);	//make send array
+	
+	//printf("SendPacket: sendBuf: %s\n", sendBuf);	
 	printf("SendPacket: size of buffer: %d\n", (int)sizeof(buffer));
 	printf("SendPacket: buffer: %s\n", buffer);
 
-	if((bytesSent = send(socket, buffer, strlen(buffer), 0)) != sizeof(buffer)) {
+	//if((bytesSent = send(socket, sendBuf, sizeof(sendBuf), 0)) != -1) {
+	if((bytesSent = send(socket, buffer, sizeof(buffer), 0)) != -1) {
 		printf("BytesSent: %d\n", bytesSent);
 		return bytesSent;
 	} 		
@@ -655,13 +687,8 @@ int SendPacket(int socket, Packet *packet) {
 }
 
 //buffer must be char[sizeof(PacketBuffer)]
-char* Packetize(Packet *packet) {
-	char *buffer = (char *) malloc(sizeof(char) * sizeof(PacketBuffer));
+void Packetize(Packet *packet, char buffer[]) {
 	PacketBuffer packetBuffer =  {0};
-
-	//clear buffers
-	memset(&packetBuffer, 0, sizeof(PacketBuffer));
-	memset(buffer, 0, sizeof(PacketBuffer));
 
 	//copy content from Packet to PacketBuffer and change ints to char[]
 	snprintf(packetBuffer.Type, sizeof(packetBuffer.Type), "%d", packet->Type);
@@ -673,10 +700,8 @@ char* Packetize(Packet *packet) {
 	snprintf(buffer, sizeof(PacketBuffer), "%s %s %s %s %s", packetBuffer.Type, packetBuffer.SeqNum,
 		packetBuffer.WindowSize, packetBuffer.AckNum, packetBuffer.Data);
 
-	printf("Buffer:\n%s\n", buffer);
-	printf("strlen(buffer) = %d\n", (int)strlen(buffer));
-	
-	return buffer;
+	printf("Packetize: Buffer:\n%s\n", buffer);
+	printf("Packetize: strlen(buffer) = %d\n\n", (int)strlen(buffer));
 }
 
 void Unpacketize(char* buffer, Packet* packet) {
@@ -694,7 +719,7 @@ void Unpacketize(char* buffer, Packet* packet) {
 	printf("packet.SeqNum = %d\n", packet->SeqNum);
 	printf("packet.WindowSize = %d\n", packet->WindowSize);
 	printf("packet.AckNum = %d\n", packet->AckNum);
-	printf("packet.Data = %s\n", packet->Data);
+	printf("packet.Data = %s\n\n", packet->Data);
 }
 
 

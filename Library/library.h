@@ -85,7 +85,7 @@ Packet CreatePacket(int type, int SeqNum, char data[BUFLEN], int WindowSize, int
 int ReadPacket(int socket, Packet *packet);
 int SendPacket(int socket, Packet *packet);
 void PrintPacket(Packet packet,FILE *logs);
-char* Packetize(Packet *packet);
+void Packetize(Packet *packet, char buffer[]);
 void Unpacketize(char* buffer, Packet* packet);
 
 
