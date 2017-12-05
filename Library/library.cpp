@@ -625,7 +625,7 @@ int ReadPacket(int socket, Packet *packet) {
 
 		//while(n < packetSizeLong) {
 		while(n < sizeof(PacketBuffer)) {
-			if((result = recv(socket, buffer + n, sizeof(PacketBuffer) - n, 0)) > 0) {
+			if((result = read(socket, buffer + n, sizeof(PacketBuffer) - n)) > 0) {
 
 				n += result;	
 				printf("ReadPacket: buffer: %s\n", buffer);
@@ -658,7 +658,7 @@ int ReadPacket(int socket, Packet *packet) {
 int SendPacket(int socket, Packet *packet) {
 	int bytesSent = 0;
 	char buffer[sizeof(PacketBuffer)] = {0};
-	char sendBuf[sizeof(PacketBuffer) + sizeof(int)] = {0};
+	char sendBuf[sizeof(PacketBuffer)] = {0};// + sizeof(int)] = {0};
 	char packetSize[4];
 	int packetSizeInt = 0;
 
@@ -669,14 +669,18 @@ int SendPacket(int socket, Packet *packet) {
 	//packetSizeInt = strlen(buffer) + 4;	//get the total bytes to send
 	//memset(packetSize, 0, sizeof(packetSize));
 	//snprintf(packetSize, sizeof(packetSize), "%d", packetSizeInt);	//convert total to string
-	//snprintf(sendBuf, sizeof(PacketBuffer), "%s%s", packetSize, buffer);	//make send array
+	//snprintf(sendBuf, sizeof(PacketBuffer), "%s %s", packetSize, buffer);	//make send array
 	
 	//printf("SendPacket: sendBuf: %s\n", sendBuf);	
+	
+	//snprintf(sendBuf, sizeof(PacketBuffer), "%s", buffer);
+	
+	
 	printf("SendPacket: size of buffer: %d\n", (int)sizeof(buffer));
 	printf("SendPacket: buffer: %s\n", buffer);
 
 	//if((bytesSent = send(socket, sendBuf, sizeof(sendBuf), 0)) != -1) {
-	if((bytesSent = send(socket, buffer, sizeof(buffer), 0)) != -1) {
+	if((bytesSent = write(socket, buffer, sizeof(PacketBuffer))) != -1) {
 		printf("BytesSent: %d\n", bytesSent);
 		return bytesSent;
 	} 		
